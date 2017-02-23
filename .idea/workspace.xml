@@ -2,118 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2282797-c9b1-4b1e-8770-bf1589a9c42e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/OFL.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/Poppins-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/Poppins-Light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/Poppins-Medium.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/Poppins-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/Poppins/Poppins-SemiBold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/OFL.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-Black.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-Bold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-ExtraLight.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-Light.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-Regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/Fonts/SourceSansPro/SourceSansPro-Semibold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/SignUp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/aboutUs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare4.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare5.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/cloudflare6.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/common.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/contactUsPage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/explore.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/explore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/exploreButton.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/floatingSocialShare.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/fontAwesomeMin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/footer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/gallery.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/gallery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/gallerymin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/googleapi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/header.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/16_9_4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/16_9_5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/16_9_6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/VJ.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/anuruddh.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/anuruddh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/callIcon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/callIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/card.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/card1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/causeThumbnail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/connectWithFacebook.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/connectWithFacebook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/emailIcon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/emailIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/locationIcon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/locationIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/locationThumbnail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/lowerArrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/map.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/messageIcon.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/messageIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/mohit.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/pizza.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/reimagineTrustNetworkBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/reportBackground.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/reportBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/reportBackground.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/slider1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/slider2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/slider3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/slider4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/slider5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/upperArrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/user2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/visharad.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/wave.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/web1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/web2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/web3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/images/web4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/locationCause.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/logo/logo-final-web-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/logo/logo-final-web.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/logo/logo-final.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/map.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/parallax.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/picturefill.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/projectPage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/projectPageMainTabs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/recommendedProjects.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/responsiveIndex.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/responsiveIndex.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/signUp.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/slider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/slider1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/slidingOverlay.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/socialShareBar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/teamPage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/teamPage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/timeline.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/timeline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/userPage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/userPage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/userPagePayment.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/viewAllProjects.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/wave.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/whatWeDo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reimagine/static/whatWeDo.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reimagine/reimagine/settings.py" afterPath="$PROJECT_DIR$/reimagine/reimagine/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reimagine/reimagine/wsgi.py" afterPath="$PROJECT_DIR$/reimagine/reimagine/wsgi.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -131,11 +22,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/reimagine/reimagine/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <state relative-caret-position="563">
+              <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,9 +47,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -185,7 +86,12 @@
         <option value="$PROJECT_DIR$/reimagine/templates/static/style.css" />
         <option value="$PROJECT_DIR$/reimagine/data/views.py" />
         <option value="$PROJECT_DIR$/reimagine/templates/index.html" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/runtime" />
+        <option value="$PROJECT_DIR$/reimagine/reimagine/local_settings.py" />
         <option value="$PROJECT_DIR$/reimagine/reimagine/settings.py" />
+        <option value="$PROJECT_DIR$/reimagine/reimagine/wsgi.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -258,7 +164,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="reimagine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -841,10 +747,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reimagine/reimagine/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reimagine/reimagine/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reimagine/reimagine/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="563">
+          <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
