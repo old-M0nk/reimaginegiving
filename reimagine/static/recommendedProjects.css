@@ -1,0 +1,261 @@
+.recommendedProjectsHeading{
+	padding-top: 5%;
+	padding-bottom: 3%;
+}
+
+.projects{
+	padding-bottom: 4%;
+}
+
+.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+	left: 0;
+	 text-decoration: none;
+	 z-index: 5;
+	 opacity: 0;
+	  background-color: white;
+}
+
+.stats3 {
+    padding-left: 7%;
+}
+
+.recommendedProjectsHeading h2{
+	font-size: 30px;
+	font-family: Poppins-Light;
+	padding-left: 12.5%;
+}
+
+.recommendedProjectsHeading a:hover:after {
+    opacity: 1;
+}
+.recommendedProjectsHeading a:after {
+    transform: translateX(-50%) translateY(-50%);
+    background: rgb(53,195,254);
+    opacity: 0.5;
+    transition: all 0.7s ease;
+}
+.recommendedProjectsHeading a {
+    font-size: 15px;
+    border-radius: 40px;
+    border: 1px solid rgb(53,195,254);
+    padding: 11px 30px 10px 30px;
+    line-height: 100%;
+    color: rgb(53,195,254);
+    transition: all 1s ease;
+	cursor: pointer;
+    float: right;
+    margin-right: 30%;
+	text-decoration: none;
+}
+.recommendedProjectsHeading a:hover{
+	color: white;
+	background-color: rgb(53,195,254);
+}
+
+.projectSection1, .projectSection2, .projectSection3{
+	display:inline-block;
+	border: 1px solid rgba(241,242,246,1.0);
+	border-radius: 10px;
+	overflow: hidden;
+	width: 22vw;
+	position: relative;
+}
+
+.projectSection1{
+	margin-left: 12.5%;
+}
+
+.projectSection2, .projectSection3{
+	margin-left: 4.5%;
+}
+
+.projectContent{
+	height: 31.5vw;
+	position: relative;
+}
+
+.projectThumbnail{
+	height: 12.375vw;
+	position: relative;
+	content: " ";
+	overflow: hidden;
+}
+
+.projectThumbnail > img{
+	position: absolute;
+	max-width: 100%;
+	margin: 0;
+	top: 0;
+}
+.projectDetails, .projectStats{
+	margin: 5px;
+}
+
+.projectBottom{
+	position: absolute;
+	bottom: 0;
+}
+
+.projectDetails H1, .projectStats H1 {
+	font-family: Poppins-Regular;
+	font-size: 12px;
+	line-height: 100%;
+	padding-bottom: 4px;
+	letter-spacing: 0.5px;
+}
+
+.projectDetails H2, .projectStats H2{
+	font-size: 12px;
+	font-family: SourceSansPro-Regular; 
+	letter-spacing: 0.5px;
+}
+
+.projectStats{
+	padding-right: 10px;
+	position: absolute;
+	bottom: 31px;
+}
+
+.projectDetails p{
+	margin-top: 7px;
+	font-size: 12px;
+	font-family: SourceSansPro-Light;
+	line-height: 120%;
+	color: #373737;
+	letter-spacing: 0.5px;
+}
+
+.projectStats h2{
+	margin-top: 10px;
+	font-size: 13px;
+	font-family: SourceSansPro-Bold;
+	line-height: 39%;
+	letter-spacing: 0.5px;
+}
+
+.progress {
+  border-radius: 6px;
+  margin-bottom: 11px;
+  background-color: #f1f1f5;
+}
+
+.progress-bar {
+	width: 50%;
+	background-color: rgb(0,180,255);
+	height: 5px;
+	border-radius: 2px;
+	transition: 0.4s linear;
+	transition-property: width, background-color;
+}
+
+.statsNumber p{
+	font-size: 13px;
+	font-family: SourceSansPro-SemiBold;
+}
+.stats1 {padding-left: 5px;}
+.statsText p{
+	font-size: 12px;
+	font-family: SourceSansPro-Light;
+	color: #373737;
+	margin-top:2px;
+}
+
+.projectSectionDonateButton{
+	background-color: rgb(53,195,245);
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	z-index: 6;
+}
+.projectSectionDonateButton a{
+	text-decoration: none;
+	color: white;
+}
+.projectSectionDonateButton h2{
+	font-size: 14px;
+	padding: 10px;
+	padding-top: 7px;
+	margin-bottom: -4px;
+	font-family: Poppins-Regular;
+	letter-spacing: 0.5px;
+}
+
+.projectSectionDonateButton h2:hover{
+	background-color: rgb(0,180,255);
+}
+
+.locationCause{
+	position:absolute;
+	bottom:2px;
+	margin-left: 2px;
+	z-index: 7;
+}
+.locationCause img{
+	height: 31px;
+	cursor:pointer;
+}
+.projectlocationImage, .projectcauseImage {
+    width: 31px;
+}
+.projectcauseHeading{
+	margin-left: -18px !important;
+	transition: all 0.4s ease-in-out !important;
+}
+.projectlocationHeading, .projectcauseHeading{
+	height: 24px;
+	width:0;
+	opacity: 0;
+	display:block;
+	transition: 0.4s;
+	z-index: 5;
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+	margin-top: 4px;
+	/*! padding: -8px; */
+	margin-left: -7px;
+}
+.projectlocationHeading h2{
+	background-color:#38c0ff;
+	margin-left: 0px;
+}
+.projectcauseHeading h2{
+	background-color: #13aa21;
+	margin-left:10px;
+}
+.projectlocationHeading h2, .projectcauseHeading h2{
+	font-size: 12px;
+	color: white;
+	display: block;
+	margin-top: -2px;
+	padding: 0.5px 4px 1.5px 4px;
+	line-height: 218%;
+}
+.projectlocation:hover .projectlocationHeading{
+	width: 56px;
+	opacity: 1;
+}
+.projectcause:hover .projectcauseHeading{
+	width: 100px;
+	opacity: 1;
+}
+.projectcause:hover .locationCauseLink{
+	width: 30% !important;
+}
+
+.locationCauseLink{
+	position: absolute;
+width: 78%;
+height: 100%;
+top: 0;
+right: 0;
+text-decoration: none;
+}
+.projectSection1:hover, .projectSection2:hover, .projectSection3:hover {
+  border: 1px solid rgba(200,200,200,1.0);
+}

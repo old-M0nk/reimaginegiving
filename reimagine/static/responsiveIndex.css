@@ -1,0 +1,128 @@
+@media only screen and (max-width: 1300px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 23vw;
+	}
+	.projectSection1{
+		margin-left: 11%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 11%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 27%;
+	}
+	.projectContent{
+		height: 32.93vw;
+	}
+	.projectThumbnail{
+		height: 12.9375vw;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 24vw;
+	}
+	.projectSection1{
+		margin-left: 9.5%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 9.5%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 24%;
+	}
+	.projectContent{
+		height: 34.36vw;
+	}
+	.projectThumbnail{
+		height: 13.5vw;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 24vw;
+	}
+	.projectSection1{
+		margin-left: 9.5%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 9.5%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 24%;
+	}
+	.projectContent{
+		height: 34.36vw;
+	}
+	.projectThumbnail{
+		height: 13.5vw;
+	}
+}
+
+@media only screen and (max-width: 1150px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 25vw;
+	}
+	.projectSection1{
+		margin-left: 8%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 8%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 21%;
+	}
+	.projectContent{
+		height: 35.8vw;
+	}
+	.projectThumbnail{
+		height: 14.0625vw;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 25.5vw;
+	}
+	.projectSection1{
+		margin-left: 7.25%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 7.25%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 19.5%;
+	}
+	.projectContent{
+		height: 36.51vw;
+	}
+	.projectThumbnail{
+		height: 14.34375vw;	
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.projectSection1, .projectSection2, .projectSection3{
+		width: 27vw;
+	}
+	.projectSection2, .projectSection3{
+		margin-left: 3%;
+	}
+	.projectSection1{
+		margin-left: 6.5%;
+	}
+	.recommendedProjectsHeading h2{
+		padding-left: 6.5%;
+	}
+	.recommendedProjectsHeading a{
+		margin-right: 13.25%;
+	}
+	.projectContent{
+		height: 39.5vw;
+	}
+	.projectThumbnail{
+		height: 15.1875vw;	
+	}
+}

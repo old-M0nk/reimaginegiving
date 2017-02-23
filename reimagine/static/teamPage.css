@@ -1,0 +1,118 @@
+.row.teamPageUL {
+    /*! margin: 5% 0; */
+    list-style: none;
+	background: black;
+}
+.teamPageHeading{
+    text-align: center;
+padding: 58px;
+height: 150px;
+font-size: 35px;
+background-color: rgb(0,180,255);
+color: white;
+font-family: Poppins-SemiBold;
+}
+.teamPageHeading span {
+    border-bottom: 2px solid white;
+}
+.teamMemberBasicInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 70%;
+}
+
+.teamMemberBasicInfo1, .teamMemberBasicInfo2, .teamMemberBasicInfo3, .teamMemberBasicInfo4, .teamMemberBasicInfo5, .teamMemberBasicInfo6{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s ease;
+	width:70%;
+}
+.teamMemberInfo1,  .teamMemberInfo2,  .teamMemberInfo3,  .teamMemberInfo4,  .teamMemberInfo5,  .teamMemberInfo6{
+	width:0%;
+	opacity:1;
+}
+.teamMemberName{
+	font-size: 40px;
+font-family: Poppins-Regular;
+text-align: center;
+}
+.teamMemberDesignation{
+	font-size: 25px;
+font-family: SourceSansPro-Light;
+text-align: center;
+    padding: 5px 0px 20px 0px;
+}
+.teamMemberSocialIcons {
+    text-align: center;
+    border-top: 2px solid white;
+    padding: 10px;
+}
+.teamMemberSocialIcons a{
+    padding: 15px;
+}
+.teamPage:hover .teamMemberBasicInfo{
+    opacity: 1;
+    color: white;
+    animation: animatetop 0.4s;
+}
+.teamPage:hover img{
+    opacity: 0.8;
+}
+.teamPage, .teamPage1{
+    position: relative;
+	width: 100%;
+}
+.teamPage1{
+	background: white;
+}
+
+.teamPage, .teamPage1{
+	float: left;
+	overflow: hidden;
+	padding: 0;
+	margin-bottom: -6px;
+}
+
+.teamMemberSocialIcons i {
+    font-size: 30px;
+    text-align: center;
+}
+.teamPage img, .teamPage1 img{
+	height: 33.33vw;
+}
+
+.active3{
+	width:0;
+	animation: animateright 0.4s;
+}
+
+.active4{
+	display: block;
+	width: 33.33%;
+	animation: animateleft 0.4s;
+}
+
+.active25{
+	width:0;
+	animation: animateleft1 0.4s;
+}
+
+.active36{
+	display: block;
+	width: 33.33%;
+	animation: animateright1 0.4s;
+}
+
+@keyframes animateleft{from{width:0vw;} to{width:33.33%;}}
+@keyframes animateright{from{width:33.33%;} to{width:0;}}
+@keyframes animateleft1{from{width:33.33%;} to{width:0;}}
+@keyframes animateright1{from{width:0;} to{width:33.33%;}}
+
+header
+{box-shadow: none !important;}

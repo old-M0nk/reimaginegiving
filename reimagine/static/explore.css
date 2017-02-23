@@ -1,0 +1,164 @@
+/* Position the content inside the explore */
+.explore {
+    width: 0;
+	height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+.exploreDiv{
+	position: absolute;
+    background-color: white;
+	z-index: 4;
+}
+.exploreButtonActive{
+	font-size: 17px;
+	margin-top: -8px;
+}
+.exploreContent{
+	position: relative;
+	height: 100%;
+    text-align: left;
+	 font-family: SourceSansPro-Regular;
+	transition: 0.4s ease-in-out;
+	background-color: white;
+	overflow-x: hidden;
+}
+#exploreContent{
+	width: 0;
+}
+
+.exploreCloseButton{
+	top: 5px;
+	right: 5px;
+	text-align: right;
+}
+
+.exploreHeading{
+	margin-bottom: 5px;
+	background-color: rgba(56,131,174,1.0);
+    padding: 5% 5% 5% 5%;
+}
+
+.exploreHeading1{
+    background-color: rgba(56,131,174,1.0);
+    padding: 5% 5% 5% 5%;
+	margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+/* The navigation links inside the explore */
+.exploreContent a {
+	cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    transition: 0.2s; /* Transition effects on hover (color) */
+	margin-left: 12%;
+}
+
+.exploreContent li{
+    margin-top: 5px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 5px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.exploreContent a:hover, .exploreContent a:focus {
+    color: #2871af;
+}
+
+.exploreContent h2 {
+    text-decoration: none;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    transition: 0.3s;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.exploreContent form{
+	padding: 30px 0 0 0;
+}
+
+.causeList, .fundingLevels{
+	display: block;
+	transition: 0.3s ease-in-out;
+  padding: 10px 0;
+}
+.location ul {
+    padding: 5px 0 10px 0;
+}
+
+.downArrow{
+    font-size: 18px !Important;
+    text-align: right !Important;
+    padding-right: 5px !Important;
+	color: white !Important;
+}
+.topArrow{
+  transform: rotate(180deg);
+}
+
+#wrap {
+  display: inline-block;
+  height: 40px;
+  position: relative;
+  top: 10px;
+  right: 13%;
+  margin-bottom: 5px;
+}
+
+#wrap input[type="text"] {
+  height: 30px;
+  font-size: 17px;
+  display: inline-block;
+  font-family: Nunito-Regular;
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: black;
+  width: 18.5vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: text;
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
+}
+
+#wrap input[type="submit"] {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  color:white;
+  float: right;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 1px;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  background-size: contain; 
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .exploreContent a {font-size: 15px;}
+    .exploreContent .closebtn {
+        font-size: 40px;
+        right: 30px;
+    }
+}

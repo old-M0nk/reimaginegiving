@@ -1,0 +1,142 @@
+.progress-badge {
+  position: relative;
+  display: inline-block;
+  margin: 4.085vw 4.085vw 0; 
+}
+.badge {
+  position: relative;
+  width: 8.33vw;
+  height: 8.33vw;
+  border-radius: 50%;
+  text-align: center;
+  display: table;
+  vertical-align: middle;
+  color: #fff;
+  background: #ee4432;
+  z-index: 2;
+}
+.is-filling .badge {
+  -webkit-animation: badge-pop 300ms cubic-bezier(0.6, 1.5, 0.8, 1.15) 1;
+          animation: badge-pop 300ms cubic-bezier(0.6, 1.5, 0.8, 1.15) 1;
+}
+.is-filling-from-empty .badge {
+  -webkit-animation-delay: 1900ms;
+          animation-delay: 1900ms;
+}
+.badge:before,
+.badge:after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  z-index: 10;
+}
+.badge:before {
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  border: 2px dotted #fff;
+}
+.badge:after {
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  border: 2px solid #fff;
+}
+.badge__content {
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+.badge__content-inner {
+  position: relative;
+}
+.badge__fill {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 0;
+}
+.badge__fill:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  left: -50px;
+  background-image: -webkit-linear-gradient(135deg, transparent 40%, #fff 40%, #fff 60%, transparent 60%);
+  background-image: linear-gradient(-45deg, transparent 40%, #fff 40%, #fff 60%, transparent 60%);
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.3;
+  -webkit-transform: translateX(-150px);
+          transform: translateX(-150px);
+  -webkit-animation: badge-shine 700ms 500ms ease-in-out;
+          animation: badge-shine 700ms 500ms ease-in-out;
+}
+.badge__fill-inner {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  left: 0;
+  top: 0;
+  background: #f0bf26;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  will-change: transform;
+}
+.badge__fill-inner:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin-bottom: -2px;
+  width: 400px;
+  height: 12px;
+  background-repeat: repeat-x;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDAwcHgiIGhlaWdodD0iMTJweCIgdmlld0JveD0iMCAwIDQwMCAxMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNDAwIDEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjRUU0NDMyIiBkPSJNMzUwLDVjMCwwLTI0LTUtNDkuOC01QzI3NC4zLDAsMjUwLDUsMjUwLDVzLTIyLDUtNTAsNXMtNTAtNS01MC01cy0yNC01LTQ5LjgtNUM3NC4zLDAsNTAsNSw1MCw1cy0yMiw1LTUwLDV2Mmg0MDB2LTJDMzcyLDEwLDM1MCw1LDM1MCw1eiIvPjwvc3ZnPg==");
+}
+.badge--empty {
+  border: 1px solid white;
+  background: transparent;
+}
+.badge--empty:before {
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  left: 7px;
+  border: 1px dotted white;
+}
+.badge--empty:after {
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  border: 1px solid #ee4432;
+}
+.is-filling-from-empty .badge--empty .badge__fill-inner {
+  -webkit-animation: badge-wave-fill 2000ms linear 1 forwards;
+          animation: badge-wave-fill 2000ms linear 1 forwards;
+  will-change: transform;
+}
+.is-filling-from-empty .badge--empty .badge__fill-inner:before {
+  -webkit-animation: badge-wave-move 1000ms linear 2;
+          animation: badge-wave-move 1000ms linear 2;
+}
+@-webkit-keyframes badge-wave-fill {
+  100% {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}
+@keyframes badge-wave-fill {
+  100% {
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+}

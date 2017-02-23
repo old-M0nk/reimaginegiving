@@ -1,0 +1,205 @@
+
+.whatWeDoContainer {
+  padding-top: 5% !important;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 0;
+  background-color: rgba(244,244,249,1.0);
+  padding-bottom: 3%;
+  display: none;
+}
+
+.second .circleIconImage {
+    height: 70%;
+    margin-top: 15.5%;
+}
+
+#first {
+    background-color: rgba(255,255,255,1.0);
+  margin-left: 11vw;
+}
+#second{
+  background-color: rgba(255,255,255,1.0);
+}
+#third{
+  background-color: rgba(255,255,255,1.0);
+}
+.box {
+	position: relative;
+	width: 23vw;
+	height: 23vw;
+	margin-left: 4vw;
+	padding: 15px;
+	box-sizing: border-box;
+	display: inline-block;
+	background: #036C81;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.circleIconImage{
+  height: 79%;
+  padding-top: 0px;
+  margin-top: 11%;
+  margin-bottom: 17%;
+}
+
+.box .icon-cont {
+  border: 6px solid rgba(0,0,0,1.0);
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  margin: 20px auto;
+  display: block; 
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
+}
+.box .icon-cont i {
+  color: #fff;
+}
+.box:hover .icon-cont {
+  -webkit-animation: shady 4s linear infinite;
+          animation: shady 4s linear infinite;
+}
+
+@-webkit-keyframes shady {
+  0% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  20% {box-shadow: 0 0 0 100px rgba(0,0,0,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+  20.1% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  50% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  70% {box-shadow: 0 0 0 100px rgba(0,0,0,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+  70.1% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  100% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+}
+
+@keyframes shady {
+  0% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  20% {box-shadow: 0 0 0 100px rgba(0,0,0,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+  20.1% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  50% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  70% {box-shadow: 0 0 0 100px rgba(0,0,0,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+  70.1% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+  100% {box-shadow: 0 0 0 0px rgba(0,0,0,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+}
+
+.box p.WhatWeDoContentHeading {
+  color: black;
+  font-family: Poppins-Light;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 23% 0px 0px 10.5%;
+  border-bottom: 1px solid rgba(255,255,255,0);
+  position: absolute;
+  top: 45%;
+  width: 70%;
+  left: 10%;
+  z-index: 4;
+}
+.box .hidden {
+  font-family: SourceSansPro-Light;
+  color: #373737;
+  font-size: 14px;
+  line-height: 120% !important;
+  margin: 25px 30px 25px 30px;
+  padding: 5%;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+  text-align: justify;
+}
+.box .hidden {
+  opacity: 0;
+}
+.box a.expand {
+  width: 35px;
+  height: 35px;
+  /* background: #fff; */
+  font-weight: 600;
+  color: black;
+  display: block;
+  margin: 15px auto 25px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+}
+.box a.expand span.minus {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.box a.expand span.plus {
+  opacity: 1;
+  font-size: 45px;
+  margin-left: -1px;
+  transition: all 0.3s ease;
+}
+.box.selected a.expand {
+  display: block;
+  position: absolute;
+  left: 79%;
+  bottom: -14%;
+  width: 70px;
+  height: 70px;
+  background: #eee;
+  color: #036C81;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /*! float: right; */
+}
+.box.selected a.expand span {
+  display: block;
+  position: absolute;
+  top: -4px;
+  left: 38px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  font-size: 24px;
+}
+.box.selected a.expand span.minus {
+  opacity: 1;
+  font-size: 60px;
+  margin-left: -3.5px;
+  margin-top: 6px;
+  transition: all 0.3s ease-in-out;
+}
+.box.selected a.expand span.plus {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.box.selected .icon-cont {
+  -webkit-transform: scale(1.5,1.5);
+          transform: scale(0.5,0.5);
+  opacity: 0;
+  position: absolute;
+  top: -80px;
+  left: -75px;
+  right: 180px;
+  transition: all 0.4s ease-in-out;
+}
+.box.selected:hover .icon-cont {
+  -webkit-animation: none;
+          animation: none;
+}
+.box.selected p.WhatWeDoContentHeading {
+  padding: 32px 15px 10px 15px;
+  width: 70%;
+  top: 16px;
+  left: 14%;
+  text-align: left;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0,180,255,0.5);
+}
+.box.selected .hidden {
+  opacity: 1;
+  margin-top: 60px;
+}

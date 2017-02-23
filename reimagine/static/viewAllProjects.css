@@ -1,0 +1,73 @@
+.viewAllProjectsContentHeadings h1{
+	color: white;
+	background-color: rgb(0,180,255);
+	font-size: 50px;
+	text-align: center;
+	padding: 45px;
+	left: 0;
+	height: 100%;
+	font-family: Poppins-Bold;
+	text-align: left;
+}
+.viewAllProjectsContentFilters {
+    padding: 20px 40px;
+    border-right: 1px solid rgba(0,0,0,0.075);
+    margin: 20px 0;
+}
+
+.viewAllProjectsContentFiltersHeading {
+    font-family: Poppins-SemiBold;
+    margin-left: 10px;
+}
+
+.viewAllProjectsContentFilters ul {
+    list-style-type: none;
+}
+.viewAllProjectsContentFilters .exploreHeading1, .viewAllProjectsContentFilters .exploreHeading{
+    padding: 0;
+    background: white; 
+}
+
+.viewAllProjectsContentFilters #wrap{
+	margin:0;
+	top:0;
+	left: -16%;
+	
+}
+
+.viewAllProjectsContentFilters #wrap input[type="text"]{
+	width: 14vw;
+}
+
+.projectSection1 {
+    margin-left: 5% !important;
+  width: 28%;
+}
+.recommendedProjectsHeading h2{
+  padding-left:5% !important;
+}
+.projectSection2, .projectSection3 {
+    margin-left: 3% !important;
+  width: 28%;
+}
+.projectThumbnail {
+  height: 11.8125vw !important;
+}
+.projectContent{
+  height: 29vw !important;
+}
+.locationCause img {
+  height: 28px;
+}
+.locationCause {
+  bottom: 0 !important;
+}
+.projectlocationHeading h2, .projectcauseHeading h2{
+  padding-bottom: 2.5% !important;
+}
+.recommendedProjectsHeading h2{
+	font-family: Poppins-Regular;
+}
+.recommendedProjectsHeading h2 span{
+  color: rgb(0,180,255);
+}

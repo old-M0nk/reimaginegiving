@@ -1,0 +1,106 @@
+header{
+	text-align: center;
+	color: #373737;
+	box-shadow: 0 5px 5px 0 rgba(0,0,0,0.5);
+	height: 50px;
+	overflow: hidden;
+	line-height: 100%;
+	/*! margin-top: 2.5px; */
+}
+
+header p{
+	font-size: 15px;
+	font-family: Poppins-Light;
+	margin-top: -6px;
+	transition: 0.1s;
+}
+
+.mainNavBarButton span:hover{
+	color: 	#38c0ff;
+}
+
+.logo  img{
+	height: 35px;
+	margin: 7.5px 5px;
+	cursor:pointer;
+}
+
+.mainNavBarButton{
+	padding-top: 17.5px;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+.navBarExploreButton{
+	text-align: left !Important;
+	padding-top: 5px;
+}
+
+.navBarExploreButton span{
+	cursor: pointer;
+}
+
+.navBarSignUpButton{
+	text-align: right !Important;
+	padding-right: 10px;
+	border-right: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	cursor:pointer;
+}
+
+.navBarLogInButton{
+	text-align: left !Important; 
+	padding-left: 10px;
+	cursor:pointer;
+	padding-top: 5px;
+}
+
+.navBarProfileButton{
+	display:none;
+	padding-top: 5px;
+	position: relative;
+	padding-bottom: 16px;
+	padding-right: 55%;
+	margin-left: 50%;
+}
+
+.navBarProfileButton:hover .navBarProfileOptions{
+	display: block;
+}
+
+#navBarProfile {
+    text-align: right;
+    margin-right: 10%;
+	 font-family: Poppins-Light;
+	font-size:15px;
+}
+
+.navBarProfileOptions{
+	position: fixed;
+	display: none;
+	right: 0;
+	z-index: 3;
+	background: rgb(0,180,255);
+	padding: 10px;
+	overflow: auto;
+	right: 0;
+	margin-top: 12px;
+}
+
+.navBarProfileOptions a:hover{
+	color: rgb(26,26,26);
+}
+.navBarProfileOptions a{
+	padding: 15px 15px;
+    text-decoration: none;
+    display: block;
+	z-index: 2;
+	font-family: SourceSansPro-Light;
+	font-size: 12px;
+	margin: 2px 10px;
+	border-bottom: 1px solid #373737;
+	color: white;
+	
+}
+/*search bar*/

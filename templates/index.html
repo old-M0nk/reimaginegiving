@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+	<title>Re!magine Giving</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signUp.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "slider.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "index.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "recommendedProjects.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "whatWeDo.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "responsiveIndex.css" %}" media="screen"/>
+	
+	<script src="{% static "whatWeDo.js" %}"></script>
+	<script src="{% static "index.js" %}"></script>
+	<script src="{% static "tympass.js" %}"></script>
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+</head>
+  
+<body>
+	<header>
+		<div class="row header">
+			<div class="col-3 mainNavBarButton" id="exploreDiv">
+				<div class="col-2">
+					 <a class="ninja-btn" id="ninja-btn" title="menu" onclick="openNav()"><span></span></a>
+				</div>
+				<div class="col-10 navBarExploreButton">
+					<p class="exploreButton" id="exploreButton"><span onclick="openNav()">Explore</span></p>
+				</div>
+			</div>
+			<div id="myNav" class="explore">
+				<div style="background-color:black;"class="translucentContainer"></div>
+				<div id="exploreContent" class="exploreContent">	
+					<form>
+						<div class="location">
+							<span  onclick="myfunction1()">
+								<div class="exploreHeading1 row">
+									<div class="col-9"><h2>Location</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow topArrow">&#9660;</h2></div>
+								</div>
+							</span>
+							<div class="inputField" id="locationInput">
+								<div class="row" id="wrap">
+									<form action="" autocomplete="on">
+										<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
+									</form>
+								</div>
+								<ul>
+									<li><a>Delhi</a></li>
+									<li><a>Varanasi</a></li>
+									<li><a>Jaipur</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="funding">
+							<span onclick="myfunction2()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Funding</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow topArrow">&#9660;</h2></div>
+								</div>
+							</span>
+							<ul class="fundingLevels" id="fundingInput">
+								<li><a>Nearly Funded</a></li>
+								<li><a>Just Started</a></li>
+								<li><a>Ongoing</a></li>
+							</ul>
+						</div>
+						
+						<div class="causes">
+							<span  onclick="myfunction3()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Causes</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow topArrow">&#9660;</h2></div>
+								</div>
+							</span>
+							<ul class="causeList" id="causeInput">
+								<li><a>Education</a></li>
+								<li><a>Health</a></li>
+								<li><a>Children</a></li>
+								<li><a>Women Empowerment</a></li>
+								<li><a>Food and Hunger</a></li>
+								<li><a>Sports</a></li>
+								<li><a>Animal Welfare</a></li>
+								<li><a>Environment</a></li>
+								<li><a>Others</a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="col-9 floatRight">
+				
+				<div class="col-8 logo">
+					<a href="index.html">
+						<img src="{% static "logo/logo-final.png" %}"></img>
+					</a>
+				</div>
+				
+				<div class="col-4 mainNavBarButton">
+					<div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
+					</div>
+					<div id="SignUp" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container">
+						  <div class="container">
+							<div class="info-container">
+							  <div class="info-item log-in">
+								<p>Have an account?</p>
+								<div class="btn1">Log In</div>
+							  </div>
+							  <div class="info-item sign-up">
+								<p>Don't have an account?</p>
+								<div class="btn1">Sign Up</div>
+							  </div>
+							</div>
+							<div class="form-container actived">
+								<img src="{% static "logo/logo-final.png" %}"/>
+								<div class="form-item">
+									<form class="form-log-in animated">
+									  <input name="Username" placeholder="Username" type="text" />
+									  <input name="Password" placeholder="Password" type="Password" />
+										 <span onclick="SignMeUp()"> <div class="btn">Log in</div></span>
+										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
+										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
+									</form>
+									<form class="form-sign-up animated">
+									  <input name="Username" placeholder="Username" type="text" />
+									  <input name="Password" placeholder="Password" type="Password" />
+									  <input name="CPassword" placeholder="Confirm Password" type="Password" />
+									  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
+									  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
+										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
+									</form>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
+					</div>
+					<div id="LogIn" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container1">
+							<div class="container1">
+								<div class="info-container1">
+								  <div class="info-item1 log-in1">
+									<p>Have an account?</p>
+									<div class="btn2">Log In</div>
+								  </div>
+								  <div class="info-item1 sign-up1">
+									<p>Don't have an account?</p>
+									<div class="btn2">Sign Up</div>
+								  </div>
+								</div>
+								<div class="form-container1">
+									<img src="logo/logo-final.png"/>
+									<div class="form-item1">
+										<form class="form-log-in1 animated">
+										  <input name="Username" placeholder="Username" type="text" />
+										  <input name="Password" placeholder="Password" type="Password" />
+										  <span onclick="SignMeUp()"><div class="btn">Log in</div></span>
+										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
+										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
+										</form>
+										<form class="form-sign-up1 animated">
+										  <input name="Username" placeholder="Username" type="text" />
+										  <input name="Password" placeholder="Password" type="Password" />
+										  <input name="CPassword" placeholder="Confirm Password" type="Password" />
+										  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
+										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
+										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
+						
+						<script src="{% static "SignUp.js" %}"></script>
+					</div>
+					
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="userPage.html"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</header> 
+   	  
+   	 <div class="slider">
+  		<div class="slide_viewer">
+    		<div class="slide_group">
+		      <div class="slide">
+		      	<img src="{% static "images/slider1.jpg" %}"/>
+		      </div>
+		      <div class="slide">
+		      	<img src="{% static "images/slider2.jpg" %}"/>
+		      </div>
+		      <div class="slide">
+		      	<img src="{% static "images/slider3.jpg" %}"/>
+		      </div>
+		      <div class="slide">
+		      	<img src="{% static "images/slider4.jpg" %}"/>
+		      </div>
+		      <div class="slide">
+		      	<img src="{% static "images/slider5.jpg" %}"/>
+		      </div>
+    		</div>
+  		</div>
+  		<div id="textOverlaySlide"></div>
+	</div>
+     
+    <div class="slide_buttons">
+	</div>
+
+	<div class="directional_nav">
+  		<div class="previous_btn" title="Previous">
+	    	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="65px" viewBox="-11 -11.5 65 66">
+	      		<g>
+	        		<g>
+	          			<path fill="#474544" d="M-10.5,22.118C-10.5,4.132,4.133-10.5,22.118-10.5S54.736,4.132,54.736,22.118
+							c0,17.985-14.633,32.618-32.618,32.618S-10.5,40.103-10.5,22.118z M-8.288,22.118c0,16.766,13.639,30.406,30.406,30.406 c16.765,0,30.405-13.641,30.405-30.406c0-16.766-13.641-30.406-30.405-30.406C5.35-8.288-8.288,5.352-8.288,22.118z"/>
+	          			<path fill="#474544" d="M25.43,33.243L14.628,22.429c-0.433-0.432-0.433-1.132,0-1.564L25.43,10.051c0.432-0.432,1.132-0.432,1.563,0		c0.431,0.431,0.431,1.132,0,1.564L16.972,21.647l10.021,10.035c0.432,0.433,0.432,1.134,0,1.564	c-0.215,0.218-0.498,0.323-0.78,0.323C25.929,33.569,25.646,33.464,25.43,33.243z"/>
+	        		</g>
+	      		</g>
+	    	</svg>
+  		</div>
+  		<div class="next_btn" title="Next">
+    		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="65px" viewBox="-11 -11.5 65 66">
+      			<g>
+        			<g>
+			          <path fill="#474544" d="M22.118,54.736C4.132,54.736-10.5,40.103-10.5,22.118C-10.5,4.132,4.132-10.5,22.118-10.5	c17.985,0,32.618,14.632,32.618,32.618C54.736,40.103,40.103,54.736,22.118,54.736z M22.118-8.288	c-16.765,0-30.406,13.64-30.406,30.406c0,16.766,13.641,30.406,30.406,30.406c16.768,0,30.406-13.641,30.406-30.406 C52.524,5.352,38.885-8.288,22.118-8.288z"/>
+			          <path fill="#474544" d="M18.022,33.569c 0.282,0-0.566-0.105-0.781-0.323c-0.432-0.431-0.432-1.132,0-1.564l10.022-10.035 			L17.241,11.615c 0.431-0.432-0.431-1.133,0-1.564c0.432-0.432,1.132-0.432,1.564,0l10.803,10.814c0.433,0.432,0.433,1.132,0,1.564 L18.805,33.243C18.59,33.464,18.306,33.569,18.022,33.569z"/>
+			        </g>
+      			</g>
+    		</svg>
+  		</div>
+	</div>
+            
+	<script src="{% static "slider.js" %}"></script>
+	
+	<div class=" row whatWeDoContainer">
+		<h2 class="row whatWeDoHeading"><span>What We Do</span></h2>
+		
+		<div class="box first col-3" id="first">
+			<span class="icon-cont"><i><img class="circleIconImage" src="{% static "images/1.png" %}"></i></span>
+			
+			<p class="WhatWeDoContentHeading">Connect</p>
+			
+			<div class="hidden">
+			  <p> Provide high impact, non-profit projects with a platform to reach out to potential donors.</p><br/><br/>
+			  <p>All projects listed on our platform are listed after proper due diligence and verification</p>
+
+			</div>
+				
+			<a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
+			<a class="divLink" href="javascript:toggleFirst()"></a>
+		</div>
+		
+		<div class="box second col-3" id="second">
+			<span class="icon-cont"><i><img class="circleIconImage" src="{% static "images/3.png" %}"></i></span>
+			
+			<p class="WhatWeDoContentHeading">Report</p>
+			
+			<div class="hidden">
+			  <p>Reimagine provides the donor with comprehensive, multimedia reports on the progress of the project</p><br/><br/>
+			  <p>Reports are independently created by Reimagine and assure transparency and accountability in the project</p>
+			</div>
+				
+			<a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
+			<a class="divLink" href="javascript:toggleSecond()"></a>
+		</div>
+		  
+		<div class="box third col-3" id="third">
+			<span class="icon-cont"><i><img class="circleIconImage" src="{% static "images/4.png" %}"></i></span>
+			
+			<p class="WhatWeDoContentHeading">Empower</p>
+			
+			<div class="hidden">
+			  <p>By facilitating transparency between NGOs and donors, We empower donors to make informed decisions about how they give their money</p><br/>
+			  <p>while at the same time, empowering NGOs to take ambitious projects that they would not have otherwise been able to fund. </p>
+			</div>
+				
+			<a class="expand"><span class="plus">+</span><span class="minus">-</span></a>
+			<a class="divLink" href="javascript:toggleThird()"></a>
+		</div>
+	</div>
+	
+	<div class="row trustNetwork">
+		<p class="trustNetworkHeading">The <span>RE!MAGINE</span> Trust Network</p>
+		<p class="content"><br/>Give through <span>Reimagine</span> and become a part of the <span>Reimagine Trust Network</span>. 
+					<br/><br/>Get <span>independent, high quality</span> reports on the impact your money is making.<br/>
+		</p>
+		<a class="trustNetworkButton" href="comingSoon.html">
+			<svg>
+				<rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			</svg>
+			KNOW MORE
+		</a>
+	</div>
+	
+	<div class="row projects">
+		<div class="row recommendedProjectsHeading">
+			<h2 class="col-6">Recommended Projects</h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="viewAllProjects.html">View all</a></h2>
+		</div>
+		<div class="row projectsContent">
+            {% if projects%}
+            {% for project in projects %}
+			<div class="projectSection1">
+				<div class="row projectContent">
+					<div class="projectThumbnail">
+						<img class="img-thumbnail" src="{% static "images/web1.jpg" %}" >
+						<div class="row locationCause">
+							<div class="projectlocation">
+								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
+								<div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
+							</div>
+							<div class="projectcause">
+								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
+								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
+							</div>
+							<a class="locationCauseLink" href="projectPage.html"></a>
+						</div>
+					</div>
+					
+					<div class="projectDetails">
+						<h1>{{ project.title }}</h1>
+						<h2>{{ project.ngo_id.name }}</h2>
+						<p>{{ project.summary }}
+						</p>
+					</div>
+					
+					<div class="row projectBottom">
+						<div class="row" style="position:relative;">
+							<div class="row projectStats">
+								<div class="row" style="margin-bottom: 12px;">
+									<h2 class="floatRight">50%</h2>
+								</div>
+								
+								<div class="row progress">
+									<div class="progress-bar"></div>
+								</div>
+								
+								<div class="row">
+									<div class="stats1 col-5">
+										<div class="statsNumber">
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+										</div>
+										<div class="statsText">
+											<p>Raised</p>
+										</div>
+									</div>
+									<div class="stats2 col-4">
+										<div class="statsNumber">
+											<p>105</p>
+										</div>
+										<div class="statsText">
+											<p>Donors</p>
+										</div>
+									</div>
+									<div class="stats3 col-3">
+										<div class="statsNumber">
+											<p>14</p>
+										</div>
+										<div class="statsText">
+											<p>Days left</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row projectSectionDonateButton">
+								<a href="checkOut.html"><h2>Donate</h2></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="divLink" href="projectPage.html"></a>
+			</div>
+            {% endfor %}
+            {% endif %}
+		</div>
+	</div>
+	<script src="{% static "index.js" %}"></script>
+	<div class="row projects">
+		<div class="row recommendedProjectsHeading">
+			<h2 class="col-6">Almost Funded</h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="viewAllProjects.html">View all</a></h2>
+		</div>
+		<div class="row projectsContent">
+
+            {% if projects %}
+            {% for project in projects %}
+			<div class="projectSection1">
+				<div class="row projectContent">
+					<div class="projectThumbnail">
+						<img class="img-thumbnail" src="{% static "images/16_9_4.jpg" %}" >
+						<div class="row locationCause">
+							<div class="projectlocation">
+								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
+								<div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
+							</div>
+							<div class="projectcause">
+								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
+								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
+							</div>
+							<a class="locationCauseLink" href="projectPage.html"></a>
+						</div>
+					</div>
+					
+					<div class="projectDetails">
+						<h1>{{ project.title }}</h1>
+						<h2>{{ project.ngo_id.name }}</h2>
+						<p>{{ project.summary }}
+						</p>
+					</div>
+					
+					<div class="row projectBottom">
+						<div class="row" style="position:relative;">
+							<div class="row projectStats">
+								<div class="row" style="margin-bottom: 12px;">
+									<h2 class="floatRight">50%</h2>
+								</div>
+								
+								<div class="row progress">
+									<div class="progress-bar"></div>
+								</div>
+								
+								<div class="row">
+									<div class="stats1 col-5">
+										<div class="statsNumber">
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+										</div>
+										<div class="statsText">
+											<p>Raised</p>
+										</div>
+									</div>
+									<div class="stats2 col-4">
+										<div class="statsNumber">
+											<p>105</p>
+										</div>
+										<div class="statsText">
+											<p>Donors</p>
+										</div>
+									</div>
+									<div class="stats3 col-3">
+										<div class="statsNumber">
+											<p>14</p>
+										</div>
+										<div class="statsText">
+											<p>Days left</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="row projectSectionDonateButton">
+								<a href="checkOut.html"><h2>Donate</h2></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="divLink" href="projectPage.html"></a>
+			</div>
+            {% endfor %}
+			{% endif %}
+
+		</div>
+	</div>
+	<script src="{% static "index.js" %}"></script>
+	
+	<div class="row connectWithFacebook">
+		<div class="col-7 connectWithFacebookLine"><h1>Giving Is<br>Always Better<br>When Done With <span>Friends</span></h1></div>
+		<div class="col-5 connectWithFacebookImage">
+			<a href="index.html">
+				<img src="{% static "images/connectWithFacebook.png" %}">
+			</a>
+		</div>
+	</div>
+	
+	<div class="row section">
+		<ul class="social-btns">
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
+						<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
+						<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-google-plus google"></i>
+						<i class="social-btn-face active fa fa-lg fa-google-plus google"></i>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-pinterest-p pinterest"></i>
+						<i class="social-btn-face active fa fa-lg fa-pinterest-p pinterest"></i>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-instagram instagram"></i>
+						<i class="social-btn-face active fa fa-lg fa-instagram instagram"></i>
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="index.html" class="social-btn-flip">
+					<div class="social-btn-cube">
+						<i class="social-btn-face default fa fa-lg fa-tumblr tumblr"></i>
+						<i class="social-btn-face active fa fa-lg fa-tumblr tumblr"></i>
+					</div>
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	
+		<footer>
+		<div class="row footerOptions">
+			<div class="col-2 footerAboutUs">
+				<ul>
+					<li><h1>About Us</h1></li>
+					<li><h2><a>What is Reimagine?</a></h2></li>
+					<li><h2><a href="teamPage.html">Our Team</a></h2></li>
+					<li><h2><a href="contactUsPage.html">Contact Us</a></h2></li>
+				</ul>
+			</div>
+			<div class="col-4 footerCauses" >
+				<div class="col-6 footerCauses1">
+					<ul>
+						<li><h1>Causes</h1>                  </li>
+						<li><h2><a href="projectPage.html" >Education</a></h2>        </li>
+						<li><h2><a href="projectPage.html">Poverty</a></h2>          </li>
+						<li><h2><a href="projectPage.html">Sanitation</a></h2>       </li>
+						<li><h2><a href="projectPage.html">Child Welfare</a></h2>    </li>
+						<li><h2><a href="projectPage.html">Women and Girls</a></h2>  </li>
+						<li><h2><a href="projectPage.html">Disaster Recovery</a></h2></li>
+						<li><h2><a href="projectPage.html">LGBTQ</h2>                </li>
+					</ul>
+				</div>
+				<div class="col-6 footerCauses2">
+					<ul>	
+						<li><h2><a href="projectPage.html">Technology</a></h2>              </li>
+						<li><h2><a href="projectPage.html">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="projectPage.html">Enviorment</a></h2>              </li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-2 footerWorks">
+				<ul>
+					<li><h1>How it Works</h1>                      </li>
+					<li><h2><a>Stuff</a></h2>                      </li>
+					<li><h2><a>Stuff Stuff</a></h2>                </li>
+					<li><h2><a>We really need to think</a></h2>    </li>
+					<li><h2><a>about this</a></h2>                 </li>
+					<li><h2><a>well not anymore</a></h2>           </li>
+					<li><h2><a>VJ **</a></h2>                      </li>
+				</ul>
+			</div>
+			<div class="col-4 footerContactShare">
+				<ul>
+					<li><h1>Contact Us</h1></li>
+					<li><h2><span>Email: </span>mishraanuruddh14@gmail.com</h2></li>
+					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+					<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+					<li>
+						<a><i class="fa fa-facebook"></i>   </a>
+						<a><i class="fa fa-google-plus"></i></a>
+						<a><i class="fa fa-twitter"></i>    </a>
+						<a><i class="fa fa-youtube"></i>    </a>
+						<a><i class="fa fa-instagram"></i>  </a>
+						<a><i class="fa fa-whatsapp"></i>   </a>
+						<a><i class="fa fa-linkedin"></i>   </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row footerBottom">
+			<a href="index.html">
+				<img src="{% static "logo/logo-final-web-white.png" %}"></img>
+			</a>
+			<h2>cc 2017.</h2>
+		</div>
+		</div>
+	</footer>
+</body>
