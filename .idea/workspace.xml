@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2282797-c9b1-4b1e-8770-bf1589a9c42e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reimagine/reimagine/settings.py" afterPath="$PROJECT_DIR$/reimagine/reimagine/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reimagine/reimagine/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="135" column="1" lean-forward="false" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+            <state relative-caret-position="274">
+              <caret line="136" column="72" lean-forward="false" selection-start-line="136" selection-start-column="72" selection-end-line="136" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -777,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reimagine/reimagine/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="135" column="1" lean-forward="false" selection-start-line="135" selection-start-column="1" selection-end-line="135" selection-end-column="1" />
+        <state relative-caret-position="274">
+          <caret line="136" column="72" lean-forward="false" selection-start-line="136" selection-start-column="72" selection-end-line="136" selection-end-column="72" />
           <folding />
         </state>
       </provider>
