@@ -9,7 +9,7 @@ class Cause(models.Model):
     name = models.CharField(max_length = 60, blank = False)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s : %s" % (self.name, self.total_amount)
 
 class Project(models.Model):
@@ -27,7 +27,7 @@ class Project(models.Model):
    # team_member_id = models.ForeignKey('Team_Member' , on_delete=models.SET('team member not set'))#FK? #Can be a many-to-many relation?
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 class NGO(models.Model):
@@ -39,7 +39,7 @@ class NGO(models.Model):
     website = models.URLField()
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))#FK? #Can be a many-to-many relation?
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class Consultant(models.Model):
