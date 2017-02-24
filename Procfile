@@ -1,1 +1,1 @@
-web: gunicorn reimagine/reimagine.wsgi
+web: gunicorn reimagine.wsgi
