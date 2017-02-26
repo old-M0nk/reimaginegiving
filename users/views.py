@@ -14,8 +14,8 @@ def comingSoon(request):
     if request.method == "POST":
         form = Email(request.POST)
         if form.is_valid():
-                post = form.save()
-                post.save()
+                form.save()
+                # post.save()
                 form = Email()
                 context_dict = {'message': 'We will remember you :)', 'form': form}
                 return render(request, 'comingSoon.html', context_dict)
