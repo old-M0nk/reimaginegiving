@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soon</title>
+</head>
+<body>
+{% if message %}
+{{ message }}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="email">Email: </label>
+    <input id="email" type="text" name="email">
+    <input type="submit" value="OK">
+{#    {{ form.as_p }}#}
+{#    <button type="submit" class="save btn btn-default">Save</button>#}
+</form>
+{#<form action="/your-name/" method="post">#}
+{#    <label for="your_name">Your name: </label>#}
+{#    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">#}
+{#    <input type="submit" value="OK">#}
+{#</form>#}
+
+
+</body>
+</html>
