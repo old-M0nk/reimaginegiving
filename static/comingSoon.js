@@ -52,7 +52,7 @@ $('.slider').each(function() {
       if (currentIndex < ($slides.length - 1)) {
         move(currentIndex + 1);
       } 
-    }, 4000);
+    }, 3000);
   }
   
   $.each($slides, function(index) {
