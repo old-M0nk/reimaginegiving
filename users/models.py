@@ -20,6 +20,7 @@ class Donation(models.Model):
     date = models.DateField(null = False)
     time = models.TimeField(auto_now = True)
 
-# class Email(models.Model):
-#     email = models.EmailField(max_length=254, primary_key=True)
-#
+
+class Email(models.Model):
+    email = models.EmailField(max_length=254, primary_key=True)
+
