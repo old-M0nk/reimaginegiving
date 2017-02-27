@@ -1,5 +1,5 @@
 from django.contrib import admin
-from users.models import Donor, Donation, Email
+from users.models import Donor, Donation
 
 
 
