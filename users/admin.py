@@ -11,10 +11,10 @@ class DonorAdmin(admin.ModelAdmin):
     list_display = ('donor_id', 'name', 'mobile', 'email', 'transaction_id')
 class DonationAdmin(admin.ModelAdmin):
     list_display = ('transaction_id', 'donor_id', 'project_id', 'amount', 'date', 'time')
-# class EmailAdmin(admin.ModelAdmin):
-#     list_display = ('email',)
+class EmailAdmin(admin.ModelAdmin):
+    list_display = ('email',)
 
 #mention all the models to be viewed on the django admin panel
 admin.site.register(Donor, DonorAdmin)
 admin.site.register(Donation, DonationAdmin)
-# admin.site.register(Email, EmailAdmin)
+admin.site.register(Email, EmailAdmin)
