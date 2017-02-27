@@ -3,14 +3,17 @@ from __future__ import unicode_literals
 from django.db import models
 from data.models import Project
 
+
 class Donor(models.Model):
     donor_id = models.CharField(max_length=10, blank=False)
     name = models.CharField(max_length=128, blank=False,)
     mobile = models.BigIntegerField(null = True)
     email = models.EmailField(max_length = 254)
     transaction_id = models.BigIntegerField(null = False)
+
     def __unicode__(self):
         return self.name
+
 
 class Donation(models.Model):
     transaction_id = models.BigIntegerField(null = False)
