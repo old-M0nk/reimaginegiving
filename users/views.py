@@ -42,9 +42,9 @@ def comingSoon(request):
                 for key, value in myform.cleaned_data.items():
                     setattr(myform.model, key, value)
                     myform.model.save(myform.model)
-                context_dict = {'message': 'Registered'}
+                context_dict = {'message': 'Thank You!'}
             else:
-                context_dict = {'message': 'Already Registered', 'form': myform}
+                context_dict = {'message': 'You have already registered with us', 'form': myform}
         else:
             context_dict = {'value':email,'message': 'Enter a valid e-mail address', 'form': myform}
     else:
