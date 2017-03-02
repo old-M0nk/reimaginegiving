@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import Email
+from .forms import email_form
 from .models import Email
 
 
@@ -24,7 +24,7 @@ from .models import Email
 
 def comingSoon(request):
     if request.method == "POST":
-        myform = Email(request.POST)
+        myform = email_form(request.POST)
         print(request.POST)
         email = request.POST['email']
 
@@ -38,17 +38,18 @@ def comingSoon(request):
                 return False
 
         if validateEmail(email):
-            if not Email.objects.filter(email=email).exists:
-                for key, value in myform.cleaned_data.items():
-                    setattr(myform.model, key, value)
-                    myform.model.save(myform.model)
+            if not Email.objects.filter(email=email).exists():
+            # creating an user object containing all the data
+                email_obj = Email(email= email)
+            # saving all the data in the current object into the database
+                email_obj.save()
                 context_dict = {'message': 'Thank You!'}
             else:
                 context_dict = {'message': 'You have already registered with us', 'form': myform}
         else:
             context_dict = {'value':email,'message': 'Enter a valid e-mail address', 'form': myform}
     else:
-        myform = Email()
+        myform = email_form()
         context_dict = {'form': myform}
 
     return render(request, 'comingSoon.html', context_dict)

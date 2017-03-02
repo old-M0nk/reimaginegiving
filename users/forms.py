@@ -1,5 +1,4 @@
 from django import forms
-from .models import Email
 
 
 # class Email(forms.ModelForm):
@@ -8,11 +7,10 @@ from .models import Email
 #         model = Email
 #         fields = ('email',)
 
-class Email(forms.Form):
+class email_form(forms.Form):
     email = forms.EmailField(required=True)
-    model = Email()
 
-    def clean_message(self):
-        email = self.cleaned_data.get("email")
-        if Email.objects.filter(email=email).exists():
-            raise forms.ValidationError("You have already registered with us")
+    # def clean_message(self):
+    #     email = self.cleaned_data.get("email")
+    #     if Email.objects.filter(email=email).exists():
+    #         raise forms.ValidationError("You have already registered with us")
