@@ -56,7 +56,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+X_FRAME_OPTIONS = 'DENY'
 ROOT_URLCONF = 'reimagine.urls'
 
 TEMPLATES = [
