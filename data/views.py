@@ -22,3 +22,31 @@ def index(request):
     return render(request, 'index.html', context_dict, context)
 
 
+def teamPage (request):
+    return render(request, 'teamPage.html')
+
+
+def userPage (request):
+    return render(request, 'userPage.html')
+
+
+def projectPage (request):
+    return render(request, 'projectPage.html')
+
+
+def viewAllProjects (request):
+    return render(request, 'viewAllProjects.html')
+
+
+def checkOut (request):
+    return render(request, 'checkOut.html')
+
+
+def projectPage (request):
+    return render(request, 'projectPage.html')
+
+def contactUsPage (request):
+    return render(request, 'contactUsPage.html')
+
+
+

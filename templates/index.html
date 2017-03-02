@@ -103,7 +103,7 @@
 			<div class="col-9 floatRight">
 				
 				<div class="col-8 logo">
-					<a href="index.html">
+					<a href="{% url 'index' %}">
 						<img src="{% static "logo/logo-final.png" %}"></img>
 					</a>
 				</div>
@@ -200,7 +200,7 @@
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
 						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
 						<div class="navBarProfileOptions">
-							 <a href="userPage.html"><h2>Profile</h2></a>
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
 							 <a href="#"><h2>My Donations</h2></a>
 							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
 						</div>
@@ -315,7 +315,7 @@
 		<p class="content"><br/>Give through <span>Reimagine</span> and become a part of the <span>Reimagine Trust Network</span>. 
 					<br/><br/>Get <span>independent, high quality</span> reports on the impact your money is making.<br/>
 		</p>
-		<a class="trustNetworkButton" href="comingSoon.html">
+		<a class="trustNetworkButton" href="{% url 'comingSoon' %}">
 			<svg>
 				<rect x="0" y="0" fill="none" width="100%" height="100%"/>
 			</svg>
@@ -326,7 +326,7 @@
 	<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Recommended Projects</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="viewAllProjects.html">View all</a></h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
             {% if projects%}
@@ -344,7 +344,7 @@
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
 							</div>
-							<a class="locationCauseLink" href="projectPage.html"></a>
+							<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
 						</div>
 					</div>
 					
@@ -395,12 +395,12 @@
 							</div>
 							
 							<div class="row projectSectionDonateButton">
-								<a href="checkOut.html"><h2>Donate</h2></a>
+								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="projectPage.html"></a>
+				<a class="divLink" href="{% url 'projectPage' %}"></a>
 			</div>
             {% endfor %}
             {% endif %}
@@ -410,7 +410,7 @@
 	<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Almost Funded</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="viewAllProjects.html">View all</a></h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
 
@@ -429,7 +429,7 @@
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
 							</div>
-							<a class="locationCauseLink" href="projectPage.html"></a>
+							<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
 						</div>
 					</div>
 					
@@ -480,12 +480,12 @@
 							</div>
 							
 							<div class="row projectSectionDonateButton">
-								<a href="checkOut.html"><h2>Donate</h2></a>
+								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="projectPage.html"></a>
+				<a class="divLink" href="{% url 'projectPage' %}"></a>
 			</div>
             {% endfor %}
 			{% endif %}
@@ -497,7 +497,7 @@
 	<div class="row connectWithFacebook">
 		<div class="col-7 connectWithFacebookLine"><h1>Giving Is<br>Always Better<br>When Done With <span>Friends</span></h1></div>
 		<div class="col-5 connectWithFacebookImage">
-			<a href="index.html">
+			<a href="{% url 'index' %}">
 				<img src="{% static "images/connectWithFacebook.png" %}">
 			</a>
 		</div>
@@ -507,7 +507,7 @@
 		<ul class="social-btns">
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
 						<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
@@ -516,7 +516,7 @@
 			</li>
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
 						<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
@@ -525,7 +525,7 @@
 			</li>
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-google-plus google"></i>
 						<i class="social-btn-face active fa fa-lg fa-google-plus google"></i>
@@ -534,7 +534,7 @@
 			</li>
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-pinterest-p pinterest"></i>
 						<i class="social-btn-face active fa fa-lg fa-pinterest-p pinterest"></i>
@@ -543,7 +543,7 @@
 			</li>
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-instagram instagram"></i>
 						<i class="social-btn-face active fa fa-lg fa-instagram instagram"></i>
@@ -552,7 +552,7 @@
 			</li>
 
 			<li>
-				<a href="index.html" class="social-btn-flip">
+				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-tumblr tumblr"></i>
 						<i class="social-btn-face active fa fa-lg fa-tumblr tumblr"></i>
@@ -569,28 +569,28 @@
 				<ul>
 					<li><h1>About Us</h1></li>
 					<li><h2><a>What is Reimagine?</a></h2></li>
-					<li><h2><a href="teamPage.html">Our Team</a></h2></li>
-					<li><h2><a href="contactUsPage.html">Contact Us</a></h2></li>
+					<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+					<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
 				</ul>
 			</div>
 			<div class="col-4 footerCauses" >
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="projectPage.html" >Education</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Poverty</a></h2>          </li>
-						<li><h2><a href="projectPage.html">Sanitation</a></h2>       </li>
-						<li><h2><a href="projectPage.html">Child Welfare</a></h2>    </li>
-						<li><h2><a href="projectPage.html">Women and Girls</a></h2>  </li>
-						<li><h2><a href="projectPage.html">Disaster Recovery</a></h2></li>
-						<li><h2><a href="projectPage.html">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="projectPage.html">Technology</a></h2>              </li>
-						<li><h2><a href="projectPage.html">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>
@@ -624,7 +624,7 @@
 			</div>
 		</div>
 		<div class="row footerBottom">
-			<a href="index.html">
+			<a href="{% url 'index' %}">
 				<img src="{% static "logo/logo-final-web-white.png" %}"></img>
 			</a>
 			<h2>cc 2017.</h2>

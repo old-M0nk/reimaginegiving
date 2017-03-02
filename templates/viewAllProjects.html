@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 <head>
 	<title>All Projects</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" type="text/css" href="common.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="header.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="explore.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="signUp.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="recommendedProjects.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="footer.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="exploreButton.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="fontAwesomeMin.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="socialShareBar.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="viewAllProjects.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signUp.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "recommendedProjects.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "viewAllProjects.css" %}" media="screen"/>
 	
-	<script src="cloudflare.js"></script>
-	<script src="cloudflare1.js"></script>
-	<script src="cloudflare5.js"></script>
-	<script src="explore.js"></script>
-	<script src="googleapi.js"></script>
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "cloudflare5.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
 </head>
 
 <body>
@@ -98,8 +98,8 @@
 			<div class="col-9 floatRight">
 				
 				<div class="col-8 logo">
-					<a href="index.html">
-						<img src="logo/logo-final.png"></img>
+					<a href="{% url 'index' %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
 					</a>
 				</div>
 				
@@ -123,7 +123,7 @@
 							  </div>
 							</div>
 							<div class="form-container actived">
-								<img src="logo/logo-final.png"/>
+								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
 									<form class="form-log-in animated">
 									  <input name="Username" placeholder="Username" type="text" />
@@ -165,7 +165,7 @@
 								  </div>
 								</div>
 								<div class="form-container1">
-									<img src="logo/logo-final.png"/>
+									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
 										<form class="form-log-in1 animated">
 										  <input name="Username" placeholder="Username" type="text" />
@@ -186,16 +186,16 @@
 								</div>
 							</div>
 						</div>
-						<script src='cloudflare.js'></script>
-						<script src='cloudflare1.js'></script>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
 						
-						<script src="SignUp.js"></script>
+						<script src="{% static "SignUp.js" %}"></script>
 					</div>
 					
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
 						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
 						<div class="navBarProfileOptions">
-							 <a href="userPage.html"><h2>Profile</h2></a>
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
 							 <a href="#"><h2>My Donations</h2></a>
 							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
 						</div>
@@ -296,17 +296,17 @@
 					<div class="projectSection1">
 						<div class="row projectContent">
 							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="images/web1.jpg" >
+								<img class="img-thumbnail" src="{% static "images/web1.jpg" %}" >
 								<div class="row locationCause">
 									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="images/locationThumbnail.png"></div>
+										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
 										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
 									</div>
 									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="images/causeThumbnail.png"></div>
+										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 									</div>
-									<a class="locationCauseLink" href="projectPage.html"></a>
+									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
 								</div>
 							</div>
 							
@@ -357,28 +357,28 @@
 									</div>
 									
 									<div class="row projectSectionDonateButton">
-										<a href="checkOut.html"><h2>Donate</h2></a>
+										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<a class="divLink" href="projectPage.html"></a>
+						<a class="divLink" href="{% url 'projectPage' %}"></a>
 					</div>
 					
 					<div class="projectSection2">
 						<div class="row projectContent">
 							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="images/web2.jpg" />
+								<img class="img-thumbnail" src="{% static "images/web2.jpg" %}" />
 								<div class="row locationCause">
 									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="images/locationThumbnail.png"></div>
+										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
 										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
 									</div>
 									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="images/causeThumbnail.png"></div>
+										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 									</div>
-									<a class="locationCauseLink" href="projectPage.html"></a>
+									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
 								</div>
 							</div>
 							
@@ -429,27 +429,27 @@
 								</div>
 								
 								<div class="row projectSectionDonateButton">
-									<a href="checkOut.html"><h2>Donate</h2></a>
+									<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 								</div>
 							</div>
 						</div>
-						<a class="divLink" href="projectPage.html"></a>
+						<a class="divLink" href="{% url 'projectPage' %}"></a>
 					</div>
 					
 					<div class="projectSection3">
 						<div class="row projectContent">
 							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="images/web3.jpg" >
+								<img class="img-thumbnail" src="{% static "images/web3.jpg" %}" >
 								<div class="row locationCause">
 									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="images/locationThumbnail.png"></div>
+										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
 										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
 									</div>
 									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="images/causeThumbnail.png"></div>
+										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 									</div>
-									<a class="locationCauseLink" href="projectPage.html"></a>
+									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
 								</div>
 							</div>
 							
@@ -499,11 +499,11 @@
 								</div>
 								
 								<div class="row projectSectionDonateButton">
-									<a href="checkOut.html"><h2>Donate</h2></a>
+									<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 								</div>
 							</div>
 						</div>
-						<a class="divLink" href="projectPage.html"></a>
+						<a class="divLink" href="{% url 'projectPage' %}"></a>
 					</div>
 				</div>
 			</div>
@@ -518,28 +518,28 @@
 				<ul>
 					<li><h1>About Us</h1></li>
 					<li><h2><a>What is Reimagine?</a></h2></li>
-					<li><h2><a href="teamPage.html">Our Team</a></h2></li>
-					<li><h2><a href="contactUsPage.html">Contact Us</a></h2></li>
+					<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+					<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
 				</ul>
 			</div>
 			<div class="col-4 footerCauses" >
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="projectPage.html" >Education</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Poverty</a></h2>          </li>
-						<li><h2><a href="projectPage.html">Sanitation</a></h2>       </li>
-						<li><h2><a href="projectPage.html">Child Welfare</a></h2>    </li>
-						<li><h2><a href="projectPage.html">Women and Girls</a></h2>  </li>
-						<li><h2><a href="projectPage.html">Disaster Recovery</a></h2></li>
-						<li><h2><a href="projectPage.html">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="projectPage.html">Technology</a></h2>              </li>
-						<li><h2><a href="projectPage.html">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>
@@ -573,8 +573,8 @@
 			</div>
 		</div>
 		<div class="row footerBottom">
-			<a href="index.html">
-				<img src="logo/logo-final-web-white.png"></img>
+			<a href="{% url 'index' %}">
+				<img src="{% static "logo/logo-final-web-white.png" %}"></img>
 			</a>
 			<h2>cc 2017.</h2>
 		</div>

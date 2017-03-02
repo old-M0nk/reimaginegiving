@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 <head>
 	<title>Digital Literacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" type="text/css" href="common.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="header.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="explore.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="signUp.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="recommendedProjects.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="footer.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="exploreButton.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="fontAwesomeMin.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="socialShareBar.css" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="contactUsPage.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signUp.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "recommendedProjects.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "contactUsPage.css" %}" media="screen"/>
 	
-	<script src="cloudflare.js"></script>
-	<script src="cloudflare1.js"></script>
-	<script src="cloudflare5.js"></script>
-	<script src="explore.js"></script>
-	<script src="googleapi.js"></script>
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "cloudflare5.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
 </head>
 
 <body>
@@ -98,8 +98,8 @@
 			<div class="col-9 floatRight">
 				
 				<div class="col-8 logo">
-					<a href="index.html">
-						<img src="logo/logo-final.png"></img>
+					<a href="{% url 'index' %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
 					</a>
 				</div>
 				
@@ -123,7 +123,7 @@
 							  </div>
 							</div>
 							<div class="form-container actived">
-								<img src="logo/logo-final.png"/>
+								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
 									<form class="form-log-in animated">
 									  <input name="Username" placeholder="Username" type="text" />
@@ -165,7 +165,7 @@
 								  </div>
 								</div>
 								<div class="form-container1">
-									<img src="logo/logo-final.png"/>
+									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
 										<form class="form-log-in1 animated">
 										  <input name="Username" placeholder="Username" type="text" />
@@ -186,16 +186,16 @@
 								</div>
 							</div>
 						</div>
-						<script src='cloudflare.js'></script>
-						<script src='cloudflare1.js'></script>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
 						
-						<script src="SignUp.js"></script>
+						<script src="{% static "SignUp.js" %}"></script>
 					</div>
 					
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
 						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
 						<div class="navBarProfileOptions">
-							 <a href="userPage.html"><h2>Profile</h2></a>
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
 							 <a href="#"><h2>My Donations</h2></a>
 							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
 						</div>
@@ -215,7 +215,7 @@
 				<div class="col-6 contactUsPageMessageForm">
 					<div class="contactUsPageMessageFormContent" id="contactUsPageMessageFormContent">
 						<div class="row contactUsPageMessageFormContentHeading">
-							<img src="images/messageIcon.png">
+							<img src="{% static "images/messageIcon.png" %}">
 							<h2>Send a Message</h2>
 						</div>
 						<form class="form" autocomplete="off" novalidate>
@@ -247,21 +247,21 @@
 					<div class="row contactUsPageEmailPhone">
 						<div class="row">
 							<div class="col-6 contactUsPagePhone">
-								<div class="row"><img src="images/callIcon.png"></div>
+								<div class="row"><img src="{% static "images/callIcon.png" %}"></div>
 								<h2>Call Us</h2>
 								<p>7891133332</p>
 							</div>
 							<div class="col-6 contactUsPageEmail">
-								<div class="row"><img src="images/emailIcon.png"></div>
+								<div class="row"><img src="{% static "images/emailIcon.jpg" %}"></div>
 								<h2>Email</h2>
 								<p>anuruddh.mishra@gmail.com</p>
 							</div>
 						</div>
 						<div class="row contactUsPageAddress">
-							<div class="row"><img src="images/locationIcon.png"></div>
+							<div class="row"><img src="{% static "images/locationIcon.png" %}"></div>
 							<h2><span>Visit Us</span></h2>
 							<p>IIT(BHU) Varanasi<br/>UP,India-221005</p>
-							<img class="contactUsPageMap" src="images/map.jpg">
+							<img class="contactUsPageMap" src="{% static "images/map.jpg" %}">
 						</div>
 						<div class="row contactUsPageMap">
 						</div>
@@ -272,7 +272,7 @@
 				<ul class="social-btns">
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
 								<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
@@ -281,7 +281,7 @@
 					</li>
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
 								<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
@@ -290,7 +290,7 @@
 					</li>
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-google-plus google"></i>
 								<i class="social-btn-face active fa fa-lg fa-google-plus google"></i>
@@ -299,7 +299,7 @@
 					</li>
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-pinterest-p pinterest"></i>
 								<i class="social-btn-face active fa fa-lg fa-pinterest-p pinterest"></i>
@@ -308,7 +308,7 @@
 					</li>
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-instagram instagram"></i>
 								<i class="social-btn-face active fa fa-lg fa-instagram instagram"></i>
@@ -317,7 +317,7 @@
 					</li>
 
 					<li>
-						<a href="index.html" class="social-btn-flip">
+						<a href="{% url 'index' %}" class="social-btn-flip">
 							<div class="social-btn-cube">
 								<i class="social-btn-face default fa fa-lg fa-tumblr tumblr"></i>
 								<i class="social-btn-face active fa fa-lg fa-tumblr tumblr"></i>
@@ -337,28 +337,28 @@
 				<ul>
 					<li><h1>About Us</h1></li>
 					<li><h2><a>What is Reimagine?</a></h2></li>
-					<li><h2><a href="teamPage.html">Our Team</a></h2></li>
-					<li><h2><a href="contactUsPage.html">Contact Us</a></h2></li>
+					<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+					<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
 				</ul>
 			</div>
 			<div class="col-4 footerCauses" >
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="projectPage.html" >Education</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Poverty</a></h2>          </li>
-						<li><h2><a href="projectPage.html">Sanitation</a></h2>       </li>
-						<li><h2><a href="projectPage.html">Child Welfare</a></h2>    </li>
-						<li><h2><a href="projectPage.html">Women and Girls</a></h2>  </li>
-						<li><h2><a href="projectPage.html">Disaster Recovery</a></h2></li>
-						<li><h2><a href="projectPage.html">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="projectPage.html">Technology</a></h2>              </li>
-						<li><h2><a href="projectPage.html">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="projectPage.html">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>
@@ -392,8 +392,8 @@
 			</div>
 		</div>
 		<div class="row footerBottom">
-			<a href="index.html">
-				<img src="logo/logo-final-web-white.png"></img>
+			<a href="{% url 'projectPage' %}">
+				<img src="{% static "logo/logo-final-web-white.png" %}"></img>
 			</a>
 			<h2>cc 2017.</h2>
 		</div>
