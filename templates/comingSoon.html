@@ -34,12 +34,37 @@
 		<p style="font-weight:normal;font-size:36px;padding-top:40px;">{{ message }}</p>
 		{% endif %}
 
-
-		<form class="search" method="POST">
+         {% if form %}
+		<form class="search" method="POST" action="{% url 'comingSoon' %}">
 			{% csrf_token %}
-			{{ form.email }}
-			<button type="submit">Notify Me</button>
+			<input type = "search" placeholder = "Enter your e-mail address" name = "email"
+            {% if value  %}
+                value="{{ value }}"
+            {% endif %}
+            />
+			<button type="submit" value="submit">Notify Me</button>
 		</form>
+        {% endif %}
 	</div>
 <script src="{% static "comingSoon.js" %}"></script>
 </body>
+
+
+{#<form class="login form-horizontal" method="POST" action="{% url 'account_login' %}">#}
+{#        {% csrf_token %}#}
+{##}
+{#        {% for field in form %}#}
+{#        <div class="form-group">#}
+{#        {{ field|add_class:"form-control" }}#}
+{#        {{field.errors}}#}
+{#        </div>#}
+{#        {% endfor %}#}
+{##}
+{##}
+{#        {% if redirect_field_value %}#}
+{#        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#        {% endif %}#}
+{#        <button class="btn btn-primary " type="submit">Sign In</button>#}
+{#        <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>#}
+{##}
+{#      </form>#}

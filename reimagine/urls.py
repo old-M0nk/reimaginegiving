@@ -31,7 +31,7 @@ urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('users.urls')), # for the coming soon page   #comment out when the site needs to be put up
+    url(r'^$', include('users.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^$', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...
     # url(r'^staff/', include('staff.urls')), # for the staff portal
