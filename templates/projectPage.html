@@ -215,7 +215,7 @@
 	<div class="row">
 		<div class="col-7 projectPageLeft">
 			<div class="projectPageProjectMainImage">
-				<img src="{% static "images/web3.jpg" %}">
+				<img src="{{ project.thumbnail.url }}">
 			</div>
 			<div class="row projectPageMainTabs">
 				<ul class="row projectPageMainTabsList">
@@ -234,12 +234,7 @@
 				</ul>
 			</div>
 			<div id="projectStory" class="row projectStory mainTabContent">
-				<p><br/>Early childhood education often focuses on learning through play, based on the research and philosophy of Jean Piaget, which posits that play meets the physical, intellectual, language, emotional and social needs (PILES) of children. Children's curiosity and imagination naturally evoke learning when unfettered. Learning through play will allow a child to develop cognitively.[8] Thus, children learn more efficiently and gain more knowledge through activities such as dramatic play, art, and social games.[9]
-					<br/><br/>Tassoni suggests that "some play opportunities will develop specific individual areas of development, but many will develop several areas."[10] Thus, It is important that practitioners promote children’s development through play by using various types of play on a daily basis. Allowing children to help get snacks ready helps develop math skills (one-to-one ratio, patterns, etc.), leadership, and communication.[11] Key guidelines for creating a play-based learning environment include providing a safe space, correct supervision, and culturally aware, trained teachers who are knowledgeable about the Early Years Foundation.
-                    <br/><br/>Davy states that the British Children's Act of 1989 links to play-work as the act works with play workers and sets the standards for the setting such as security, quality and staff ratios.[12] Learning through play has been seen regularly in practice as the most versatile way a child can learn. Margaret McMillan (1860-1931) suggested that children should be given free school meals, fruit and milk, and plenty of exercise to keep them physically and emotionally healthy. Rudolf Steiner (1861-1925) believed that play time allows children to talk, socially interact, use their imagination and intellectual skills. Marie Montessori (1870-1952) believed that children learn through movement and their senses and after doing an activity using their senses.
-						<br/><br/>In a more contemporary approach, organizations such as the National Association of the Education of Young Children (NAEYC) promote child-guided learning experiences, individualized learning, and developmentally appropriate learning as tenets of early childhood education.[13]
-					<br/><br/>Many oppose the theory of learning through play because they think children are not gaining new knowledge. In reality, play is the first way children learn to make sense of the world at a young age.
-					</p>
+                    {{ project.story }}
 				<div class="demo-gallery">
 					<ul id="lightgallery" class="lightgallery">
 					  <li class="lightgalleryimages" data-responsive="http://sachinchoolur.github.io/lightGallery/static/img/1-375.jpg 375, http://sachinchoolur.github.io/lightGallery/static/img/1-480.jpg 480, http://sachinchoolur.github.io/lightGallery/static/img/1.jpg 800" data-src="http://sachinchoolur.github.io/lightGallery/static/img/1-1600.jpg"
@@ -862,7 +857,7 @@
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 							</div>
-							<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+							<a class="locationCauseLink" href="{% url 'index' %}"></a>
 						</div>
 					</div>
 					
@@ -919,7 +914,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="{% url 'projectPage' %}"></a>
+				<a class="divLink" href="{% url 'index' %}"></a>
 			</div>
 			
 			<div class="projectSection2">
@@ -935,7 +930,7 @@
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 							</div>
-							<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+							<a class="locationCauseLink" href="{% url 'index' %}"></a>
 						</div>
 					</div>
 					
@@ -991,7 +986,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="{% url 'projectPage' %}"></a>
+				<a class="divLink" href="{% url 'index' %}"></a>
 			</div>
 			
 			<div class="projectSection3">
@@ -1007,7 +1002,7 @@
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 							</div>
-							<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+							<a class="locationCauseLink" href="{% url 'index' %}"></a>
 						</div>
 					</div>
 					
@@ -1062,7 +1057,7 @@
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="{% url 'projectPage' %}"></a>
+				<a class="divLink" href="{% url 'index' %}"></a>
 			</div>
 		</div>
 	</div>
@@ -1082,20 +1077,20 @@
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
-						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
-						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'index' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'index' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>
@@ -1136,4 +1131,5 @@
 		</div>
 		</div>
 	</footer>
+
 </body>

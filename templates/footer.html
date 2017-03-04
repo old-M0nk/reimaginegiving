@@ -1,0 +1,77 @@
+
+{#{% extends 'projectPage.html' %}#}
+{#{% extends 'contactUsPage.html' %}#}
+{#{% extends 'teamPage.html' %}#}
+{#{% extends 'checkOut.html' %}#}
+{#{% extends 'userPage.html' %}#}
+{#{% extends 'viewAllProjects.html' %}#}
+{% block footer %}
+{% endblock %}
+<footer>
+		<div class="row footerOptions">
+			<div class="col-2 footerAboutUs">
+				<ul>
+					<li><h1>About Us</h1></li>
+					<li><h2><a>What is Reimagine?</a></h2></li>
+					<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+					<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
+				</ul>
+			</div>
+			<div class="col-4 footerCauses" >
+				<div class="col-6 footerCauses1">
+					<ul>
+						<li><h1>Causes</h1>                  </li>
+						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'index' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'index' %}">LGBTQ</h2>                </li>
+					</ul>
+				</div>
+				<div class="col-6 footerCauses2">
+					<ul>
+						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-2 footerWorks">
+				<ul>
+					<li><h1>How it Works</h1>                      </li>
+					<li><h2><a>Stuff</a></h2>                      </li>
+					<li><h2><a>Stuff Stuff</a></h2>                </li>
+					<li><h2><a>We really need to think</a></h2>    </li>
+					<li><h2><a>about this</a></h2>                 </li>
+					<li><h2><a>well not anymore</a></h2>           </li>
+					<li><h2><a>VJ **</a></h2>                      </li>
+				</ul>
+			</div>
+			<div class="col-4 footerContactShare">
+				<ul>
+					<li><h1>Contact Us</h1></li>
+					<li><h2><span>Email: </span>mishraanuruddh14@gmail.com</h2></li>
+					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+					<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+					<li>
+						<a><i class="fa fa-facebook"></i>   </a>
+						<a><i class="fa fa-google-plus"></i></a>
+						<a><i class="fa fa-twitter"></i>    </a>
+						<a><i class="fa fa-youtube"></i>    </a>
+						<a><i class="fa fa-instagram"></i>  </a>
+						<a><i class="fa fa-whatsapp"></i>   </a>
+						<a><i class="fa fa-linkedin"></i>   </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row footerBottom">
+			<a href="{% url 'index' %}">
+{#				<img src="{% static "logo/logo-final-web-white.png" %}"></img>#}
+			</a>
+			<h2>cc 2017.</h2>
+		</div>
+		</div>
+</footer>

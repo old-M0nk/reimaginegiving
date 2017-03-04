@@ -30,8 +30,11 @@ def userPage (request):
     return render(request, 'userPage.html')
 
 
-def projectPage (request):
-    return render(request, 'projectPage.html')
+def projectPage (request, pk):
+    context = RequestContext(request)
+    project = Project.objects.get(project_id=pk)
+    context_dict = {'project': project}
+    return render(request, 'projectPage.html', context_dict, context)
 
 
 def viewAllProjects (request):
@@ -41,9 +44,6 @@ def viewAllProjects (request):
 def checkOut (request):
     return render(request, 'checkOut.html')
 
-
-def projectPage (request):
-    return render(request, 'projectPage.html')
 
 def contactUsPage (request):
     return render(request, 'contactUsPage.html')

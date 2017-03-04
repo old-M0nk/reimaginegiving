@@ -24,6 +24,9 @@ class Project(models.Model):
     zip = models.IntegerField(blank = True)
     person_of_contact = models.CharField(max_length = 100)
     summary = models.TextField(blank = False)
+    story = models.TextField(blank = True)
+    thumbnail = models.ImageField(blank = True)# thumbnail image
+    banner = models.ImageField(blank = True)# banner image
    # team_member_id = models.ForeignKey('Team_Member' , on_delete=models.SET('team member not set'))#FK? #Can be a many-to-many relation?
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))
 

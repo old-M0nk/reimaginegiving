@@ -17,6 +17,8 @@ from django.conf.urls import include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 admin.autodiscover()
 
 urlpatterns = [
@@ -36,4 +38,4 @@ urlpatterns = [
     # url(r'^users/', include('users.urls')),# once the user logs in...
     # url(r'^staff/', include('staff.urls')), # for the staff portal
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
