@@ -31,7 +31,7 @@
 @font-face {
     font-family: SourceSansPro-Bold;
     font-weight: 700;
-    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700);
 }
 @font-face {
     font-family: SourceSansPro-ExtraLight;
@@ -41,23 +41,23 @@
 @font-face {
     font-family: SourceSansPro-Light;
     font-weight: 300;
-    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 }
 @font-face {
     font-family: SourceSansPro-SemiBold;
     font-weight: 600;
-    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:600);
 }
 @font-face {
     font-family: SourceSansPro-Black;
     font-weight: 900;
-    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:900);
 }
 
 @font-face {
     font-family: SourceSansPro-Regular;
     font-weight: 400;
-    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400);
 }
 
 
