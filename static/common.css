@@ -23,31 +23,31 @@
     src: url(fonts/Poppins/Poppins-Regular.ttf);
 }
 
-@font-face {
-    font-family: SourceSansPro-Bold;
-    src: url(fonts/SourceSansPro/SourceSansPro-Bold.ttf);
-}
-@font-face {
-    font-family: SourceSansPro-ExtraLight;
-    src: url(fonts/SourceSansPro/SourceSansPro-ExtraLight.ttf);
-}
-@font-face {
-    font-family: SourceSansPro-Light;
-    src: url(fonts/SourceSansPro/SourceSansPro-Light.ttf);
-}
-@font-face {
-    font-family: SourceSansPro-SemiBold;
-    src: url(fonts/SourceSansPro/SourceSansPro-SemiBold.ttf);
-}
-@font-face {
-    font-family: SourceSansPro-Black;
-    src: url(fonts/SourceSansPro/SourceSansPro-Black.ttf);
-}
+/*@font-face {*/
+    /*font-family: SourceSansPro-Bold;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-Bold.ttf);*/
+/*}*/
+/*@font-face {*/
+    /*font-family: SourceSansPro-ExtraLight;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-ExtraLight.ttf);*/
+/*}*/
+/*@font-face {*/
+    /*font-family: SourceSansPro-Light;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-Light.ttf);*/
+/*}*/
+/*@font-face {*/
+    /*font-family: SourceSansPro-SemiBold;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-SemiBold.ttf);*/
+/*}*/
+/*@font-face {*/
+    /*font-family: SourceSansPro-Black;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-Black.ttf);*/
+/*}*/
 
-@font-face {
-    font-family: SourceSansPro-Regular;
-    src: url(fonts/SourceSansPro/SourceSansPro-Regular.ttf);
-}
+/*@font-face {*/
+    /*font-family: SourceSansPro-Regular;*/
+    /*src: url(fonts/SourceSansPro/SourceSansPro-Regular.ttf);*/
+/*}*/
 
 
 .col-1 {width: 8.33%;}

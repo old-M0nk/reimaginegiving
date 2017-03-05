@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/common.css" afterPath="$PROJECT_DIR$/static/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +44,8 @@
       <file leaf-file-name="common.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+            <state relative-caret-position="306">
+              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -53,8 +54,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="58" />
+            <state relative-caret-position="136">
+              <caret line="8" column="114" lean-forward="false" selection-start-line="8" selection-start-column="114" selection-end-line="8" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -146,13 +147,13 @@
         <option value="$PROJECT_DIR$/data/urls.py" />
         <option value="$PROJECT_DIR$/data/views.py" />
         <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/checkOut.html" />
         <option value="$PROJECT_DIR$/templates/projectPage.html" />
         <option value="$PROJECT_DIR$/templates/teamPage.html" />
         <option value="$PROJECT_DIR$/templates/userPage.html" />
         <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
         <option value="$PROJECT_DIR$/reimagine/urls.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/common.css" />
       </list>
     </option>
@@ -945,8 +946,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="58" />
+        <state relative-caret-position="136">
+          <caret line="8" column="114" lean-forward="false" selection-start-line="8" selection-start-column="114" selection-end-line="8" selection-end-column="114" />
           <folding />
         </state>
       </provider>
@@ -961,8 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        <state relative-caret-position="306">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding />
         </state>
       </provider>
