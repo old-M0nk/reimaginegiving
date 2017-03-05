@@ -4,6 +4,11 @@
 <head xmlns="http://www.w3.org/1999/html">
 	<title>Digital Literacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://use.fontawesome.com/751caf333d.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
@@ -48,7 +53,8 @@
 							<span  onclick="myfunction1()">
 								<div class="exploreHeading1 row">
 									<div class="col-9"><h2>Location</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<div class="inputField" id="locationInput">
@@ -69,7 +75,8 @@
 							<span onclick="myfunction2()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Funding</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
@@ -83,7 +90,8 @@
 							<span  onclick="myfunction3()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Causes</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
@@ -409,7 +417,7 @@
 			</div>
 			<div id="projectReports" class="row projectReports mainTabContent">
 				<ul>
-					<li class="Report reporteight">
+					<li class="Report reporteight" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 							<a>Video<br/>Included</a>
@@ -432,7 +440,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportseven">
+					<li class="Report reportseven" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -454,7 +462,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportsix">
+					<li class="Report reportsix" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -476,7 +484,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportfive">
+					<li class="Report reportfive" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -498,7 +506,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportfour">
+					<li class="Report reportfour" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -520,7 +528,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportthree">
+					<li class="Report reportthree" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -542,7 +550,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reporttwo">
+					<li class="Report reporttwo" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
@@ -564,7 +572,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="Report reportone">
+					<li class="Report reportone" onclick="openInNewTab('{% url 'index' %}')">
 						<div class="col-6">
 							<img src="{% static "images/pizza.jpg" %}" />
 						</div>
