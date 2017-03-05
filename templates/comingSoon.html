@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+	<title>Re!magine Giving</title>
+	<link rel="stylesheet" type="text/css" href="{% static "comingSoon.css" %}" media="screen"/>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet">
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</head>
+
+<body style="background-color:white;width:100vw;overflow:hidden;">
+	<div style="height:50vh;text-align:center;width:100vw;position:relative;overflow:hidden;">
+		<div style="position:absolute;bottom:-26px;width:100vw;">
+		<img src="{% static "logo/logo.png" %}" style="height:50px;">
+		</div>
+	</div>
+
+	<div class="slider">
+		<div class="slide_viewer">
+			<div class="slide_group">
+				<div class="slide"><h1>GROWTH</h1></div>
+				<div class="slide"><h1>HOPE</h1></div>
+				<div class="slide"><h1>DEVELOPMENT</h1></div>
+				<div class="slide"><h1>TRUST</h1></div>
+				<div class="slide"><h1>GIVING</h1></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="text-align:center;position:relative;width:100vw;padding:0;margin:0;">
+		<p style="font-weight:normal;font-size:36px;padding-top:40px;">Coming Soon.</p>
+
+		{% if message %}
+		<p style="font-weight:normal;font-size:36px;padding-top:40px;">{{ message }}</p>
+		{% endif %}
+
+         {% if form %}
+		<form class="search" method="POST" action="{% url 'comingSoon' %}">
+			{% csrf_token %}
+			<input type = "search" placeholder = "Enter your e-mail address" name = "email"
+            {% if value  %}
+                value="{{ value }}"
+            {% endif %}
+            />
+			<button type="submit" value="submit">Notify Me</button>
+		</form>
+        {% endif %}
+	</div>
+<script src="{% static "comingSoon.js" %}"></script>
+</body>
+
+
+{#<form class="login form-horizontal" method="POST" action="{% url 'account_login' %}">#}
+{#        {% csrf_token %}#}
+{##}
+{#        {% for field in form %}#}
+{#        <div class="form-group">#}
+{#        {{ field|add_class:"form-control" }}#}
+{#        {{field.errors}}#}
+{#        </div>#}
+{#        {% endfor %}#}
+{##}
+{##}
+{#        {% if redirect_field_value %}#}
+{#        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#        {% endif %}#}
+{#        <button class="btn btn-primary " type="submit">Sign In</button>#}
+{#        <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>#}
+{##}
+{#      </form>#}
