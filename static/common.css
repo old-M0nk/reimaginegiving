@@ -23,31 +23,37 @@
     src: url(fonts/Poppins/Poppins-Regular.ttf);
 }
 
-/*@font-face {*/
-    /*font-family: SourceSansPro-Bold;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-Bold.ttf);*/
-/*}*/
-/*@font-face {*/
-    /*font-family: SourceSansPro-ExtraLight;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-ExtraLight.ttf);*/
-/*}*/
-/*@font-face {*/
-    /*font-family: SourceSansPro-Light;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-Light.ttf);*/
-/*}*/
-/*@font-face {*/
-    /*font-family: SourceSansPro-SemiBold;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-SemiBold.ttf);*/
-/*}*/
-/*@font-face {*/
-    /*font-family: SourceSansPro-Black;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-Black.ttf);*/
-/*}*/
+@font-face {
+    font-family: SourceSansPro-Bold;
+    font-weight: 700;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
+@font-face {
+    font-family: SourceSansPro-ExtraLight;
+    font-weight: 200;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
+@font-face {
+    font-family: SourceSansPro-Light;
+    font-weight: 300;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
+@font-face {
+    font-family: SourceSansPro-SemiBold;
+    font-weight: 600;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
+@font-face {
+    font-family: SourceSansPro-Black;
+    font-weight: 900;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
 
-/*@font-face {*/
-    /*font-family: SourceSansPro-Regular;*/
-    /*src: url(fonts/SourceSansPro/SourceSansPro-Regular.ttf);*/
-/*}*/
+@font-face {
+    font-family: SourceSansPro-Regular;
+    font-weight: 400;
+    src: url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900);
+}
 
 
 .col-1 {width: 8.33%;}
