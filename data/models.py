@@ -27,8 +27,16 @@ class Project(models.Model):
     story = models.TextField(blank = True)
     thumbnail = models.ImageField(blank = True)# thumbnail image
     banner = models.ImageField(blank = True)# banner image
-   # team_member_id = models.ForeignKey('Team_Member' , on_delete=models.SET('team member not set'))#FK? #Can be a many-to-many relation?
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))
+    project_page_desc = models.CharField(max_length=300, blank=True)
+    RATINGS = (
+        ('1', 1),
+        ('2', 2),
+        ('3', 3),
+        ('4', 4),
+        ('5', 5),
+    )
+    # rating = models.IntegerField(choices=RATINGS, blank=False)
 
     def __str__(self):
         return self.title
@@ -41,7 +49,7 @@ class NGO(models.Model):
     address = models.CharField(max_length = 200, blank = False)
     website = models.URLField()
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))#FK? #Can be a many-to-many relation?
-
+    project_page_desc = models.TextField(blank=True)
     def __str__(self):
         return self.name
 
@@ -61,6 +69,8 @@ class Audit(models.Model):
 
     def __unicode__(self):
         return "%s : %s" % (self.project_id, self.consultant_id)
+
+
 
 
 

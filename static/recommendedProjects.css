@@ -27,7 +27,7 @@
 .recommendedProjectsHeading h2{
 	font-size: 30px;
 	font-family: Poppins-Light;
-	padding-left: 12.5%;
+	padding-left: 4.5vw;
 }
 
 .recommendedProjectsHeading a:hover:after {
@@ -67,7 +67,7 @@
 }
 
 .projectSection1{
-	margin-left: 4.5%;
+	margin-left: 4.5vw;
 }
 
 .projectSection2, .projectSection3{
@@ -145,7 +145,6 @@
 }
 
 .progress-bar {
-	width: 50%;
 	background-color: rgb(0,180,255);
 	height: 5px;
 	border-radius: 2px;

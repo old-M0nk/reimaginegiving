@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load tags %}
 <head>
 	<title>All Projects</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -290,222 +291,85 @@
 			
 			<div class="row projects">
 				<div class="row recommendedProjectsHeading">
-					<h2 class="col-6">EXPLORE ALL <span>3</span> PROJECTS</h2>
+					<h2 class="col-6">EXPLORE ALL <span>{{ count }}</span> PROJECTS</h2>
 				</div>
 				<div class="row projectsContent">
-					<div class="projectSection1">
-						<div class="row projectContent">
-							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="{% static "images/web1.jpg" %}" >
-								<div class="row locationCause">
-									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
-									</div>
-									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
-									</div>
-									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
-								</div>
+            {% if projects%}
+            {% for project in projects %}
+			<div class="projectSection1">
+				<div class="row projectContent">
+					<div class="projectThumbnail">
+						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >
+						<div class="row locationCause">
+							<div class="projectlocation">
+								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
+								<div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
 							</div>
-							
-							<div class="projectDetails">
-								<h1>Child Education Project</h1>
-								<h2>Nirmaan Society</h2>
-								<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-								</p>
+							<div class="projectcause">
+								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
+								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
 							</div>
-							
-							<div class="row projectBottom">
-								<div class="row" style="position:relative;">
-									<div class="row projectStats">
-										<div class="row" style="margin-bottom: 12px;">
-											<h2 class="floatRight">50%</h2>
-										</div>
-										
-										<div class="row progress">
-											<div class="progress-bar"></div>
-										</div>
-										
-										<div class="row">
-											<div class="stats1 col-5">
-												<div class="statsNumber">
-													<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
-												</div>
-												<div class="statsText">
-													<p>Raised</p>
-												</div>
-											</div>
-											<div class="stats2 col-4">
-												<div class="statsNumber">
-													<p>105</p>
-												</div>
-												<div class="statsText">
-													<p>Donors</p>
-												</div>
-											</div>
-											<div class="stats3 col-3">
-												<div class="statsNumber">
-													<p>14</p>
-												</div>
-												<div class="statsText">
-													<p>Days left</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="row projectSectionDonateButton">
-										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
-									</div>
-								</div>
-							</div>
+							<a class="locationCauseLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
 						</div>
-						<a class="divLink" href="{% url 'projectPage' %}"></a>
 					</div>
-					
-					<div class="projectSection2">
-						<div class="row projectContent">
-							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="{% static "images/web2.jpg" %}" />
-								<div class="row locationCause">
-									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
-									</div>
-									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
-									</div>
-									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
-								</div>
-							</div>
-							
-							
-								<div class="projectDetails">
-									<h1>Child Education Project</h1>
-									<h2>Nirmaan Society</h2>
-									<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-										</p>
-								</div>
-								
-								<div class="row projectBottom">
-								<div class="row projectStats">
-									<div class="row" style="margin-bottom: 12px;">
-										<h2 class="floatRight">50%</h2>
-									</div>
-									
-									<div class="row progress">
-										<div class="progress-bar"></div>
-									</div>
-									
-									<div class="row">
-										<div class="stats1 col-5">
-											<div class="statsNumber">
-												<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
-											</div>
-											<div class="statsText">
-												<p>Raised</p>
-											</div>
-										</div>
-										<div class="stats2 col-4">
-											<div class="statsNumber">
-												<p>105</p>
-											</div>
-											<div class="statsText">
-												<p>Donors</p>
-											</div>
-										</div>
-										<div class="stats3 col-3">
-											<div class="statsNumber">
-												<p>14</p>
-											</div>
-											<div class="statsText">
-												<p>Days left</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row projectSectionDonateButton">
-									<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
-								</div>
-							</div>
-						</div>
-						<a class="divLink" href="{% url 'projectPage' %}"></a>
+
+					<div class="projectDetails">
+						<h1>{{ project.title }}</h1>
+						<h2>{{ project.ngo_id.name }}</h2>
+						<p>{{ project.summary }}
+						</p>
 					</div>
-					
-					<div class="projectSection3">
-						<div class="row projectContent">
-							<div class="projectThumbnail">
-								<img class="img-thumbnail" src="{% static "images/web3.jpg" %}" >
-								<div class="row locationCause">
-									<div class="projectlocation">
-										<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-										<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
+
+					<div class="row projectBottom">
+						<div class="row" style="position:relative;">
+							<div class="row projectStats">
+								<div class="row" style="margin-bottom: 12px;">
+									<h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
+								</div>
+
+								<div class="row progress">
+									<div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%;"></div>
+								</div>
+
+								<div class="row">
+									<div class="stats1 col-5">
+										<div class="statsNumber">
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
+										</div>
+										<div class="statsText">
+											<p>Raised</p>
+										</div>
 									</div>
-									<div class="projectcause">
-										<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-										<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
+									<div class="stats2 col-4">
+										<div class="statsNumber">
+											<p>105</p>
+										</div>
+										<div class="statsText">
+											<p>Donors</p>
+										</div>
 									</div>
-									<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+									<div class="stats3 col-3">
+										<div class="statsNumber">
+											<p>14</p>
+										</div>
+										<div class="statsText">
+											<p>Days left</p>
+										</div>
+									</div>
 								</div>
 							</div>
-							
-							<div class="projectDetails">
-								<h1>Child Education Project</h1>
-								<h2>Nirmaan Society</h2>
-								<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-									</p>
-							</div>
-							
-							<div class="row projectBottom">
-								<div class="row projectStats">
-									<div class="row" style="margin-bottom: 12px;">
-										<h2 class="floatRight">50%</h2>
-									</div>
-									
-									<div class="row progress">
-										<div class="progress-bar"></div>
-									</div>
-									
-									<div class="row">
-										<div class="stats1 col-5">
-											<div class="statsNumber">
-												<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
-											</div>
-											<div class="statsText">
-												<p>Raised</p>
-											</div>
-										</div>
-										<div class="stats2 col-4">
-											<div class="statsNumber">
-												<p>105</p>
-											</div>
-											<div class="statsText">
-												<p>Donors</p>
-											</div>
-										</div>
-										<div class="stats3 col-3">
-											<div class="statsNumber">
-												<p>14</p>
-											</div>
-											<div class="statsText">
-												<p>Days left</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row projectSectionDonateButton">
-									<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
-								</div>
+
+							<div class="row projectSectionDonateButton">
+								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
 							</div>
 						</div>
-						<a class="divLink" href="{% url 'projectPage' %}"></a>
 					</div>
 				</div>
+				<a class="divLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
+			</div>
+            {% endfor %}
+            {% endif %}
+		</div>
 			</div>
 				
 		</div>
@@ -526,20 +390,20 @@
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
-						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
-						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'index' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'index' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>

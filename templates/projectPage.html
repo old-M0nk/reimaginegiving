@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<head>
+{% load tags %}
+<head xmlns="http://www.w3.org/1999/html">
 	<title>Digital Literacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -593,31 +594,38 @@
 		<div class="col-3 projectPageRight">
 			<div class="row projectPageProjectBasicInfo">
 				<div class="row projectPageTitle">
-					<h2>Digital Literacy In</h2>
-					<h2>Chamladevi Intercollege</h2>
+					<h2>{{ project.title }}</h2>
 				</div>
 				<div class="row projectPageProjectInfo">
-					<div class="col-4"><p><i class="fa fa-bookmark"></i> Education</p></div>
-					<div class="col-4 projectPageProjectLocation"><p><i class="fa fa-map-marker"></i> Varanasi</p></div>
-					<div class="col-4"><p><i class="fa fa-star glow"></i><i class="fa fa-star glow"></i><i class="fa fa-star glow"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p></div>
+					<div class="col-4"><p><i class="fa fa-bookmark"></i>{{ project.cause.name }}</p></div>
+					<div class="col-4 projectPageProjectLocation"><p><i class="fa fa-map-marker"></i>{{ project.ngo_id.address }}</p></div>
+					<div class="col-4">
+                        <p>
+                            <i class="fa fa-star {% if stars == 1 %}glow{% endif %}"></i>
+                            <i class="fa fa-star {% if stars == 2 %}glow{% endif %}"></i>
+                            <i class="fa fa-star {% if stars == 3 %}glow{% endif %}"></i>
+                            <i class="fa fa-star"{% if stars == 4 %}glow{% endif %}></i>
+                            <i class="fa fa-star"{% if stars == 5 %}glow{% endif %}></i>
+                        </p>
+                    </div>
 				</div>
 				<div class="row projectPageProjectTagLine">
-					<p>A digital literacy project being undertaken by the students of IIT(BHU) Varanasi in Jayapur village.</p>
+					<p>{{ desc }}</p>
 				</div>
 				<div class="row projectPageProjectInfoBottom">
 					<div class="row projectPageProjectFullStats">
 						<div class="row projectPageProjectFundRequired">
-							<h2 class="floatRight">Rs 20,000 Needed</h2>
+							<h2 class="floatRight">Rs {{ amount_left }} Needed</h2>
 						</div>
 						
 						<div class="row projectPageProjectProgress">
-							<div class="progress-bar"></div>
+							<div class="progress-bar" style="width: {{ progress_percent }}% "></div>
 						</div>
 						
 						<div class="row projectPageProjectStats">
 							<div class="stats1 col-5">
 								<div class="statsNumber">
-									<p>Rs 75,000</p>
+									<p>Rs {{ project.raised_amount }}</p>
 								</div>
 								<div class="statsText">
 									<p>Raised</p>
@@ -643,9 +651,28 @@
 					</div>
 					
 					<div class="row projectPageDonateShare">
-						<div class="col-6 projectPageDonate"><h2>Donate</h2></div>
-						<div class="col-6 projectPageShare"><h2>Share</h2></div>
+						<div class="col-6 projectPageDonate" onclick="openDonationInput()">
+							<div class="projectPageDonateButton">
+								<h2>Donate</h2>
+							</div>
+						</div>
+						<div class="col-6 projectPageShare">
+					        <div class="projectPageShareButton" onClick="openShareBoxOverlay()">
+								<h2>Share</h2>
+							</div>
+						</div>
 					</div>
+				</div>
+			</div>
+        <div class="row projectPageDonateShareClick">
+				<div class="projectPageDonateButtonClick" id="projectPageDonateButtonClick">
+{#                    {% if form %}#}
+		            <form class="donate" method="POST" action="{% url 'checkOut' pk=project.project_id %}">
+                        {% csrf_token %}
+					    <input id="search" name="amount" type="number" placeholder="Amount"/>
+					    <button class="projectPageDonateFinalButton">Donate</button>
+                    </form>
+{#                    {% endif %}#}
 				</div>
 			</div>
 			
@@ -660,16 +687,16 @@
 					</li>
 				</ul>
 				<div id="projectPageDonationOptionsOnceOptions" class="row projectPageDonationOptionsOnceOptions donationOptionsTabContent">
-					<div class="row projectPageDonationOption">
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption" >
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 5,000</h2>
 							<h2>(INR)</h2>
 						</div>
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
-						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                        </div>
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 10,000</h2>
 							<h2>(INR)</h2>
@@ -677,8 +704,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 25,000</h2>
 							<h2>(INR)</h2>
@@ -686,8 +713,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 50,000</h2>
 							<h2>(INR)</h2>
@@ -695,8 +722,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 75,000</h2>
 							<h2>(INR)</h2>
@@ -704,8 +731,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 127,000</h2>
 							<h2>(INR)</h2>
@@ -714,10 +741,11 @@
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
 					</div>
-				</div>
+                    </a>
+                </div>
 				
 				<div id="projectPageDonationOptionsMonthlyOptions" class="row projectPageDonationOptionsMonthlyOptions donationOptionsTabContent">
-					<div class="row projectPageDonationOption">
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 5,000</h2>
 							<h2>(INR)</h2>
@@ -725,8 +753,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 10,000</h2>
 							<h2>(INR)</h2>
@@ -734,8 +762,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 25,000</h2>
 							<h2>(INR)</h2>
@@ -752,8 +780,8 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
-					<div class="row projectPageDonationOption">
+                    </div></a>
+					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption">
 						<div class="col-3 projectPageDonationAmount">
 							<h2>Rs 75,000</h2>
 							<h2>(INR)</h2>
@@ -761,19 +789,16 @@
 						<div class="col-9 projectPageDonationReason">
 							<h2>Buy Stuff and give Stuff places. Thank you note.</h2>
 						</div>
-					</div>
+                    </div></a>
 				</div>
 				
 			</div>
-		
+		<script src="{% static "projectPageMainTabs.js" %}"></script>
 			<div class="row projectPageAboutNGO">
 				<h1 class="projectPageAboutNGOBannerHeading">About the NGO</h1>
 				<div class="projectPageAboutNGOData">
-					<h2 class="projectPageAboutNGOHeading">Nirmaan Society</h2>
-					<p class="projectPageAboutNGOContent">Nirogdham Manav Kalyan (NIRMAN) society is a trusted name in the field of Child Development and Childhood Disability.
-					It is a group of professionals and parents working with children with Neurodevelopmental Disorders and Neuromuscular Diseases. 
-					<br/><br/>It is the only Pediatric Habilitation Centre in Bhiwani (Haryana) which works exclusively for High Risks Infants, Children with Brain Injury, Delayed Milestones and Developmental Disabilities. 
-					The specialized developmental pediatric clinic works as out patient department and provides holistic pediatric therapy.</p>
+					<h2 class="projectPageAboutNGOHeading">{{ name }}</h2>
+					<p class="projectPageAboutNGOContent">{{ ngo_desc }}</p>
 				</div>
 			</div>
 		</div>
@@ -842,48 +867,50 @@
 	<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Recommended Projects</h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
+            {% if projects%}
+            {% for project in projects %}
 			<div class="projectSection1">
 				<div class="row projectContent">
 					<div class="projectThumbnail">
-						<img class="img-thumbnail" src="{% static "images/web1.jpg.jpg" %}" >
+						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >
 						<div class="row locationCause">
 							<div class="projectlocation">
 								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-								<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
+								<div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
 							</div>
 							<div class="projectcause">
 								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
+								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
 							</div>
-							<a class="locationCauseLink" href="{% url 'index' %}"></a>
+							<a class="locationCauseLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
 						</div>
 					</div>
-					
+
 					<div class="projectDetails">
-						<h1>Child Education Project</h1>
-						<h2>Nirmaan Society</h2>
-						<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-							<br>This project will help kids get education, master the ways of the force and become Jedi.
+						<h1>{{ project.title }}</h1>
+						<h2>{{ project.ngo_id.name }}</h2>
+						<p>{{ project.summary }}
 						</p>
 					</div>
-					
+
 					<div class="row projectBottom">
 						<div class="row" style="position:relative;">
 							<div class="row projectStats">
 								<div class="row" style="margin-bottom: 12px;">
-									<h2 class="floatRight">50%</h2>
+									<h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
 								</div>
-								
+
 								<div class="row progress">
-									<div class="progress-bar"></div>
+									<div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%;"></div>
 								</div>
-								
+
 								<div class="row">
 									<div class="stats1 col-5">
 										<div class="statsNumber">
-											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
 										</div>
 										<div class="statsText">
 											<p>Raised</p>
@@ -907,161 +934,19 @@
 									</div>
 								</div>
 							</div>
-							
+
 							<div class="row projectSectionDonateButton">
-								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+								<a href="{% url 'checkOut' pk=project.project_id %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<a class="divLink" href="{% url 'index' %}"></a>
+				<a class="divLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
 			</div>
-			
-			<div class="projectSection2">
-				<div class="row projectContent">
-					<div class="projectThumbnail">
-						<img class="img-thumbnail" src="{% static "images/web2.jpg" %}" />
-						<div class="row locationCause">
-							<div class="projectlocation">
-								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-								<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
-							</div>
-							<div class="projectcause">
-								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
-							</div>
-							<a class="locationCauseLink" href="{% url 'index' %}"></a>
-						</div>
-					</div>
-					
-					
-						<div class="projectDetails">
-							<h1>Child Education Project</h1>
-							<h2>Nirmaan Society</h2>
-							<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-								<br>This project will help kids get education, master the ways of the force and become Jedi.
-							</p>
-						</div>
-						
-						<div class="row projectBottom">
-						<div class="row projectStats">
-							<div class="row" style="margin-bottom: 12px;">
-								<h2 class="floatRight">50%</h2>
-							</div>
-							
-							<div class="row progress">
-								<div class="progress-bar"></div>
-							</div>
-							
-							<div class="row">
-								<div class="stats1 col-5">
-									<div class="statsNumber">
-										<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
-									</div>
-									<div class="statsText">
-										<p>Raised</p>
-									</div>
-								</div>
-								<div class="stats2 col-4">
-									<div class="statsNumber">
-										<p>105</p>
-									</div>
-									<div class="statsText">
-										<p>Donors</p>
-									</div>
-								</div>
-								<div class="stats3 col-3">
-									<div class="statsNumber">
-										<p>14</p>
-									</div>
-									<div class="statsText">
-										<p>Days left</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row projectSectionDonateButton">
-							<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
-						</div>
-					</div>
-				</div>
-				<a class="divLink" href="{% url 'index' %}"></a>
-			</div>
-			
-			<div class="projectSection3">
-				<div class="row projectContent">
-					<div class="projectThumbnail">
-						<img class="img-thumbnail" src="{% static "images/web3.jpg" %}" >
-						<div class="row locationCause">
-							<div class="projectlocation">
-								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-								<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
-							</div>
-							<div class="projectcause">
-								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-								<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
-							</div>
-							<a class="locationCauseLink" href="{% url 'index' %}"></a>
-						</div>
-					</div>
-					
-					<div class="projectDetails">
-						<h1>Child Education Project</h1>
-						<h2>Nirmaan Society</h2>
-						<p>This is sample text to give us an idea of what the major project element will look like after we put in text 	into the entire thing. The font is Myraid Pro, but should we consider some other font instead?
-							<br>This project will help kids get education, master the ways of the force and become Jedi.
-						</p>
-					</div>
-					
-					<div class="row projectBottom">
-						<div class="row projectStats">
-							<div class="row" style="margin-bottom: 12px;">
-								<h2 class="floatRight">50%</h2>
-							</div>
-							
-							<div class="row progress">
-								<div class="progress-bar"></div>
-							</div>
-							
-							<div class="row">
-								<div class="stats1 col-5">
-									<div class="statsNumber">
-										<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
-									</div>
-									<div class="statsText">
-										<p>Raised</p>
-									</div>
-								</div>
-								<div class="stats2 col-4">
-									<div class="statsNumber">
-										<p>105</p>
-									</div>
-									<div class="statsText">
-										<p>Donors</p>
-									</div>
-								</div>
-								<div class="stats3 col-3">
-									<div class="statsNumber">
-										<p>14</p>
-									</div>
-									<div class="statsText">
-										<p>Days left</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row projectSectionDonateButton">
-							<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
-						</div>
-					</div>
-				</div>
-				<a class="divLink" href="{% url 'index' %}"></a>
-			</div>
+            {% endfor %}
+            {% endif %}
 		</div>
 	</div>
-	
 	
 	<footer>
 		<div class="row footerOptions">

@@ -40,8 +40,8 @@
 }
 
 .projectSection1 {
-    margin-left: 5% !important;
-  width: 28%;
+    margin-left: 1.5vw !important;
+  width: 22vw;
 }
 .recommendedProjectsHeading h2{
   padding-left:5% !important;
@@ -50,15 +50,15 @@
     margin-left: 3% !important;
   width: 28%;
 }
-.projectThumbnail {
-  height: 11.8125vw !important;
-}
-.projectContent{
-  height: 29vw !important;
-}
-.locationCause img {
-  height: 28px;
-}
+/*.projectThumbnail {*/
+  /*height: 11.8125vw !important;*/
+/*}*/
+/*.projectContent{*/
+  /*height: 29vw !important;*/
+/*}*/
+/*.locationCause img {*/
+  /*height: 28px;*/
+/*}*/
 .locationCause {
   bottom: 0 !important;
 }
@@ -70,4 +70,7 @@
 }
 .recommendedProjectsHeading h2 span{
   color: rgb(0,180,255);
+}
+.projects{
+    padding-left: 0 !important;
 }

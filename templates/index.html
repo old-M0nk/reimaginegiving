@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load tags %}
 <head>
 	<title>Re!magine Giving</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css" %}" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{% static "responsiveIndex.css" %}" media="screen"/>
+{#	<link rel="stylesheet" type="text/css" href="{% static "responsiveIndex.css" %}" media="screen"/>#}
 	
 	<script src="{% static "whatWeDo.js" %}"></script>
 	<script src="{% static "index.js" %}"></script>
@@ -359,17 +360,17 @@
 						<div class="row" style="position:relative;">
 							<div class="row projectStats">
 								<div class="row" style="margin-bottom: 12px;">
-									<h2 class="floatRight">50%</h2>
+									<h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
 								</div>
 								
 								<div class="row progress">
-									<div class="progress-bar"></div>
+									<div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%;"></div>
 								</div>
 								
 								<div class="row">
 									<div class="stats1 col-5">
 										<div class="statsNumber">
-											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
 										</div>
 										<div class="statsText">
 											<p>Raised</p>
@@ -395,7 +396,7 @@
 							</div>
 							
 							<div class="row projectSectionDonateButton">
-								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+								<a href="{% url 'projectPage' pk=project.project_id %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>
@@ -444,17 +445,17 @@
 						<div class="row" style="position:relative;">
 							<div class="row projectStats">
 								<div class="row" style="margin-bottom: 12px;">
-									<h2 class="floatRight">50%</h2>
+									<h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
 								</div>
 								
 								<div class="row progress">
-									<div class="progress-bar"></div>
+									<div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%"></div>
 								</div>
 								
 								<div class="row">
 									<div class="stats1 col-5">
 										<div class="statsNumber">
-											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
 										</div>
 										<div class="statsText">
 											<p>Raised</p>
@@ -480,7 +481,7 @@
 							</div>
 							
 							<div class="row projectSectionDonateButton">
-								<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+								<a href="{% url 'projectPage' pk=project.project_id %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>

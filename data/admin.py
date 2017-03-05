@@ -6,9 +6,9 @@ from data.models import Cause, Project, NGO, Consultant, Audit
 class CauseAdmin(admin.ModelAdmin):
     list_display = ('cause_id', 'name', 'total_amount')
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('project_id', 'title', 'start_date', 'end_date', 'total_amount', 'raised_amount', 'cause', 'ngo_id', 'zip', 'person_of_contact', 'summary', 'team_member_id', 'story', 'thumbnail', 'banner')
+    list_display = ('project_id', 'title', 'start_date', 'end_date', 'total_amount', 'raised_amount', 'cause', 'ngo_id', 'zip', 'person_of_contact', 'summary', 'team_member_id', 'story', 'thumbnail', 'banner', 'project_page_desc',)
 class NGOAdmin(admin.ModelAdmin):
-    list_display = ('ngo_id', 'name', 'person_of_contact', 'registration_code', 'address', 'website', 'team_member_id')
+    list_display = ('ngo_id', 'name', 'person_of_contact', 'registration_code', 'address', 'website', 'team_member_id', 'project_page_desc')
 class ConsultantAdmin(admin.ModelAdmin):
     list_display = ('consultant_id', 'name',)
 class AuditAdmin(admin.ModelAdmin):

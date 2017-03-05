@@ -1,0 +1,411 @@
+
+.row.checkOutPageMainRow .section {
+    background:  #f7f8f2 !important;
+  position: absolute;
+bottom: 0;
+}
+.row.checkOutPageMainRow {
+    position: relative;
+}
+.checkOutPageLeft {
+    padding: 37px 80px 0 0;
+}
+.checkOutPageDonationAmountContent {
+    height: 300px;
+    border: 1px solid rgba(0,0,0,0.15);
+}
+.checkOutPageDonationAmountContent h2 {
+    font-size: 22px;
+    font-family: SourceSansPro-Regular;
+    padding: 15px 15px 10px 15px;
+    letter-spacing: 1px;
+}
+.checkOutPageDonationAmountContent h1 {
+    padding: 0px 10px 10px 15px;
+    margin-bottom: 10px;
+    font-family: SourceSansPro-SemiBold;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    color: rgb(0,180,255);
+    font-size:31px;
+}
+span.perMonth {
+    border: none !important;
+    font-style: italic;
+    font-family: SourceSansPro-Regular;
+    letter-spacing: 2px;
+    margin-left: 5px;
+}
+.checkOutPageDonationAmountContent h3 {
+    padding: 0 10px 10px 15px;
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-family: SourceSansPro-Regular;
+}
+.checkOutPageDonationAmountContent p {
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    line-height: 110%;
+    letter-spacing: 0.5px;
+    font-family: SourceSansPro-Light;
+    font-size: 21px;
+}
+.checkOutPageDonationAmountContent h1 span {
+    border-bottom: 2px dotted black;
+}
+.checkOutPageLeftSecondBox {
+    margin-top: 15px;
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 15px;
+    font-weight: normal;
+    color: rgb(9,128,177);
+    position: relative;
+}
+.checkOutPageLeftSecondBox p{
+    font-size: 21px;
+    font-family: SourceSansPro-Regular;
+}
+div.triangle1{
+    width: 17px;
+    height: 17px;
+    color: black;
+    position: absolute;
+    top: -9px;
+    right: 54px;
+    background: white;
+    border-right: 1px solid rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(0,0,0,0.15);
+    transform: rotate(-45deg);
+    z-index: 2;
+}
+.checkOutPageLeftSecondBox p span{
+    font-family: SourceSansPro-SemiBold;
+}
+
+.checkOutPageRight {
+    padding: 30px 45px 30px 80px;
+    position: relative;
+}
+.checkOutPageRight h1 {
+    font-size: 60px;
+    font-family: SourceSansPro-Regular;
+    padding: 0 20px 0 20px;
+}
+.checkOutPageRight h1 span{
+    font-family: SourceSansPro-SemiBold;
+}
+.checkOutPageRight h2 {
+    font-family: Poppins-Regular;
+    font-size: 23px;
+    padding: 3%;
+}
+.checkOutPageRight p {
+    font-family: SourceSansPro-Light;
+    font-size: 30px;
+    padding: 15px 20px 0 20px;
+    letter-spacing: 0.5px;
+}
+.checkOutPageRight p a{
+    font-family: SourceSansPro-Regular;
+    color: rgb(9,128,177);
+}
+.checkOutPageRight p span{
+    font-family: SourceSansPro-Regular;
+    
+}
+.checkOutPagePaymentOptions{
+  margin-top: 50px;
+}
+ul.row.checkOutPagePaymentOptionsLinks {
+    list-style-type: none;
+    text-align:center;
+}
+ul.row.checkOutPagePaymentOptionsLinks li{
+    text-decoration: none;
+    color: #373737;
+    font-size: 25px;
+    padding: 10px;
+    border-bottom: 2px solid rgba(0,180,255,1.0);
+    letter-spacing: 2px;
+}
+li.paymentOptionsLinks.activePaymentOption{
+  background-color: rgb(0,180,255) !important;
+  color: white !important;
+  cursor: pointer;
+}
+.paymentOptionTabsContent {
+    height: 415px;
+    padding: 15px;
+    display: none;
+    width:0;
+}
+#paymentBySavedCards{
+  display: block;
+  width: 100%;
+}
+div.checkOutPageContentHeading h1 span{
+    font-family: SourceSansPro-ExtraLight;
+    font-size: 20px;
+} 
+div.checkOutPageContentHeading h1 {
+    text-align: center;
+    color: white;
+    font-size: 42px;
+    font-family: SourceSansPro-Light;
+    padding: 40px;
+    background: rgb(0,180,255);
+    line-height: 70%;
+}
+
+.checkOutPagePaymentFormContent form{
+    margin: 10px 15px 10px 15px;
+    padding: 10px 15px 15px 15px;
+}
+
+.checkOutPageSavedCardserCardExpiryMonth , .checkOutPageSavedCardserCardSecurityCode{
+    width: 50%;
+    float: left;
+    position: relative;
+}
+.donateAnonymously label{
+    color: white;
+    margin-left: 10px;
+}
+
+.form fieldset {
+  border: none;
+  padding: 1px;
+  position: relative;
+}
+.form fieldset.fieldset-expiration {
+  float: left;
+  width: 60%;
+}
+.form fieldset.fieldset-expiration .select {
+  width: 84px;
+  margin-right: 12px;
+  float: left;
+}
+.form fieldset.fieldset-ccv {
+  clear: none;
+  float: right;
+  width: 86px;
+}
+.form label {
+  font-size: 13px;
+  display:inline-block;
+  padding: 10px 5px;
+  color: #333333;
+  font-style: italic;
+}
+input#donateAnonymously, input#sendEmails {
+    font-size: 20px;
+}
+.form fieldset input:hover{
+  border: 1px solid rgba(0, 180, 255, 1.0);
+}
+.form fieldset input,
+.form fieldset .select{
+  width: 100%;
+  height: 45px;
+  color: #333333;
+  padding: 10px;
+  font-size: 17px;
+  margin-top: 5px;
+  background: white;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+  background: white;
+}
+.form fieldset input.input-cart-number,
+.form fieldset .select.input-cart-number {
+  width: 82px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.form fieldset input.input-cart-number:last-child,
+.form fieldset .select.input-cart-number:last-child {
+  margin-right: 0;
+}
+.form fieldset .select {
+  position: relative;
+}
+.form fieldset .select::after {
+  content: '';
+  border-top: 8px solid #222;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 10px;
+  pointer-events: none;
+}
+.form fieldset .select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  padding: 0;
+  border: none;
+  width: 100%;
+  outline: none !important;
+  top: 6px;
+  left: 6px;
+  background: none;
+}
+.form fieldset .select select :-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+.form button {
+  width: 100%;
+  outline: none !important;
+  background: rgba(0,180,255,1.0);
+  text-transform: uppercase;
+  border: none;
+  box-shadow: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.checkOutPagePaymentFormContent .btn {
+  display: block;
+    color: white;
+    text-decoration: none;
+    height: 45px;
+    position: relative;
+    margin-top: 5px;
+    font-size: 22px;
+    font-family: SourceSansPro-Bold;
+}
+.checkOutPagePaymentFormContent .btn::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  box-shadow: inset 0 3px 0 transparent, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+.checkOutPagePaymentFormContent  .btn:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.paymentByPaypalText {
+    font-size: 28px !important;
+    font-family: SourceSansPro-Regular !important;
+    text-align: center;
+}
+#paymentByPaypal div{
+    padding: 0 0 0 8%;
+}
+#paymentByPaypal label {
+  font-size: 13px;
+  display:inline-block;
+  padding: 10px 5px;
+  color: #333333;
+  font-style: italic;
+}
+#paymentByPaypal .btn{
+    width: 94%;
+    height: 45px;
+    color: white;
+    background: rgb(0,180,255);
+    border: 0;
+    font-size: 22px;
+    font-family: SourceSansPro-Bold;
+    letter-spacing: 0.5px;
+    margin-left: 3%;
+    margin-top: 25px;
+	cursor: pointer;
+}
+
+#paymentBySavedCards ul{
+	list-style-type: none;
+	padding: 3%;
+}
+
+#paymentBySavedCards ul li{
+	width: 250px;
+	height: 150px;
+	border: 1px solid #f1f2f6;
+	display: inline-block;
+	border-radius: 8px;
+	background: linear-gradient(to top, rgba(0,0,0,0.05), rgba(0,0,0,0));
+	position: relative;
+	margin-left: 1%;
+	background: url('images/card1.png');
+	background-size: cover;
+	text-decoration: none;
+}
+
+#paymentBySavedCards ul li h2 {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-size: 18px;
+    text-decoration: none;
+    border: none;
+}
+
+#paymentBySavedCards ul li p {
+    position: absolute;
+    bottom: 18px;
+    left: 10px;
+    font-size: 13px;
+}
+
+#checkOutPageSavedCardserCardCVV {
+    position: absolute;
+    bottom: 18px;
+    right: 30px;
+    width: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+	display: none;
+    letter-spacing: 0.5px;
+}
+
+#paymentBySavedCards .btn {
+    display: block;
+    color: white;
+    text-decoration: none;
+    height: 45px;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 2.5%;
+    font-size: 22px;
+    font-family: SourceSansPro-Bold;
+}
+#paymentBySavedCards button {
+    width: 95%;
+    outline: none !important;
+    background: rgba(0,180,255,1.0);
+    text-transform: uppercase;
+    border: none;
+    box-shadow: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+#paymentBySavedCards .btn::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  box-shadow: inset 0 3px 0 transparent, 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+#paymentBySavedCards  .btn:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
+}

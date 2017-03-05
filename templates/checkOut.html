@@ -8,18 +8,19 @@
 	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "signUp.css" %}" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{% static "recommendedProjects.css" %}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{% static "recommendedProjects.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css.css" %}" media="screen"/>
-	<link rel="stylesheet" type="text/css" href="{% static "contactUsPage.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "checkOut.css" %}" media="screen"/>
 	
 	<script src="{% static "cloudflare.js" %}"></script>
 	<script src="{% static "cloudflare1.js" %}"></script>
 	<script src="{% static "cloudflare5.js" %}"></script>
 	<script src="{% static "explore.js" %}"></script>
 	<script src="{% static "googleapi.js" %}"></script>
+	<script src="{% static "checkOut.js" %}"></script>
 </head>
 
 <body>
@@ -41,7 +42,8 @@
 							<span  onclick="myfunction1()">
 								<div class="exploreHeading1 row">
 									<div class="col-9"><h2>Location</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<div class="inputField" id="locationInput">
@@ -62,7 +64,8 @@
 							<span onclick="myfunction2()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Funding</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
@@ -76,7 +79,8 @@
 							<span  onclick="myfunction3()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Causes</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
@@ -195,7 +199,7 @@
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
 						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
 						<div class="navBarProfileOptions">
-							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="userPage.html"><h2>Profile</h2></a>
 							 <a href="#"><h2>My Donations</h2></a>
 							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
 						</div>
@@ -204,70 +208,116 @@
 				</div>
 			</div>
 		</div>
-	</header>
-
-	<div class="row contactUsPageMainRow">
-		<div id="contactUsPageContent" class="row contactUsPageContent" style="height: 1300px;">
-			<div class="row" style="height: 150px;">
-				<h1>CHECKOUT</h1>
+	</header> 
+   	
+	<div class="overlay" id="paypalPaymentOverlay">
+		<div class="translucentContainer2"></div>
+		<div class="paypalPaymentOuterContainer">
+			<div class="paypalPaymentInnerContainer">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="overlay" id="paymentBySavedCardsOverlay">
+		<div class="translucentContainer2"></div>
+		<div class="paypalPaymentOuterContainer">
+			<div class="paypalPaymentInnerContainer">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="row checkOutPageMainRow">
+		<div id="checkOutPageContent" class="row checkOutPageContent" style="height: 1300px;">
+			
+			<div class="row checkOutPageContentHeading" style="height: 150px;">
+				<h1>{{ title }}<br/><span>by {{ ngo }}</span></h1>
 			</div>
 			<div class="row">
-				<div class="col-6 contactUsPageMessageForm">
-					<div class="contactUsPageMessageFormContent" id="contactUsPageMessageFormContent">
-						<div class="row contactUsPageMessageFormContentHeading">
-							<img src="{% static "images/messageIcon.png" %}">
-							<h2>Send a Message</h2>
-						</div>
-						<form class="form" autocomplete="off" novalidate>
-							<fieldset class="userName">
-							  <label for="userName">Name</label>
-							  <input type="text" id="userName" />
-							</fieldset>
-							<fieldset class="userPhone">
-							  <label for="userPhone">Phone</label>
-							  <input type="text" id="userPhone" />
-							</fieldset>
-							<fieldset>
-							  <label for="userEmail">Email</label>
-							  <input type="text" id="userEmail" />
-							</fieldset>
-							<fieldset>
-							  <label for="userSubject">Subject</label>
-							  <input type="text" id="userSubject">
-							</fieldset>
-							<fieldset>
-							  <label for="userMessage">Message</label>
-							  <textarea type="text" id="userMessage" ></textarea>
-							</fieldset>
-							<button class="btn"><i class="fa fa-lock"></i> Send</button>
-						 </form>
+				<div class="col-8 checkOutPageRight">
+					<h1>Give to <span>Feed the Poor!</span></h1>
+					<p>and get independent reports made by <span>Re!magine team</span> about the <span>impact you</span> are helping make. <a href="learnMore.html">Learn More.</a></p>
+					<div class="row checkOutPagePaymentOptions">
+						<ul class="row checkOutPagePaymentOptionsLinks">
+							<li class="col-4 paymentOptionsLinks activePaymentOption" onclick="openPaymentOptionTabs(event,'paymentBySavedCards')">
+								Saved Cards
+							</li>
+							<li class="col-4 paymentOptionsLinks" onclick="openPaymentOptionTabs(event,'paymentByDebitCard')">
+								Credit/Debit Card
+							</li>
+							<li class="col-4 paymentOptionsLinks" onclick="openPaymentOptionTabs(event,'paymentByPaypal')">
+								Paypal
+							</li>
+						</ul>
 					</div>
-				</div>
-				<div class="col-5 contactUsPageRight">
-					<div class="row contactUsPageEmailPhone">
-						<div class="row">
-							<div class="col-6 contactUsPagePhone">
-								<div class="row"><img src="{% static "images/callIcon.png" %}"></div>
-								<h2>Call Us</h2>
-								<p>7891133332</p>
-							</div>
-							<div class="col-6 contactUsPageEmail">
-								<div class="row"><img src="{% static "images/emailIcon.jpg" %}"></div>
-								<h2>Email</h2>
-								<p>anuruddh.mishra@gmail.com</p>
-							</div>
-						</div>
-						<div class="row contactUsPageAddress">
-							<div class="row"><img src="{% static "images/locationIcon.png" %}"></div>
-							<h2><span>Visit Us</span></h2>
-							<p>IIT(BHU) Varanasi<br/>UP,India-221005</p>
-							<img class="contactUsPageMap" src="{% static "images/map.jpg" %}">
-						</div>
-						<div class="row contactUsPageMap">
+					<div id="paymentByDebitCard" class="paymentOptionTabsContent">
+						<div class="checkOutPagePaymentFormContent" id="checkOutPagePaymentFormContent">
+							<form class="form" autocomplete="off" novalidate>
+								<fieldset>
+								  <input type="text" id="checkOutPageSavedCardUserFullName" placeholder="Full Name">
+								</fieldset>
+								<fieldset>
+								  <input type="text" id="checkOutPageSavedCardUserEmail" placeholder="Email">
+								</fieldset>
+								<fieldset>
+								  <input type="text" id="checkOutPageSavedCardserPassword" placeholder="Password">
+								</fieldset>
+								<input type="checkbox" id="donateAnonymously"><label>Donate anonymously</label>
+								<fieldset>
+								  <input type="number" maxlength="16" id="checkOutPageSavedCardserCardNumber" placeholder="Card Number">
+								</fieldset>
+								<fieldset class="checkOutPageSavedCardserCardExpiryMonth">
+								  <input type="month" id="checkOutPageSavedCardserCardExpiryMonth" placeholder="MM/YY"/>
+								</fieldset>
+								<fieldset class="checkOutPageSavedCardserCardSecurityCode">
+								  <input type="password" id="checkOutPageSavedCardserCardSecurityCode" placeholder="Security Code"/>
+								</fieldset>
+								<input type="checkbox" id="sendEmails"><label>Send me ocassionaal emails with matching opportunities, personalized recommendations, and smart giving tips.</label>
+								<button class="btn">Continue</button>
+							 </form>
 						</div>
 					</div>
+					<div id="paymentBySavedCards" class="paymentOptionTabsContent">
+						<ul>
+							<li onclick="showCVV(0)">
+								<h2>XXXX-XXXX-XXXX-1234</h2>
+								<p>Exp: 11/2022</p>
+								<input type="password" maxlength="3" id="checkOutPageSavedCardserCardCVV" placeholder="CVV"/>
+							</li>
+							<li onclick="showCVV(1)">
+								<h2>XXXX-XXXX-XXXX-5673</h2>
+								<p>Exp: 08/2024</p>
+								<input type="password" maxlength="3" id="checkOutPageSavedCardserCardCVV" placeholder="CVV"/>
+							</li>
+						</ul>
+						<button class="btn" onclick="openPaymentBySavedCardsOverlay()">Continue</button>
+					</div>
+					<div id="paymentByPaypal" class="paymentOptionTabsContent">
+						<h2 class="paymentByPaypalText">Please click the button below and follow the instructions provided to complete your donation.</h2>
+						<div class="row"><input type="checkbox" id="donateAnonymously"><label>Donate anonymously</label></div>
+						<div class="row"><input type="checkbox" id="sendEmails"><label>Send me ocassionaal emails with matching opportunities, personalized recommendations, and smart giving tips.</label></div>
+						<div onClick="openPaypalPaymentOvelay()"><button class="btn">Donate with PayPal</button></div>
+					</div>
 				</div>
+
+				<div class="col-4 checkOutPageLeft">
+					<div class="checkOutPageLeftContent" id="checkOutPageLeftContent">
+						<div class="checkOutPageDonationAmountContent">
+							<h2>Donation Amount</h2>
+							<h1>Rs <span class="checkOutPageDonationAmount" contenteditable="true">{{ amount }}</span> <span class="perMonth">per month</span></h1>
+							<h3>Your Impact</h3>
+							<p>The money you are giving will have following impact. and will make a lot of people happy.</p>
+						</div>
+						<div class="checkOutPageLeftSecondBox">
+							<p><span>You have chosen to make a monthly payment.</span> Your credit card will be charged now and every month until you cancel the donation. You can edit your recurring donations at any time in your <span>profile</span>.</p>
+							<div class="triangle1"></div>
+						</div>
+					</div>
+				</div>
+
 			</div>
+
 			<div class="row section">
 				<ul class="social-btns">
 
@@ -330,73 +380,75 @@
 	
 		</div>
 	</div>
+		<script src="{% static "checkOut.js" %}"></script>
 	
-		<footer>
-		<div class="row footerOptions">
-			<div class="col-2 footerAboutUs">
-				<ul>
-					<li><h1>About Us</h1></li>
-					<li><h2><a>What is Reimagine?</a></h2></li>
-					<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
-					<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
-				</ul>
-			</div>
-			<div class="col-4 footerCauses" >
-				<div class="col-6 footerCauses1">
+	<footer>
+		<div class="row footer">
+			<div class="row footerOptions">
+				<div class="col-2 footerAboutUs">
 					<ul>
-						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
-						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
-						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
+						<li><h1>About Us</h1></li>
+						<li><h2><a>What is Reimagine?</a></h2></li>
+						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+						<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
 					</ul>
 				</div>
-				<div class="col-6 footerCauses2">
-					<ul>	
-						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
+				<div class="col-4 footerCauses" >
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'index' %}">Women and Girls</a></h2>  </li>
+							<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'index' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>	
+							<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-2 footerWorks">
+					<ul>
+						<li><h1>How it Works</h1>                      </li>
+						<li><h2><a>Stuff</a></h2>                      </li>
+						<li><h2><a>Stuff Stuff</a></h2>                </li>
+						<li><h2><a>We really need to think</a></h2>    </li>
+						<li><h2><a>about this</a></h2>                 </li>
+						<li><h2><a>well not anymore</a></h2>           </li>
+						<li><h2><a>VJ **</a></h2>                      </li>
+					</ul>
+				</div>
+				<div class="col-4 footerContactShare">
+					<ul>
+						<li><h1>Contact Us</h1></li>
+						<li><h2><span>Email: </span>mishraanuruddh14@gmail.com</h2></li>
+						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+						<li>
+							<a><i class="fa fa-facebook"></i>   </a>
+							<a><i class="fa fa-google-plus"></i></a>
+							<a><i class="fa fa-twitter"></i>    </a>
+							<a><i class="fa fa-youtube"></i>    </a>
+							<a><i class="fa fa-instagram"></i>  </a>
+							<a><i class="fa fa-whatsapp"></i>   </a>
+							<a><i class="fa fa-linkedin"></i>   </a>
+						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="col-2 footerWorks">
-				<ul>
-					<li><h1>How it Works</h1>                      </li>
-					<li><h2><a>Stuff</a></h2>                      </li>
-					<li><h2><a>Stuff Stuff</a></h2>                </li>
-					<li><h2><a>We really need to think</a></h2>    </li>
-					<li><h2><a>about this</a></h2>                 </li>
-					<li><h2><a>well not anymore</a></h2>           </li>
-					<li><h2><a>VJ **</a></h2>                      </li>
-				</ul>
+			<div class="row footerBottom">
+				<a href="{% url 'index' %}">
+					<img src="logo/logo-final-web-white.png"/>
+				</a>
+				<h2>cc 2017.</h2>
 			</div>
-			<div class="col-4 footerContactShare">
-				<ul>
-					<li><h1>Contact Us</h1></li>
-					<li><h2><span>Email: </span>mishraanuruddh14@gmail.com</h2></li>
-					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
-					<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
-					<li>
-						<a><i class="fa fa-facebook"></i>   </a>
-						<a><i class="fa fa-google-plus"></i></a>
-						<a><i class="fa fa-twitter"></i>    </a>
-						<a><i class="fa fa-youtube"></i>    </a>
-						<a><i class="fa fa-instagram"></i>  </a>
-						<a><i class="fa fa-whatsapp"></i>   </a>
-						<a><i class="fa fa-linkedin"></i>   </a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="row footerBottom">
-			<a href="{% url 'projectPage' %}">
-				<img src="{% static "logo/logo-final-web-white.png" %}"></img>
-			</a>
-			<h2>cc 2017.</h2>
-		</div>
 		</div>
 	</footer>
 </body>

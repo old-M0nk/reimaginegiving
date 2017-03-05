@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 from django.template import RequestContext
 from data.models import Project
@@ -32,21 +32,56 @@ def userPage (request):
 
 def projectPage (request, pk):
     context = RequestContext(request)
+    project_list = Project.objects.all()
     project = Project.objects.get(project_id=pk)
-    context_dict = {'project': project}
+    amount_left = project.total_amount-project.raised_amount
+    progress_percent = (project.raised_amount)*100/(project.total_amount)
+    desc = project.project_page_desc
+    ngo_desc = project.ngo_id.project_page_desc
+    ngo = project.ngo_id.name
+    # stars = project.rating
+
+    context_dict = {'project': project,
+                    'amount_left': amount_left,
+                    'progress_percent': progress_percent,
+                    'desc': desc,
+                    'name': ngo,
+                    'ngo_desc': ngo_desc,
+                    'projects': project_list,
+                    }
+                    # 'stars': stars
     return render(request, 'projectPage.html', context_dict, context)
 
 
 def viewAllProjects (request):
-    return render(request, 'viewAllProjects.html')
+    context = RequestContext(request)
+    project_list = Project.objects.all()  ###view all project... no logic used...
+    project_count = Project.objects.count()
+    print project_count
+    context_dict = {'projects': project_list,
+                    'count': project_count}
+    return render(request, 'viewAllProjects.html', context_dict, context)
 
 
-def checkOut (request):
-    return render(request, 'checkOut.html')
+def checkOut(request, pk):
+    context = RequestContext(request)
+    project = Project.objects.get(project_id=pk)
+    name = project.title
+    ngo = project.ngo_id.name
+
+    if request.method == "POST":
+            if request.POST['amount']:
+                amount = request.POST['amount']
+                print amount
+                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name}, context)
+            else:
+                url = reverse('projectPage', kwargs={'pk': pk})
+                return HttpResponseRedirect(url)
+
+
 
 
 def contactUsPage (request):
     return render(request, 'contactUsPage.html')
-
 
 
