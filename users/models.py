@@ -27,3 +27,9 @@ class Donation(models.Model):
 class Email(models.Model):
     email = models.EmailField(max_length=254, primary_key=True)
 
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=254, default="blank")
+    email = models.EmailField(max_length=254, blank=False)
+    message = models.TextField(blank=False, default="blank")
+

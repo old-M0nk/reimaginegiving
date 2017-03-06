@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 
 from django.template import RequestContext
 from data.models import Project
+from users.models import ContactUs
+from users.forms import contact_us_form
 
 
 def index(request):
@@ -85,6 +87,31 @@ def checkOut(request, pk):
 
 
 def contactUsPage (request):
-    return render(request, 'contactUsPage.html')
+    if request.method == "POST":
+        myform = contact_us_form(request.POST)
+        print(request.POST)
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
 
+        def validateEmail(email):
+            from django.core.validators import validate_email
+            from django.core.exceptions import ValidationError
+            try:
+                validate_email(email)
+                return True
+            except ValidationError:
+                return False
+
+        if validateEmail(email):
+            contact_us_obj = ContactUs(name= name, email= email, message= message)
+            # saving all the data in the current object into the database
+            contact_us_obj.save()
+            context_dict = {'message': 'Thank You!'}
+        else:
+            context_dict = {'value':email,'message': 'Enter a valid e-mail address', 'form': myform}
+    else:
+        myform = contact_us_form()
+        context_dict = {'form': myform}
+    return render(request, 'contactUsPage.html', context_dict)
 

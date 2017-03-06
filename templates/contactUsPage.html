@@ -230,20 +230,21 @@
 						<div class="row contactUsPageMessageFormContentHeading">
 							<h2>Let's Talk</h2>
 						</div>
-						<form class="form" autocomplete="off" novalidate>
+						<form class="form" autocomplete="off" novalidate method="POST" action="{% url 'contactUsPage' %}">
+                            {% csrf_token %}
 							<fieldset class="userName">
 							  <label for="userName">Name</label>
-							  <input type="text" id="userName" />
+							  <input type="text" id="userName" name="name"/>
 							</fieldset>
 							<fieldset>
 							  <label for="userEmail">Email</label>
-							  <input type="text" id="userEmail" />
+							  <input type="text" id="userEmail" name="email"/>
 							</fieldset>
 							<fieldset>
 							  <label for="userMessage">Message</label>
-							  <textarea type="text" id="userMessage" ></textarea>
+							  <textarea type="text" id="userMessage"name="message" ></textarea>
 							</fieldset>
-							<button class="btn"><i class="fa fa-lock"></i> Send</button>
+							<button class="btn" value="submit" type="submit"><i class="fa fa-lock"></i> Send</button>
 						 </form>
 					</div>
 				</div>
