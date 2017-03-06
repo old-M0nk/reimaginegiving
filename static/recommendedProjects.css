@@ -5,7 +5,6 @@
 
 .projects{
 	padding-bottom: 4%;
-	padding-left: 8%;
 }
 
 .divLink {
@@ -27,7 +26,7 @@
 .recommendedProjectsHeading h2{
 	font-size: 30px;
 	font-family: Poppins-Light;
-	padding-left: 4.5vw;
+	padding-left: 12.5%;
 }
 
 .recommendedProjectsHeading a:hover:after {
@@ -67,7 +66,7 @@
 }
 
 .projectSection1{
-	margin-left: 4.5vw;
+	margin-left: 12.5%;
 }
 
 .projectSection2, .projectSection3{
@@ -145,6 +144,7 @@
 }
 
 .progress-bar {
+	width: 50%;
 	background-color: rgb(0,180,255);
 	height: 5px;
 	border-radius: 2px;
@@ -171,7 +171,6 @@
 	cursor: pointer;
 	position: absolute;
 	bottom: 0;
-	z-index: 6;
 }
 .projectSectionDonateButton a{
 	text-decoration: none;
@@ -186,7 +185,7 @@
 	letter-spacing: 0.5px;
 }
 
-.projectSectionDonateButton h2:hover{
+.projectSectionDonateButtonHover{
 	background-color: rgb(0,180,255);
 }
 

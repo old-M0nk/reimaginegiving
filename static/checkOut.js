@@ -25,11 +25,12 @@ function openPaypalPaymentOvelay() {
 	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
 
-function openPaymentBySavedCardsOverlay() {
-    document.getElementById("paymentBySavedCardsOverlay").style.height = "100%";
-	document.getElementsByTagName("body")[0].style.position = "fixed";
-}
 
 function showCVV(listId) {
+	var i, mainTabContent;
+    mainTabContent = document.getElementById("paymentBySavedCards").childNodes[1].children;
+    for (i = 0; i < mainTabContent.length; i++) {
+        document.getElementById("paymentBySavedCards").childNodes[1].children[i].children[2].style.display = "none";
+    }
     document.getElementById("paymentBySavedCards").childNodes[1].children[listId].children[2].style.display = "block";
 }

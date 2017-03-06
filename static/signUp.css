@@ -16,7 +16,7 @@
 .form-sign-up {
   margin-top: 50px;
 }
-.translucentContainer{
+.translucentContainer, .translucentContainer1, .translucentContainer2, .translucentContainer3{
 	position:absolute;
 	height: 100%;
 	width:100%;

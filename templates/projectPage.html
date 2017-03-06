@@ -4,11 +4,6 @@
 <head xmlns="http://www.w3.org/1999/html">
 	<title>Digital Literacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://use.fontawesome.com/751caf333d.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
@@ -35,6 +30,16 @@
 </head>
 
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 	<header>
 		<div class="row header">
 			<div class="col-3 mainNavBarButton" id="exploreDiv">
@@ -297,116 +302,59 @@
 				
 			</div>
 			<div id="projectTimeline" class="row projectTimeline mainTabContent">
-				<section class="cd-horizontal-timeline">
-					<div class="timeline">
-						<div class="events-wrapper">
-							<div class="events">
-								<ol>
-									<li><a href="#0" data-date="16/01/2014" class="selected">
-										16 Jan
-									</a></li>
-									<li><a href="#0" data-date="28/02/2014">
-										28 Feb
-									</a></li>
-									<li><a href="#0" data-date="20/04/2014">
-										20 Mar
-									</a></li>
-									<li><a href="#0" data-date="20/05/2014">
-										20 May
-									</a></li>
-									<li><a href="#0" data-date="09/07/2014">
-										09 Jul
-									</a></li>
-									<li><a href="#0" data-date="30/08/2014">
-										30 Aug
-									</a></li>
-									<li><a href="#0" data-date="15/09/2014">
-										15 Sep
-									</a></li>
-									<li><a href="#0" data-date="01/11/2014">
-										01 Nov
-									</a></li>
-								</ol>
-
-								<span class="filling-line" aria-hidden="true"></span>
-							</div> <!-- .events -->
-						</div> <!-- .events-wrapper -->
-							
-						<ul class="cd-timeline-navigation">
-							<li><a href="#0" class="prev inactive">Prev</a></li>
-							<li><a href="#0" class="next">Next</a></li>
-						</ul> <!-- .cd-timeline-navigation -->
-					</div> <!-- .timeline -->
-
-					<div class="events-content">
-						<ol>
-							<li class="selected" data-date="16/01/2014">
-								<h2>Horizontal Timeline</h2>
-								<em>January 16th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="28/02/2014">
-								<h2>Event title here</h2>
-								<em>February 28th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="20/04/2014">
-								<h2>Event title here</h2>
-								<em>March 20th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="20/05/2014">
-								<h2>Event title here</h2>
-								<em>May 20th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="09/07/2014">
-								<h2>Event title here</h2>
-								<em>July 9th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="30/08/2014">
-								<h2>Event title here</h2>
-								<em>August 30th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="15/09/2014">
-								<h2>Event title here</h2>
-								<em>September 15th, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-							<li data-date="01/11/2014">
-								<h2>Event title here</h2>
-								<em>November 1st, 2014</em>
-								<p>	
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-								</p>
-							</li>
-
-						</ol>
-					</div> <!-- .events-content -->
-				</section>
+				<ul class="timeline timeline-centered">
+					<li class="timeline-item">
+						<div class="timeline-info">
+							<span>March 12, 2016</span>
+						</div>
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<h3 class="timeline-title">Event Title</h3>
+							<p>Nullam vel sem. Nullam vel sem. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec vitae sapien ut libero venenatis faucibus. ullam dictum felis
+								eu pede mollis pretium. Pellentesque ut neque.</p>
+						</div>
+					</li>
+					<li class="timeline-item">
+						<div class="timeline-info">
+							<span>March 23, 2016</span>
+						</div>
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<h3 class="timeline-title">Event Title</h3>
+							<p>Nullam vel sem. Nullam vel sem. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec vitae sapien ut libero venenatis faucibus. ullam dictum felis
+								eu pede mollis pretium. Pellentesque ut neque. </p>
+						</div>
+					</li>
+					<li class="timeline-item period">
+						<div class="timeline-info"></div>
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<h2 class="timeline-title">April 2016</h2>
+						</div>
+					</li>
+					<li class="timeline-item">
+						<div class="timeline-info">
+							<span>April 02, 2016</span>
+						</div>
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<h3 class="timeline-title">Event Title</h3>
+							<p>Nullam vel sem. Nullam vel sem. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec vitae sapien ut libero venenatis faucibus. ullam dictum felis
+								eu pede mollis pretium. Pellentesque ut neque. </p>
+						</div>
+					</li>
+					<li class="timeline-item">
+						<div class="timeline-info">
+							<span>April 28, 2016</span>
+						</div>
+						<div class="timeline-marker"></div>
+						<div class="timeline-content">
+							<h3 class="timeline-title">Event Title</h3>
+							<p>Nullam vel sem. Nullam vel sem. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec vitae sapien ut libero venenatis faucibus. ullam dictum felis
+								eu pede mollis pretium. Pellentesque ut neque. </p>
+						</div>
+					</li>
+				</ul>
 			</div>
 			<div id="projectSupporters" class="row projectSupporters mainTabContent">
 				<div class="projectSupportersContent">
@@ -842,40 +790,11 @@
 				</a>
 			</li>
 
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
-					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-pinterest-p pinterest"></i>
-						<i class="social-btn-face active fa fa-lg fa-pinterest-p pinterest"></i>
-					</div>
-				</a>
-			</li>
-
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
-					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-instagram instagram"></i>
-						<i class="social-btn-face active fa fa-lg fa-instagram instagram"></i>
-					</div>
-				</a>
-			</li>
-
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
-					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-tumblr tumblr"></i>
-						<i class="social-btn-face active fa fa-lg fa-tumblr tumblr"></i>
-					</div>
-				</a>
-			</li>
-
 		</ul>
 </div>
-	
 	<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Recommended Projects</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
             {% if projects%}
@@ -1005,13 +924,16 @@
 					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
 					<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
 					<li>
-						<a><i class="fa fa-facebook"></i>   </a>
-						<a><i class="fa fa-google-plus"></i></a>
-						<a><i class="fa fa-twitter"></i>    </a>
-						<a><i class="fa fa-youtube"></i>    </a>
-						<a><i class="fa fa-instagram"></i>  </a>
-						<a><i class="fa fa-whatsapp"></i>   </a>
-						<a><i class="fa fa-linkedin"></i>   </a>
+						<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a><i class="fa fa-linkedin"></i>   </a>
 					</li>
 				</ul>
 			</div>

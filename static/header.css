@@ -2,7 +2,7 @@ header{
 	text-align: center;
 	color: #373737;
 	box-shadow: 0 5px 5px 0 rgba(0,0,0,0.5);
-	height: 50px;
+	height: 60px;
 	overflow: hidden;
 	line-height: 100%;
 	/*! margin-top: 2.5px; */
@@ -20,13 +20,13 @@ header p{
 }
 
 .logo  img{
-	height: 35px;
-	margin: 7.5px 5px;
+	height: 38px;
+	margin: 10.5px 5px;
 	cursor:pointer;
 }
 
 .mainNavBarButton{
-	padding-top: 17.5px;
+	padding-top: 22px;
 	padding-bottom: 10px;
 	position: relative;
 }

@@ -22,6 +22,45 @@ $('.slider').each(function() {
       slideLeft = '100%';
       animateLeft = '-100%';
     } else {
+      slideLeft = '100%';
+      animateLeft = '-100%';
+    }
+
+    $slides.eq(newIndex).css({
+      display: 'block',
+      left: slideLeft
+    });
+    $group.animate({
+      left: animateLeft
+    }, function() {
+      $slides.eq(currentIndex).css({
+        display: 'none'
+      });
+      $slides.eq(newIndex).css({
+        left: 0
+      });
+      $group.css({
+        left: 0
+      });
+      currentIndex = newIndex;
+    });
+  }
+
+  function move2(newIndex) {
+    var animateLeft, slideLeft;
+
+  textOverlaySlides2();
+    advance();
+
+    if ($group.is(':animated') || currentIndex === newIndex) {
+      return;
+    }
+
+
+    if (newIndex > currentIndex) {
+      slideLeft = '-100%';
+      animateLeft = '100%';
+    } else {
       slideLeft = '-100%';
       animateLeft = '100%';
     }
@@ -44,7 +83,6 @@ $('.slider').each(function() {
       });
       currentIndex = newIndex;
     });
-
   }
   
   function advance() {
@@ -68,29 +106,42 @@ $('.slider').each(function() {
   
   $('.previous_btn').on('click', function() {
     if (currentIndex !== 0) {
-      move(currentIndex - 1);
+      move2(currentIndex - 1);
     } else {
-      move(3);
+      move2(4);
     }
   });
   
   advance();
   textOverlaySlidesStart();
   function textOverlaySlidesStart(){
-  	$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Development</span>');
+    $('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Development</span>');
   }
 
   function textOverlaySlides(){
-	if(currentIndex==4)
+	  if(currentIndex==4)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Development</span>');
-	else if(currentIndex==0)
+	  else if(currentIndex==0)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Growth</span>');
-	else if(currentIndex==1)
+	  else if(currentIndex==1)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Trust</span>');
-	else if(currentIndex==2)
+	  else if(currentIndex==2)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Hope</span>');
-	else 
+	  else
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Giving</span>');
-	}
+  }
+
+  function textOverlaySlides2(){
+	  if(currentIndex==1)
+		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Development</span>');
+	  else if(currentIndex==2)
+		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Growth</span>');
+	  else if(currentIndex==3)
+		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Trust</span>');
+	  else if(currentIndex==4)
+		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Hope</span>');
+	  else
+		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Giving</span>');
+  }
 
 });

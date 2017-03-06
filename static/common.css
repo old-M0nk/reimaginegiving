@@ -102,6 +102,8 @@ header, body{
 	font-family: SourceSansPro-Regular;
 	background-color: white;
 	overflow-x: hidden;
+	width: 100vw;
+	overflow-y: scroll;
 }
 h1, h2, h3, h4, p{
 	line-height: 100%;

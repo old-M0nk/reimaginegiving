@@ -113,30 +113,41 @@ ul.projectPageMainTabsList li a:focus, .active{
 	position: relative;
 }
 .projectStoryContent {
-    padding: 10px;
+    padding: 20px;
 }
 .projectStoryContent p{
 	font-size: 16px;
-	font-family: SourceSansPro-Regular;
+	font-family: SourceSansPro-ExtraLight;
+	letter-spacing: 0.5px;
+	line-height: 115%;
+	text-align: justify;
 }
 .projectStoryContent h2{
 	font-size: 25px;
-	font-family: SourceSansPro-SemiBold;
+	font-family: SourceSansPro-Regular;
+}
+table#projectStoryBudget tr:nth-child(even) {
+    background-color: white;
+}
+table#projectStoryBudget tr:nth-child(odd) {
+    background-color: rgba(0,0,0,0.05);
 }
 table#projectStoryBudget{
-	width: 100%;
+	width: 90%;
 }
 table#projectStoryBudget th {
-    background-color: black;
+    background-color: rgb(0,180,255);
     color: white;
 }
-table, th, td {
-    border: 1px solid black;
+table#projectStoryBudget{
     border-collapse: collapse;
 }
-th, td {
+table#projectStoryBudget th, table#projectStoryBudget td {
     padding: 5px;
     text-align: left;
+}
+table#projectStoryBudget span{
+	font-family: SourceSansPro-SemiBold;
 }
 
 .projectTimeline p, .projectSupporters p{
@@ -211,50 +222,86 @@ th, td {
 	padding: 10px !important;
 }
 .activeButtonDonateShare{
-	height: 60px;
+	height: 72px;
 	display: block;
 	animation: slideBottom 0.3s;
+	background: white !important;
+	border: 1px solid #f1f2f6;
+	border-top: none;
+	padding: 16px !important;
+	/*! border-right: 1px; */
 }
 .projectPageDonate, .projectPageDonateButtonClick{
 	background-color: #38c0ff;
-	border-right: 2px solid white;
+	/*! border-right: 2px solid white; */
 	text-align: center;
 	padding: 0px;
 	color: white;
 	font-size: 12px;
 	cursor: pointer;
 }
-button.projectPageDonateFinalButton {
-    width: 35%;
-    height: 39px;
-    margin-bottom: -32px;
-    padding: 1px 0 4px 0;
-    color: rgba(0,0,0,0.5);
-    font-size: 19px;
-    background: white;
-    border: none;
-    border-radius: 3px;
-    margin-left: -28px;
-    cursor: pointer;
-    margin-top: 2px;
+.projectPageDonateSelected{
+	background: white !important;
+	border: 1px solid #f1f2f6;
+	border-bottom:none;
+	color: #373737;
 }
-input#search {
-    padding: 8px;
-    height: 39px;
-    font-size: 18px;
-    width: 71%;
-    color: white;
-    border: 0.1px solid white !important;
-    background: transparent;
-    /*! border: none; */
-    font-family: SourceSansPro-Light;
+.projectPageDonateButtonClickForm {
+	width: 290px;
+	height: 40px;
+	border-radius:  3px;
+	border: 1px solid rgba(0,0,0,0.15);
+	color: black;
 }
-.projectPageDonateShare h2 {
+
+.projectPageDonateButtonClickForm input {
+	width: 150px;
+	padding: 10px 5px;
+	float: left;
+	border: 0;
+	background: transparent;
+	border-radius: 3px 0 0 3px;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
+.projectPageDonateButtonClickForm input:focus {
+	outline: 0;
+	background:transparent;
+}
+
+.projectPageDonateButtonClickForm button {
+	position: relative;
+	float: right;
+	border: 0;
+	margin-top: -1px;
+	cursor: pointer;
+	height: 40px;
+	width: 120px;
+	border-left: 1px solid #262626;
+	border-radius: 0 3px 3px 0;
+	background: #262626;
+	color: white;
+	letter-spacing: 2px;
+}
+
+
+.projectPageDonateButtonClickForm button:active {
+	box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);
+}
+.projectPageDonateShare h2{
     padding: 10px;
+}
+.projectPageDonateShare a{
+	text-decoration: none;
+	color: white;
+}
+.projectPageDonateShare a:hover{
+	color: white;
 }
 .projectPageDonateShareClick {
     padding-right: 6px;
-	margin-top:20px;
+	/*! margin-top:20px; */
 }
 .projectPageDonate:hover {
     font-weight: bold;
@@ -278,14 +325,14 @@ input#search {
 .projectPageDonation{
 	position: relative;
 	height: 38vw;
-	border: 1px solid #f1f2f6;
+	/*! border: 1px solid #f1f2f6; */
 	margin-top: 30px;
 	margin-bottom: 30px;
 	overflow: auto;
 }
 ul.projectPageDonationOptions{
 	list-style-type: none;
-	background: rgba(74, 82, 85, 0.8);
+	background: rgba(74, 82, 85, 0.02);
 	height: 35px;
 	overflow: hidden;
 }
@@ -303,6 +350,7 @@ ul.projectPageDonationOptions li a{
       transition: 0.3s;
       cursor: pointer;
 	opacity: 0.5;
+	border-bottom: 1px solid #f1f2f6;
 }
 #donationOptionActive {
     background-color: white !important;
@@ -312,8 +360,13 @@ ul.projectPageDonationOptions li a{
     width:50%;
     top:0;
     cursor: pointer;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: rgba(74, 82, 85, 0.05);
+    /*! border-bottom: none !important; */
 }
-.slideLeft{
+BORDER{
 	left:0;
 	animation: slideLeft 0.4s;
 	cursor: pointer;
@@ -347,6 +400,12 @@ ul.projectPageDonationOptions li a{
     padding-left: 10px;
     padding-right: 10px;
 }
+.donationOptionsTabContent {
+    border: 1px solid #f1f2f6;
+    border-top: none;
+
+}
+
 .projectPageDonationOptionsMonthly{
 	cursor:pointer;
 	text-align: center;
@@ -355,7 +414,8 @@ ul.projectPageDonationOptions li a{
 }
 .projectPageDonationOptionsOnce{
 	cursor:pointer;
-	text-align: center
+	text-align: center;
+	/*! border-bottom: 1px solid #f1f2f6; */
 }
 .projectPageDonationOptionsMonthlyOptions{
 	display: none;
@@ -489,14 +549,15 @@ ul.projectPageDonationOptions li a{
 }
 .projectPageDonationOptionsOpacity{
 	opacity: 1 !important;
+	border-bottom: none !important;
 }
 	
 
 /*timeline*/
-a {
+#projectTimeline a {
   color: #FF6B6B;
 }
-a:hover {
+#projectTimeline a:hover {
   color: #ff9a9a;
   text-decoration: none;
 }

@@ -26,24 +26,24 @@ $(".info-item1 .btn2").click(function(){
 
 function openSignUpOverlay() {
     document.getElementById("SignUp").style.height = "100%";
-	document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
 
 /* Close when someone clicks on the "x" symbol inside the explore */
 function closeSignUpOverlay() {
 	document.getElementById("SignUp").style.height = "0%";
-	document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+	document.getElementsByTagName("body")[0].style.position = "";
 }
 
 function openLogInOverlay() {
 	document.getElementById("LogIn").style.height = "100%";
-	document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
 
 /* Close when someone clicks on the "x" symbol inside the explore */
 function closeLogInOverlay() {
 	document.getElementById("LogIn").style.height = "0%";
-	document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+	document.getElementsByTagName("body")[0].style.position = "";
 }
 
 window.onclick = function(event) {
@@ -51,7 +51,7 @@ window.onclick = function(event) {
         document.getElementById("SignUp").style.height = "0%";
 		document.getElementById("LogIn").style.height = "0%";
 		document.getElementById("myNav").style.width = "0";
-		document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+		document.getElementsByTagName("body")[0].style.position = "";
 		var div = document.getElementById('exploreContent');
 		if(div.style.width == "25%"){
 			document.getElementById('ninja-btn').classList.toggle('activated');
@@ -60,12 +60,27 @@ window.onclick = function(event) {
 			document.getElementById('exploreButton').classList.toggle('exploreButtonActive');
 		}
     }
+	else if (event.target.matches('.translucentContainer1')) {
+		document.getElementById("displayPictureEditOverlay").style.height = "0%";
+		document.getElementById("userPageShareBox").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer2')){
+		document.getElementById("paypalPaymentOverlay").style.height = "0%";
+		document.getElementById("paymentBySavedCardsOverlay").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer3')){
+		document.getElementById("projectPageShareBox").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+
 }
 
 function SignMeUp() {
     document.getElementById("SignUp").style.height = "0%";
 	document.getElementById("LogIn").style.height = "0%";
-	document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+	document.getElementsByTagName("body")[0].style.position = "";
 	document.getElementById("navBarProfileButton").style.display = "inline-block";
 	document.getElementById("navBarLogInButton").style.display = "none";
 	document.getElementById("navBarSignUpButton").style.display = "none";

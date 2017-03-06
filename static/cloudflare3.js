@@ -1,5 +1,6 @@
 // Snap.svg 0.3.0
-// 
+// Snap.svg 0.3.0
+//
 // Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");

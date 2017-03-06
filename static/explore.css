@@ -18,13 +18,16 @@
 	margin-top: -8px;
 }
 .exploreContent{
-	position: relative;
+	position: fixed;
 	height: 100%;
     text-align: left;
 	 font-family: SourceSansPro-Regular;
 	transition: 0.4s ease-in-out;
 	background-color: white;
 	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 100%;
+	/*! overflow-y: auto; */
 }
 #exploreContent{
 	width: 0;
@@ -45,7 +48,7 @@
 .exploreHeading1{
     background-color: rgba(56,131,174,1.0);
     padding: 5% 5% 5% 5%;
-	margin-top: 20px;
+	margin-top: 30px;
     margin-bottom: 5px;
 }
 
@@ -95,14 +98,14 @@
     padding: 5px 0 10px 0;
 }
 
-.downArrow{
+.downArrow, .topArrow{
     font-size: 18px !Important;
     text-align: right !Important;
     padding-right: 5px !Important;
 	color: white !Important;
 }
-.topArrow{
-  transform: rotate(180deg);
+.downArrowClose, .topArrowClose{
+  display:none;
 }
 
 #wrap {

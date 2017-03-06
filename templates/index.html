@@ -4,11 +4,6 @@
 <head>
 	<title>Re!magine Giving</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-{#    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">#}
-{#    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet">#}
-{#    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">#}
-{#    <script src="https://use.fontawesome.com/751caf333d.js"></script>#}
 	
 	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
@@ -22,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "socialShareBar.css" %}" media="screen"/>
-{#	<link rel="stylesheet" type="text/css" href="{% static "responsiveIndex.css" %}" media="screen"/>#}
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 	
 	<script src="{% static "whatWeDo.js" %}"></script>
 	<script src="{% static "index.js" %}"></script>
@@ -34,6 +29,17 @@
 </head>
   
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+
 	<header>
 		<div class="row header">
 			<div class="col-3 mainNavBarButton" id="exploreDiv">
@@ -545,26 +551,8 @@
 			<li>
 				<a href="{% url 'index' %}" class="social-btn-flip">
 					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-pinterest-p pinterest"></i>
-						<i class="social-btn-face active fa fa-lg fa-pinterest-p pinterest"></i>
-					</div>
-				</a>
-			</li>
-
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
-					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-instagram instagram"></i>
-						<i class="social-btn-face active fa fa-lg fa-instagram instagram"></i>
-					</div>
-				</a>
-			</li>
-
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
-					<div class="social-btn-cube">
-						<i class="social-btn-face default fa fa-lg fa-tumblr tumblr"></i>
-						<i class="social-btn-face active fa fa-lg fa-tumblr tumblr"></i>
+						<i class="social-btn-face default fa fa-lg fa-linkedin linkedin"></i>
+						<i class="social-btn-face active fa fa-lg fa-linkedin linkedin"></i>
 					</div>
 				</a>
 			</li>
@@ -622,13 +610,18 @@
 						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
 						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
 						<li>
-							<a><i class="fa fa-facebook"></i>   </a>
-							<a><i class="fa fa-google-plus"></i></a>
-							<a><i class="fa fa-twitter"></i>    </a>
-							<a><i class="fa fa-youtube"></i>    </a>
-							<a><i class="fa fa-instagram"></i>  </a>
-							<a><i class="fa fa-whatsapp"></i>   </a>
-							<a><i class="fa fa-linkedin"></i>   </a>
+							<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
+								<i class="fa fa-linkedin" ></i>
+							</a>
 						</li>
 					</ul>
 				</div>

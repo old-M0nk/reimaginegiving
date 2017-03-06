@@ -1,4 +1,7 @@
-
+#firstSlide{
+	display:block;
+	left: 0px;
+}
 .slider {
   margin: 0 auto;
   max-width: 100vw;

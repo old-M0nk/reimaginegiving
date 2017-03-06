@@ -1,4 +1,6 @@
-
+.footer{
+	position: absolute;
+}
 .footerOptions{
 	background-color: #0d0d0d;
 	border-bottom: 2px solid #c2c2c2;
@@ -7,6 +9,7 @@
 .footerOptions a{
 	cursor: pointer;
 	color: white;
+	text-decoration: none;
 }
 
 .footerOptions a:hover, .footerOptions a:focus {
