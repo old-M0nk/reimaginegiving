@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/SignUp.js" afterPath="$PROJECT_DIR$/static/SignUp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/checkOut.js" afterPath="$PROJECT_DIR$/static/checkOut.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/cloudflare3.js" afterPath="$PROJECT_DIR$/static/cloudflare3.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/common.css" afterPath="$PROJECT_DIR$/static/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/contactUsPage.css" afterPath="$PROJECT_DIR$/static/contactUsPage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/explore.css" afterPath="$PROJECT_DIR$/static/explore.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/explore.js" afterPath="$PROJECT_DIR$/static/explore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/footer.css" afterPath="$PROJECT_DIR$/static/footer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/header.css" afterPath="$PROJECT_DIR$/static/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/index.css" afterPath="$PROJECT_DIR$/static/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/index.js" afterPath="$PROJECT_DIR$/static/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/projectPage.css" afterPath="$PROJECT_DIR$/static/projectPage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/recommendedProjects.css" afterPath="$PROJECT_DIR$/static/recommendedProjects.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/signUp.css" afterPath="$PROJECT_DIR$/static/signUp.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/slider.css" afterPath="$PROJECT_DIR$/static/slider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/slider.js" afterPath="$PROJECT_DIR$/static/slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/socialShareBar.css" afterPath="$PROJECT_DIR$/static/socialShareBar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/userPage.css" afterPath="$PROJECT_DIR$/static/userPage.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/viewAllProjects.css" afterPath="$PROJECT_DIR$/static/viewAllProjects.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkOut.html" afterPath="$PROJECT_DIR$/templates/checkOut.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllProjects.html" afterPath="$PROJECT_DIR$/templates/viewAllProjects.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +20,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="checkOut.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkOut.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="4" column="74" lean-forward="false" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUp.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/SignUp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -139,7 +137,6 @@
         <option value="$PROJECT_DIR$/templates/userPage.html" />
         <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
         <option value="$PROJECT_DIR$/reimagine/urls.py" />
-        <option value="$PROJECT_DIR$/static/common.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/projectPage.html" />
         <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
@@ -161,6 +158,7 @@
         <option value="$PROJECT_DIR$/static/socialShareBar.css" />
         <option value="$PROJECT_DIR$/static/userPage.css" />
         <option value="$PROJECT_DIR$/static/viewAllProjects.css" />
+        <option value="$PROJECT_DIR$/static/common.css" />
       </list>
     </option>
   </component>
@@ -599,7 +597,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -714,14 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -972,14 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/SignUp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/slider.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1056,6 +1038,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="74" lean-forward="false" selection-start-line="4" selection-start-column="74" selection-end-line="4" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SignUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
           <folding />
         </state>
       </provider>

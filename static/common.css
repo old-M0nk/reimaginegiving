@@ -1,11 +1,11 @@
 @font-face {
 	font-family:'FontAwesome';
-	src:url("https://use.fontawesome.com/751caf333d.js");
+	src:url('Fonts/FontAwesome.otf')format('opentype');
 }
 @font-face {
     font-family: Poppins-Bold;
     font-weight: 700;
-    src: url(https://fonts.googleapis.com/css?family=Poppins:700);
+    src: url('Fonts/Poppins/Poppins-Bold.ttf')format('truetype');
 }
 @font-face {
     font-family: Poppins-Light;
