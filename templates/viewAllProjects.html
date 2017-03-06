@@ -312,7 +312,8 @@
 			<div class="projectSection1">
 				<div class="row projectContent">
 					<div class="projectThumbnail">
-						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >
+{#						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >#}
+                        <img class="img-thumbnail" src="{{ project.thumbnail|safe }}" >
 						<div class="row locationCause">
 							<div class="projectlocation">
 								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>

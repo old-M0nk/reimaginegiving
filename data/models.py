@@ -25,8 +25,10 @@ class Project(models.Model):
     person_of_contact = models.CharField(max_length = 100)
     summary = models.TextField(blank = False)
     story = models.TextField(blank = True)
-    thumbnail = models.ImageField(blank = True)# thumbnail image
-    banner = models.ImageField(blank = True)# banner image
+    # thumbnail = models.ImageField(blank = True)# thumbnail image
+    # banner = models.ImageField(blank = True)# banner image
+    thumbnail = models.TextField(blank=True)
+    banner = models.TextField(blank=True)
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))
     project_page_desc = models.CharField(max_length=300, blank=True)
     RATINGS = (
