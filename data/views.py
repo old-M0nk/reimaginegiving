@@ -77,6 +77,9 @@ def checkOut(request, pk):
             else:
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
+    else:
+        url = reverse('projectPage', kwargs={'pk': pk})
+        return HttpResponseRedirect(url)
 
 
 
