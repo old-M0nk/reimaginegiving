@@ -50,7 +50,7 @@ def projectPage (request, pk):
                     'name': ngo,
                     'ngo_desc': ngo_desc,
                     'projects': project_list,
-                    }
+                    'pk': pk}
                     # 'stars': stars
     return render(request, 'projectPage.html', context_dict, context)
 
