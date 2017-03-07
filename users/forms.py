@@ -1,12 +1,6 @@
 from django import forms
 
 
-# class Email(forms.ModelForm):
-#
-#     class Meta:
-#         model = Email
-#         fields = ('email',)
-
 class email_form(forms.Form):
     email = forms.EmailField(required=True)
 
