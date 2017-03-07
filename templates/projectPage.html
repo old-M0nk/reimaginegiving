@@ -633,9 +633,9 @@
 			<div class="row projectPageDonateShareClick">
 				<div class="projectPageDonateButtonClick" id="projectPageDonateButtonClick">
 {#                    {% if form %}#}
-		            <form class="donate" method="POST" action="{% url 'checkOut' pk=project.project_id %}">
+		            <form class="projectPageDonateButtonClickForm" method="POST" action="{% url 'checkOut' pk=project.project_id %}">
                         {% csrf_token %}
-					    <input id="search" name="amount" type="number" placeholder="Amount"/>
+					    <input id="search" name="amount" type="number" placeholder="Enter the Amount"/>
 					    <button class="projectPageDonateFinalButton">Donate</button>
                     </form>
 {#                    {% endif %}#}
