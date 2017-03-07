@@ -638,9 +638,11 @@
 					<li class="col-6 projectPageDonationOptionsOnce">
 						<a href="javascript:void(0)" id="projectPageDonationOptionsOnce" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsOnce','projectPageDonationOptionsOnceOptions')"><h3>Give Once</h3></a>
 					</li>
+                    {% if project.title == "Digital Literacy In Chamladevi Intercollege" %}
 					<li class="col-6 projectPageDonationOptionsMonthly">
 						<a href="javascript:void(0)" id="projectPageDonationOptionsMonthly" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsMonthly','projectPageDonationOptionsMonthlyOptions')"><h3>Give Monthly</h3></a>
 					</li>
+                    {% endif %}
 				</ul>
 				<div id="projectPageDonationOptionsOnceOptions" class="row projectPageDonationOptionsOnceOptions donationOptionsTabContent">
 					<a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption" >
