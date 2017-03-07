@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/projectPage.css" afterPath="$PROJECT_DIR$/static/projectPage.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +23,7 @@
       <file leaf-file-name="contactUsPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="0">
               <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
               <folding />
             </state>
@@ -62,34 +62,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-4">
-              <caret line="640" column="42" lean-forward="false" selection-start-line="640" selection-start-column="42" selection-end-line="640" selection-end-column="42" />
+              <caret line="652" column="42" lean-forward="false" selection-start-line="652" selection-start-column="42" selection-end-line="652" selection-end-column="42" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="459" column="8" lean-forward="false" selection-start-line="459" selection-start-column="8" selection-end-line="459" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="projectPage.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/projectPage.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="330" column="19" lean-forward="false" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
-              <folding>
-                <marker date="1488907934836" expanded="true" signature="5354:5593" ph="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -213,8 +191,8 @@
         <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
         <option value="$PROJECT_DIR$/users/forms.py" />
         <option value="$PROJECT_DIR$/data/views.py" />
-        <option value="$PROJECT_DIR$/templates/projectPage.html" />
         <option value="$PROJECT_DIR$/static/projectPage.css" />
+        <option value="$PROJECT_DIR$/templates/projectPage.html" />
       </list>
     </option>
   </component>
@@ -293,11 +271,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/projectPage.css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ReImagineGiving-master/projectPage.html" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/projectPage.css" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../../../ReImagineGiving-master/projectPage.html" />
   </component>
   <component name="RunManager" selected="Django server.reimagine">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -913,7 +891,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="0">
           <caret line="18" column="51" lean-forward="false" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
           <folding />
         </state>
@@ -988,10 +966,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
+    <entry file="file://$PROJECT_DIR$/static/projectPage.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="640" column="42" lean-forward="false" selection-start-line="640" selection-start-column="42" selection-end-line="640" selection-end-column="42" />
+        <state relative-caret-position="244">
+          <caret line="330" column="19" lean-forward="false" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1004,13 +982,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/projectPage.css">
+    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="330" column="19" lean-forward="false" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
-          <folding>
-            <marker date="1488907934836" expanded="true" signature="5354:5593" ph="{...}" />
-          </folding>
+        <state relative-caret-position="-4">
+          <caret line="652" column="42" lean-forward="false" selection-start-line="652" selection-start-column="42" selection-end-line="652" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
