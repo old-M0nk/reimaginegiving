@@ -13,8 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
 
+from django.conf.urls import include, url
+from data import views
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
@@ -32,9 +33,19 @@ urlpatterns = [
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 
+        url(r'^$', views.index, name='index'),  #uncomment when the site needs to be put up
+        url(r'^projectPage/(?P<pk>\d+)/$', views.projectPage, name='projectPage'),
+        url(r'^checkOut/(?P<pk>\d+)/$', views.checkOut, name='checkOut'),
+        url(r'^teamPage/', views.teamPage, name='teamPage'),
+        url(r'^userPage/', views.userPage, name='userPage'),
+        url(r'^viewAllProjects/', views.viewAllProjects, name='viewAllProjects'),
+        url(r'^contactUsPage/', views.contactUsPage, name='contactUsPage'),
+
+
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('users.urls')), # for the coming soon page   #comment out when the site needs to be put up
-    url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
+    url(r'^comingsoon', include('users.urls'))
+    # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
+    # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...
     # url(r'^staff/', include('staff.urls')), # for the staff portal
 

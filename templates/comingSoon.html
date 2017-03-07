@@ -48,23 +48,3 @@
 	</div>
 <script src="{% static "comingSoon.js" %}"></script>
 </body>
-
-
-{#<form class="login form-horizontal" method="POST" action="{% url 'account_login' %}">#}
-{#        {% csrf_token %}#}
-{##}
-{#        {% for field in form %}#}
-{#        <div class="form-group">#}
-{#        {{ field|add_class:"form-control" }}#}
-{#        {{field.errors}}#}
-{#        </div>#}
-{#        {% endfor %}#}
-{##}
-{##}
-{#        {% if redirect_field_value %}#}
-{#        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
-{#        {% endif %}#}
-{#        <button class="btn btn-primary " type="submit">Sign In</button>#}
-{#        <a class="btn btn-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>#}
-{##}
-{#      </form>#}
