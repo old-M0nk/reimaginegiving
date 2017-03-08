@@ -15,6 +15,8 @@ Including another URLconf
 """
 
 from django.conf.urls import include, url
+from django.contrib.auth import views as auth_views
+from core import views as core_views
 from data import views
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -41,9 +43,13 @@ urlpatterns = [
         url(r'^viewAllProjects/', views.viewAllProjects, name='viewAllProjects'),
         url(r'^contactUsPage/', views.contactUsPage, name='contactUsPage'),
 
+        url(r'^home/$', core_views.home, name='home'),
+        url(r'^login/$', auth_views.login, name='login'),
+        url(r'^logout/$', auth_views.logout, name='logout'),
+        url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^comingsoon', include('users.urls'))
+        url(r'^admin/', include(admin.site.urls)),
+        url(r'^comingsoon', include('users.urls'))
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...
