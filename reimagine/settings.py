@@ -169,6 +169,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '4994a3fdc4ccf7f1421d636a35fc9105'  # App Secret
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '597695480411-e4d81aqpu9sn7dhlq8l9n0on8gvjd0tn.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '73Ch46dqkZvezRuTqgONpM_k'
-SOCIAL_AUTH_GOOGLE_KEY = '597695480411-e4d81aqpu9sn7dhlq8l9n0on8gvjd0tn.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_SECRET = '73Ch46dqkZvezRuTqgONpM_k'
+
+# SOCIAL_AUTH_GOOGLE_KEY = '597695480411-e4d81aqpu9sn7dhlq8l9n0on8gvjd0tn.apps.googleusercontent.com'
+# SOCIAL_AUTH_GOOGLE_SECRET = '73Ch46dqkZvezRuTqgONpM_k'
 
