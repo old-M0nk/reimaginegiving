@@ -87,6 +87,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -162,3 +163,6 @@ SOCIAL_AUTH_GITHUB_SECRET = '96d3f998b6df520218c48bace997c7901163477c'
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1783113612015675'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '4994a3fdc4ccf7f1421d636a35fc9105'  # App Secret
+
+SOCIAL_AUTH_GOOGLE_KEY = '597695480411-e4d81aqpu9sn7dhlq8l9n0on8gvjd0tn.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_SECRET = '73Ch46dqkZvezRuTqgONpM_k'
