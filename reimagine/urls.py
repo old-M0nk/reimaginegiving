@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from core import views as core_views
 from data import views
+from users.views import UserFormView, LogoutView
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
@@ -45,7 +46,9 @@ urlpatterns = [
 
         url(r'^home/$', core_views.home, name='home'),
         url(r'^login/$', auth_views.login, name='login'),
-        url(r'^logout/$', auth_views.logout, name='logout'),
+        url(r'^register/$', UserFormView.as_view(), name='register'),
+        # url(r'^logout/$', auth_views.logout, name='logout'),
+        url(r'^logout/$', LogoutView, name='logout'),
         url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 
         url(r'^admin/', include(admin.site.urls)),
