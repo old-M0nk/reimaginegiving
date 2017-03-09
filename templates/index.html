@@ -145,13 +145,17 @@
 							<div class="form-container actived">
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
-									<form class="form-log-in animated">
-									  <input name="Username" placeholder="Username" type="text" />
-									  <input name="Password" placeholder="Password" type="Password" />
-										 <span onclick="SignMeUp()"> <div class="btn">Log in</div></span>
+                                    {% if form %}
+									<form class="form-log-in animated"  action="{% url 'index' %}" method="POST">
+                                    {% csrf_token %}
+									  <input name="username" placeholder="Email" type="text"/>
+									  <input name="password" placeholder="Password" type="Password" />
+                                        <button type="submit" value="submit">Log In</button>
+{#										 <div class="btn">Log in</div>#}
 										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
 										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
 									</form>
+                                    {% endif %}
 									<form class="form-sign-up animated">
 									  <input name="Username" placeholder="Username" type="text" />
 									  <input name="Password" placeholder="Password" type="Password" />

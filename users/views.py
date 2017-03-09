@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout, get_user_model
+from django.contrib.auth.models import User
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserForm
+from .forms import email_form, UserLoginForm, UserRegistrationForm
 from .models import Email
-
+from django.contrib.auth import authenticate as auth
 
 def comingSoon(request):
     if request.method == "POST":
@@ -38,57 +39,76 @@ def comingSoon(request):
 
     return render(request, 'comingSoon.html', context_dict)
 
+#you have to comulsorily use '_view' because Django already has a login(), logout() method
 
-class UserFormView(View):
-    form_class = UserForm
-    template_name = 'registration/register.html'
 
-    #display a blank form
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+def login_view(request):
+    if request.method == "POST": #if the form has been submitted
+        form = UserLoginForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        print(username, password)
+        u = User.objects.filter(username=username)
+        print("sadfh",u)
+        user = auth(username=username, password=password)
+        print(user)
+        if user is not None:
+            login(request, user)
+            print("True")
+            message = "Welcome"
+            context_dict = {'message': message}
+        else:
+            # Return an 'invalid login' error message.
+            context_dict = {'message': 'Incorrect Credentials', 'form': form}
 
-    #process form data
-    def post(self, request):
-        form = self.form_class(request.POST)
+    else:#if the form has not been submitted
+        form = UserLoginForm(request.POST or None)
+        context_dict = {'form':form, 'message': "Login blah"}
+    return render(request, 'registration/login.html', context_dict)
 
-        if form.is_valid():
-            user = form.save(commit=False)
 
-            #clean(normalised) data
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user.set_password(password)
-            user.save()
+def register_view(request):
+    title = "Register"
+    form = UserRegistrationForm(request.POST or None)
+    if form.is_valid():
+        user = form.save(commit=False)
+        password = form.cleaned_data.get('password')
+        user.backend = 'django.contrib.auth.backends.ModelBackend'
+        user.set_password(password)
+        user.save()
+        login(request, user)
 
-            #returns User objects if credentials are correct
-            user = authenticate(username=username, password=password)
+    context = {
+        "form": form,
+        "title": title
+    }
+    return render(request, 'registration/register.html', context)
 
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return redirect('index')
-        return render(request, self.template_name, {'form':form})
 
-def LogoutView(request):
+def logout_view(request):
     logout(request)
-    return render(request, 'index.html')
+    return render(request, 'index.html', {})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# def validateEmail(username):#function for checking if the username is in the correct email format
+#     from django.core.validators import validate_email
+#     from django.core.exceptions import ValidationError
+#     try:
+#         validate_email(username)
+#         return True
+#     except ValidationError:
+#         return False
+#
+# if validateEmail(username):#if the username is in the correct email format
+#     user = authenticate(username=username, password=password)#try authenticating user
+#     if user is not None:
+#         login(request, user)
+#         print("True")
+#         message = "You're already logged in!"
+#         context_dict = {'message': message}
+#     else:
+#         context_dict = {'message': 'Incorrect Credentials', 'form': form}
+# else:
+#     context_dict = {'message': 'Incorrect Credentials', 'form': form}
 
 
 

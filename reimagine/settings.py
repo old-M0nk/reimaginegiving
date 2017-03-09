@@ -84,6 +84,7 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
@@ -92,7 +93,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.google.GoogleOAuth',
 
-    'django.contrib.auth.backends.ModelBackend',
+
 )
 
 WSGI_APPLICATION = 'reimagine.wsgi.application'
@@ -157,9 +158,9 @@ STATIC_URL = '/static/'
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+# LOGIN_REDIRECT_URL = 'home'
 
 SOCIAL_AUTH_GITHUB_KEY = '90450bdca53e2a9e1125'
 SOCIAL_AUTH_GITHUB_SECRET = '96d3f998b6df520218c48bace997c7901163477c'
