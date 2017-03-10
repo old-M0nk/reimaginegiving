@@ -118,7 +118,17 @@
 				</div>
 				
 				<div class="col-4 mainNavBarButton">
-					<div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+                    {% if user.is_authenticated %}
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="{% url 'logout' %}" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+                    {% else %}
+                    <div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
 						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
 					</div>
 					<div id="SignUp" class="overlay">
@@ -139,29 +149,16 @@
 							<div class="form-container actived">
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
-									<form class="form-log-in animated">
-									  <input name="Username" placeholder="Username" type="text" />
-									  <input name="Password" placeholder="Password" type="Password" />
-										 <span onclick="SignMeUp()"> <div class="btn">Log in</div></span>
-										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
-									</form>
-									<form class="form-sign-up animated">
-									  <input name="Username" placeholder="Username" type="text" />
-									  <input name="Password" placeholder="Password" type="Password" />
-									  <input name="CPassword" placeholder="Confirm Password" type="Password" />
-									  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
-									  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
-									</form>
+{#									{% include "registration/login.html" %}#}
+{#									{% include "registration/register.html" %}#}
 								</div>
 							</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
-						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
 					</div>
 					<div id="LogIn" class="overlay">
 						<div class="translucentContainer"></div>
@@ -181,40 +178,18 @@
 								<div class="form-container1">
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
-										<form class="form-log-in1 animated">
-										  <input name="Username" placeholder="Username" type="text" />
-										  <input name="Password" placeholder="Password" type="Password" />
-										  <span onclick="SignMeUp()"><div class="btn">Log in</div></span>
-										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
-										</form>
-										<form class="form-sign-up1 animated">
-										  <input name="Username" placeholder="Username" type="text" />
-										  <input name="Password" placeholder="Password" type="Password" />
-										  <input name="CPassword" placeholder="Confirm Password" type="Password" />
-										  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
-										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
-										</form>
+                                        {% include "registration/login.html" %}
+									    {% include "registration/register.html" %}
 									</div>
 								</div>
 							</div>
 						</div>
 						<script src='{% static "cloudflare.js" %}'></script>
 						<script src='{% static "cloudflare1.js" %}'></script>
-						
+
 						<script src="{% static "SignUp.js" %}"></script>
 					</div>
-					
-					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
-						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
-						<div class="navBarProfileOptions">
-							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
-							 <a href="#"><h2>My Donations</h2></a>
-							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
-						</div>
-					</div>
-					
+                        {% endif %}
 				</div>
 			</div>
 		</div>
