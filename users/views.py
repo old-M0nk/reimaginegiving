@@ -103,7 +103,8 @@ def register_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return render(request, 'index.html', {})
+    return redirect('index')
+    # return render(request, 'index.html', {})
 
 
 @login_required
