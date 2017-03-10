@@ -45,6 +45,6 @@ class User_Details(models.Model):
     city = models.CharField(max_length=20, blank=False)
     pincode = models.IntegerField(blank=False)
 
-    def __str__(self):
+    def __int__(self):
         return self.username
 
