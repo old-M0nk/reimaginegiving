@@ -6,6 +6,7 @@ from django.views.generic import View
 from .forms import email_form, UserLoginForm, UserRegistrationForm
 from .models import Email
 from django.contrib.auth import authenticate as auth
+from django.contrib.auth.decorators import login_required
 
 def comingSoon(request):
     if request.method == "POST":
@@ -57,58 +58,65 @@ def login_view(request):
             print("True")
             message = "Welcome"
             context_dict = {'message': message}
+            page = 'index.html'
         else:
             # Return an 'invalid login' error message.
             context_dict = {'message': 'Incorrect Credentials', 'form': form}
+            page = 'registration/login.html'
 
     else:#if the form has not been submitted
         form = UserLoginForm(request.POST or None)
         context_dict = {'form':form, 'message': "Login blah"}
-    return render(request, 'registration/login.html', context_dict)
+        page = 'registration/login.html'
+
+    if request.user.is_authenticated():
+        return render(request, page, context_dict)
 
 
 def register_view(request):
-    title = "Register"
-    form = UserRegistrationForm(request.POST or None)
-    if form.is_valid():
-        user = form.save(commit=False)
-        password = form.cleaned_data.get('password')
-        user.backend = 'django.contrib.auth.backends.ModelBackend'
-        user.set_password(password)
-        user.save()
-        login(request, user)
+    if request.method == "POST":  # if the form has been submitted
+        form = UserRegistrationForm(request.POST or None)
+        username = request.POST['username']
+        password = request.POST['password']
+        password2 = request.POST['password2']
 
-    context = {
-        "form": form,
-        "title": title
-    }
-    return render(request, 'registration/register.html', context)
+        #check if the passwords match
+        if password == password2:
+            user = User(username=username, email=username, password=password)
+            # user = user.save(commit=False)
+            user.backend = 'django.contrib.auth.backends.ModelBackend'
+            user.set_password(password)
+            user.save()
+            login(request, user)
+            context_dict = {
+                "message": "Welcome",
+            }
+        else:
+            context_dict = {'form': form, 'message': "Passwords did not match!"}
+    else:
+        form = UserRegistrationForm(request.POST or None)
+        context_dict = {'form': form}
+    return render(request, 'index.html', context_dict)
+
+    # if form.is_valid():
+    #     user = form.save(commit=False)
+    #     password = form.cleaned_data.get('password')
+    #     user.backend = 'django.contrib.auth.backends.ModelBackend'
+    #     user.set_password(password)
+    #     user.save()
+    #     login(request, user)
+    #
+    # context = {
+    #     "form": form,
+    # }
+    # return render(request, 'registration/register.html', context)
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return render(request, 'index.html', {})
 
-# def validateEmail(username):#function for checking if the username is in the correct email format
-#     from django.core.validators import validate_email
-#     from django.core.exceptions import ValidationError
-#     try:
-#         validate_email(username)
-#         return True
-#     except ValidationError:
-#         return False
-#
-# if validateEmail(username):#if the username is in the correct email format
-#     user = authenticate(username=username, password=password)#try authenticating user
-#     if user is not None:
-#         login(request, user)
-#         print("True")
-#         message = "You're already logged in!"
-#         context_dict = {'message': message}
-#     else:
-#         context_dict = {'message': 'Incorrect Credentials', 'form': form}
-# else:
-#     context_dict = {'message': 'Incorrect Credentials', 'form': form}
 
 
 

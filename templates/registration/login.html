@@ -1,35 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{#  <form method="POST" action="" enctype="multipart/form-data">#}
-{#    {% csrf_token %}#}
-{#      {{ form }}#}
-{#      <input type = "search" placeholder = "Enter your username" name = "username"/><br>#}
-{#      <input type = "password" placeholder = "Enter your password" name = "password"/><br>#}
-{#      <button type="submit">Login</button>#}
-{#  </form>#}
+
     {% if not user.is_authenticated %}
 
-    {{ message }}
-    {% if form %}
+
 									<form class="form-log-in animated"  action="{% url 'login' %}" method="POST">
                                     {% csrf_token %}
 									  <input name="username" placeholder="Email" type="text"/>
 									  <input name="password" placeholder="Password" type="Password" />
-                                        <button type="submit" value="submit">Log In</button>
+                                        <span onclick="SignMeUp()"><button type="submit" value="submit" class="btn">Log In</button></span>
 {#										 <div class="btn">Log in</div>#}
 										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
 										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
 									</form>
-                                    {% endif %}
   <br>
-  <p><strong>-- OR --</strong></p>
-  <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-  <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
-  <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
-    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
 
      {% else %}{{ user.username }}
     {% endif %}
-    <br><a href="{% url 'logout' %}">logout</a>
 {% endblock %}

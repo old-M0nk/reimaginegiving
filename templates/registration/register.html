@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Register</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p}}
-      {{request.user.username}}
-    <button type="submit">Register</button>
-  </form>
+  <form class="form-sign-up animated" method="post" action="{% url 'register' %}">
+  {% csrf_token %}
+									  <input name="username" placeholder="Email" type="text" />
+									  <input name="password" placeholder="Password" type="Password" />
+									  <input name="password2" placeholder="Confirm Password" type="Password" />
+                                      <button type="submit" value="submit" class="btn">Sign Up</button>
+									  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
+                                      <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
+									</form>
   <br>
-    <a href="{% url 'logout' %}">logout</a>
 
 {% endblock %}
