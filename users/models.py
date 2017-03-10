@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 from data.models import Project
 
 
@@ -32,4 +33,18 @@ class ContactUs(models.Model):
     name = models.CharField(max_length=254, default="blank")
     email = models.EmailField(max_length=254, blank=False)
     message = models.TextField(blank=False, default="blank")
+
+
+class User_Details(models.Model):
+    username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
+    mobile_number = models.IntegerField(blank=False)
+    pan_number = models.TextField(blank=False)
+    occupation = models.TextField(blank=False)
+    address_line_1 = models.TextField(blank=False)
+    address_line_2 = models.TextField(blank=False)
+    city = models.CharField(max_length=20, blank=False)
+    pincode = models.IntegerField(blank=False)
+
+    def __str__(self):
+        return self.username
 

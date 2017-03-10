@@ -26,17 +26,5 @@ class UserRegistrationForm(forms.Form):
     username = forms.EmailField(required=True)
     email = forms.EmailField(required=True)
     password = forms.CharField(required=True)
-    # password = forms.CharField(label="Password" , widget=forms.PasswordInput)
-    # password2 = forms.CharField(label = "Confirm Password", widget=forms.PasswordInput)
-    #
-    # class Meta:
-    #     model = User
-    #     fields = ['username', 'email', 'password', 'password2']
-    #
-    # def clean_password2(self):
-    #     password= self.cleaned_data.get('password')
-    #     password2 = self.cleaned_data.get('password2')
-    #     if password != password2:
-    #         raise forms.ValidationError("Passwords don't match")
-    #     return super(UserRegistrationForm, self).clean()
+
 

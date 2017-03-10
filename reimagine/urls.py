@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from core import views as core_views
 from data import views
-from users.views import login_view, logout_view, register_view
+from users.views import login_view, logout_view, register_view, userPage
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
@@ -40,7 +40,7 @@ urlpatterns = [
         url(r'^projectPage/(?P<pk>\d+)/$', views.projectPage, name='projectPage'),
         url(r'^checkOut/(?P<pk>\d+)/$', views.checkOut, name='checkOut'),
         url(r'^teamPage/', views.teamPage, name='teamPage'),
-        url(r'^userPage/', views.userPage, name='userPage'),
+        url(r'^userPage/', userPage, name='userPage'),
         url(r'^viewAllProjects/', views.viewAllProjects, name='viewAllProjects'),
         url(r'^contactUsPage/', views.contactUsPage, name='contactUsPage'),
 

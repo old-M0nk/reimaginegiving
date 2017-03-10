@@ -111,7 +111,17 @@
 				</div>
 				
 				<div class="col-4 mainNavBarButton">
-					<div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+                    {% if user.is_authenticated %}
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="{% url 'logout' %}" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+                    {% else %}
+                    <div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
 						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
 					</div>
 					<div id="SignUp" class="overlay">
@@ -132,27 +142,14 @@
 							<div class="form-container actived">
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
-									<form class="form-log-in animated">
-									  <input name="Username" placeholder="Username" type="text" />
-									  <input name="Password" placeholder="Password" type="Password" />
-										 <span onclick="SignMeUp()"> <div class="btn">Log in</div></span>
-										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
-									</form>
-									<form class="form-sign-up animated">
-									  <input name="Username" placeholder="Username" type="text" />
-									  <input name="Password" placeholder="Password" type="Password" />
-									  <input name="CPassword" placeholder="Confirm Password" type="Password" />
-									  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
-									  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
-									</form>
+									{% include "registration/login.html" %}
+									{% include "registration/register.html" %}
 								</div>
 							</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
 						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
 					</div>
@@ -174,40 +171,18 @@
 								<div class="form-container1">
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
-										<form class="form-log-in1 animated">
-										  <input name="Username" placeholder="Username" type="text" />
-										  <input name="Password" placeholder="Password" type="Password" />
-										  <span onclick="SignMeUp()"><div class="btn">Log in</div></span>
-										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
-										</form>
-										<form class="form-sign-up1 animated">
-										  <input name="Username" placeholder="Username" type="text" />
-										  <input name="Password" placeholder="Password" type="Password" />
-										  <input name="CPassword" placeholder="Confirm Password" type="Password" />
-										  <span onclick="SignMeUp()"><div class="btn">Sign Up</div></span>
-										  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
-										</form>
+                                        {% include "registration/login.html" %}
+									    {% include "registration/register.html" %}
 									</div>
 								</div>
 							</div>
 						</div>
 						<script src='{% static "cloudflare.js" %}'></script>
 						<script src='{% static "cloudflare1.js" %}'></script>
-						
+
 						<script src="{% static "SignUp.js" %}"></script>
 					</div>
-					
-					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
-						<h2 id="navBarProfile"><span class="profileSpan">Visharad Jalan</span></h2>
-						<div class="navBarProfileOptions">
-							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
-							 <a href="#"><h2>My Donations</h2></a>
-							 <a href="#" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
-						</div>
-					</div>
-					
+                        {% endif %}
 				</div>
 			</div>
 		</div>
@@ -219,7 +194,7 @@
 			<div class="icon-cont">
 				<img class="circleIconImage" src="{% static "images/anuruddh.png" %}">
 			</div>
-			<h2 class="userPageLeftUserName">Anuruddh Mishra</h2>
+			<h2 class="userPageLeftUserName">{{ user.first_name }} {{ user.last_name }}</h2>
 			<div class="userPageProfileOptions">
 				<h2 class="userPageSetttingOptionsHeading">Profile</h2>
 				<ul>
@@ -261,20 +236,20 @@
 					</div>
 					<div class="userPageGeneralInformationContent">
 						<div class="row userPageGeneralInformationContentRows">
-							<h2 class="col-6">FIRST NAME: <span>Anurrudh</span></h2>
-							<h2 class="col-6">LAST NAME: <span>Mishra</span></h2>
+							<h2 class="col-6">FIRST NAME: <span>{{ user.first_name }}</span></h2>
+							<h2 class="col-6">LAST NAME: <span>{{ user.last_name }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>EMAIL ADDRESS: <span>anuruddh.mishra@gmail.com</span></h2>
+							<h2>EMAIL ADDRESS: <span>{{ user.email }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>MOBILE NO: <span>7891133332</span></h2>
+							<h2>MOBILE NO: <span>{{ user_details.mobile_number }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>PAN DETAILS: <span>AATPJ7845B0</span></h2>
+							<h2>PAN DETAILS: <span>{{ user_details.pan_number }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows lastRow">
-							<h2>OCCUPATION: <span>Social entrepreneur</span></h2>
+							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
 						</div>
 						<a><i class="fa fa-pencil-square-o"></i></a>
 					</div>
@@ -286,20 +261,20 @@
 					</div>
 					<div class="userPageGeneralInformationContent">
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>ADDRESS LINE 1: <span>Room no. 2</span></h2>
+							<h2>ADDRESS LINE 1: <span>{{ user_details.address_line_1 }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>ADDRESS LINE 2: <span>Limbdi Hostel, IIT(BHU)</span></h2>
+							<h2>ADDRESS LINE 2: <span>{{ user_details.address_line_2 }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2 class="col-6">CITY: <span>Varanasi</span></h2>
-							<h2 class="col-6">PINCODE: <span>221005</span></h2>
+							<h2 class="col-6">CITY: <span>{{ user_details.city }}</span></h2>
+							<h2 class="col-6">PINCODE: <span>{{ user_details.pincode }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows">
-							<h2>PAN DETAILS: <span>AATPJ7845B0</span></h2>
+							<h2>PAN DETAILS: <span>{{ user_details.pan_number }}</span></h2>
 						</div>
 						<div class="row userPageGeneralInformationContentRows lastRow">
-							<h2>OCCUPATION: <span>Social entrepreneur</span></h2> 
+							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
 						</div>
 						<a><i class="fa fa-pencil-square-o"></i></a>
 					</div>
@@ -398,7 +373,7 @@
 						<h2>Linked Accounts</h2>
 						<ul>
 							<li>
-								<h2>Anuruddh Mishra</h2>
+								<h2>{{ user.first_name }} {{ user.last_name }}</h2>
 							</li>
 							<li class="addNewCard">
 								<h2>+<br/>Link a Card</h2>
@@ -439,7 +414,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -458,7 +433,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -477,7 +452,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -496,7 +471,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -515,7 +490,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -534,7 +509,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 					</ul>
@@ -558,7 +533,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -609,12 +584,12 @@
 										</div>
 										
 										<div class="row projectSectionDonateButton">
-											<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+											<a href="{% url 'index' %}"><h2>Donate</h2></a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 						
 						<div class="projectSection2">
@@ -630,7 +605,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -681,11 +656,11 @@
 									</div>
 									
 									<div class="row projectSectionDonateButton">
-										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+										<a href="{% url 'index' %}"><h2>Donate</h2></a>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 						
 						<div class="projectSection3">
@@ -701,7 +676,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -751,11 +726,11 @@
 									</div>
 									
 									<div class="row projectSectionDonateButton">
-										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+										<a href="{% url 'index' %}"><h2>Donate</h2></a>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 					</div>
 				</div>
@@ -786,7 +761,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -805,7 +780,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -824,7 +799,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -843,7 +818,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -862,7 +837,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 						<li>
@@ -881,7 +856,7 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'projectPage' %}">SHARE</a><a href="{% url 'projectPage' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
 						</li>
 					</ul>
@@ -905,7 +880,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -956,12 +931,12 @@
 										</div>
 										
 										<div class="row projectSectionDonateButton">
-											<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+											<a href="{% url 'index' %}"><h2>Donate</h2></a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 						
 						<div class="projectSection2">
@@ -977,7 +952,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -1028,11 +1003,11 @@
 									</div>
 									
 									<div class="row projectSectionDonateButton">
-										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+										<a href="{% url 'index' %}"><h2>Donate</h2></a>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 						
 						<div class="projectSection3">
@@ -1048,7 +1023,7 @@
 											<div class="col-1 projectcauseImage"><img src="images/causeThumbnail.png"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -1098,11 +1073,11 @@
 									</div>
 									
 									<div class="row projectSectionDonateButton">
-										<a href="{% url 'checkOut' %}"><h2>Donate</h2></a>
+										<a href="{% url 'index' %}"><h2>Donate</h2></a>
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 					</div>
 				</div>
@@ -1195,7 +1170,7 @@
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
 											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'projectPage' %}"></a>
+										<a class="locationCauseLink" href="{% url 'index' %}"></a>
 									</div>
 								</div>
 								
@@ -1246,7 +1221,7 @@
 									</div>
 								</div>
 							</div>
-							<a class="divLink" href="{% url 'projectPage' %}"></a>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</div>
 					</li>
 				</ul>
@@ -1269,20 +1244,20 @@
 				<div class="col-6 footerCauses1">
 					<ul>
 						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'projectPage' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'projectPage' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'projectPage' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'projectPage' %}">Women and Girls</a></h2>  </li>
-						<li><h2><a href="{% url 'projectPage' %}">Disaster Recovery</a></h2></li>
-						<li><h2><a href="{% url 'projectPage' %}">LGBTQ</h2>                </li>
+						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
+						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
+						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
+						<li><h2><a href="{% url 'index' %}">Women and Girls</a></h2>  </li>
+						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
+						<li><h2><a href="{% url 'index' %}">LGBTQ</h2>                </li>
 					</ul>
 				</div>
 				<div class="col-6 footerCauses2">
 					<ul>	
-						<li><h2><a href="{% url 'projectPage' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'projectPage' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'projectPage' %}">Enviorment</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
+						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
+						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
 					</ul>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.views import generic
 from django.views.generic import View
 from .forms import email_form, UserLoginForm, UserRegistrationForm
-from .models import Email
+from .models import Email, User_Details
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 
@@ -98,24 +98,18 @@ def register_view(request):
         context_dict = {'form': form}
     return render(request, 'index.html', context_dict)
 
-    # if form.is_valid():
-    #     user = form.save(commit=False)
-    #     password = form.cleaned_data.get('password')
-    #     user.backend = 'django.contrib.auth.backends.ModelBackend'
-    #     user.set_password(password)
-    #     user.save()
-    #     login(request, user)
-    #
-    # context = {
-    #     "form": form,
-    # }
-    # return render(request, 'registration/register.html', context)
 
 
 @login_required
 def logout_view(request):
     logout(request)
     return render(request, 'index.html', {})
+
+
+@login_required
+def userPage (request):
+    user_details = User_Details.objects.get(username=request.user.id)
+    return render(request, 'userPage.html', {'user_details': user_details})
 
 
 

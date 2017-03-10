@@ -126,7 +126,7 @@
 				<div class="col-4 mainNavBarButton">
                     {% if user.is_authenticated %}
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
-						<h2 id="navBarProfile"><span class="profileSpan">{{ user.username }}</span></h2>
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
 						<div class="navBarProfileOptions">
 							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
 							 <a href="#"><h2>My Donations</h2></a>
@@ -182,10 +182,10 @@
 								  </div>
 								</div>
 								<div class="form-container1">
-									<img src="logo/logo-final.png"/>
+									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
-                                        {% include "registration/login.html" %}
-									    {% include "registration/register.html" %}
+{#                                        {% include "registration/login.html" %}#}
+{#									    {% include "registration/register.html" %}#}
 									</div>
 								</div>
 							</div>

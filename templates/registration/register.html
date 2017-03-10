@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
 
-{% block content %}
+{% block form %}
   <form class="form-sign-up animated" method="post" action="{% url 'register' %}">
   {% csrf_token %}
 									  <input name="username" placeholder="Email" type="text" />
