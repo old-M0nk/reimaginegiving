@@ -37,7 +37,7 @@ class ContactUs(models.Model):
 
 class User_Details(models.Model):
     username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
-    mobile_number = models.IntegerField(blank=False)
+    mobile_number = models.CharField(max_length=12, blank=False)
     pan_number = models.TextField(blank=False)
     occupation = models.TextField(blank=False)
     address_line_1 = models.TextField(blank=False)
