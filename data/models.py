@@ -28,6 +28,10 @@ class Project(models.Model):
     # thumbnail = models.ImageField(blank = True)# thumbnail image
     # banner = models.ImageField(blank = True)# banner image
     thumbnail = models.TextField(blank=True)
+    gallery1 = models.TextField(blank=True)
+    gallery2 = models.TextField(blank=True)
+    gallery3 = models.TextField(blank=True)
+    gallery4 = models.TextField(blank=True)
     banner = models.TextField(blank=True)
     team_member_id = models.ForeignKey(Team_Member, on_delete=models.SET('team member not set'))
     project_page_desc = models.CharField(max_length=300, blank=True)
