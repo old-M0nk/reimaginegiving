@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkOut.html" afterPath="$PROJECT_DIR$/templates/checkOut.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-69">
@@ -87,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="678" column="42" lean-forward="false" selection-start-line="678" selection-start-column="42" selection-end-line="678" selection-end-column="42" />
+            <state relative-caret-position="34">
+              <caret line="655" column="34" lean-forward="false" selection-start-line="655" selection-start-column="34" selection-end-line="655" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#2;n#body#0;n#!!top" expanded="true" />
               </folding>
@@ -1025,16 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="678" column="42" lean-forward="false" selection-start-line="678" selection-start-column="42" selection-end-line="678" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#2;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-839">
@@ -1049,6 +1038,16 @@
           <caret line="56" column="64" lean-forward="false" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="655" column="34" lean-forward="false" selection-start-line="655" selection-start-column="34" selection-end-line="655" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#2;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
