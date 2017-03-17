@@ -46,5 +46,5 @@ class User_Details(models.Model):
     pincode = models.IntegerField(blank=False)
 
     def __int__(self):
-        return self.username
+        return self.username.first_name + "" + self.username.last_name
 

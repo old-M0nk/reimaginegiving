@@ -21,8 +21,8 @@ class ContactUsAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'message')
 
 
-# class User_DetailsAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'email', 'message')
+class User_DetailsAdmin(admin.ModelAdmin):
+    list_display = ('username', 'mobile_number', 'pan_number')
 
 #mention all the models to be viewed on the django admin panel
 
@@ -30,4 +30,4 @@ admin.site.register(Donor, DonorAdmin)
 admin.site.register(Donation, DonationAdmin)
 admin.site.register(Email, EmailAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
-admin.site.register(User_Details)
+admin.site.register(User_Details, User_DetailsAdmin)

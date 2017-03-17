@@ -77,6 +77,21 @@ class Audit(models.Model):
         return "%s : %s" % (self.project_id, self.consultant_id)
 
 
+class GiveOnce(models.Model):
+    project_id = models.ForeignKey('Project', on_delete=models.SET('project not set'))
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    tag = models.TextField(blank = False)
+
+    def __unicode__(self):
+        return self.project_id.title
 
 
+
+class GiveMonthly(models.Model):
+    project_id = models.ForeignKey('Project', on_delete=models.SET('project not set'))
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    tag = models.TextField(blank = False)
+
+    def __unicode__(self):
+        return self.project_id.title
 
