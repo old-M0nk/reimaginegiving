@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% load tags %}
-<head xmlns="http://www.w3.org/1999/html">
+<head xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 	<title>{{ project.title }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -645,10 +646,13 @@
 {#					</li>#}
 {#                    {% endif %}#}
 				</ul>
+
+            <form method="POST" action="{% url 'checkOut' pk=project.project_id %}">
+                        {% csrf_token %}
 				<div id="projectPageDonationOptionsOnceOptions" class="row projectPageDonationOptionsOnceOptions donationOptionsTabContent">
                     {% if give_once_options %}
                         {% for option in give_once_options %}
-                            <a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption" >
+                            <button name="amount" type="submit" value="{{ option.amount }}"/><div class="row projectPageDonationOption" >
                                 <div class="col-3 projectPageDonationAmount">
                                     <h2>Rs {{ option.amount }}</h2>
                                     <h2>(INR)</h2>
@@ -656,7 +660,7 @@
                                 <div class="col-9 projectPageDonationReason">
                                     <h2>{{ option.tag }}</h2>
                                 </div>
-                            </div></a>
+                            </div></button>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -664,7 +668,7 @@
 				<div id="projectPageDonationOptionsMonthlyOptions" class="row projectPageDonationOptionsMonthlyOptions donationOptionsTabContent">
 					{% if give_monthly_options %}
                         {% for option in give_monthly_options %}
-                            <a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption" >
+                            <button name="amount" type="submit" value="{{ option.amount }}"/><div class="row projectPageDonationOption" >
                                 <div class="col-3 projectPageDonationAmount">
                                     <h2>Rs {{ option.amount }}</h2>
                                     <h2>(INR)</h2>
@@ -672,10 +676,11 @@
                                 <div class="col-9 projectPageDonationReason">
                                     <h2>{{ option.tag }}</h2>
                                 </div>
-                            </div></a>
+                            </div></button>
                         {% endfor %}
                     {% endif %}
 				</div>
+            </form>
 			</div>
 		<script src="{% static "projectPageMainTabs.js" %}"></script>
 			<div class="row projectPageAboutNGO">
