@@ -662,8 +662,8 @@
                 </div>
 				
 				<div id="projectPageDonationOptionsMonthlyOptions" class="row projectPageDonationOptionsMonthlyOptions donationOptionsTabContent">
-					{% if give_once_options %}
-                        {% for option in give_once_options %}
+					{% if give_monthly_options %}
+                        {% for option in give_monthly_options %}
                             <a href = "{% url 'checkOut' pk=project.project_id %}"><div class="row projectPageDonationOption" >
                                 <div class="col-3 projectPageDonationAmount">
                                     <h2>Rs {{ option.amount }}</h2>
