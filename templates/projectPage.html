@@ -653,7 +653,7 @@
 				<div id="projectPageDonationOptionsOnceOptions" class="row projectPageDonationOptionsOnceOptions donationOptionsTabContent">
                     {% if give_once_options %}
                         {% for option in give_once_options %}
-                            <input name="amount" type="submit" value="{{ option.amount }}" class="row projectPageDonationOption" >
+                            <input name="amount" type="submit" value="{{ option.amount }}"/><div class="row projectPageDonationOption" >
                                 <div class="col-3 projectPageDonationAmount">
                                     <h2>Rs {{ option.amount }}</h2>
                                     <h2>(INR)</h2>
@@ -661,7 +661,7 @@
                                 <div class="col-9 projectPageDonationReason">
                                     <h2>{{ option.tag }}</h2>
                                 </div>
-                            </input>
+                            </div></input>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -669,7 +669,7 @@
 				<div id="projectPageDonationOptionsMonthlyOptions" class="row projectPageDonationOptionsMonthlyOptions donationOptionsTabContent">
 					{% if give_monthly_options %}
                         {% for option in give_monthly_options %}
-                            <input name="amount" type="submit" value="{{ option.amount }}" class="row projectPageDonationOption" >
+                            <input name="amount" type="submit" value="{{ option.amount }}"/><div class="row projectPageDonationOption" >
                                 <div class="col-3 projectPageDonationAmount">
                                     <h2>Rs {{ option.amount }}</h2>
                                     <h2>(INR)</h2>
@@ -677,7 +677,7 @@
                                 <div class="col-9 projectPageDonationReason">
                                     <h2>{{ option.tag }}</h2>
                                 </div>
-                            </input>
+                            </div></input>
                         {% endfor %}
                     {% endif %}
 				</div>
