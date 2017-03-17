@@ -1,5 +1,5 @@
 from django.contrib import admin
-from data.models import Cause, Project, NGO, Consultant, Audit
+from data.models import Cause, Project, NGO, Consultant, Audit, GiveMonthly, GiveOnce
 
 #add all the fields of the models you want to see on the django admin panel
 #just add the word "Admin" to the model name
@@ -13,6 +13,10 @@ class ConsultantAdmin(admin.ModelAdmin):
     list_display = ('consultant_id', 'name',)
 class AuditAdmin(admin.ModelAdmin):
     list_display = ('audit_id', 'date', 'report_id', 'consultant_id', 'project_id')
+class GiveOnceAdmin(admin.ModelAdmin):
+    list_display = ('project_id', 'amount', 'tag',)
+class GiveMonthlyAdmin(admin.ModelAdmin):
+    list_display = ('project_id', 'amount', 'tag',)
 
 
 #mention all the models to be viewed on the django admin panel
@@ -21,3 +25,5 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(NGO, NGOAdmin)
 admin.site.register(Consultant, ConsultantAdmin)
 admin.site.register(Audit, AuditAdmin)
+admin.site.register(GiveOnce, GiveOnceAdmin)
+admin.site.register(GiveMonthly, GiveMonthlyAdmin)
