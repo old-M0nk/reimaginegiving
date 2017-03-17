@@ -622,9 +622,23 @@
 			<div class="row projectPageDonation">
 				<ul class="row projectPageDonationOptions">
 					<div id="donationOptionActive" class="slideLeft" style="width: 100%"></div>
-					<li class="col-6 projectPageDonationOptionsOnce">
+
+                    {% if give_monthly_options %}
+                    <li class="col-6 projectPageDonationOptionsOnce">
+						<a href="javascript:void(0)" id="projectPageDonationOptionsOnce" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsOnce','projectPageDonationOptionsOnceOptions')"><h3>Give Once</h3></a>
+					</li>
+					<li class="col-6 projectPageDonationOptionsMonthly">
+						<a href="javascript:void(0)" id="projectPageDonationOptionsMonthly" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsMonthly','projectPageDonationOptionsMonthlyOptions')"><h3>Give Monthly</h3></a>
+					</li>
+                    {% else %}
+                        <li class="col-6 projectPageDonationOptionsOnce">
 						<a href="javascript:void(0)" id="projectPageDonationOptionsOnce" class="donationOptionsTabLinks projectPageDonationOptionsOpacity" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsOnce','projectPageDonationOptionsOnceOptions')"><h3>Donate</h3></a>
 					</li>
+                    {% endif %}
+
+
+
+
 {#                    {% if pk == "15134005" %}#}
 {#					<li class="col-6 projectPageDonationOptionsMonthly">#}
 {#						<a href="javascript:void(0)" id="projectPageDonationOptionsMonthly" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsMonthly','projectPageDonationOptionsMonthlyOptions')"><h3>Give Monthly</h3></a>#}

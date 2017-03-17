@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/views.py" afterPath="$PROJECT_DIR$/data/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,9 +89,11 @@
       <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="663" column="22" lean-forward="false" selection-start-line="663" selection-start-column="22" selection-end-line="663" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="306">
+              <caret line="635" column="25" lean-forward="false" selection-start-line="635" selection-start-column="25" selection-end-line="635" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#2;n#body#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1018,9 +1019,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="663" column="22" lean-forward="false" selection-start-line="663" selection-start-column="22" selection-end-line="663" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="635" column="25" lean-forward="false" selection-start-line="635" selection-start-column="25" selection-end-line="635" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#2;n#body#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
