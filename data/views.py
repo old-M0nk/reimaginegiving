@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
 from django.template import RequestContext
-from data.models import Project
+from data.models import Project, GiveOnce, GiveMonthly
 from users.models import ContactUs
 from users.forms import contact_us_form
 
@@ -35,6 +35,8 @@ def userPage (request):
 def projectPage (request, pk):
     context = RequestContext(request)
     project_list = Project.objects.all()
+    give_once_options = GiveOnce.objects.filter(project_id=pk)
+    give_monthly_options = GiveMonthly.objects.filter(project_id=pk)
     project = Project.objects.get(project_id=pk)
     amount_left = project.total_amount-project.raised_amount
     progress_percent = (project.raised_amount)*100/(project.total_amount)
@@ -50,7 +52,9 @@ def projectPage (request, pk):
                     'name': ngo,
                     'ngo_desc': ngo_desc,
                     'projects': project_list,
-                    'pk': pk}
+                    'pk': pk,
+                    'give_once_options': give_once_options,
+                    'give_monthly_options': give_monthly_options}
                     # 'stars': stars
     return render(request, 'projectPage.html', context_dict, context)
 
