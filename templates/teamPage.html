@@ -142,8 +142,12 @@
 							<div class="form-container actived">
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
-{#									{% include "registration/login.html" %}#}
-{#									{% include "registration/register.html" %}#}
+                                    <div class="form-log-in animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up animated">
+									{% include "registration/register.html" %}
+                                    </div>
 								</div>
 							</div>
 							</div>
@@ -171,9 +175,13 @@
 								<div class="form-container1">
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
-                                        {% include "registration/login.html" %}
-									    {% include "registration/register.html" %}
-									</div>
+                                    <div class="form-log-in1 animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up1 animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
 								</div>
 							</div>
 						</div>
