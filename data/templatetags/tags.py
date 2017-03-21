@@ -23,4 +23,10 @@ def no_of_donors(project):
     return count
 
 
+@register.simple_tag()
+def days_gap(project):
+    count = Donation.objects.filter(project_id=project).count()
+    return count
+
+
 

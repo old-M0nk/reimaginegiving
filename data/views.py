@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-
+from datetime import datetime
 from django.template import RequestContext
 from data.models import Project, GiveOnce, GiveMonthly, TimelineEvents
 from users.models import ContactUs
@@ -44,6 +44,7 @@ def projectPage (request, pk):
     ngo_desc = project.ngo_id.project_page_desc
     ngo = project.ngo_id.name
     timeline = TimelineEvents.objects.filter(project_id=pk)
+    timeline = timeline.sort(key=lambda date: datetime.strptime(date, "%d-%b-%y"))
     # stars = project.rating
 
     context_dict = {'project': project,
