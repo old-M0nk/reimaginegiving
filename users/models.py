@@ -43,6 +43,7 @@ class User_Details(models.Model):
     address_line_1 = models.TextField(default="")
     address_line_2 = models.TextField(default="")
     city = models.CharField(max_length=20, default="")
+    pincode = models.CharField(max_length=20, default="")
 
     def __int__(self):
         return self.username.first_name + "" + self.username.last_name
