@@ -43,7 +43,7 @@ def projectPage (request, pk):
     desc = project.project_page_desc
     ngo_desc = project.ngo_id.project_page_desc
     ngo = project.ngo_id.name
-    timeline = TimelineEvents.objects.filter(project_id=pk).order_by('-date')
+    timeline = TimelineEvents.objects.filter(project_id=pk).order_by('date')
     # stars = project.rating
 
     context_dict = {'project': project,
