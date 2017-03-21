@@ -18,7 +18,7 @@ class GiveOnceAdmin(admin.ModelAdmin):
 class GiveMonthlyAdmin(admin.ModelAdmin):
     list_display = ('project_id', 'amount', 'tag',)
 class TimelineEventAdmin(admin.ModelAdmin):
-    list_display = ('project_id', 'date', 'heading', 'desc', 'days_span')
+    list_display = ('date', 'heading', 'desc', 'days_span')
 
 
 #mention all the models to be viewed on the django admin panel
