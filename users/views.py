@@ -77,17 +77,21 @@ def login_view(request):
 def register_view(request):
     if request.method == "POST":  # if the form has been submitted
         form = UserRegistrationForm(request.POST or None)
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         username = request.POST['username']
         password = request.POST['password']
         password2 = request.POST['password2']
 
         #check if the passwords match
         if password == password2:
-            user = User(username=username, email=username, password=password)
+            user = User(username=username, email=username, password=password, first_name=first_name, last_name=last_name)
             # user = user.save(commit=False)
             user.backend = 'django.contrib.auth.backends.ModelBackend'
             user.set_password(password)
             user.save()
+            user_details = User_Details(username=user)
+            user_details.save()
             login(request, user)
             context_dict = {
                 "message": "Welcome",

@@ -37,13 +37,13 @@ class ContactUs(models.Model):
 
 class User_Details(models.Model):
     username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
-    mobile_number = models.CharField(max_length=12, blank=False)
-    pan_number = models.TextField(blank=False)
-    occupation = models.TextField(blank=False)
-    address_line_1 = models.TextField(blank=False)
-    address_line_2 = models.TextField(blank=False)
-    city = models.CharField(max_length=20, blank=False)
-    pincode = models.IntegerField(blank=False)
+    mobile_number = models.CharField(max_length=12, default="")
+    pan_number = models.TextField(default="")
+    occupation = models.TextField(default="")
+    address_line_1 = models.TextField(default="")
+    address_line_2 = models.TextField(default="")
+    city = models.CharField(max_length=20, default="")
+    pincode = models.IntegerField(default=0)
 
     def __int__(self):
         return self.username.first_name + "" + self.username.last_name
