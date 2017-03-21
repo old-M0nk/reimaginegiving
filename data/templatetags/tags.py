@@ -19,7 +19,7 @@ def days_left(end):
 
 @register.simple_tag()
 def no_of_donors(project):
-    count = Donation.objects.filter(project=project).count()
+    count = Donation.objects.filter(project_id=project).count()
     return count
 
 
