@@ -44,7 +44,7 @@ def projectPage (request, pk):
     ngo_desc = project.ngo_id.project_page_desc
     ngo = project.ngo_id.name
     timeline = TimelineEvents.objects.filter(project_id=pk)
-    timeline = timeline.sort(key=lambda date: datetime.strptime(date, "%d-%b-%y"))
+    timeline = timeline.sort(key=lambda date: datetime.strptime(date, "%d-%m-%y"))
     # stars = project.rating
 
     context_dict = {'project': project,
