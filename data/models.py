@@ -59,6 +59,23 @@ class NGO(models.Model):
     def __str__(self):
         return self.name
 
+
+class NGOtemp(models.Model):
+    name = models.CharField(max_length=200, blank=False)
+    sector = models.CharField(max_length=200, blank=False)
+    since = models.CharField(max_length=200, blank=False)
+    location = models.CharField(max_length=200, blank=False)
+    legal_id = models.CharField(max_length=200, blank=False)
+    affiliation = models.CharField(max_length=200, blank=False)
+    board_no = models.CharField(max_length=200, blank=False)
+    employee_no = models.CharField(max_length=200, blank=False)
+    min_pay = models.CharField(max_length=200, blank=False)
+    avg_pay = models.CharField(max_length=200, blank=False)
+    offices_no = models.CharField(max_length=200, blank=False)
+    office_loc = models.CharField(max_length=200, blank=False)
+
+
+
 class Consultant(models.Model):
     consultant_id = models.CharField(max_length=10, blank=False, primary_key=True)
     name = models.CharField(max_length = 200)

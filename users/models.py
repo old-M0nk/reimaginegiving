@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib.auth.models import User
 from data.models import Project
@@ -11,6 +10,7 @@ class Donor(models.Model):
     mobile = models.BigIntegerField(null = True)
     email = models.EmailField(max_length = 254)
     transaction_id = models.BigIntegerField(null = False)
+    project = models.ForeignKey(Project, on_delete=models.SET('project not set'), default=2333)
 
     def __unicode__(self):
         return self.name

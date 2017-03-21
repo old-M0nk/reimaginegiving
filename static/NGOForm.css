@@ -1,0 +1,252 @@
+header{
+	position: relative;
+	z-index: 10;
+}
+.NGOForm{
+	position: relative;
+	width:100vw;
+	height: 100vh;
+	font-family: SourceSansPro-Light;
+	overflow: hidden;
+}
+.NGOForm img{
+  position: absolute;
+	height: 35px;
+	z-index: 3;
+	top: 5vh;
+	left: 5vh;
+}
+.NGOFormQuestion{
+	font-size: 22px;
+	position: absolute;
+	z-index: 2;
+	text-align: center;
+	color: white;
+	top: 30vh;
+}
+.NGOFormQuestion span{
+	font-family: SourceSansPro-Regular;
+} 
+.NGOFormOptionOrganization{
+	background: #2cb3d5;
+	color: white;
+}
+
+.NGOFormOptionIndividual{
+	background: #18c3f2;
+	color: white;
+}
+
+.NGOFormOptionOrganization, .NGOFormOptionIndividual{
+	text-align: center;
+	height: 100vh;
+	width: 50vw;
+	position: relative;
+	z-index: 1;
+	font-size: 22px;
+}
+
+.NGOFormOptionOrganization h2, .NGOFormOptionIndividual h2{
+	position: absolute;
+	top:50%;
+	width: 100%;
+	cursor: pointer;
+	opacity: 1;
+}
+
+.NGOFormOptionOrganization a:hover, .NGOFormOptionIndividual a:hover{
+  color: black;
+}
+.IndividualForm, .OrganizationForm{
+	position: absolute;
+	width:100vw;
+	opacity: 1;
+	min-height: 100vh;
+	padding: 20px;
+}
+
+.OrganizationForm{
+	left: -100%;
+	background: #2cb3d5;
+}
+
+.IndividualForm{
+	left:100%;
+	background: #18c3f2;
+}
+
+.OrganizationFormOpen{
+	left: 0%;
+	z-index: 3;
+	animation: slideRight 0.5s;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.IndividualFormOpen{
+	left:0%;
+	z-index: 3;
+	animation: slideLeft 0.5s;
+}
+
+@keyframes slideLeft{from{left:100%;} to{left:0;}}
+@keyframes slideRight{from{left:-100%;} to{left:0;}}
+
+
+.OrganizationFormTabs {
+    width: 25%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 20vh;
+    background: white;
+    z-index: 5;
+}
+
+.OrganizationFormTabs img{
+	position: absolute;
+	height: auto;
+	z-index: 0;
+	top: 5vh;
+	left: 7vw;
+	width: 9vw;
+}
+
+.OrganizationFormTabsHeading {
+    list-style-type: none;
+    background: white;
+}
+.OrganizationFormTabsHeading li {
+    padding: 20px 15px;
+    border-bottom: 1px solid black;
+	cursor: pointer;
+}
+.OrganizationFormTabsHeading li i{
+	width: 30px;
+	text-align: center;
+	color:rgb(60,60,60,0.6);
+}
+.firstTab{
+	 border-top: 1px solid;
+}
+.activeTab {
+    background: #2cb3d5;
+    color: white;
+}
+.NGOFormHelpInfo h2{
+	position: absolute;
+	bottom: 0;
+	text-align: justify;
+	padding: 20px 10px 20px 30px;
+	background: rgb(63,63,63);
+	color: rgb(221,221,221);
+	font-size: 17px;
+	width: 100%;
+	line-height: 140%;
+}
+.NGOFormHelpInfo span:hover{
+	color: white;
+	border-bottom: 1px solid white;
+}
+.NGOFormHelpInfo span{
+	border-bottom: 1px solid rgb(221,221,221);
+	cursor: pointer;
+}
+
+.NGOOrganizationFormTabContent {
+    width: 75%;
+position: absolute;
+height: 100vh;
+top: 0;
+padding: 5%;
+    color: white;
+}
+.slideLeft{
+	left:-50%;
+	animation: slideLeft1 0.5s;
+}
+.slideRight{
+	left: 25%;
+	animation: slideRight1 0.5s;
+}
+
+@keyframes slideLeft1{from{left:25%;} to{left:-50%;}}
+@keyframes slideRight1{from{left:-50%;} to{left:25%;}}
+
+.NGOFormInstruction {
+    text-align: center;
+    padding: 20px 0;
+    border: 1.5px dashed rgb(221,221,221);
+    font-size: 17px;
+    font-family: SourceSansPro-Regular;
+	margin-top: 50px;
+	position: absolute;
+    bottom: 60px;
+    width: 90%;
+    left: 6%;
+}
+form{
+    padding: 50px 20px;
+	position: relative;
+    /*! top: -84%; */
+    height: 100%;
+    /*! top: 0; */
+}
+fieldset{
+	border: none;
+	padding: 10px 0 50px 0;
+}
+ fieldset label{
+	font-size: 30px;
+	width: 100%;
+}
+fieldset input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.5);
+    padding: 20px 5px 5px 5px;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+}
+.nextBtn,.backBtn {
+    position: absolute;
+    padding: 5px 25px;
+    font-size: 20px;
+    font-family: SourceSansPro-Light;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+	cursor: pointer;
+}
+.nextBtn:hover, .backBtn:hover{
+	background: white;
+	color: #2cb3d5;
+}
+
+.nextBtn{
+	right: 20px;
+}
+.backBtn{
+	left: 20px;
+}
+input[type="radio"]{
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: 0px;
+	margin-right: 5px;
+}
+fieldset.radio {
+    padding: 10px 0 0 5px !important;
+    width: 45%;
+    display: inline-block;
+}
+@keyframes slideTop{from{top:0%;} to{top:-100%;}}
+@keyframes slideBottom{from{top:-100%;} to{top:0%;}}
+@keyframes slideTop1{from{top:-100%;} to{top:-200%;}}
+@keyframes slideBottom1{from{top:-200%;} to{top:-100%;}}
+@keyframes slideTop2{from{top:-200%;} to{top:-300%;}}
+@keyframes slideBottom2{from{top:-300%;} to{top:-200%;}}

@@ -28,3 +28,18 @@ class UserRegistrationForm(forms.Form):
     password = forms.CharField(required=True)
 
 
+class NGORegistrationForm(forms.Form):
+    name = forms.CharField()
+    sector = forms.CharField()
+    since = forms.CharField()
+    location = forms.CharField()
+    legal_id = forms.CharField()
+    affiliation = forms.CharField()
+    board_no = forms.CharField()
+    employee_no = forms.CharField()
+    min_pay = forms.CharField()
+    avg_pay = forms.CharField()
+    offices_no = forms.CharField()
+    office_loc = forms.CharField()
+
+

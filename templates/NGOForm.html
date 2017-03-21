@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+	<title>Digital Literacy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "NGOForm.css" %}" media="screen"/>
+	
+	<script src="{% static "googleapi.js" %}"></script>
+</head>
+
+<body>
+
+	<div class="row NGOForm">
+		<img src="{% static "logo/logo-final-web-full-white.png" %}">
+		<div class="row NGOFormQuestion">
+			<h2>Who are <span>you</span>?</h2>
+		</div>
+		<div class="col-6 NGOFormOptionOrganization">
+			<h2><a>Organization</a></h2>
+		</div>
+		<div class="col-6 NGOFormOptionIndividual">
+			<h2><a>Individual</a></h2>
+		</div>
+		<div class="row OrganizationForm">
+			<div class="OrganizationFormTabs">
+				<img src="{% static "logo/logo-final-web-full-blue.png" %}">
+				<ul class="OrganizationFormTabsHeading">
+					<li class="firstTab NGOOrganizationFormTab activeTab" onclick="openNGOOrganizationTabs(event,'NGOOrganizationFormBasic')"><i class="fa fa-info"></i>Basic Information</li>
+					<li class="NGOOrganizationFormTab" onclick="openNGOOrganizationTabs(event,'NGOOrganizationFormPeople')"><i class="fa fa-users"></i>People</li>
+					<li class="NGOOrganizationFormTab" onclick="openNGOOrganizationTabs(event,'NGOOrganizationFormPrevious')"><i class="fa fa-briefcase"></i>Previous Work</li>
+					<li class="NGOOrganizationFormTab" onclick="openNGOOrganizationTabs(event,'NGOOrganizationFormTechnology')"><i class="fa fa-desktop"></i>Technology</li>
+					<li class="NGOOrganizationFormTab" onclick="openNGOOrganizationTabs(event,'NGOOrganizationFormContact')"><i class="fa fa-phone"></i>Contact</li>
+				</ul>
+				<div class="NGOFormHelpInfo">
+					<h2>Need Help? Drop Us a message <span>here</span><br/>or call us at +91 841 704 8371</h2>
+				</div>
+			</div>
+            <form action="{% url 'NGOform' %}" method="post">{% csrf_token %}
+			<div id="NGOOrganizationFormBasic" class="NGOOrganizationFormBasic NGOOrganizationFormTabContent slideRight">
+				<div class="NGOOrganizationBasicForm NGOOrganizationBasicFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="organizationName">Name of the Organization *</label>
+					  <input type="text" id="organizationName" name="name" />
+					</fieldset>
+					<fieldset class="sectorOfOperation">
+					  <label for="sectorOfOperation">Sector Of Operation *</label>
+					  <input type="text" id="sectorOfOperation" name="sector" />
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationBasicForm NGOOrganizationBasicFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="yearOfEstablishment">Year Of Establishment *</label>
+					  <input type="text" id="yearOfEstablishment" name="since" />
+					</fieldset>
+					<fieldset>
+					  <label for="locationOfOperations">Location Of Operations *</label>
+					  <input type="text" id="locationOfOperations" name="location" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationBasicForm NGOOrganizationBasicFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="legalIdentity">Legal Identity *</label>
+					  <input type="text" id="legalIdentity" name="legal_id" />
+					</fieldset>
+					<fieldset>
+					  <label for="affiliations">Affiliations *</label>
+					  <input type="text" id="affiliations" name="affiliation" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+			<div id="NGOOrganizationFormPeople" class="NGOOrganizationFormPeople NGOOrganizationFormTabContent slideLeft">
+				<div class="NGOOrganizationPeopleForm NGOOrganizationPeopleFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="strengthOfBoard">Strength Of Board *</label>
+					  <input type="text" id="strengthOfBoard" name="board_no" />
+					</fieldset>
+					<fieldset class="numberOfEmployees">
+					  <label for="numberOfEmployees">Number Of Employees *</label>
+					  <input type="text" id="numberOfEmployees" name="employee_no" />
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationPeopleForm NGOOrganizationPeopleFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="minimumPayOfEmployees">Minimum Pay Of Employees *</label>
+					  <input type="text" id="minimumPayOfEmployees" name="min_pay" />
+					</fieldset>
+					<fieldset>
+					  <label for="averagePayOfEmployees">Average Pay Of Employees *</label>
+					  <input type="text" id="averagePayOfEmployees" name="avg_pay" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationPeopleForm NGOOrganizationPeopleFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="numberOfOffices">Number Of Offices *</label>
+					  <input type="text" id="numberOfOffices" name="offices_no" />
+					</fieldset>
+					<fieldset>
+					  <label for="locationOfOffices">Location Of Offices *</label>
+					  <input type="text" id="locationOfOffices" name="office_loc" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+			<div id="NGOOrganizationFormPrevious" class="NGOOrganizationFormPrevious NGOOrganizationFormTabContent slideLeft">
+				<div class="NGOOrganizationPreviousForm NGOOrganizationPreviousFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="successfulProjectsTillDate">Number Of Successful Projects till date</label>
+					  <input type="text" id="successfulProjectsTillDate" />
+					</fieldset>
+					<fieldset class="successfulProjectsLastYear">
+					  <label for="successfulProjectsLastYear">Number Of Successful Projects in 2015-16</label>
+					  <input type="text" id="successfulProjectsLastYear" />
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationPreviousForm NGOOrganizationPreviousFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="amountPerProject">Average Amount Spent Per Project</label>
+					  <input type="text" id="amountPerProject" />
+					</fieldset>
+					<fieldset>
+					  <label for="sourcesOfIncome">Sources Of Income</label>
+					  <input type="text" id="sourcesOfIncome" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationPreviousForm NGOOrganizationPreviousFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="numberOfPeopleImpacted">Number Of People Impacted</label>
+					  <input type="text" id="numberOfPeopleImpacted" />
+					</fieldset>
+					<fieldset>
+					  <label for="peopleImpactBy2020">How many people do you want to impact by 2020?</label>
+					  <input type="text" id="peopleImpactBy2020" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationPreviousForm NGOOrganizationPreviousFormSection4" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="typesOfProjects">Types Of Projects</label>
+					  <input type="text" id="typesOfProjects" />
+					</fieldset>
+					<fieldset>
+					  <label for="potentialFutureProjects">Potential Future Projects?</label>
+					  <input type="text" id="potentialFutureProjects" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+			<div id="NGOOrganizationFormTechnology" class="NGOOrganizationFormTechnology NGOOrganizationFormTabContent slideLeft">
+				<div class="NGOOrganizationTechnologyForm NGOOrganizationTechnologyFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="accountsComputerized">Are accounts computerized? *</label><br/>
+						<fieldset class="radio">
+							<input type="radio" name="accountsComputerized" id="accountsComputerized-1" value="Yes">
+							<label for="accountsComputerized-1">Yes</label>
+						</fieldset>
+						<fieldset class="radio">
+							<input type="radio" name="accountsComputerized" id="accountsComputerized-2" value="No">
+							<label for="accountsComputerized-2">No</label>
+						</fieldset>
+					</fieldset>
+					<fieldset class="technologyWebsite">
+					  <label for="technologyWebsite">Website? *</label><br/>
+						<fieldset class="radio">
+							<input type="radio" name="technologyWebsite" id="technologyWebsite-1" value="Yes">
+							<label for="technologyWebsite-1">Yes</label>
+						</fieldset>
+						<fieldset class="radio">
+							<input type="radio" name="technologyWebsite" id="technologyWebsite-2" value="No">
+							<label for="technologyWebsite-2">No</label>
+						</fieldset>
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationTechnologyForm NGOOrganizationTechnologyFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="socialMediaPlatformsOption">Social Media? *</label><br/>
+						<fieldset class="radio">
+							<input type="radio" name="socialMediaPlatformsOption" id="socialMediaPlatformsOption-1" value="Yes">
+							<label for="socialMediaPlatformsOption-1">Yes</label>
+						</fieldset>
+						<fieldset class="radio">
+							<input type="radio" name="socialMediaPlatformsOption" id="socialMediaPlatformsOption-2" value="No">
+							<label for="socialMediaPlatformsOption-2">No</label>
+						</fieldset>
+					</fieldset>
+					<fieldset>
+					  <label for="socialMediaPlatforms">If yes, Which platforms? *</label>
+					  <input type="text" id="socialMediaPlatforms" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationTechnologyForm NGOOrganizationTechnologyFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="fundRaisePlatformsOption">Do you use online platforms to raise funds? *</label><br/>
+						<fieldset class="radio">
+							<input type="radio" name="fundRaisePlatformsOption" id="fundRaisePlatformsOption-1" value="Yes">
+							<label for="fundRaisePlatformsOption-1">Yes</label>
+						</fieldset>
+						<fieldset class="radio">
+							<input type="radio" name="fundRaisePlatformsOption" id="fundRaisePlatformsOption-2" value="No">
+							<label for="fundRaisePlatformsOption-2">No</label>
+						</fieldset>
+					</fieldset>
+					<fieldset>
+					  <label for="fundRaisePlatforms">If yes, Which platforms? *</label>
+					  <input type="text" id="fundRaisePlatforms" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+			<div id="NGOOrganizationFormContact" class="NGOOrganizationFormContact NGOOrganizationFormTabContent slideLeft">
+				<div class="NGOOrganizationContactForm NGOOrganizationContactFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="name">Name *</label>
+					  <input type="text" id="name" />
+					</fieldset>
+					<fieldset class="designation">
+					  <label for="designation">Designation *</label>
+					  <input type="text" id="designation" />
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationContactForm NGOOrganizationContactFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="email">E-mail *</label>
+					  <input type="text" id="email" />
+					</fieldset>
+					<fieldset>
+					  <label for="phone">Phone *</label>
+					  <input type="text" id="phone" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOOrganizationContactForm NGOOrganizationContactFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="website">Website *</label>
+					  <input type="text" id="website" />
+					</fieldset>
+					<fieldset>
+					  <label for="address">Address *</label>
+					  <input type="text" id="address" />
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</div>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+            </form>
+		</div>
+		
+		<div class="row IndividualForm">
+		</div>
+	</div>
+	<script src="{% static "NGOForm.js" %}"></script>
+	
+</body>

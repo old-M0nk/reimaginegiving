@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from core import views as core_views
 from data import views
-from users.views import login_view, logout_view, register_view, userPage
+from users.views import login_view, logout_view, register_view, userPage, NGOformPage
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
@@ -52,7 +52,8 @@ urlpatterns = [
         url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
 
         url(r'^admin/', include(admin.site.urls)),
-        url(r'^comingsoon', include('users.urls'))
+        url(r'^comingsoon', include('users.urls')),
+        url(r'^develop/$', NGOformPage, name='NGOform'),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...

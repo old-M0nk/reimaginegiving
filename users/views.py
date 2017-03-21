@@ -3,8 +3,9 @@ from django.contrib.auth import login, logout, get_user_model
 from django.contrib.auth.models import User
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserLoginForm, UserRegistrationForm
+from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm
 from .models import Email, User_Details
+from data.models import NGOtemp
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 
@@ -111,6 +112,31 @@ def logout_view(request):
 def userPage (request):
     user_details = User_Details.objects.get(username=request.user.id)
     return render(request, 'userPage.html', {'user_details': user_details})
+
+
+def NGOformPage (request):
+    if request.method == "POST":  # if the form has been submitted
+        form = NGORegistrationForm(request.POST or None)
+        name = request.POST['name']
+        sector = request.POST['sector']
+        since = request.POST['since']
+        location = request.POST['location']
+        legal_id = request.POST['legal_id']
+        affiliation = request.POST['affiliation']
+        board_no = request.POST['board_no']
+        employee_no = request.POST['employee_no']
+        min_pay = request.POST['min_pay']
+        avg_pay = request.POST['avg_pay']
+        offices_no = request.POST['offices_no']
+        office_loc = request.POST['office_loc']
+
+        ngo = NGOtemp(name=name, sector=sector, since=since, location=location, legal_id=legal_id, affiliation=affiliation, board_no=board_no, employee_no=employee_no, min_pay=min_pay, avg_pay=avg_pay, offices_no=offices_no, office_loc=office_loc)
+        ngo.save()
+        context_dict = {'form': form}
+    else:
+        form = NGORegistrationForm(request.POST or None)
+        context_dict = {'form': form}
+    return render(request, 'NGOForm.html', context_dict)
 
 
 

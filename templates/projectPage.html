@@ -575,7 +575,7 @@
 							</div>
 							<div class="stats2 col-4">
 								<div class="statsNumber">
-									<p>105</p>
+									<p>{% no_of_donors project %}</p>
 								</div>
 								<div class="statsText">
 									<p>Donors</p>
@@ -583,7 +583,7 @@
 							</div>
 							<div class="stats3 col-3">
 								<div class="statsNumber">
-									<p>14</p>
+									<p>{% days_left project.end_date project.start_date  %}</p>
 								</div>
 								<div class="statsText">
 									<p>Days left</p>
@@ -780,7 +780,7 @@
 									</div>
 									<div class="stats2 col-4">
 										<div class="statsNumber">
-											<p>105</p>
+											<p>{% no_of_donors project %}</p>
 										</div>
 										<div class="statsText">
 											<p>Donors</p>
@@ -788,7 +788,7 @@
 									</div>
 									<div class="stats3 col-3">
 										<div class="statsNumber">
-											<p>14</p>
+											<p>{% days_left project.end_date project.start_date  %}</p>
 										</div>
 										<div class="statsText">
 											<p>Days left</p>
