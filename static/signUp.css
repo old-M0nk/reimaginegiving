@@ -74,7 +74,7 @@
   z-index: 2;
   position: relative;
 }
-.container .form-container .form-item form.form-log-in{
+.container .form-container .form-item .form-log-in{
   margin-top: 35px;
   display: none;
 }
@@ -204,7 +204,7 @@ form .btn i {
   z-index: 2;
   position: relative;
 }
-.form-item1 form.form-sign-up1{
+.form-item1 .form-sign-up1{
   margin-top: 50px;
   display: none;
 }

@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.template import RequestContext
-from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent
+from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report
 from users.models import ContactUs
 from users.forms import contact_us_form
 
@@ -44,6 +44,7 @@ def projectPage (request, pk):
     ngo_desc = project.ngo_id.project_page_desc
     ngo = project.ngo_id.name
     timeline = TimelineEvent.objects.filter(project_id=pk).order_by('date')
+    report = Report.objects.filter(project_id=pk).order_by('date')
     # stars = project.rating
 
     context_dict = {'project': project,
@@ -56,7 +57,8 @@ def projectPage (request, pk):
                     'pk': pk,
                     'give_once_options': give_once_options,
                     'give_monthly_options': give_monthly_options,
-                    'events': timeline}
+                    'events': timeline,
+                    'reports': report}
                     # 'stars': stars
     return render(request, 'projectPage.html', context_dict, context)
 

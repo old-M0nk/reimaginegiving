@@ -123,3 +123,16 @@ class TimelineEvent(models.Model):
     def __unicode__(self):
         return self.project_id.title+""+self.heading
 
+
+class Report(models.Model):
+    project_id = models.ForeignKey('Project', on_delete=models.SET('project not set'))
+    date = models.DateField(null=False)
+    heading = models.TextField(blank=False)
+    desc = models.TextField(blank=True)
+    thumb = models.ImageField(blank = True)
+    if_video = models.CharField(max_length=3, blank=False)
+
+    def __unicode__(self):
+        return self.project_id.title+""+self.heading
+
+
