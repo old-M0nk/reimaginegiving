@@ -112,7 +112,7 @@ class GiveMonthly(models.Model):
     def __unicode__(self):
         return self.project_id.title
 
-class TimelineEvents(models.Model):
+class TimelineEvent(models.Model):
     project_id = models.ForeignKey('Project', on_delete=models.SET('project not set'))
     date = models.DateField(null=False)
     heading = models.TextField(blank=False)
