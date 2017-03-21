@@ -90,6 +90,8 @@ def register_view(request):
             user.backend = 'django.contrib.auth.backends.ModelBackend'
             user.set_password(password)
             user.save()
+            user_details = User_Details(username=user)
+            user_details.save()
             login(request, user)
             context_dict = {
                 "message": "Welcome",
