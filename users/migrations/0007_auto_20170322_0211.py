@@ -45,6 +45,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user_details',
             name='pincode',
-            field=models.IntegerField(default=''),
+            field=models.IntegerField(default=0),
         ),
     ]
