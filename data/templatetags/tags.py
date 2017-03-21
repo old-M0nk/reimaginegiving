@@ -1,6 +1,6 @@
 from django import template
 import datetime
-from users.models import Donor
+from users.models import Donation
 
 register = template.Library()
 
@@ -19,7 +19,7 @@ def days_left(end):
 
 @register.simple_tag()
 def no_of_donors(project):
-    count = Donor.objects.filter(project=project).count()
+    count = Donation.objects.filter(project=project).count()
     return count
 
 
