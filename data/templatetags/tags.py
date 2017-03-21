@@ -1,5 +1,5 @@
 from django import template
-from data.models import Project
+import datetime
 from users.models import Donor
 
 register = template.Library()
@@ -12,8 +12,8 @@ def fund_percent_achieved(total_amount, raised_amount):
 
 
 @register.simple_tag()
-def days_left(end, start):
-    diff = end-start
+def days_left(end):
+    diff = end-datetime.date.today()
     return diff.days
 
 
