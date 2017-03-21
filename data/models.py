@@ -118,6 +118,7 @@ class TimelineEvents(models.Model):
     date = models.DateField(null=False)
     heading = models.TextField(blank=False)
     desc = models.TextField(blank=True)
+    days_span = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.project_id.title+""+self.heading
