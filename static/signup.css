@@ -180,7 +180,7 @@ form .btn i {
   transform: translate(50%,50%);
 }
 .signUpFormUserName{
-  width:35%;
+  width:35% !important;
 }
 .container1 .form-container1.actived1{
   margin-left: 275px;
