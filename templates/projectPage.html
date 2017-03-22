@@ -21,7 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="{% static "gallery.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "slider.css" %}" media="screen"/>
 	
-
+	
+	<link rel='stylesheet prefetch' href='{% static "gallerymin.css" %}'>
 	<script src="{% static "cloudflare.js" %}"></script>
 	<script src="{% static "cloudflare1.js" %}"></script>
 	<script src="{% static "explore.js" %}"></script>
@@ -168,7 +169,7 @@
 					</div>
 
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
-						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
 					</div>
 					<div id="LogIn" class="overlay">
 						<div class="translucentContainer"></div>
@@ -225,38 +226,38 @@
 			<div class="row" style="position: relative;">
 				<div class="myGallerySlides">
 				  <div class="numbertext">1 / 4</div>
-				  <img src="images/slider1.jpg" style="width:100%">
+				  <img src="{{ project.gallery4|safe }}" style="width:100%">
 				</div>
 
 				<div class="myGallerySlides">
 				  <div class="numbertext">2 / 4</div>
-				  <img src="images/slider2.jpg" style="width:100%">
+				  <img src="{{ project.gallery1|safe }}" style="width:100%">
 				</div>
 
 				<div class="myGallerySlides">
 				  <div class="numbertext">3 / 4</div>
-				  <img src="images/slider3.jpg" style="width:100%">
+				  <img src="{{ project.gallery2|safe }}" style="width:100%">
 				</div>
 
 				<div class="myGallerySlides">
 				  <div class="numbertext">4 / 4</div>
-				  <img src="images/slider4.jpg" style="width:100%">
+				  <img src="{{ project.gallery3|safe }}" style="width:100%">
 				</div>
 
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				<a class="next" onclick="plusSlides(1)">&#10095;</a>
 			</div>
 			<div class="column">
-			  <img class="myGallerydemo cursor" src="images/slider1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+			  <img class="myGallerydemo cursor" src="{{ project.gallery4|safe }}" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
 			</div>
 			<div class="column">
-			  <img class="myGallerydemo cursor" src="images/slider2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+			  <img class="myGallerydemo cursor" src="{{ project.gallery1|safe }}" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
 			</div>
 			<div class="column">
-			  <img class="myGallerydemo cursor" src="images/slider3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+			  <img class="myGallerydemo cursor" src="{{ project.gallery2|safe }}" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
 			</div>
 			<div class="column">
-			  <img class="myGallerydemo cursor" src="images/slider4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+			  <img class="myGallerydemo cursor" src="{{ project.gallery3|safe }}" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
 			</div>
 
 		</div>
@@ -285,49 +286,19 @@
 			</div>
 			<div id="projectStory" class="row projectStory mainTabContent">
                     {{ project.story|safe }}
-				<div class="demo-gallery">
-					<ul id="lightgallery" class="lightgallery">
-					  <li class="lightgalleryimages" data-src="{{ project.gallery4|safe }}"
-					  data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
-						<a href="">
-						  <img class="img-responsive" src="{{ project.gallery4|safe }}">
-						  <div class="demo-gallery-poster">
-							<img src="{{ project.gallery4|safe }}">
-						  </div>
-						</a>
-					  </li>
-					  <li class="lightgalleryimages" data-src="{{ project.gallery1|safe }}"
-					  data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
-						<a href="">
-						  <img class="img-responsive" src="{{ project.gallery1|safe }}">
-						  <div class="demo-gallery-poster">
-							<img src="{{ project.gallery1|safe }}">
-						  </div>
-						</a>
-					  </li>
-					  <li class="lightgalleryimages" data-src="{{ project.gallery2|safe }}"
-					  data-sub-html="<h4>Sunset Serenity</h4><p>A gorgeous Sunset tonight captured at Coniston Water....</p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
-						<a href="">
-						  <img class="img-responsive" src="{{ project.gallery2|safe }}">
-						  <div class="demo-gallery-poster">
-							<img src="{{ project.gallery2|safe }}">
-						  </div>
-						</a>
-					  </li>
-					  <li class="lightgalleryimages" data-src="{{ project.gallery3|safe }}"
-					  data-sub-html="<h4>Coniston Calmness</h4><p>Beautiful morning</p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
-						<a href="">
-						  <img class="img-responsive" src="{{ project.gallery3|safe }}">
-						  <div class="demo-gallery-poster">
-							<img src="{{ project.gallery3|safe }}">
-						  </div>
-						</a>
-					  </li>
-					</ul>
-					<div class="directional_nav" style="width:100%">
-						<div class="previous_btn" onclick="plusDivs(-1)">&#10094;</div>
-						<div class="next_btn" onclick="plusDivs(1)">&#10095;</div>
-					</div>
+                <div class="row projectGallery">
+					  <div class="column">
+						<img src="{{ project.gallery4|safe }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+					  </div>
+					  <div class="column">
+						<img src="{{ project.gallery1|safe }}" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+					  </div>
+					  <div class="column">
+						<img src="{{ project.gallery2|safe }}" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+					  </div>
+					  <div class="column">
+						<img src="{{ project.gallery3|safe }}" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+					  </div>
 				</div>
 				
 				<script src='{% static "cloudflare4.js" %}'></script>
@@ -740,5 +711,4 @@
 		</div>
 		</div>
 	</footer>
-
 </body>
