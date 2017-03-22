@@ -30,6 +30,17 @@
 </head>
 
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+
 	<header>
 		<div class="row header">
 			<div class="col-3 mainNavBarButton" id="exploreDiv">
@@ -48,7 +59,8 @@
 							<span  onclick="myfunction1()">
 								<div class="exploreHeading1 row">
 									<div class="col-9"><h2>Location</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<div class="inputField" id="locationInput">
@@ -69,7 +81,8 @@
 							<span onclick="myfunction2()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Funding</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
@@ -83,7 +96,8 @@
 							<span  onclick="myfunction3()">
 								<div class="exploreHeading row">
 									<div class="col-9"><h2>Causes</h2></div>
-									<div class="col-3"><h2 class="downArrow">&#9660;</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
@@ -188,19 +202,38 @@
 		</div>
 	</header>
 
+	<div class="overlay" id="userPageShareBox">
+		<div class="translucentContainer1"></div>
+		<div class="userPageShareBoxOuterContainer">
+			<div class="userPageShareBoxInnerContainer">
+
+			</div>
+		</div>
+	</div>
+
+	<div class="overlay" id="displayPictureEditOverlay">
+		<div class="translucentContainer1"></div>
+		<div class="displayPictureEditOuterContainer">
+			<div class="displayPictureEditInnerContainer">
+
+			</div>
+		</div>
+	</div>
+
 	<div class="row userPageMainRow">
 		
 		<div class="col-2 userPageLeftColumn">
 			<div class="icon-cont">
 				<img class="circleIconImage" src="{% static "images/anuruddh.png" %}">
+                <p><i class="fa fa-pencil icon-contPencil"></i></p>
 			</div>
+            <script src="{% static "userPage.js" %}"></script>
 			<h2 class="userPageLeftUserName">{{ user.first_name }} {{ user.last_name }}</h2>
 			<div class="userPageProfileOptions">
 				<h2 class="userPageSetttingOptionsHeading">Profile</h2>
 				<ul>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks active" onclick="openUserPageLeftSideTabs(event,'userPageProfileGeneral')">General</a></li>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfilePayment')">Payment Methods</a></li>
-					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfileContact')">Contact</a></li>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfileCauses')">Causes i Care About</a></li>
 				</ul>
 			</div>
@@ -217,7 +250,6 @@
 				<h2 class="userPageSetttingOptionsHeading">Account</h2>
 				<ul>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageAccountLogIn')">LogIn</a></li>
-					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageAccountPrivacy')">Privacy</a></li>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageAccountNotifications')">Notifications</a></li>
 				</ul>
 			</div>
@@ -234,7 +266,7 @@
 					<div class="userPageGeneralInformationHeading">
 						<h2>Basic Information</h2>
 					</div>
-					<div class="userPageGeneralInformationContent">
+					<div class="userPageGeneralInformationContent userPageGeneralInformationContent1">
 						<div class="row userPageGeneralInformationContentRows">
 							<h2 class="col-6">FIRST NAME: <span>{{ user.first_name }}</span></h2>
 							<h2 class="col-6">LAST NAME: <span>{{ user.last_name }}</span></h2>
@@ -251,7 +283,8 @@
 						<div class="row userPageGeneralInformationContentRows lastRow">
 							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
 						</div>
-						<a><i class="fa fa-pencil-square-o"></i></a>
+						<a class="userPageGeneralInformationi1"><i class="fa fa-pencil-square-o"></i></a>
+						<a class="saveDetails1">Save</a>
 					</div>
 				</div>
 				
@@ -259,7 +292,7 @@
 					<div class="userPageGeneralInformationHeading">
 						<h2>Mailing Information</h2>
 					</div>
-					<div class="userPageGeneralInformationContent">
+					<div class="userPageGeneralInformationContent userPageGeneralInformationContent2">
 						<div class="row userPageGeneralInformationContentRows">
 							<h2>ADDRESS LINE 1: <span>{{ user_details.address_line_1 }}</span></h2>
 						</div>
@@ -276,10 +309,11 @@
 						<div class="row userPageGeneralInformationContentRows lastRow">
 							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
 						</div>
-						<a><i class="fa fa-pencil-square-o"></i></a>
+						<a class="userPageGeneralInformationi2"><i class="fa fa-pencil-square-o"></i></a>
+						<a class="saveDetails2">Save</a>
 					</div>
 				</div>
-				
+				<script src="{% static "userPage.js" %}"></script>
 			</div>
 			
 			<div id="userPageProfilePayment" class="row userPageLeftTabsContent" style="height: 1300px;">
@@ -382,13 +416,11 @@
 					</div>
 				</div>
 			</div>
-			
-			<div id="userPageProfileContact" class="row userPageLeftTabsContent"style="height: 1300px;">
-				<h1>Contact Div</h1>
-			</div>
-			
+
 			<div id="userPageProfileCauses" class="row userPageLeftTabsContent"style="height: 1300px;">
-				<h1>Causes Div</h1>
+				<div class="row userPageCenterContentHeadings" style="height: 150px;">
+					<h1>Cause I care about</h1>
+				</div>
 			</div>
 			
 			<div id="userPageOngoingCampaigns" class="row userPageLeftTabsContent"style="height: 1300px;">
@@ -416,6 +448,27 @@
 								<h2><span>Amount:</span> Rs 20,000</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
+							<a class="divLink" href="">{% url 'index' %}</a>
+						</li>
+						<li>
+							<div class="row userPageFinishedCampaignsImage">
+								<img src="{% static "images/16_9_4.jpg" %}">
+								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
+							</div>
+							<div class="topLeft">
+								<h2>FINISHED</h2>
+							</div>
+							<div class="topRight">
+								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
+							</div>
+							<div class="userPageFinishedCampaignsNGO">
+								<h2>By<span> NIRMAAN SOCIETY</span></h2>
+							</div>
+							<div class="userPageFinishedCampaignsBottom">
+								<h2><span>Amount:</span> Rs 20,000</h2>
+								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
+							</div>
+							<a class="divLink" href="{% url 'index' %}l"></a>
 						</li>
 						<li>
 							<div class="row userPageFinishedCampaignsImage">
@@ -454,6 +507,7 @@
 								<h2><span>Amount:</span> Rs 20,000</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</li>
 						<li>
 							<div class="row userPageFinishedCampaignsImage">
@@ -473,6 +527,7 @@
 								<h2><span>Amount:</span> Rs 20,000</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</li>
 						<li>
 							<div class="row userPageFinishedCampaignsImage">
@@ -492,25 +547,7 @@
 								<h2><span>Amount:</span> Rs 20,000</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
+							<a class="divLink" href="{% url 'index' %}"></a>
 						</li>
 					</ul>
 				</div>
@@ -1085,15 +1122,85 @@
 			</div>
 			
 			<div id="userPageAccountLogIn" class="row userPageLeftTabsContent"style="height: 1300px;">
-				<h1>LogIn Div</h1>
-			</div>
-			
-			<div id="userPageAccountPrivacy" class="row userPageLeftTabsContent" style="height: 1300px;">
-				<h1>Privacy Div</h1>
+				<div class="row userPageCenterContentHeadings" style="height: 150px;">
+					<h1>LogIn SETTINGS</h1>
+				</div>
+				<form class="form" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="userEmail">Email</label>
+					  <input type="text" id="userEmail" />
+					  <p>*Email not verified</p>
+					</fieldset>
+					<fieldset>
+					  <label for="userOldPassword">Enter Password</label>
+					  <input type="password" id="userOldPassword" />
+					</fieldset>
+					<button> Update Email</button>
+				</form>
+				<button class="changePassword" onclick="toggleChangePasswordForm()"> Change Password</button>
+				<form class="form changePasswordForm" id="changePasswordForm" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="userOldPassword">Current Password</label>
+					  <input type="password" id="userOldPassword" />
+					</fieldset>
+					<fieldset>
+					  <label for="userNewPassword">New Password</label>
+					  <input type="password" id="userNewPassword" />
+					</fieldset>
+					<fieldset>
+					  <label for="userReNewPassword">Re-enter New Password</label>
+					  <input type="password" id="userReNewPassword" />
+					</fieldset>
+					<button>CHANGE</button>
+				</form>
 			</div>
 			
 			<div id="userPageAccountNotifications" class="row userPageLeftTabsContent" style="height: 1300px;">
-				<h1>Notifications Div</h1>
+				<div class="row userPageCenterContentHeadings" style="height: 150px;">
+					<h1>Notifications SETTINGS</h1>
+				</div>
+				<ul class="userPageAccountNotificationsOptions">
+					<li class="userPageAccountNotificationsOption">
+						<fieldset class="userPageAccountNotificationsOptionHeading">
+							<label for="projectsSupportedNotifications">Projects you have supported</label>
+							<fieldset>
+								<input type="checkbox" id="projectsSupportedNotificationsMail" checked/>
+								<label for="projectsSupportedNotificationsMail"><i class="fa fa-envelope"></i></label>
+							</fieldset>
+							<fieldset>
+								<input type="checkbox" id="projectsSupportedNotificationsMobile" checked/>
+								<label for="projectsSupportedNotificationsMobile"><i class="fa fa-mobile"></i></label>
+							</fieldset>
+						</fieldset>
+					</li>
+					<li class="userPageAccountNotificationsOption">
+						<fieldset class="userPageAccountNotificationsOptionHeading">
+							<label for="causesICareProjectNotifications">Exciting Projects in Causes you care about</label>
+							<fieldset>
+								<input type="checkbox" id="causesICareProjectNotificationsMail" checked/>
+								<label for="causesICareProjectNotificationsMail"><i class="fa fa-envelope"></i></label>
+							</fieldset>
+							<fieldset>
+								<input type="checkbox" id="causesICareProjectNotificationsMobile" checked/>
+								<label for="causesICareProjectNotificationsMobile"><i class="fa fa-mobile"></i></label>
+							</fieldset>
+						</fieldset>
+					</li>
+					<li class="userPageAccountNotificationsOption">
+						<fieldset class="userPageAccountNotificationsOptionHeading">
+							<label for="generalNotifications">General Notifications from Reimagine</label>
+							<fieldset>
+								<input type="checkbox" id="generalNotificationsMail" checked/>
+								<label for="generalNotificationsMail"><i class="fa fa-envelope"></i></label>
+							</fieldset>
+							<fieldset>
+								<input type="checkbox" id="generalNotificationsMobile" checked/>
+								<label for="generalNotificationsMobile"><i class="fa fa-mobile"></i></label>
+							</fieldset>
+						</fieldset>
+					</li>
+				</ul>
+				<button type="submit">Save</button>
 			</div>
 			
 		</div>
@@ -1118,7 +1225,7 @@
 			<div class="userPageConnectOptions">
 				<h2 class="userPageRightOptionsHeading">Spred The Word</h2>
 				<div class="row userPageRightOptionsContent">
-					<a href="{% url 'index' %}" class="facebook button">
+					<a data-href="https://www.facebook.com/reimaginegiving" class=" facebook button social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" >
 						<i class="icon">
 						  <i class="fa fa-facebook"></i>
 						</i>
@@ -1135,7 +1242,7 @@
 					</a>
 				</div>
 				<div class="row userPageRightOptionsContent">
-					<a href="{% url 'index' %}" class="twitter button">
+					<a class="twitter-share-button twitter button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
 						<i class="icon">
 						  <i class="fa fa-twitter">
 						</i>
@@ -1279,13 +1386,16 @@
 					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
 					<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
 					<li>
-						<a><i class="fa fa-facebook"></i>   </a>
-						<a><i class="fa fa-google-plus"></i></a>
-						<a><i class="fa fa-twitter"></i>    </a>
-						<a><i class="fa fa-youtube"></i>    </a>
-						<a><i class="fa fa-instagram"></i>  </a>
-						<a><i class="fa fa-whatsapp"></i>   </a>
-						<a><i class="fa fa-linkedin"></i>   </a>
+						<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a><i class="fa fa-linkedin"></i>   </a>
 					</li>
 				</ul>
 			</div>

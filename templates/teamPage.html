@@ -27,6 +27,16 @@
 </head>
 
 <body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 	<header>
 		<div class="row header">
 			<div class="col-3 mainNavBarButton" id="exploreDiv">
@@ -155,7 +165,7 @@
 					</div>
 
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
-						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
 					</div>
 					<div id="LogIn" class="overlay">
 						<div class="translucentContainer"></div>
@@ -403,9 +413,7 @@
 							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 								<i class="fa fa-twitter"></i>
 							</a>
-							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
-								<i class="fa fa-linkedin" ></i>
-							</a>
+							<a><i class="fa fa-linkedin"></i>   </a>
 						</li>
 				</ul>
 			</div>

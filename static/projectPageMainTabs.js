@@ -1,5 +1,6 @@
 function openDonationInput(){
 	document.getElementById('projectPageDonateButtonClick').classList.toggle('activeButtonDonateShare');
+	document.getElementById('projectPageDonateButton').classList.toggle('projectPageDonateSelected');
 }
 
 function openProjectMainTabs(evt, tabName) {
@@ -47,8 +48,11 @@ function openProjectDonationOptionsTabs(evt, tabName) {
 }
 
 function openShareBoxOverlay() {
-    document.getElementById("projectPageShareBox").style.height = "100%";
-	document.getElementsByTagName("body")[0].style.position = "fixed";
+    FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
 }
 
 function openInNewTab(url) {

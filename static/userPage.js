@@ -1,3 +1,47 @@
+$("img.circleIconImage").hover(function(){
+	$(".circleIconImage").toggleClass("circleIconImageFade");
+	$(".icon-contPencil").toggleClass("icon-contPencilVisible");
+});
+
+$(".icon-contPencil").hover(function(){
+	$(".circleIconImage").toggleClass("circleIconImageFade");
+	$(".icon-contPencil").toggleClass("icon-contPencilVisible");
+});
+
+$(".userPageGeneralInformationi1").click(function(){
+	$(".saveDetails1").css("display","block");
+	$(".userPageGeneralInformationi1").css("display","none");
+	$(".userPageGeneralInformationContent1 span").attr("contenteditable","true");
+});
+
+$(".userPageGeneralInformationi2").click(function(){
+	$(".saveDetails2").css("display","block");
+	$(".userPageGeneralInformationi2").css("display","none");
+	$(".userPageGeneralInformationContent2 span").attr("contenteditable","true");
+});
+
+$(".saveDetails1").click(function(){
+	$(".saveDetails1").css("display","none");
+	$(".userPageGeneralInformationi1").css("display","block");
+	$(".userPageGeneralInformationContent1 span").attr("contenteditable","false");
+});
+
+$(".saveDetails2").click(function(){
+	$(".saveDetails2").css("display","none");
+	$(".userPageGeneralInformationi2").css("display","block");
+	$(".userPageGeneralInformationContent2 span").attr("contenteditable","false");
+});
+
+$(".input-cart-number").keyup(function () {
+	if (this.value.length == this.maxLength) {
+		var $next = $(this).next('.input-cart-number');
+		if ($next.length)
+			$(this).next('.input-cart-number').focus();
+		else
+			$(this).blur();
+	}
+});
+
 function openUserPageLeftSideTabs(evt, tabName) {
     var i, mainTabContent, mainTabLinks;
     mainTabContent = document.getElementsByClassName("userPageLeftTabsContent");
@@ -30,6 +74,9 @@ function openUserPagePaymentOptionsTabs(evt, tabName) {
     evt.currentTarget.className += " active1";
 }
 
+function toggleChangePasswordForm(){
+	document.getElementById('changePasswordForm').classList.toggle('displayChangePasswordForm');
+}
 
 var $badges = $('.js-progress-badge')
   , $window = $(window)
@@ -47,4 +94,18 @@ function incrementBadge ($progressBadge) {
   if (fillingFromEmpty) {
     $progressBadge.addClass('is-filling-from-empty')
   }
+}
+
+function openInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+
+function openShareBoxOverlay() {
+    document.getElementById("userPageShareBox").style.height = "100%";
+	document.getElementsByTagName("body")[0].style.position = "fixed";
+}
+function openDisplayPictureEditOverlay() {
+    document.getElementById("displayPictureEditOverlay").style.height = "100%";
+	document.getElementsByTagName("body")[0].style.position = "fixed";
 }

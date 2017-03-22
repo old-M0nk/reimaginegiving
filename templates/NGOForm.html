@@ -199,38 +199,70 @@
 				</div>
 				<div class="NGOOrganizationTechnologyForm NGOOrganizationTechnologyFormSection2" autocomplete="off" novalidate>
 					<fieldset>
-					  <label for="socialMediaPlatformsOption">Social Media? *</label><br/>
-						<fieldset class="radio">
-							<input type="radio" name="socialMediaPlatformsOption" id="socialMediaPlatformsOption-1" value="Yes">
-							<label for="socialMediaPlatformsOption-1">Yes</label>
-						</fieldset>
-						<fieldset class="radio">
+						<label for="socialMediaPlatformsOption">Do you use social media? *</label><br/>
+						<input type="radio" name="socialMediaPlatformsOption" id="socialMediaPlatformsOption-1" value="Yes">
+						<label for="socialMediaPlatformsOption-1">Yes</label>
+						<fieldset class="OptionNo">
 							<input type="radio" name="socialMediaPlatformsOption" id="socialMediaPlatformsOption-2" value="No">
 							<label for="socialMediaPlatformsOption-2">No</label>
 						</fieldset>
-					</fieldset>
-					<fieldset>
-					  <label for="socialMediaPlatforms">If yes, Which platforms? *</label>
-					  <input type="text" id="socialMediaPlatforms" />
+
+						<fieldset class="reveal-if-active">
+							<label for="socialMediaPlatformsOption">Social media links*</label><br/>
+							<fieldset class="socialMediaIcons">
+								<input type="checkbox" id="socialMediaPlatformsFacebook" class="socialMediaPlatformsFacebook">
+								<label for="socialMediaPlatformsFacebook"><i class="fa fa-facebook NGOSocialMediaInputIcon activeIcon" onclick="openNGOSocialLinksInput(event,'NGOSocialLinkFacebookInput')"></i></label>
+							</fieldset>
+							<fieldset class="socialMediaIcons">
+								<input type="checkbox" id="socialMediaPlatformsGooglePlus" class="socialMediaPlatformsGooglePlus">
+								<label for="socialMediaPlatformsGooglePlus"><i class="fa fa-google-plus NGOSocialMediaInputIcon" onclick="openNGOSocialLinksInput(event,'NGOSocialLinkGooglePlusInput')"></i></label>
+							</fieldset>
+							<fieldset class="socialMediaIcons">
+								<input type="checkbox" id="socialMediaPlatformsTwitter" class="socialMediaPlatformsTwitter">
+								<label for="socialMediaPlatformsTwitter"><i class="fa fa-twitter NGOSocialMediaInputIcon" onclick="openNGOSocialLinksInput(event,'NGOSocialLinkTwitterInput')"></i></label>
+							</fieldset>
+							<fieldset class="socialMediaIcons">
+								<input type="checkbox" id="socialMediaPlatformsLinkedIn" class="socialMediaPlatformsLinkedIn">
+								<label for="socialMediaPlatformsLinkedIn"><i class="fa fa-linkedin NGOSocialMediaInputIcon" onclick="openNGOSocialLinksInput(event,'NGOSocialLinkLinkedInInput')"></i></label>
+							</fieldset>
+							<fieldset class="socialMediaIcons">
+								<input type="checkbox" id="socialMediaPlatformsOther" class="socialMediaPlatformsOther">
+								<label for="socialMediaPlatformsOther"><span class="NGOSocialMediaInputIcon" onclick="openNGOSocialLinksInput(event,'NGOSocialLinkOtherInput')">Other</span></label>
+							</fieldset>
+
+							<fieldset class="NGOSocialLinksInput" id="NGOSocialLinkFacebookInput">
+								<input type="text" id="socialMediaPlatformsFacebookInput" placeholder="fb.com/reimaginegiving" class="socialMediaPlatformsFacebookInput">
+							</fieldset>
+							<fieldset class="NGOSocialLinksInput" id="NGOSocialLinkGooglePlusInput">
+								<input type="text" id="socialMediaPlatformsGooglePlusInput" placeholder="google+.com/reimaginegiving" class="socialMediaPlatformsGooglePlusInput">
+							</fieldset>
+							<fieldset class="NGOSocialLinksInput" id="NGOSocialLinkTwitterInput">
+								<input type="text" id="socialMediaPlatformsTwitterInput" placeholder="twitter.com/reimaginegiving" class="socialMediaPlatformsTwitterInput">
+							</fieldset>
+							<fieldset class="NGOSocialLinksInput" id="NGOSocialLinkLinkedInInput">
+								<input type="text" id="socialMediaPlatformsLinkedInInput" placeholder="linkedin.com/reimaginegiving" class="socialMediaPlatformsLinkedInInput">
+							</fieldset>
+							<fieldset class="NGOSocialLinksInput" id="NGOSocialLinkOtherInput">
+								<input type="text" id="socialMediaPlatformsOtherInput" placeholder="xyz.com/reimaginegiving" class="socialMediaPlatformsOtherInput">
+							</fieldset>
+						</fieldset>
 					</fieldset>
 					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
 					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
 				</div>
 				<div class="NGOOrganizationTechnologyForm NGOOrganizationTechnologyFormSection3" autocomplete="off" novalidate>
 					<fieldset>
-					  <label for="fundRaisePlatformsOption">Do you use online platforms to raise funds? *</label><br/>
-						<fieldset class="radio">
-							<input type="radio" name="fundRaisePlatformsOption" id="fundRaisePlatformsOption-1" value="Yes">
-							<label for="fundRaisePlatformsOption-1">Yes</label>
-						</fieldset>
-						<fieldset class="radio">
+						<label for="fundRaisePlatformsOption">Do you use online platforms to raise funds? *</label><br/>
+						<input type="radio" name="fundRaisePlatformsOption" id="fundRaisePlatformsOption-1" value="Yes">
+						<label for="fundRaisePlatformsOption-1">Yes</label>
+						<fieldset class="OptionNo">
 							<input type="radio" name="fundRaisePlatformsOption" id="fundRaisePlatformsOption-2" value="No">
 							<label for="fundRaisePlatformsOption-2">No</label>
 						</fieldset>
-					</fieldset>
-					<fieldset>
-					  <label for="fundRaisePlatforms">If yes, Which platforms? *</label>
-					  <input type="text" id="fundRaisePlatforms" />
+						<fieldset class="reveal-if-active">
+						  <label for="fundRaisePlatforms">Which platforms do you use? *</label>
+						  <input type="text" id="fundRaisePlatforms" />
+						</fieldset>
 					</fieldset>
 					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
 					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
@@ -263,27 +295,118 @@
 					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
 					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
 				</div>
-				<div class="NGOOrganizationContactForm NGOOrganizationContactFormSection3" autocomplete="off" novalidate>
+			</div>
+		</div>
+
+		<div class="row IndividualForm">
+			<div class="IndividualFormTabs">
+				<img src="{% static "logo/logo-final-web-full-blue.png" %}">
+				<ul class="IndividualFormTabsHeading">
+					<li class="firstTab NGOIndividualFormTab activeTab" onclick="openNGOIndividualTabs(event,'NGOIndividualFormBasic')"><i class="fa fa-info"></i>Basic Information</li>
+					<li class="NGOIndividualFormTab" onclick="openNGOIndividualTabs(event,'NGOIndividualFormMotivation')"><i class="fa fa-users"></i>Motivation</li>
+				</ul>
+				<div class="NGOFormHelpInfo">
+					<h2>Need Help? Drop Us a message <a href="contactUsPage.html">here</a><br/>or call us at +91 841 704 8371</h2>
+				</div>
+			</div>
+
+			<div id="NGOIndividualFormBasic" class="NGOIndividualFormBasic NGOIndividualFormTabContent slideRight">
+				<form class="NGOIndividualBasicForm NGOIndividualBasicFormSection1" autocomplete="off" novalidate>
 					<fieldset>
-					  <label for="website">Website *</label>
-					  <input type="text" id="website" />
+					  <label for="individualName">Name *</label>
+					  <input type="text" id="individualName" />
 					</fieldset>
 					<fieldset>
-					  <label for="address">Address *</label>
-					  <input type="text" id="address" />
+					  <label for="individualAge">Age *</label>
+					  <input type="text" id="individualAge" />
+					</fieldset>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</form>
+				<form class="NGOIndividualBasicForm NGOIndividualBasicFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="individualLocation">Location *</label>
+					  <input type="text" id="individualLocation" />
+					</fieldset>
+					<fieldset>
+					  <label for="individualPhone">Phone *</label>
+					  <input type="text" id="individualPhone" />
 					</fieldset>
 					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
 					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
-				</div>
+				</form>
+				<form class="NGOIndividualBasicForm NGOIndividualBasicFormSection3" autocomplete="off" novalidate>
+					<label for="individualNationality">Nationality *</label>
+						<select id="nationality" name="nationality">
+							<option value="Choose">Choose Nationality</option>
+							<option value="India">India</option>
+							<option value="Japan">Japan</option>
+							<option value="America">America</option>
+							<option value="Pakistan">Pakistan</option>
+						</select>
+						<fieldset class="reveal-if-active" id="aadharCard">
+							<label for="individualaadharCardNumber">Aadhar Card Number *</label>
+							<input type="text" id="individualaadharCardNumber" />
+						</fieldset>
+						<fieldset class="reveal-if-active" id="passportNumber">
+							<label for="individualPassportNumber">Passport Number *</label>
+							<input type="text" id="individualPassportNumber" />
+						</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</form>
+				<form class="NGOIndividualBasicForm NGOIndividualBasicFormSection4" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="individualAffiliationsOption">Do you have affiliations with an NGO? *</label><br/>
+					  <input type="radio" name="individualAffiliationsOption" id="individualAffiliationsOption-1" value="Yes">
+						<label for="individualAffiliationsOption-1">Yes</label>
+						<fieldset class="OptionNo">
+							<input type="radio" name="individualAffiliationsOption" id="individualAffiliationsOption-2" value="No">
+							<label for="individualAffiliationsOption-2">No</label>
+						</fieldset>
+						<fieldset class="reveal-if-active">
+						  <label for="individualAffiliations">Which NGOs you have affiliations with? *</label>
+						  <input type="text" id="individualAffiliations" />
+						</fieldset>
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</form>
 				<div class="NGOFormInstruction">
 					* marked fields are COMPULSORY fields.
 				</div>
 			</div>
-            </form>
+			<div id="NGOIndividualFormMotivation" class="NGOIndividualFormMotivation NGOIndividualFormTabContent slideLeft">
+				<form class="NGOIndividualMotivationForm NGOIndividualMotivationFormSection1" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="individualMotivationUndertake">What has motivated you to undertake this project? *</label>
+					  <textarea type="text" id="individualMotivationUndertake" maxlength="300"></textarea>
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</form>
+				<form class="NGOIndividualMotivationForm NGOIndividualMotivationFormSection2" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="individualMotivationSuited">Why are you best suited to undertake this project? *</label>
+					  <textarea type="text" id="individualMotivationSuited" maxlength="300" ></textarea>
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="nextBtn">Next<i class="fa fa-arrow"></i></a>
+				</form>
+				<form class="NGOIndividualMotivationForm NGOIndividualMotivationFormSection3" autocomplete="off" novalidate>
+					<fieldset>
+					  <label for="individualMotivationUnique">What is unique about your approach? *</label>
+					  <textarea type="text" id="individualMotivationUnique" maxlength="300" ></textarea>
+					</fieldset>
+					<a class="backBtn">Previous<i class="fa fa-arrow"></i></a>
+					<a class="submitBtn">Submit<i class="fa fa-arrow"></i></a>
+				</form>
+				<div class="NGOFormInstruction">
+					* marked fields are COMPULSORY fields.
+				</div>
+			</div>
+
 		</div>
-		
-		<div class="row IndividualForm">
-		</div>
+
 	</div>
 	<script src="{% static "NGOForm.js" %}"></script>
 	

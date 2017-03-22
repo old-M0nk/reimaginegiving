@@ -1,4 +1,4 @@
-.userPageSetttingOptionsHeading, .userPageRightOptionsHeading {
+.userPageSetttingOptionsHeading, .userPageRightOptionsHeading{
     padding: 10px 12px;
     background-color: rgb(23,35,57);
     color: white;
@@ -815,4 +815,109 @@ margin-top: 2px;
   margin-left: -20px !important;
 height: 24px;
 margin-top: 2px;
+}
+
+/* Notifications settings */
+#userPageAccountNotifications, #userPageAccountLogIn {
+    background: white;
+}
+#userPageAccountNotifications input[type="checkbox"]{
+	display: none;
+}
+#userPageAccountNotifications input[type="checkbox"]+label{
+	color:rgba(0,0,0,0.25);
+}
+#userPageAccountNotifications input[type="checkbox"]:checked+label {
+    color: rgba(0,180,255,1.0);
+}
+#userPageAccountNotifications fieldset {
+    display: inline-block;
+    margin-left: 10px;
+    border: none;
+}
+
+ul.userPageAccountNotificationsOptions {
+    padding: 50px;
+    font-size: 21px;
+    font-family: SourceSansPro-Regular;
+	color: #373737;
+}
+ul.userPageAccountNotificationsOptions li {
+    text-align: left;
+    padding: 20px;
+}
+
+ul.userPageAccountNotificationsOptions li i{
+	font-size: 25px;
+	float: right;
+}
+
+#userPageAccountNotifications button {
+    margin-left: 80px;
+    padding: 8px 50px;
+    background: rgba(0,180,255,1.0);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    font-family: SourceSansPro-Light;
+    letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 1px solid white;
+}
+#userPageAccountNotifications button:hover{
+	border: 1px solid rgb(0,180,255);
+	color: rgb(0,180,255);
+	background: white;
+}
+.userPageAccountNotificationsOptionHeading{
+	min-width: 65%;
+	max-width: 100%;
+}
+.userPageAccountNotificationsOptionHeading fieldset{
+	float: right;
+	margin-right: 10px;
+}
+
+/*login*/
+#userPageAccountLogIn form{
+	margin: 50px;
+	width: 50%;
+    min-width: 450px;
+}
+
+#userPageAccountLogIn p{
+	font-size: 10px;
+    letter-spacing: 0.2px;
+    margin-top: 2px;
+    margin-left: 5px;
+}
+
+#userPageAccountLogIn button{
+	padding: 8px 50px;
+    background: rgba(0,180,255,1.0);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    font-family: SourceSansPro-Light;
+    letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: 1px solid white;
+}
+
+.changePassword{
+	margin-left: 50px;
+}
+
+#changePasswordForm{
+	height: 0;
+	display: none;
+}
+
+.displayChangePasswordForm{
+	height: auto !important;
+	display: block !important;
 }

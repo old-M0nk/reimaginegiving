@@ -21,14 +21,12 @@
 	<link rel="stylesheet" type="text/css" href="{% static "gallery.css" %}" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="{% static "slider.css" %}" media="screen"/>
 	
-	
-	<link rel='stylesheet prefetch' href='{% static "gallerymin.css" %}'>
+
 	<script src="{% static "cloudflare.js" %}"></script>
 	<script src="{% static "cloudflare1.js" %}"></script>
 	<script src="{% static "explore.js" %}"></script>
 	<script src="{% static "googleapi.js" %}"></script>
 	<script src="{% static "timeline.js" %}"></script>
-	<script src="{% static "projectPageMainTabs.js" %}"></script>
 </head>
 
 <body>
@@ -170,7 +168,7 @@
 					</div>
 
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
-						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
 					</div>
 					<div id="LogIn" class="overlay">
 						<div class="translucentContainer"></div>
@@ -217,6 +215,50 @@
 			<div class="shareBoxInnerContainer">
 
 			</div>
+		</div>
+	</div>
+
+	<div id="myModal" class="modal projectGallery overlay">
+		<div class="translucentContainer4"></div>
+		<span class="close cursor" onclick="closeModal()">&times;</span>
+		<div class="modal-content">
+			<div class="row" style="position: relative;">
+				<div class="myGallerySlides">
+				  <div class="numbertext">1 / 4</div>
+				  <img src="images/slider1.jpg" style="width:100%">
+				</div>
+
+				<div class="myGallerySlides">
+				  <div class="numbertext">2 / 4</div>
+				  <img src="images/slider2.jpg" style="width:100%">
+				</div>
+
+				<div class="myGallerySlides">
+				  <div class="numbertext">3 / 4</div>
+				  <img src="images/slider3.jpg" style="width:100%">
+				</div>
+
+				<div class="myGallerySlides">
+				  <div class="numbertext">4 / 4</div>
+				  <img src="images/slider4.jpg" style="width:100%">
+				</div>
+
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			</div>
+			<div class="column">
+			  <img class="myGallerydemo cursor" src="images/slider1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+			</div>
+			<div class="column">
+			  <img class="myGallerydemo cursor" src="images/slider2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+			</div>
+			<div class="column">
+			  <img class="myGallerydemo cursor" src="images/slider3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+			</div>
+			<div class="column">
+			  <img class="myGallerydemo cursor" src="images/slider4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+			</div>
+
 		</div>
 	</div>
 
@@ -511,12 +553,11 @@
 			</div>
 		</div>
 	</div>
-	
 	<div class="section">
 		<ul class="social-btns">
 
 			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
+				<a class="social-btn-flip twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
 						<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
@@ -524,8 +565,8 @@
 				</a>
 			</li>
 
-			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
+			<li data-href="https://www.facebook.com/reimaginegiving">
+				<a class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
 						<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
@@ -534,7 +575,7 @@
 			</li>
 
 			<li>
-				<a href="{% url 'index' %}" class="social-btn-flip">
+				<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-google-plus google"></i>
 						<i class="social-btn-face active fa fa-lg fa-google-plus google"></i>

@@ -93,7 +93,7 @@ header{
 @keyframes slideRight{from{left:-100%;} to{left:0;}}
 
 
-.OrganizationFormTabs {
+.OrganizationFormTabs , .IndividualFormTabs{
     width: 25%;
     height: 100vh;
     position: absolute;
@@ -104,7 +104,7 @@ header{
     z-index: 5;
 }
 
-.OrganizationFormTabs img{
+.OrganizationFormTabs img, .IndividualFormTabs img{
 	position: absolute;
 	height: auto;
 	z-index: 0;
@@ -113,16 +113,16 @@ header{
 	width: 9vw;
 }
 
-.OrganizationFormTabsHeading {
+.OrganizationFormTabsHeading, .IndividualFormTabsHeading {
     list-style-type: none;
     background: white;
 }
-.OrganizationFormTabsHeading li {
+.OrganizationFormTabsHeading li , .IndividualFormTabsHeading li{
     padding: 20px 15px;
     border-bottom: 1px solid black;
 	cursor: pointer;
 }
-.OrganizationFormTabsHeading li i{
+.OrganizationFormTabsHeading li i, .IndividualFormTabsHeading li i{
 	width: 30px;
 	text-align: center;
 	color:rgb(60,60,60,0.6);
@@ -133,6 +133,9 @@ header{
 .activeTab {
     background: #2cb3d5;
     color: white;
+}
+.IndividualForm .activeTab{
+	background: #18c3f2;
 }
 .NGOFormHelpInfo h2{
 	position: absolute;
@@ -145,16 +148,18 @@ header{
 	width: 100%;
 	line-height: 140%;
 }
-.NGOFormHelpInfo span:hover{
+.NGOFormHelpInfo a:hover{
 	color: white;
 	border-bottom: 1px solid white;
 }
-.NGOFormHelpInfo span{
+.NGOFormHelpInfo a{
 	border-bottom: 1px solid rgb(221,221,221);
 	cursor: pointer;
+	text-decoration: none;
+	color: rgb(221,221,221);
 }
 
-.NGOOrganizationFormTabContent {
+.NGOOrganizationFormTabContent, .NGOIndividualFormTabContent {
     width: 75%;
 position: absolute;
 height: 100vh;
@@ -210,7 +215,7 @@ fieldset input {
     color: white;
     font-size: 24px;
 }
-.nextBtn,.backBtn {
+.nextBtn,.backBtn , .submitBtn{
     position: absolute;
     padding: 5px 25px;
     font-size: 20px;
@@ -221,17 +226,18 @@ fieldset input {
     color: white;
 	cursor: pointer;
 }
-.nextBtn:hover, .backBtn:hover{
+.nextBtn:hover, .backBtn:hover, .submitBtn:hover{
 	background: white;
 	color: #2cb3d5;
 }
 
-.nextBtn{
+.nextBtn, .submitBtn{
 	right: 20px;
 }
 .backBtn{
 	left: 20px;
 }
+
 input[type="radio"]{
 	width: 18px;
 	height: 18px;
@@ -244,6 +250,97 @@ fieldset.radio {
     width: 45%;
     display: inline-block;
 }
+
+.reveal-if-active{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+input[type="radio"]:checked ~ .reveal-if-active, input[type="checkbox"]:checked ~ .reveal-if-active{
+  opacity: 1;
+  max-height: 200px;
+  overflow: visible;
+}
+.OptionNo {
+    width: 50% !important;
+    display: inline-block;
+    margin-left: 30%;
+  padding: 10px 10px 10px 0 !important;
+}
+
+fieldset.socialMediaIcons input[type="checkbox"] {
+    width: auto;
+    height: 0;
+    width: 0;
+}
+fieldset.socialMediaIcons {
+    display: inline-block;
+    width: 15%;
+    padding: 10px 0 0 0 !important;
+}
+
+.NGOOrganizationTechnologyFormSection2 .reveal-if-active{
+	padding: 10px 0 !important;
+}
+
+select{
+    width: 100%;
+    padding: 10px;
+    font-size: 22px;
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid rgb(255,255,255);
+    color: white;
+}
+option {
+    padding: 5px !important;
+    background: #18c3f2;
+    border: 1px solid white;
+	font-family: SourceSansPro-Light;
+    border-collapse: collapse;
+}
+option.dropdownOptions {
+    background: #2cb3d5 !important;
+}
+
+textarea {
+    width: 100%;
+    max-height: 271px;
+    height: 190px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid white;
+    margin-top: 15px;
+    color: white;
+    font-size: 20px;
+    font-family: SourceSansPro-Light;
+}
+.socialMediaIcons {
+	color: rgba(255,255,255,0.5);
+}
+.activeIcon{
+	color: white !important;
+}
+#passportNumber, #aadharCard {
+    padding: 50px 0 70px 0 !important;
+}
+.NGOSocialLinksInput{
+	display: none;
+	opacity:0;
+	padding: 10px 0 0px 0 !important;
+}
+#NGOSocialLinkFacebookInput{
+	display: block;
+	opacity:1;
+}
+
+.NGOSocialLinksInput input {
+    border: 1px solid white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
 @keyframes slideTop{from{top:0%;} to{top:-100%;}}
 @keyframes slideBottom{from{top:-100%;} to{top:0%;}}
 @keyframes slideTop1{from{top:-100%;} to{top:-200%;}}

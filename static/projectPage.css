@@ -46,7 +46,6 @@
 .projectPageProjectMainImage{
 	height: 25vw;
 	overflow: hidden;
-	position: relative;
 }
 
 .projectPageMainTabs{
@@ -163,7 +162,7 @@ table#projectStoryBudget span{
 }
 
 .projectPageProjectMainImage img{
-	position: absolute;
+	position: relative;
 	max-width: 100%;
 }
 
@@ -182,7 +181,7 @@ table#projectStoryBudget span{
 }
 .projectPageProjectFundRequired {
   font-family: Poppins-Light;
-  font-size: 12.5px;
+  font-size: 17px;
   margin-bottom: 15px;
   padding-right: 12px;
 }
@@ -326,11 +325,9 @@ table#projectStoryBudget span{
 .projectPageDonation{
 	position: relative;
 	height: 38vw;
-	/*! border: 1px solid #f1f2f6; */
 	margin-top: 30px;
 	margin-bottom: 30px;
-	overflow: auto;
-	border: ;
+	overflow: hidden;
 }
 ul.projectPageDonationOptions{
 	list-style-type: none;
@@ -368,7 +365,7 @@ ul.projectPageDonationOptions li a{
     border-color: rgba(74, 82, 85, 0.05);
     /*! border-bottom: none !important; */
 }
-BORDER{
+border{
 	left:0;
 	animation: slideLeft 0.4s;
 	cursor: pointer;
@@ -397,15 +394,15 @@ BORDER{
 	font-size: 10px;
 }
 .projectPageDonationOption {
-    margin-top: 11px;
-    margin-left: 10px;
-    margin-right: 10px;
-	background: #cbefff;
+    padding-top: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .donationOptionsTabContent {
     border: 1px solid #f1f2f6;
     border-top: none;
-	
+    overflow: auto;
+    height: 35vw;
 }
 
 .projectPageDonationOptionsMonthly{
@@ -423,16 +420,22 @@ BORDER{
 .projectPageDonationOptionsMonthlyOptions{
 	display: none;
 }
-.projectPageDonationAmount, .projectPageDonationReason{
-	font-size: 9px;
-	font-family: Poppins-Regular;
-	padding-top: 18px;
-	padding-bottom: 18px;
-	cursor:  pointer;
+.projectPageDonationAmount, .projectPageDonationReason {
+    font-size: 9px;
+    font-family: Poppins-Regular;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    height: 70px;
+    cursor: pointer;
+    margin: 5px 0;
+    position: relative;
 }
-.projectPageDonationOption:hover{
+.projectPageDonationReason:hover{
 	background-color: white;
 	border: 1px solid #cbefff;
+	padding-bottom: 18px;
+	padding-top: 18px;
+	padding-left:10px;
 }
 .projectPageDonationAmount{
 	text-align: center;
@@ -780,3 +783,17 @@ BORDER{
   background: #FF6B6B;
 }
 
+
+.projectPageDonationOption h2 {
+    transform: translate(0%,-50%);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.projectPageDonationReason h2{
+	text-align: left;
+	padding: 0 5px;
+}

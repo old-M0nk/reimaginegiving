@@ -74,6 +74,10 @@ window.onclick = function(event) {
 		document.getElementById("projectPageShareBox").style.height = "0%";
 		document.getElementsByTagName("body")[0].style.position = "";
 	}
+	else if (event.target.matches('.translucentContainer4')){
+		document.getElementById("myModal").style.display = "none";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
 
 }
 
