@@ -136,3 +136,13 @@ class Report(models.Model):
         return self.project_id.title+""+self.heading
 
 
+class GalleryPic(models.Model):
+    project_id = models.ForeignKey('Project', on_delete=models.SET('project not set'))
+    caption = models.TextField(blank=False)
+    desc = models.TextField(blank=True)
+    link = models.TextField(blank=False)
+
+    def __unicode__(self):
+        return self.project_id.title + "" + self.caption
+
+

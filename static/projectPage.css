@@ -46,6 +46,7 @@
 .projectPageProjectMainImage{
 	height: 25vw;
 	overflow: hidden;
+	position: relative;
 }
 
 .projectPageMainTabs{
@@ -162,7 +163,7 @@ table#projectStoryBudget span{
 }
 
 .projectPageProjectMainImage img{
-	position: relative;
+	position: absolute;
 	max-width: 100%;
 }
 

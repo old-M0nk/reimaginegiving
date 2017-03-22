@@ -51,7 +51,7 @@
 .container .form-container{
   margin-left: 25px;
   background-color: white;
-  height: 410px;
+  height: 450px;
   width: 330px;
   align-self: center;
   display: flex;
@@ -62,7 +62,7 @@
   z-index: 3;
   transition: margin-left 1.5s;
   left: 0;
-  top: -30px;
+  top: -50px;
 }
 .form-container img , .form-container1 img{
     height: 50px;
@@ -79,7 +79,6 @@
   display: none;
 }
 .container .form-container .form-item form input{
-  display: block;
   padding: 10px;
   width: 250px;
   margin-top: 5px;
@@ -106,7 +105,6 @@ form .btn i {
 }
 .container .form-container .form-item form .btn{
   cursor: pointer;
-  display: block;
   padding: 10px;
   width: 250px;
   margin: 5px;
@@ -181,13 +179,16 @@ form .btn i {
   left: 0;
   transform: translate(50%,50%);
 }
+.signUpFormUserName{
+  width:35%;
+}
 .container1 .form-container1.actived1{
   margin-left: 275px;
 }
 .container1 .form-container1{
   margin-left: 25px;
   background-color: white;
-  height: 410px;
+  height: 450px;
   width: 330px;
   align-self: center;
   display: flex;
@@ -198,7 +199,7 @@ form .btn i {
   z-index: 3;
   transition: margin-left 1.5s;
   left: 0;
-  top: -30px;
+  top: -50px;
 }
 .container1 .form-container1.form-item1 form{
   z-index: 2;
@@ -209,7 +210,6 @@ form .btn i {
   display: none;
 }
 .form-item1  form  input{
-  display: block;
   padding: 10px;
   width: 250px;
   margin-top: 5px;
@@ -219,7 +219,6 @@ form .btn i {
 }
 .form-item1 form .btn{
   cursor: pointer;
-  display: block;
   padding: 10px;
   width: 250px;
   margin: 5px;

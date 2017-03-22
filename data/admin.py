@@ -1,5 +1,5 @@
 from django.contrib import admin
-from data.models import Cause, Project, NGO, Consultant, Audit, GiveMonthly, GiveOnce, TimelineEvent, Report
+from data.models import Cause, Project, NGO, Consultant, Audit, GiveMonthly, GiveOnce, TimelineEvent, Report, GalleryPic
 
 #add all the fields of the models you want to see on the django admin panel
 #just add the word "Admin" to the model name
@@ -21,6 +21,8 @@ class TimelineEventAdmin(admin.ModelAdmin):
     list_display = ('project_id', 'date', 'heading', 'desc', 'days_span')
 class ReportAdmin(admin.ModelAdmin):
     list_display = ('project_id', 'date', 'heading', 'desc', 'thumb')
+class GalleryPicAdmin(admin.ModelAdmin):
+    list_display = ('project_id', 'caption', 'desc', 'link')
 
 
 #mention all the models to be viewed on the django admin panel
@@ -33,3 +35,4 @@ admin.site.register(GiveOnce, GiveOnceAdmin)
 admin.site.register(GiveMonthly, GiveMonthlyAdmin)
 admin.site.register(TimelineEvent, TimelineEventAdmin)
 admin.site.register(Report, ReportAdmin)
+admin.site.register(GalleryPic, GalleryPicAdmin)
