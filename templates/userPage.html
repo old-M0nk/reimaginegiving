@@ -447,7 +447,7 @@
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
-							<a class="divLink" href="">{% url 'projectPage' pk=donation.project_id.project_id %}</a>
+							<a class="divLink" href="{% url 'projectPage' pk=donation.project_id.project_id %}"></a>
 						</li>
                         {% endfor %}
                     {% endif %}
