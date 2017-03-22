@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/projectPage.css" afterPath="$PROJECT_DIR$/static/projectPage.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
@@ -86,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projectPage.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="projectPage.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/projectPage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
+            <state relative-caret-position="463">
+              <caret line="199" column="16" lean-forward="true" selection-start-line="199" selection-start-column="16" selection-end-line="199" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -181,9 +181,9 @@
       <find>.container1 .form-container1 .form-item1 form</find>
       <find>height: 410px</find>
       <find>slider</find>
-      <find>maso</find>
       <find>.projectPageDonationOption</find>
       <find>projectPageProjectMainImage</find>
+      <find>maso</find>
     </findStrings>
     <replaceStrings>
       <replace>logo/logo-final.png</replace>
@@ -255,8 +255,8 @@
         <option value="$PROJECT_DIR$/data/views.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/signup.css" />
-        <option value="$PROJECT_DIR$/static/projectPage.css" />
         <option value="$PROJECT_DIR$/templates/projectPage.html" />
+        <option value="$PROJECT_DIR$/static/projectPage.css" />
       </list>
     </option>
   </component>
@@ -1083,14 +1083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/projectPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1108,6 +1100,14 @@
             <element signature="n#style#0;n#button#0;n#div#0;n#form#0;n#div#2;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#div#2;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/projectPage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="199" column="16" lean-forward="true" selection-start-line="199" selection-start-column="16" selection-end-line="199" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
