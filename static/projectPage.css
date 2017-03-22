@@ -403,6 +403,7 @@ border{
     border-top: none;
     overflow: auto;
     height: 35vw;
+	background: white;
 }
 
 .projectPageDonationOptionsMonthly{
@@ -796,4 +797,38 @@ border{
 .projectPageDonationReason h2{
 	text-align: left;
 	padding: 0 5px;
+}
+
+/*gaallery*/
+#projectStory .column{
+	width: auto !important;
+}
+
+.masonry { /* Masonry container */
+	-moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    column-count: 4;
+    column-gap: 0;
+}
+
+.masonry .item:hover img {
+  opacity: .75;
+}
+
+.item {
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1024px){
+	.masonry {
+		-moz-column-count: 3;
+		-webkit-column-count: 3;
+		column-count: 3;
+	}
 }
