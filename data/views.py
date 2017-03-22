@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.template import RequestContext
-from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report
+from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report, GalleryPic
 from users.models import ContactUs
 from users.forms import contact_us_form
 
@@ -38,6 +38,8 @@ def projectPage (request, pk):
     give_once_options = GiveOnce.objects.filter(project_id=pk)
     give_monthly_options = GiveMonthly.objects.filter(project_id=pk)
     project = Project.objects.get(project_id=pk)
+    gallery = GalleryPic.objects.get(project_id=pk)
+    gallery_count = GalleryPic.objects.filter(project_id=pk).count()
     amount_left = project.total_amount-project.raised_amount
     progress_percent = (project.raised_amount)*100/(project.total_amount)
     desc = project.project_page_desc
@@ -58,7 +60,9 @@ def projectPage (request, pk):
                     'give_once_options': give_once_options,
                     'give_monthly_options': give_monthly_options,
                     'events': timeline,
-                    'reports': report}
+                    'reports': report,
+                    'gallery': gallery,
+                    'gallery_count': gallery_count}
                     # 'stars': stars
     return render(request, 'projectPage.html', context_dict, context)
 

@@ -223,26 +223,14 @@
 		<span class="close cursor" onclick="closeModal()">&times;</span>
 		<div class="modal-content">
 			<div class="row" style="position: relative;">
+                    {% if gallery %}
+                    {% for pic in gallery %}
 				<div class="myGallerySlides">
-				  <div class="numbertext">1 / 4</div>
-				  <img src="{{ project.gallery4|safe }}" style="width:100%">
+				  <div class="numbertext">1 / {{ gallery_count }}</div>
+				  <img src="{{ pic.link|safe }}" style="width:100%">
 				</div>
-
-				<div class="myGallerySlides">
-				  <div class="numbertext">2 / 4</div>
-				  <img src="{{ project.gallery1|safe }}" style="width:100%">
-				</div>
-
-				<div class="myGallerySlides">
-				  <div class="numbertext">3 / 4</div>
-				  <img src="{{ project.gallery2|safe }}" style="width:100%">
-				</div>
-
-				<div class="myGallerySlides">
-				  <div class="numbertext">4 / 4</div>
-				  <img src="{{ project.gallery3|safe }}" style="width:100%">
-				</div>
-
+                {% endfor %}
+            {% endif %}
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				<a class="next" onclick="plusSlides(1)">&#10095;</a>
 			</div>
@@ -273,18 +261,13 @@
 			<div id="projectStory" class="row projectStory mainTabContent">
                     {{ project.story|safe }}
                 <div class="row projectGallery masonry">
+                    {% if gallery %}
+                    {% for pic in gallery %}
 					  <div class="column item">
-						<img src="{{ project.gallery4|safe }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+						<img src="{{ pic.link|safe }}" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
 					  </div>
-					  <div class="column item">
-						<img src="{{ project.gallery1|safe }}" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-					  </div>
-					  <div class="column item">
-						<img src="{{ project.gallery2|safe }}" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-					  </div>
-					  <div class="column item">
-						<img src="{{ project.gallery3|safe }}" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-					  </div>
+					  {% endfor %}
+                {% endif %}
 				</div>
 				
 				<script src='{% static "cloudflare4.js" %}'></script>
