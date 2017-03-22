@@ -4,10 +4,11 @@ from django.contrib.auth.models import User
 from django.views import generic
 from django.views.generic import View
 from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm
-from .models import Email, User_Details
-from data.models import NGOtemp
+from .models import Email, User_Details, Donation
+from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
+import datetime
 
 def comingSoon(request):
     if request.method == "POST":
@@ -115,7 +116,10 @@ def logout_view(request):
 @login_required
 def userPage (request):
     user_details = User_Details.objects.get(username=request.user.id)
-    return render(request, 'userPage.html', {'user_details': user_details})
+    ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
+    completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
+
+    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations})
 
 
 def NGOformPage (request):

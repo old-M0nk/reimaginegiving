@@ -430,125 +430,27 @@
 				</div>
 				<div class="userPageFinishedCampaigns">
 					<ul>
+                        {% if ongoing_project_donations %}
+                        {%  for donation in ongoing_project_donations %}
 						<li>
 							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg_" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
+								<img src="{{ project.thumbnail|safe }}">
+								<h2>{{ donation.project_id.title }}</h2>
 							</div>
 							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
+								<h2><i class="fa fa-map-marker"></i>{{ donation.project_id.ngo_id.address }}</h2>
 							</div>
 							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
+								<h2>By<span>{{ donation.project_id.ngo_id.name }}</span></h2>
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
+								<h2><span>Amount:</span>{{ donation.amount }}</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
-							<a class="divLink" href="">{% url 'index' %}</a>
+							<a class="divLink" href="">{% url 'projectPage' pk=donation.project_id.project_id %}</a>
 						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-							<a class="divLink" href="{% url 'index' %}l"></a>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-							<a class="divLink" href="{% url 'index' %}"></a>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-							<a class="divLink" href="{% url 'index' %}"></a>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-							<a class="divLink" href="{% url 'index' %}"></a>
-						</li>
+                        {% endfor %}
+                    {% endif %}
 					</ul>
 				</div>
 				
@@ -782,120 +684,30 @@
 				</div>
 				<div class="userPageFinishedCampaigns">
 					<ul>
+                        {% if completed_project_donations %}
+                        {%  for donation in completed_project_donations %}
 						<li>
 							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
+								<img src="{{ project.thumbnail|safe }}">
+								<h2>{{ donation.project_id.title }}</h2>
 							</div>
-							<div class="topLeft">
+                            <div class="topLeft">
 								<h2>FINISHED</h2>
 							</div>
 							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
+								<h2><i class="fa fa-map-marker"></i>{{ donation.project_id.ngo_id.address }}</h2>
 							</div>
 							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
+								<h2>By<span>{{ donation.project_id.ngo_id.name }}</span></h2>
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
+								<h2><span>Amount:</span>{{ donation.amount }}</h2>
 								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
 							</div>
+							<a class="divLink" href="">{% url 'projectPage' pk=donation.project_id.project_id %}</a>
 						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
-						<li>
-							<div class="row userPageFinishedCampaignsImage">
-								<img src="{% static "images/16_9_4.jpg" %}">
-								<h2>TEXT BOOKS FOR 220 STUDENTS</h2>
-							</div>
-							<div class="topLeft">
-								<h2>FINISHED</h2>
-							</div>
-							<div class="topRight">
-								<h2><i class="fa fa-map-marker"></i> VARANASI,INDIA</h2>
-							</div>
-							<div class="userPageFinishedCampaignsNGO">
-								<h2>By<span> NIRMAAN SOCIETY</span></h2>
-							</div>
-							<div class="userPageFinishedCampaignsBottom">
-								<h2><span>Amount:</span> Rs 20,000</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
-							</div>
-						</li>
+                        {% endfor %}
+                    {% endif %}
 					</ul>
 				</div>
 				
