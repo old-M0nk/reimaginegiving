@@ -398,6 +398,7 @@ border{
     padding-top: 11px;
     padding-left: 10px;
     padding-right: 10px;
+	border: none !important;
 }
 .donationOptionsTabContent {
     border: 1px solid #f1f2f6;
