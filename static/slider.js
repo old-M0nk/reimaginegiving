@@ -25,7 +25,7 @@ $('.slider').each(function() {
       slideLeft = '100%';
       animateLeft = '-100%';
     }
-
+    
     $slides.eq(newIndex).css({
       display: 'block',
       left: slideLeft
@@ -45,18 +45,18 @@ $('.slider').each(function() {
       currentIndex = newIndex;
     });
   }
-
+  
   function move2(newIndex) {
     var animateLeft, slideLeft;
-
+    
   textOverlaySlides2();
     advance();
-
+    
     if ($group.is(':animated') || currentIndex === newIndex) {
       return;
     }
-
-
+    
+    
     if (newIndex > currentIndex) {
       slideLeft = '-100%';
       animateLeft = '100%';
@@ -127,10 +127,10 @@ $('.slider').each(function() {
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Trust</span>');
 	  else if(currentIndex==2)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Hope</span>');
-	  else
+	  else 
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Giving</span>');
   }
-
+  
   function textOverlaySlides2(){
 	  if(currentIndex==1)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Development</span>');
@@ -140,8 +140,8 @@ $('.slider').each(function() {
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Trust</span>');
 	  else if(currentIndex==4)
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Hope</span>');
-	  else
+	  else 
 		$('#textOverlaySlide').html( 'RE<span>!</span>MAGINE ' + '<span class="textOverlaySlideChanging">Giving</span>');
   }
-
+  
 });

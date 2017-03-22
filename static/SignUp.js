@@ -1,6 +1,6 @@
 
-let currentlyVisible = ".form-sign-up";
-let currentlyHidden = ".form-log-in";
+currentlyVisible = ".form-sign-up";
+currentlyHidden = ".form-log-in";
 $(".info-item .btn1").click(function(){
   $(".form-container").toggleClass("actived");
   $(currentlyVisible).fadeToggle('750', function() {
@@ -11,8 +11,8 @@ $(".info-item .btn1").click(function(){
   });
 });
 
-let currentlyVisible1 = ".form-log-in1";
-let currentlyHidden1 = ".form-sign-up1";
+currentlyVisible1 = ".form-log-in1";
+currentlyHidden1 = ".form-sign-up1";
 $(".info-item1 .btn2").click(function(){
   $(".form-container1").toggleClass("actived1");
   $(currentlyVisible1).fadeToggle('750', function() {
@@ -85,7 +85,6 @@ function SignMeUp() {
     document.getElementById("SignUp").style.height = "0%";
 	document.getElementById("LogIn").style.height = "0%";
 	document.getElementsByTagName("body")[0].style.position = "";
-	document.getElementById("navBarProfileButton").style.display = "inline-block";
 	document.getElementById("navBarLogInButton").style.display = "none";
 	document.getElementById("navBarSignUpButton").style.display = "none";
 }

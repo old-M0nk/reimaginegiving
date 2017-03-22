@@ -26,6 +26,7 @@
 	<script src="{% static "cloudflare1.js" %}"></script>
 	<script src="{% static "googleapi.js" %}"></script>
 	<script src="{% static "explore.js" %}"></script>
+    <script src="{% static "SignUp.js" %}"></script>
 </head>
   
 <body>
@@ -119,7 +120,7 @@
 				
 				<div class="col-8 logo">
 					<a href="{% url 'index' %}">
-						<img src="{% static "logo/logo-final.png" %}"></img>
+						<img src="{% static "logo/logo-final.png" %}">
 					</a>
 				</div>
 				
@@ -212,7 +213,7 @@
    	 <div class="slider">
   		<div class="slide_viewer">
     		<div class="slide_group">
-		      <div class="slide">
+		      <div class="slide" id="firstSlide">
 		      	<img src="{% static "images/slider1.jpg" %}"/>
 		      </div>
 		      <div class="slide">
