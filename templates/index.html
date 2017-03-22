@@ -26,7 +26,6 @@
 	<script src="{% static "cloudflare1.js" %}"></script>
 	<script src="{% static "googleapi.js" %}"></script>
 	<script src="{% static "explore.js" %}"></script>
-    <script src="{% static "SignUp.js" %}"></script>
 </head>
   
 <body>
@@ -120,7 +119,7 @@
 				
 				<div class="col-8 logo">
 					<a href="{% url 'index' %}">
-						<img src="{% static "logo/logo-final.png" %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
 					</a>
 				</div>
 				
@@ -156,12 +155,8 @@
 							<div class="form-container actived">
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
-                                    <div class="form-log-in animated">
-									{% include "registration/login.html" %}
-                                    </div>
-                                    <div class="form-sign-up animated">
-									{% include "registration/register.html" %}
-                                    </div>
+{#									{% include "registration/login.html" %}#}
+{#									{% include "registration/register.html" %}#}
 								</div>
 							</div>
 							</div>
@@ -189,12 +184,8 @@
 								<div class="form-container1">
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
-                                        <div class="form-log-in1 animated">
-									{% include "registration/login.html" %}
-                                    </div>
-                                    <div class="form-sign-up1 animated">
-									{% include "registration/register.html" %}
-                                    </div>
+                                        {% include "registration/login.html" %}
+									    {% include "registration/register.html" %}
 									</div>
 								</div>
 							</div>
@@ -213,7 +204,7 @@
    	 <div class="slider">
   		<div class="slide_viewer">
     		<div class="slide_group">
-		      <div class="slide" id="firstSlide">
+		      <div class="slide">
 		      	<img src="{% static "images/slider1.jpg" %}"/>
 		      </div>
 		      <div class="slide">

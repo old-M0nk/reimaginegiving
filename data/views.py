@@ -38,7 +38,7 @@ def projectPage (request, pk):
     give_once_options = GiveOnce.objects.filter(project_id=pk)
     give_monthly_options = GiveMonthly.objects.filter(project_id=pk)
     project = Project.objects.get(project_id=pk)
-    gallery = GalleryPic.objects.get(project_id=pk)
+    gallery = GalleryPic.objects.filter(project_id=pk)
     gallery_count = GalleryPic.objects.filter(project_id=pk).count()
     amount_left = project.total_amount-project.raised_amount
     progress_percent = (project.raised_amount)*100/(project.total_amount)
