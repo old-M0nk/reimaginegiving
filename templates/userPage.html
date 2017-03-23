@@ -978,11 +978,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="projectsSupportedNotifications">Projects you have supported</label>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMail" {% if notification.supported_projects_email == 'True' %}checked{% endif %} value="{{ notification.supported_projects_email }}"/>
+								<input type="checkbox" id="projectsSupportedNotificationsMail" {% if notification.supported_projects_email == 'True' %}checked{% endif %} value="True"/>
 								<label for="projectsSupportedNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMobile" {% if notification.supported_projects_mobile == 'True' %}checked{% endif %} value="{{ notification.supported_projects_mobile }}"/>
+								<input type="checkbox" id="projectsSupportedNotificationsMobile" {% if notification.supported_projects_mobile == 'True' %}checked{% endif %} value="True"/>
 								<label for="projectsSupportedNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -991,11 +991,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="causesICareProjectNotifications">Exciting Projects in Causes you care about</label>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMail" {% if notification.exciting_projects_email == 'True' %}checked{% endif %} value="{{ notification.exciting_projects_email }}"/>
+								<input type="checkbox" id="causesICareProjectNotificationsMail" {% if notification.exciting_projects_email == 'True' %}checked{% endif %} value="True"/>
 								<label for="causesICareProjectNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMobile" {% if notification.exciting_projects_mobile == 'True' %}checked{% endif %} value="{{ notification.exciting_projects_mobile }}"/>
+								<input type="checkbox" id="causesICareProjectNotificationsMobile" {% if notification.exciting_projects_mobile == 'True' %}checked{% endif %} value="True"/>
 								<label for="causesICareProjectNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -1004,11 +1004,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="generalNotifications">General Notifications from Reimagine</label>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMail" {% if notification.general_email == 'True' %}checked{% endif %} value="{{ notification.general_email }}"/>
+								<input type="checkbox" id="generalNotificationsMail" {% if notification.general_email == 'True' %}checked{% endif %} value="True"/>
 								<label for="generalNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMobile" {% if notification.general_mobile == 'True' %}checked{% endif %} value="{{ notification.general_mobile }}"/>
+								<input type="checkbox" id="generalNotificationsMobile" {% if notification.general_mobile == 'True' %}checked{% endif %} value="True"/>
 								<label for="generalNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
