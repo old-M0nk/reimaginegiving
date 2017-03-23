@@ -120,12 +120,12 @@ def logout_view(request):
 def userPage (request):
     if request.method == "POST":
         form = NotificationForm(request.POST or None)
-        supp_mob = request.POST['supp_mob']
-        supp_mail = request.POST['sup_mail']
-        gen_mob = request.POST['gen_mob']
-        gen_mail = request.POST['gen_mail']
-        exc_mob = request.POST['exc_mob']
-        exc_mail = request.POST['exc_mail']
+        supp_mob = request.POST.get('supp_mob', False)
+        supp_mail = request.POST.get('sup_mail', False)
+        gen_mob = request.POST.get('gen_mob', False)
+        gen_mail = request.POST.get('gen_mail', False)
+        exc_mob = request.POST.get('exc_mob', False)
+        exc_mail = request.POST.get('exc_mail', False)
 
         notification = Notification.objects.get(username=request.user)
         notification.supported_projects_mobile = supp_mob,
