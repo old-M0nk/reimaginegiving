@@ -128,11 +128,11 @@ def userPage (request):
         exc_mail = request.POST.get('exc_mail', False)
 
         notification = Notification.objects.get(username=request.user)
-        notification.supported_projects_mobile = supp_mob,
-        notification.supported_projects_email = supp_mail,
-        notification.general_mobile = gen_mob,
-        notification.general_email = gen_mail,
-        notification.exciting_projects_mobile = exc_mob,
+        notification.supported_projects_mobile = supp_mob
+        notification.supported_projects_email = supp_mail
+        notification.general_mobile = gen_mob
+        notification.general_email = gen_mail
+        notification.exciting_projects_mobile = exc_mob
         notification.exciting_projects_email = exc_mail
         notification.save()
     else:
