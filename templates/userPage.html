@@ -978,11 +978,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="projectsSupportedNotifications">Projects you have supported</label>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMail" checked value="True"/>
+								<input type="checkbox" id="projectsSupportedNotificationsMail" checked value="{{ notification.supported_projects_email }}"/>
 								<label for="projectsSupportedNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMobile" checked value="True"/>
+								<input type="checkbox" id="projectsSupportedNotificationsMobile" checked value="{{ notification.supported_projects_mobile }}"/>
 								<label for="projectsSupportedNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -991,11 +991,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="causesICareProjectNotifications">Exciting Projects in Causes you care about</label>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMail" checked value="True"/>
+								<input type="checkbox" id="causesICareProjectNotificationsMail" checked value="{{ notification.exciting_projects_email }}"/>
 								<label for="causesICareProjectNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMobile" checked value="True"/>
+								<input type="checkbox" id="causesICareProjectNotificationsMobile" checked value="{{ notification.exciting_projects_mobile }}"/>
 								<label for="causesICareProjectNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -1004,11 +1004,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="generalNotifications">General Notifications from Reimagine</label>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMail" checked value="True"/>
+								<input type="checkbox" id="generalNotificationsMail" checked value="{{ notification.general_email }}"/>
 								<label for="generalNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMobile" checked value="True"/>
+								<input type="checkbox" id="generalNotificationsMobile" checked value="{{ notification.general_mobile }}"/>
 								<label for="generalNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>

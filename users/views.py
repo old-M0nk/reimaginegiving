@@ -118,6 +118,7 @@ def logout_view(request):
 
 @login_required
 def userPage (request):
+    notification = Notification.objects.get(username=request.user)
     if request.method == "POST":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
@@ -141,7 +142,7 @@ def userPage (request):
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
 
-    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations, 'form': form})
+    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations, 'form': form, 'notification': notification})
 
 
 def NGOformPage (request):
