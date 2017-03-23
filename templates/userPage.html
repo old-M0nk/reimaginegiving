@@ -971,16 +971,17 @@
 				<div class="row userPageCenterContentHeadings" style="height: 150px;">
 					<h1>Notifications SETTINGS</h1>
 				</div>
+                <form action="userPage.html" method="post">
 				<ul class="userPageAccountNotificationsOptions">
 					<li class="userPageAccountNotificationsOption">
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="projectsSupportedNotifications">Projects you have supported</label>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMail" checked/>
+								<input type="checkbox" id="projectsSupportedNotificationsMail" checked value="True"/>
 								<label for="projectsSupportedNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="projectsSupportedNotificationsMobile" checked/>
+								<input type="checkbox" id="projectsSupportedNotificationsMobile" checked value="True"/>
 								<label for="projectsSupportedNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -989,11 +990,11 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="causesICareProjectNotifications">Exciting Projects in Causes you care about</label>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMail" checked/>
+								<input type="checkbox" id="causesICareProjectNotificationsMail" checked value="True"/>
 								<label for="causesICareProjectNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="causesICareProjectNotificationsMobile" checked/>
+								<input type="checkbox" id="causesICareProjectNotificationsMobile" checked value="True"/>
 								<label for="causesICareProjectNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
@@ -1002,16 +1003,17 @@
 						<fieldset class="userPageAccountNotificationsOptionHeading">
 							<label for="generalNotifications">General Notifications from Reimagine</label>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMail" checked/>
+								<input type="checkbox" id="generalNotificationsMail" checked value="True"/>
 								<label for="generalNotificationsMail"><i class="fa fa-envelope"></i></label>
 							</fieldset>
 							<fieldset>
-								<input type="checkbox" id="generalNotificationsMobile" checked/>
+								<input type="checkbox" id="generalNotificationsMobile" checked value="True"/>
 								<label for="generalNotificationsMobile"><i class="fa fa-mobile"></i></label>
 							</fieldset>
 						</fieldset>
 					</li>
 				</ul>
+                </form>
 				<button type="submit">Save</button>
 			</div>
 			

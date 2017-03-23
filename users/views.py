@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, get_user_model
 from django.contrib.auth.models import User
+from django.template import RequestContext, loader, Context
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm
-from .models import Email, User_Details, Donation
+from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm
+from .models import Email, User_Details, Donation, Notification
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
@@ -93,6 +94,8 @@ def register_view(request):
             user.save()
             user_details = User_Details(username=user)
             user_details.save()
+            notifications = Notification(username=user)
+            notifications.save()
             login(request, user)
             context_dict = {
                 "message": "Welcome",
@@ -115,11 +118,30 @@ def logout_view(request):
 
 @login_required
 def userPage (request):
+    if request.method == "POST":
+        form = NotificationForm(request.POST or None)
+        supp_mob = request.POST['supp_mob']
+        supp_mail = request.POST['sup_mail']
+        gen_mob = request.POST['gen_mob']
+        gen_mail = request.POST['gen_mail']
+        exc_mob = request.POST['exc_mob']
+        exc_mail = request.POST['exc_mail']
+
+        notification = Notification(username=request.user,
+                                    supported_projects_mobile=supp_mob,
+                                    supported_projects_email=supp_mail,
+                                    general_mobile=gen_mob,
+                                    general_email=gen_mail,
+                                    exciting_projects_mobile=exc_mob,
+                                    exciting_projects_email=exc_mail)
+        notification.save()
+    else:
+        form = NotificationForm(request.POST or None)
     user_details = User_Details.objects.get(username=request.user.id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
 
-    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations})
+    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations, 'form': form})
 
 
 def NGOformPage (request):

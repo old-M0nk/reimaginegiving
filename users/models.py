@@ -48,3 +48,13 @@ class User_Details(models.Model):
     def __int__(self):
         return self.username.first_name + "" + self.username.last_name
 
+
+class Notification(models.Model):
+    username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
+    supported_projects_mobile = models.BooleanField(default=True)
+    supported_projects_email = models.BooleanField(default=True)
+    general_mobile = models.BooleanField(default=True)
+    general_email = models.BooleanField(default=True)
+    exciting_projects_mobile = models.BooleanField(default=True)
+    exciting_projects_email = models.BooleanField(default=True)
+

@@ -43,3 +43,13 @@ class NGORegistrationForm(forms.Form):
     office_loc = forms.CharField()
 
 
+class NotificationForm(forms.Form):
+    username = forms.IntegerField(required=True)
+    supported_projects_mobile = forms.BooleanField()
+    supported_projects_email = forms.BooleanField()
+    general_mobile = forms.BooleanField()
+    general_email = forms.BooleanField()
+    exciting_projects_mobile = forms.BooleanField()
+    exciting_projects_email = forms.BooleanField()
+
+

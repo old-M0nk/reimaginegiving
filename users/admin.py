@@ -1,5 +1,5 @@
 from django.contrib import admin
-from users.models import Donor, Donation, Email, ContactUs, User_Details
+from users.models import Donor, Donation, Email, ContactUs, User_Details, Notification
 
 
 #add all the fields of the models you want to see on the django admin panel
@@ -24,6 +24,16 @@ class ContactUsAdmin(admin.ModelAdmin):
 class User_DetailsAdmin(admin.ModelAdmin):
     list_display = ('username', 'mobile_number', 'pan_number')
 
+
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ('username',
+                    'supported_projects_mobile',
+                    'supported_projects_email',
+                    'general_mobile',
+                    'general_email',
+                    'exciting_projects_mobile',
+                    'exciting_projects_email')
+
 #mention all the models to be viewed on the django admin panel
 
 admin.site.register(Donor, DonorAdmin)
@@ -31,3 +41,4 @@ admin.site.register(Donation, DonationAdmin)
 admin.site.register(Email, EmailAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(User_Details, User_DetailsAdmin)
+admin.site.register(Notification, NotificationAdmin)
