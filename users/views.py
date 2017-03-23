@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, get_user_model
 from django.contrib.auth.models import User
 from django.template import RequestContext, loader, Context
@@ -127,13 +127,13 @@ def userPage (request):
         exc_mob = request.POST['exc_mob']
         exc_mail = request.POST['exc_mail']
 
-        notification = Notification(username=request.user,
-                                    supported_projects_mobile=supp_mob,
-                                    supported_projects_email=supp_mail,
-                                    general_mobile=gen_mob,
-                                    general_email=gen_mail,
-                                    exciting_projects_mobile=exc_mob,
-                                    exciting_projects_email=exc_mail)
+        notification = Notification.objects.get(username=request.user)
+        notification.supported_projects_mobile = supp_mob,
+        notification.supported_projects_email = supp_mail,
+        notification.general_mobile = gen_mob,
+        notification.general_email = gen_mail,
+        notification.exciting_projects_mobile = exc_mob,
+        notification.exciting_projects_email = exc_mail
         notification.save()
     else:
         form = NotificationForm(request.POST or None)
