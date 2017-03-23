@@ -45,8 +45,18 @@
       <file leaf-file-name="userPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/userPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="1015" column="51" lean-forward="false" selection-start-line="1015" selection-start-column="51" selection-end-line="1015" selection-end-column="51" />
+            <state relative-caret-position="251">
+              <caret line="974" column="36" lean-forward="false" selection-start-line="974" selection-start-column="36" selection-end-line="974" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NGOForm.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="40" column="61" lean-forward="false" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -801,13 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="75" column="74" lean-forward="false" selection-start-line="75" selection-start-column="74" selection-end-line="75" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/viewAllProjects.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1052,10 +1055,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="40" column="61" lean-forward="false" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/userPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="1015" column="51" lean-forward="false" selection-start-line="1015" selection-start-column="51" selection-end-line="1015" selection-end-column="51" />
+        <state relative-caret-position="251">
+          <caret line="974" column="36" lean-forward="false" selection-start-line="974" selection-start-column="36" selection-end-line="974" selection-end-column="36" />
           <folding />
         </state>
       </provider>

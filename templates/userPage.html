@@ -972,6 +972,7 @@
 					<h1>Notifications SETTINGS</h1>
 				</div>
                 <form action="userPage.html" method="post">
+                    {% csrf_token %}
 				<ul class="userPageAccountNotificationsOptions">
 					<li class="userPageAccountNotificationsOption">
 						<fieldset class="userPageAccountNotificationsOptionHeading">
