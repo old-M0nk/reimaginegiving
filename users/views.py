@@ -121,12 +121,30 @@ def userPage (request):
     notification = Notification.objects.get(username=request.user)
     if request.method == "POST":
         form = NotificationForm(request.POST or None)
-        supp_mob = request.POST.get('supp_mob', False)
-        supp_mail = request.POST.get('sup_mail', False)
-        gen_mob = request.POST.get('gen_mob', False)
-        gen_mail = request.POST.get('gen_mail', False)
-        exc_mob = request.POST.get('exc_mob', False)
-        exc_mail = request.POST.get('exc_mail', False)
+        if request.POST['supp_mob'] == True:
+            supp_mob = request.POST['supp_mob']
+        else:
+            supp_mob = False
+        if request.POST['supp_mail'] == True:
+            supp_mail = request.POST['supp_mob']
+        else:
+            supp_mail = False
+        if request.POST['gen_mail'] == True:
+            gen_mail = request.POST['gen_mail']
+        else:
+            gen_mail = False
+        if request.POST['gen_mob'] == True:
+            gen_mob = request.POST['gen_mob']
+        else:
+            gen_mob = False
+        if request.POST['exc_mob'] == True:
+            exc_mob = request.POST['exc_mob']
+        else:
+            exc_mob = False
+        if request.POST['exc_mail'] == True:
+            exc_mail = request.POST['exc_mail']
+        else:
+            exc_mail = False
 
         notification = Notification.objects.get(username=request.user)
         notification.supported_projects_mobile = supp_mob
