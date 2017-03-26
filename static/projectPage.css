@@ -198,6 +198,7 @@ table#projectStoryBudget span{
 	width: 50%;
 	background-color: #38c0ff;
 	height: 5px;
+	height: 5px;
 	border-radius: 2px;
 	transition: 0.4s linear;
 	transition-property: width, background-color;
@@ -327,7 +328,6 @@ table#projectStoryBudget span{
 	position: relative;
 	height: 38vw;
 	margin-top: 30px;
-	margin-bottom: 30px;
 	overflow: hidden;
 }
 ul.projectPageDonationOptions{
@@ -471,6 +471,7 @@ border{
 .projectPageAboutNGO {
     border: 1px solid #f1f2f6;
     margin-bottom: 30px;
+	margin-top: 50px;
 }
 
 .projectPageAboutNGOBannerHeading {

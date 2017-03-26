@@ -419,8 +419,7 @@
 				</div>
 			</div>
 			
-
-
+        {% if give_once_options %}
 			<div class="row projectPageDonation">
 				<ul class="row projectPageDonationOptions">
 					<div id="donationOptionActive" class="slideLeft" style="width: 100%"></div>
@@ -482,6 +481,7 @@
 				</div>
             </form>
 			</div>
+        {% endif %}
 		<script src="{% static "projectPageMainTabs.js" %}"></script>
 			<div class="row projectPageAboutNGO">
 				<h1 class="projectPageAboutNGOBannerHeading">About the NGO</h1>
