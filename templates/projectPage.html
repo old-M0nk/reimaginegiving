@@ -288,7 +288,7 @@
 						<div class="timeline-marker"></div>
 						<div class="timeline-content">
 							<h3 class="timeline-title">{{ event.heading }}</h3>
-							<p>{{ event.desc }}</p>
+							<p>{{ event.desc|safe }}</p>
 						</div>
 					</li>
                     {% endfor %}
