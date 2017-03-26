@@ -418,6 +418,8 @@
 {#                    {% endif %}#}
 				</div>
 			</div>
+			
+
 
 			<div class="row projectPageDonation">
 				<ul class="row projectPageDonationOptions">
@@ -436,6 +438,15 @@
 					</li>
                     {% endif %}
 
+
+
+
+{#                    {% if pk == "15134005" %}#}
+{#					<li class="col-6 projectPageDonationOptionsMonthly">#}
+{#						<a href="javascript:void(0)" id="projectPageDonationOptionsMonthly" class="donationOptionsTabLinks" onclick="openProjectDonationOptionsTabs('projectPageDonationOptionsMonthly','projectPageDonationOptionsMonthlyOptions')"><h3>Give Monthly</h3></a>#}
+{#					</li>#}
+{#                    {% endif %}#}
+				</ul>
 
             <form method="POST" action="{% url 'checkOut' pk=project.project_id %}">
                         {% csrf_token %}
