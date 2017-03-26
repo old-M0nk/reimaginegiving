@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/projectPage.css" afterPath="$PROJECT_DIR$/static/projectPage.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,17 +43,17 @@
       <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="482" column="17" lean-forward="true" selection-start-line="482" selection-start-column="17" selection-end-line="482" selection-end-column="17" />
+            <state relative-caret-position="319">
+              <caret line="295" column="56" lean-forward="false" selection-start-line="295" selection-start-column="56" selection-end-line="295" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
-                <marker date="1490502567241" expanded="false" signature="18317:18382" ph="..." />
-                <marker date="1490502567241" expanded="false" signature="19252:19317" ph="..." />
-                <marker date="1490502567241" expanded="false" signature="23032:23050" ph="..." />
-                <marker date="1490502567241" expanded="false" signature="23123:23143" ph="..." />
-                <marker date="1490502567241" expanded="false" signature="23348:23427" ph="..." />
-                <marker date="1490502567241" expanded="false" signature="23577:23618" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="18410:18475" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="19345:19410" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="23125:23143" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="23216:23236" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="23441:23520" ph="..." />
+                <marker date="1490502727677" expanded="false" signature="23670:23711" ph="..." />
               </folding>
             </state>
           </provider>
@@ -155,9 +154,9 @@
       <find>userPageOngoingCampaigns</find>
       <find>dontio</find>
       <find>notific</find>
-      <find>timeline</find>
       <find>column</find>
       <find>projectPageAboutNGO</find>
+      <find>timeline</find>
     </findStrings>
     <replaceStrings>
       <replace>logo/logo-final.png</replace>
@@ -1078,17 +1077,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="482" column="17" lean-forward="true" selection-start-line="482" selection-start-column="17" selection-end-line="482" selection-end-column="17" />
+        <state relative-caret-position="319">
+          <caret line="295" column="56" lean-forward="false" selection-start-line="295" selection-start-column="56" selection-end-line="295" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ul#0;n#div#2;n#div#1;n#div#3;n#body#0;n#!!top" expanded="true" />
-            <marker date="1490502567241" expanded="false" signature="18317:18382" ph="..." />
-            <marker date="1490502567241" expanded="false" signature="19252:19317" ph="..." />
-            <marker date="1490502567241" expanded="false" signature="23032:23050" ph="..." />
-            <marker date="1490502567241" expanded="false" signature="23123:23143" ph="..." />
-            <marker date="1490502567241" expanded="false" signature="23348:23427" ph="..." />
-            <marker date="1490502567241" expanded="false" signature="23577:23618" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="18410:18475" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="19345:19410" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="23125:23143" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="23216:23236" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="23441:23520" ph="..." />
+            <marker date="1490502727677" expanded="false" signature="23670:23711" ph="..." />
           </folding>
         </state>
       </provider>
