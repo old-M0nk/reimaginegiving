@@ -27,7 +27,7 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 SECRET_KEY = "=$oz0fu4yop!az8%6*rxv457=a6e13p$0ph5c2jml7_mz%%f-3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
