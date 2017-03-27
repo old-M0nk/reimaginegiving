@@ -1,0 +1,27 @@
+.centerContainer h1, .centerContainer h2 {
+    font-family: SourceSansPro-Regular;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+.centerContainer {
+    padding: 5% 10%;
+    text-align: justify;
+    font-family: SourceSansPro-Light;
+    font-size: 15px;
+	letter-spacing: 0.2px;
+}
+.centerContainer span ,.underLine {
+    border-bottom: 1px solid;
+}
+.centerContainer h3 , .fontBold{
+	font-family: SourceSansPro-Regular;
+	border: none !important;
+}
+.centerContainer li {
+    margin-left: 5%;
+}
+.margin20left{
+	border: none !important;
+	margin-left: 20px;
+}
