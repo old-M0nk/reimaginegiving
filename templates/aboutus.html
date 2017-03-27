@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load tags %}
+
+<head>
+	<title>About Us</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signup.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "staticPages.css" %}"media="screen"/>
+
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+
+</head>
+
+<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<header>
+		<div class="row header">
+			<div class="col-3 mainNavBarButton" id="exploreDiv">
+				<div class="col-2">
+					 <a class="ninja-btn" id="ninja-btn" title="menu" onclick="openNav()"><span></span></a>
+				</div>
+				<div class="col-10 navBarExploreButton">
+					<p class="exploreButton" id="exploreButton"><span onclick="openNav()">Explore</span></p>
+				</div>
+			</div>
+			<div id="myNav" class="explore">
+				<div style="background-color:black;"class="translucentContainer"></div>
+				<div id="exploreContent" class="exploreContent">	
+					<form>
+						<div class="location">
+							<span  onclick="myfunction1()">
+								<div class="exploreHeading1 row">
+									<div class="col-9"><h2>Location</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<div class="inputField" id="locationInput">
+								<div class="row" id="wrap">
+									<form action="" autocomplete="on">
+										<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
+									</form>
+								</div>
+								<ul>
+									<li><a>Delhi</a></li>
+									<li><a>Varanasi</a></li>
+									<li><a>Jaipur</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="funding">
+							<span onclick="myfunction2()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Funding</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="fundingLevels" id="fundingInput">
+								<li><a>Nearly Funded</a></li>
+								<li><a>Just Started</a></li>
+								<li><a>Ongoing</a></li>
+							</ul>
+						</div>
+						
+						<div class="causes">
+							<span  onclick="myfunction3()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Causes</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="causeList" id="causeInput">
+								<li><a>Education</a></li>
+								<li><a>Health</a></li>
+								<li><a>Children</a></li>
+								<li><a>Women Empowerment</a></li>
+								<li><a>Food and Hunger</a></li>
+								<li><a>Sports</a></li>
+								<li><a>Animal Welfare</a></li>
+								<li><a>Environment</a></li>
+								<li><a>Others</a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="col-9 floatRight">
+				
+				<div class="col-8 logo">
+					<a href="{% url 'index' %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
+					</a>
+				</div>
+
+				<div class="col-4 mainNavBarButton">
+                    {% if user.is_authenticated %}
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="{% url 'logout' %}" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+                    {% else %}
+                    <div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
+					</div>
+					<div id="SignUp" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container">
+						  <div class="container">
+							<div class="info-container">
+							  <div class="info-item log-in">
+								<p>Have an account?</p>
+								<div class="btn1">Log In</div>
+							  </div>
+							  <div class="info-item sign-up">
+								<p>Don't have an account?</p>
+								<div class="btn1">Sign Up</div>
+							  </div>
+							</div>
+							<div class="form-container actived">
+								<img src="{% static "logo/logo-final.png" %}"/>
+								<div class="form-item">
+                                    <div class="form-log-in animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
+					</div>
+					<div id="LogIn" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container1">
+							<div class="container1">
+								<div class="info-container1">
+								  <div class="info-item1 log-in1">
+									<p>Have an account?</p>
+									<div class="btn2">Log In</div>
+								  </div>
+								  <div class="info-item1 sign-up1">
+									<p>Don't have an account?</p>
+									<div class="btn2">Sign Up</div>
+								  </div>
+								</div>
+								<div class="form-container1">
+									<img src="{% static "logo/logo-final.png" %}"/>
+									<div class="form-item1">
+                                    <div class="form-log-in1 animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up1 animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+						</div>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
+
+						<script src="{% static "SignUp.js" %}"></script>
+					</div>
+                        {% endif %}
+				</div>
+			</div>
+		</div>
+	</header>
+   	
+	<div class="centerContainer">
+		<h2>OUR STORY</h2>
+		<h3><span>How it all started?</span></h3><br/>
+		<p>This idea originatedduring a train journey discussionbetween two college mates, one a corporate finance guy and the other a temporary villager,both sharing a desire to make a difference in the society around them. The temporary villagerwas discussing about his experience working with NGOs and the difficulty of raising funds for his project. This set the finance gears rolling in his buddy’s mind and theydove into the details, pooling their respective expertise, to figure out the source of the difficulty affecting such projects and, in turn, their impact. After much brainstorming, they came up with an idea that could help make sure those who are really trying to make a difference in society don’t have to hold themselves back due to scarcity of funds…</p><br/><br/>
+		<h3><span>Vision</span></h3><br/>
+		<p>To help connect individuals and organizations looking to give in the social sector with grassroot level projects undertaken by individuals and/or non-profits doing meaningful high impact work on the groundand, thereby, help our country move towards a better tomorrow – one in which the society is inclusive, empathetic, and happy.</p><br/><br/>
+		<h3><span>The Idea</span></h3><br/>
+		<p>Reimagine Giving is a youth-run non-profit organisation that aims at bridging the gap between non-profit organisations or individuals doing impactful non-profit work andpeople like you who are looking to donate for meaningful causes.<br/><	br/>Rather than just giving money, we would love to see people connect with the underprivileged and society in general at a deeper level. We want  to see you actuallygetting involved in the projects you are donating to instead of donating and forgetting about it. By doing this, we believe that you will be able to derive a deeper level of satisfaction and joy that just doesn’t come with only giving money. After all, the use of money is not very old as compared to human connect, and it cannot give you the satisfaction that connecting at a deeper level can – Reimagine giving!<br/><br/>
+			By providing time-to-time reports to you the donor and giving youa voice in deciding how your money is spent and how much positive impact it has , we hope to encourage more and more people to donate. All in all we believe that working in this way on impactful social projects would take us towards a better tomorrow with an inclusive and happy society of a large number of positive and empathetic people deeply involved in a large amount of positive work. In order to work towards such a society, which would surely be safer and sustainable, we hope to bring back the culture of giving – a culture that was an integral part of ancient India across religions and communities. Join us in reimagining the current form of giving and creating a systemic ideological change to bring back the good old times!
+		</p><br/><br/>
+		<h3><span>Our Model (and how it is different):</span></h3><br/>
+		<p>Our task is to make sure that what you donate is used for the correct purposes and reachesorganizations which are truly making a meaningful impact in society.We do this through carefullyselecting partner organisations and individuals after performing due diligence and setting in place properreporting frameworks ensuring good reporting,accountability, and transparency. Next, we list the projects being undertaken by each organisation or individual toallow our donors to choose the ones they wish to partner with. We also provide you, our donor, with time to timeupdates on accountability and on the work being done on your chosen project so as to allow you a window into the impact that you are creating.<br/>
+		<br/>But you don’t just get a black and white boring document from us…<br/><br/>
+		What we aim to do differently is involve motivated and inspired young individuals from premierinstitutions and, through them, provide you with on-the- ground, multimedia reports about yourprojects. It’s a lot like being there yourself and we do it to ensure that you feel a sense ofownership in the project.
+		</p><br/><br/>
+	</div>
+
+    <footer>
+		<div class="row footer">
+			<div class="row footerOptions">
+				<div class="col-2 footerAboutUs">
+					<ul>
+						<li><h1>About Us</h1></li>
+						<li><h2><a>What is Reimagine?</a></h2></li>
+						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+						<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
+					</ul>
+				</div>
+				<div class="col-4 footerCauses" >
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Women and Girls</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
+				</div>
+{#				<div class="col-2 footerWorks">#}
+{#					<ul>#}
+{#						<li><h1>How it Works</h1>                      </li>#}
+{#						<li><h2><a>Stuff</a></h2>                      </li>#}
+{#						<li><h2><a>Stuff Stuff</a></h2>                </li>#}
+{#						<li><h2><a>We really need to think</a></h2>    </li>#}
+{#						<li><h2><a>about this</a></h2>                 </li>#}
+{#						<li><h2><a>well not anymore</a></h2>           </li>#}
+{#						<li><h2><a>VJ **</a></h2>                      </li>#}
+{#					</ul>#}
+{#				</div>#}
+				<div class="col-4 footerContactShare">
+					<ul>
+						<li><h1>Contact Us</h1></li>
+						<li><h2><span>Email: </span>contact@reimaginegiving.com</h2></li>
+						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+						<li>
+							<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
+								<i class="fa fa-linkedin" ></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row footerBottom">
+				<a href="index.html">
+					<img src="{% static 'logo/logo-final-web-white.png' %}"/>
+				</a>
+				<h2>cc 2017.</h2>
+			</div>
+		</div>
+	</footer>
+
+</body>

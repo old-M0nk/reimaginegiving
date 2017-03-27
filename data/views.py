@@ -127,3 +127,13 @@ def contactUsPage (request):
         context_dict = {'form': myform}
     return render(request, 'contactUsPage.html', context_dict)
 
+
+def aboutus (request):
+    return render(request, 'aboutus.html')
+def privacy (request):
+    return render(request, 'privacy.html')
+def terms (request):
+    return render(request, 'terms.html')
+def refund (request):
+    return render(request, 'refund.html')
+

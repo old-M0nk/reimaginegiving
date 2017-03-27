@@ -54,6 +54,11 @@ urlpatterns = [
         url(r'^admin/', include(admin.site.urls)),
         url(r'^comingsoon', include('users.urls')),
         url(r'^develop/$', NGOformPage, name='NGOform'),
+
+        url(r'^aboutus/', views.aboutus, name='aboutus'),
+        url(r'^terms/', views.terms, name='terms'),
+        url(r'^refund/', views.refund, name='refund'),
+        url(r'^privacy/', views.privacy, name='privacy'),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...

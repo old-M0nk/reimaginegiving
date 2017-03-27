@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load tags %}
+
+<head>
+	<title>Privacy Policy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signup.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "staticPages.css" %}"media="screen"/>
+
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+
+</head>
+
+<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<header>
+		<div class="row header">
+			<div class="col-3 mainNavBarButton" id="exploreDiv">
+				<div class="col-2">
+					 <a class="ninja-btn" id="ninja-btn" title="menu" onclick="openNav()"><span></span></a>
+				</div>
+				<div class="col-10 navBarExploreButton">
+					<p class="exploreButton" id="exploreButton"><span onclick="openNav()">Explore</span></p>
+				</div>
+			</div>
+			<div id="myNav" class="explore">
+				<div style="background-color:black;"class="translucentContainer"></div>
+				<div id="exploreContent" class="exploreContent">	
+					<form>
+						<div class="location">
+							<span  onclick="myfunction1()">
+								<div class="exploreHeading1 row">
+									<div class="col-9"><h2>Location</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<div class="inputField" id="locationInput">
+								<div class="row" id="wrap">
+									<form action="" autocomplete="on">
+										<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
+									</form>
+								</div>
+								<ul>
+									<li><a>Delhi</a></li>
+									<li><a>Varanasi</a></li>
+									<li><a>Jaipur</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="funding">
+							<span onclick="myfunction2()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Funding</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="fundingLevels" id="fundingInput">
+								<li><a>Nearly Funded</a></li>
+								<li><a>Just Started</a></li>
+								<li><a>Ongoing</a></li>
+							</ul>
+						</div>
+						
+						<div class="causes">
+							<span  onclick="myfunction3()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Causes</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="causeList" id="causeInput">
+								<li><a>Education</a></li>
+								<li><a>Health</a></li>
+								<li><a>Children</a></li>
+								<li><a>Women Empowerment</a></li>
+								<li><a>Food and Hunger</a></li>
+								<li><a>Sports</a></li>
+								<li><a>Animal Welfare</a></li>
+								<li><a>Environment</a></li>
+								<li><a>Others</a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="col-9 floatRight">
+				
+				<div class="col-8 logo">
+					<a href="{% url 'index' %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
+					</a>
+				</div>
+
+				<div class="col-4 mainNavBarButton">
+                    {% if user.is_authenticated %}
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="{% url 'logout' %}" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+                    {% else %}
+                    <div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
+					</div>
+					<div id="SignUp" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container">
+						  <div class="container">
+							<div class="info-container">
+							  <div class="info-item log-in">
+								<p>Have an account?</p>
+								<div class="btn1">Log In</div>
+							  </div>
+							  <div class="info-item sign-up">
+								<p>Don't have an account?</p>
+								<div class="btn1">Sign Up</div>
+							  </div>
+							</div>
+							<div class="form-container actived">
+								<img src="{% static "logo/logo-final.png" %}"/>
+								<div class="form-item">
+                                    <div class="form-log-in animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
+					</div>
+					<div id="LogIn" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container1">
+							<div class="container1">
+								<div class="info-container1">
+								  <div class="info-item1 log-in1">
+									<p>Have an account?</p>
+									<div class="btn2">Log In</div>
+								  </div>
+								  <div class="info-item1 sign-up1">
+									<p>Don't have an account?</p>
+									<div class="btn2">Sign Up</div>
+								  </div>
+								</div>
+								<div class="form-container1">
+									<img src="{% static "logo/logo-final.png" %}"/>
+									<div class="form-item1">
+                                    <div class="form-log-in1 animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up1 animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+						</div>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
+
+						<script src="{% static "SignUp.js" %}"></script>
+					</div>
+                        {% endif %}
+				</div>
+			</div>
+		</div>
+	</header> 
+   	
+	<div class="centerContainer">
+		<h1>PRIVACY STATEMENT</h1>
+
+		<h3>SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION?</h3><br/>
+		<p>
+		Access to personal information: Reimagine Giving will, at the request of an individual, provide the individual with access to all personal information which Reimagine Giving holds, and Reimagine Giving will, at the request of the individual to whom the information relates, make appropriate corrections, deletions or additions to ensure that the information is accurate, relevant, up-to-date, and complete. At the request of the individual, Reimagine Giving will delete all information related to that person
+		<br/><br/>
+		Any personal information that you provide to us will be used only for the following purposes:
+		<br/>- To provide information or services to you as requested by you.
+		<br/>- To let you know about information and services from Reimagine Giving in which you may be interested.
+		<br/>- For internal review.
+		<br/>- To improve the content of the website.
+		<br/>- To customize the content and /or layout of the website for each individual user.
+		<br/><br/></p><br/>
+
+
+		<h3>SECTION 2 - CONSENT</h3><br/>
+		<p>
+		How do you get my consent?
+		When you provide us with personal information to complete a transaction, verify your credit card, make adonation, we imply that you consent to our collecting it and using it for that specific reason only. <br/><br/>
+
+		If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent, or provide you with an opportunity to say no.
+		<br/><br/>
+
+
+		How do I withdraw my consent? 
+
+		If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at contact@reimaginegiving.orgor mailing us at: B-70, Sector C, Mahanagar, Lucknow, UP - 226006<br/><br/></p><br/>
+
+
+		<h3>SECTION 3 - DISCLOSURE</h3><br/>
+
+		<p>
+
+		We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.
+		</p><br/><br/><br/>
+
+
+
+		<h3>SECTION 4 - PAYMENT</h3><br/>
+		<p>
+
+		We use Razorpay for processing payments. We/Razorpay do not store your card data on their servers. The data is encrypted through the Payment Card Industry Data Security Standard (PCI-DSS) when processing payment. Your purchase transaction data is only used as long as is necessary to complete your purchase transaction. After that is complete, your purchase transaction information is not saved.
+		<br/><br/>
+		Our payment gateway adheres to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, MasterCard, American Express and Discover.
+		<br/><br/>
+		PCI-DSS requirements help ensure the secure handling of credit card information by our store and its service providers.
+		<br/><br/>
+		For more insight, you may also want to read terms and conditions of Razorpay on https://razorpay.com
+
+		</p><br/><br/><br/>
+
+
+		<h3>SECTION 5 - THIRD-PARTY SERVICES</h3><br/>
+
+
+		<p>
+
+		In general, the third-party providers used by us will only collect, use and disclose your information to the extent necessary to allow them to perform the services they provide to us.
+
+		<br/><br/>However, certain third-party service providers, such as payment gateways and other payment transaction processors, have their own privacy policies in respect to the information we are required to provide to them for your purchase-related transactions.
+
+		<br/><br/>For these providers, we recommend that you read their privacy policies so you can understand the manner in which your personal information will be handled by these providers.
+
+		<br/><br/>In particular, remember that certain providers may be located in or have facilities that are located a different jurisdiction than either you or us. So if you elect to proceed with a transaction that involves the services of a third-party service provider, then your information may become subject to the laws of the jurisdiction(s) in which that service provider or its facilities are located.
+
+		<br/><br/>Once you leave our company’s website or are redirected to a third-party website or application, you are no longer governed by this Privacy Policy or our website’s Terms of Service. 
+
+		<br/><br/><span>Links</span>
+
+		<br/><br/>When you click on links on our website, they may direct you away from our site. We are not responsible for the privacy practices of other sites and encourage you to read their privacy statements.
+		</p><br/><br/><br/>
+
+		<h3>SECTION 6 - SECURITY</h3><br/>
+
+
+		<p>
+
+		To protect your personal information, we take reasonable precautions and follow industry best practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed.
+		</p><br/><br/><br/>
+
+
+		<h3>SECTION 7 - COOKIES</h3><br/>
+		<p>
+
+		We use cookies to maintain session of your user. It is not used to personally identify you on other websites.
+
+		</p><br/><br/><br/>
+
+
+		<h3>SECTION 8 - AGE OF CONSENT</h3><br/>
+
+
+		<p>
+
+		 By using this site, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
+		</p><br/><br/><br/>
+
+
+
+		<h3>SECTION 9 - CHANGES TO THIS PRIVACY POLICY</h3><br/>
+
+		<p>
+
+
+		We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.
+		<br/><br/>
+		If our companyis acquired or merged with another company, your information may be transferred to the new owners so that we may continue our association with you.
+
+		</p><br/><br/><br/>
+
+
+		<h3>QUESTIONS AND CONTACT INFORMATION</h3><br/>
+
+
+		</p>
+
+		If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at contact@reimaginegiving.orgor by mail at B-70, Sector C, Mahanagar, Lucknow, UP - 226006</p>
+
+
+
+
+	</div>
+	
+	<footer>
+		<div class="row footer">
+			<div class="row footerOptions">
+				<div class="col-2 footerAboutUs">
+					<ul>
+						<li><h1>About Us</h1></li>
+						<li><h2><a>What is Reimagine?</a></h2></li>
+						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+						<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
+					</ul>
+				</div>
+				<div class="col-4 footerCauses" >
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Women and Girls</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
+				</div>
+{#				<div class="col-2 footerWorks">#}
+{#					<ul>#}
+{#						<li><h1>How it Works</h1>                      </li>#}
+{#						<li><h2><a>Stuff</a></h2>                      </li>#}
+{#						<li><h2><a>Stuff Stuff</a></h2>                </li>#}
+{#						<li><h2><a>We really need to think</a></h2>    </li>#}
+{#						<li><h2><a>about this</a></h2>                 </li>#}
+{#						<li><h2><a>well not anymore</a></h2>           </li>#}
+{#						<li><h2><a>VJ **</a></h2>                      </li>#}
+{#					</ul>#}
+{#				</div>#}
+				<div class="col-4 footerContactShare">
+					<ul>
+						<li><h1>Contact Us</h1></li>
+						<li><h2><span>Email: </span>contact@reimaginegiving.com</h2></li>
+						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+						<li>
+							<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
+								<i class="fa fa-linkedin" ></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row footerBottom">
+				<a href="index.html">
+					<img src="{% static 'logo/logo-final-web-white.png' %}"/>
+				</a>
+				<h2>cc 2017.</h2>
+			</div>
+		</div>
+	</footer>
+</body>

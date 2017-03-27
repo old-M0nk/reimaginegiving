@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load tags %}
+
+<head>
+	<title>Terms and Conditions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <link rel="stylesheet" type="text/css" href="{% static "common.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "header.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "explore.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "signup.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "footer.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "exploreButton.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "fontAwesomeMin.css" %}" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="{% static "staticPages.css" %}"media="screen"/>
+
+	<script src="{% static "cloudflare.js" %}"></script>
+	<script src="{% static "cloudflare1.js" %}"></script>
+	<script src="{% static "googleapi.js" %}"></script>
+	<script src="{% static "explore.js" %}"></script>
+
+</head>
+
+<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<header>
+		<div class="row header">
+			<div class="col-3 mainNavBarButton" id="exploreDiv">
+				<div class="col-2">
+					 <a class="ninja-btn" id="ninja-btn" title="menu" onclick="openNav()"><span></span></a>
+				</div>
+				<div class="col-10 navBarExploreButton">
+					<p class="exploreButton" id="exploreButton"><span onclick="openNav()">Explore</span></p>
+				</div>
+			</div>
+			<div id="myNav" class="explore">
+				<div style="background-color:black;"class="translucentContainer"></div>
+				<div id="exploreContent" class="exploreContent">	
+					<form>
+						<div class="location">
+							<span  onclick="myfunction1()">
+								<div class="exploreHeading1 row">
+									<div class="col-9"><h2>Location</h2></div>
+									<div class="col-3"><h2 id="downArrow1" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow1" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<div class="inputField" id="locationInput">
+								<div class="row" id="wrap">
+									<form action="" autocomplete="on">
+										<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
+									</form>
+								</div>
+								<ul>
+									<li><a>Delhi</a></li>
+									<li><a>Varanasi</a></li>
+									<li><a>Jaipur</a></li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="funding">
+							<span onclick="myfunction2()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Funding</h2></div>
+									<div class="col-3"><h2 id="downArrow2" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow2" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="fundingLevels" id="fundingInput">
+								<li><a>Nearly Funded</a></li>
+								<li><a>Just Started</a></li>
+								<li><a>Ongoing</a></li>
+							</ul>
+						</div>
+						
+						<div class="causes">
+							<span  onclick="myfunction3()">
+								<div class="exploreHeading row">
+									<div class="col-9"><h2>Causes</h2></div>
+									<div class="col-3"><h2 id="downArrow3" class="downArrow downArrowClose">&#9660;</h2></div>
+									<div class="col-3"><h2 id="topArrow3" class="topArrow">&#9650;</h2></div>
+								</div>
+							</span>
+							<ul class="causeList" id="causeInput">
+								<li><a>Education</a></li>
+								<li><a>Health</a></li>
+								<li><a>Children</a></li>
+								<li><a>Women Empowerment</a></li>
+								<li><a>Food and Hunger</a></li>
+								<li><a>Sports</a></li>
+								<li><a>Animal Welfare</a></li>
+								<li><a>Environment</a></li>
+								<li><a>Others</a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="col-9 floatRight">
+				
+				<div class="col-8 logo">
+					<a href="{% url 'index' %}">
+						<img src="{% static "logo/logo-final.png" %}"></img>
+					</a>
+				</div>
+
+				<div class="col-4 mainNavBarButton">
+                    {% if user.is_authenticated %}
+					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
+						<h2 id="navBarProfile"><span class="profileSpan">{{ user.first_name }} {{ user.last_name }}</span></h2>
+						<div class="navBarProfileOptions">
+							 <a href="{% url 'userPage' %}"><h2>Profile</h2></a>
+							 <a href="#"><h2>My Donations</h2></a>
+							 <a href="{% url 'logout' %}" onclick="logout()" style="border:none;"><h2>LogOut</h2></a>
+						</div>
+					</div>
+                    {% else %}
+                    <div class="col-9 navBarSignUpButton" id="navBarSignUpButton">
+						<p id="registration"><span class="SignUpSpan" onclick="openSignUpOverlay()">Sign Up</span></p>
+					</div>
+					<div id="SignUp" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container">
+						  <div class="container">
+							<div class="info-container">
+							  <div class="info-item log-in">
+								<p>Have an account?</p>
+								<div class="btn1">Log In</div>
+							  </div>
+							  <div class="info-item sign-up">
+								<p>Don't have an account?</p>
+								<div class="btn1">Sign Up</div>
+							  </div>
+							</div>
+							<div class="form-container actived">
+								<img src="{% static "logo/logo-final.png" %}"/>
+								<div class="form-item">
+                                    <div class="form-log-in animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
+					</div>
+					<div id="LogIn" class="overlay">
+						<div class="translucentContainer"></div>
+							<!-- overlay content -->
+						<div class="outer-container1">
+							<div class="container1">
+								<div class="info-container1">
+								  <div class="info-item1 log-in1">
+									<p>Have an account?</p>
+									<div class="btn2">Log In</div>
+								  </div>
+								  <div class="info-item1 sign-up1">
+									<p>Don't have an account?</p>
+									<div class="btn2">Sign Up</div>
+								  </div>
+								</div>
+								<div class="form-container1">
+									<img src="{% static "logo/logo-final.png" %}"/>
+									<div class="form-item1">
+                                    <div class="form-log-in1 animated">
+									{% include "registration/login.html" %}
+                                    </div>
+                                    <div class="form-sign-up1 animated">
+									{% include "registration/register.html" %}
+                                    </div>
+								</div>
+							</div>
+						</div>
+						<script src='{% static "cloudflare.js" %}'></script>
+						<script src='{% static "cloudflare1.js" %}'></script>
+
+						<script src="{% static "SignUp.js" %}"></script>
+					</div>
+                        {% endif %}
+				</div>
+			</div>
+		</div>
+	</header> 
+   	<div class="centerContainer">
+	<h1>Reimagine Giving Terms and Conditions</h1>
+<h3>1. INTRODUCTION</h3><br/>
+<p>
+1.1 This document is an electronic record in terms of Information Technology Act, 2000 and rules thereunder as applicable and the amended provisions pertaining to electronic records in various statutes as amended by the Information Technology Act, 2000. This electronic record is generated by a computer system and does not require any physical or digital signatures.
+<br/><br/>
+
+1.2 This document is published in accordance with the provisions of Rule 3(1) of the Information Technology(Intermediaries guidelines) Rules, 2011 that require publishing the Privacy Policy and Terms of Use for access or usage of the website, www.reimaginegiving.org
+<br/><br/>
+
+1.3 Reimagine Giving Foundation is <span class="fontBold">registered as a not-for-profit company u/s 25 of the Companies Act, 1956.(dated. February 7, 2017),</span> with the RoC, Uttar Pradesh.(“Reimagine”, and together with Reimagine Giving,“RG” or“us” or“we”). Reimagine operates an online donation service website(“Website”) providing various services(“Services”), including the collection and processing of donations received(the“Donations”) from individual donors(the“Donors”),  transferring Donations to different non-profit organisations or individual project organisers and creating reports on the project. Reimagine also administers grant programs independently from the Website. 
+<br/><br/>
+
+1.4 These legal terms and conditions, in addition to any other terms and conditions applicable govern the use of the Services(“Terms of Service”) by the non-profit organisations(together referred to as the“Nonprofits” and each individually as a“Nonprofit”) and individuals(together referred to as“Individuals” and each individually as an“Individual”) together referred to as“Organisers” and each individually as an“Organiser” that are registered as Registered Users with Reimagine(as defined in clause 2.2 below). By registering and continuing to use or access the Website, you are agreeing as an Organiser to be bound by these Terms of Service with immediate effect. References in these Terms of Service to the“Organiser” or“you”(and similar) are references to you as a organiser or to any other eligible organisation that has applied on your behalf to Reimagine and/or has been registered by Reimagine as a Registered User(as defined in clause 2.2).
+</p><br/><br/><br/>
+
+<h3>2. REGISTRATION</h3><br>
+<p>
+
+
+
+2.1 Organisers are eligible to register as a Registered User and benefit from the Services provided by Reimagine either via its Website or other programs administered offline. 
+<br/><br/>
+
+2.2 Once you have successfully completed the registration process(including but not limited to completion of the Due Diligence Process set out in clause 2.5), you will be deemed a“Registered User”, and your registration shall continue for an indefinite period, subject to the satisfaction of any subsequent due diligence in accordance with clause 9, termination rights in accordance with clause 15 and Reimagines suspension and withdrawal rights in accordance with clause 16. For the avoidance of doubt, once the registration process is complete, the Registered User will be deemed as authorised by the Organiser unless there is evidence indicating fraud, as determined by Reimagine. 
+<br/><br/>
+
+2.3 Reimagine receives Donations made through the Website and offline. Donations are made to Reimagine in their entirety and not to Organiser. Reimagine’s trustee’s retain sole discretion regarding the onward distribution of Donations, to Organisers(so as to ensure appropriate handling and compliance). 
+
+<br/><br/>
+2.4 By completing the registration process, you agree and acknowledge that: <br/>
+ (a) Reimagine retains full control over the Donations and the Donations will be allocated to Reimagine’s general fund if(without limitation): <br/>
+   <span class="margin20left">(i) a project is retired or fully funded; </span><br/>
+   <span class="margin20left">(ii) Reimagine receives a Donation without reference to a specific project or campaign; </span><br/>
+   <span class="margin20left">(iii) a Organiser does not have an active account due to not having completed the renewal Due Diligence Process required pursuant to clause 2.5 of these Terms of Service; </span><br/>
+   <span class="margin20left">(iv) a Organiser does not provide correct disbursement information within a reasonable timeframe after at least two reminder emails having been sent to the Organiser to update or provide such disbursement information; </span><br/>
+   <span class="margin20left">(v) a Organiser, through the Website, raises less than INR 10,000 net of any fees payable by the Organiser to Reimagine pursuant to clause 3 of these Terms of Service; or </span><br/>
+   <span class="margin20left">(vi) Reimagine conducts an investigation of the Organiser and on the basis of the results of such investigation, decides to remove the Organiser from the Website. </span><br/>
+ (b) Reimagine reserves the right to refuse to accept any Donation; <br/>
+ (c) Reimagine initiates fundraising activities and appeals itself and may choose to make grants to a Organiser with funds it has itself raised. In this case, a Organiser may be invited by Reimagine to submit project details to indicate such Reimagine’s proposed use of such funds, but such projects might not be individually listed on the Website; <br/>
+ (d) the Organiser and/or its projects may be included on Reimagine’s associated websites including any partner or client websites; <br/>
+ (e) some Donors may use filter options on the Website(e.g. by a specific theme, region, size of projects, etc) which may result in some of a Organiser’s projects not being seen on the Website by such Donors; <br/>
+ (f) Reimagine cannot ensure receipt of any minimum amounts of Donations and some or all of a Organiser’s projects may not receive any Donations; and <br/>
+ (g) nothing in these Terms of Service shall constitute or be deemed to constitute a joint venture, partnership or agency relationship between Reimagine and the Organiser and the Organiser is not authorised to enter into any commitments for or on behalf of Reimagine. 
+<br/><br/>
+
+2.5 Reimagine reserves the right to decline any registration, terminate any grant, and refuse or suspend Organiser or individual projects from being listed on the Website for any reason without further explanation. At the time of registration and at a minimum every two years thereafter, Reimagine will undertake such checks as are necessary to verify or re-verify the identity and objectives of the Organiser(the“Due Diligence Process”). 
+
+<br/><br/>
+2.6 Notwithstanding anything to the contrary in these Terms of Service, Reimagine reserves the right to introduce new services and update or withdraw any of the Services, in its sole discretion, and will not be liable to the Nonprofit for exercising this discretion. 
+<br/><br/>
+
+2.7 If Reimagine decides to transfer Donations made by Donors, to the Organiser, you acknowledge that Reimagine will not be able to process such transfers until: <br/>
+ (a) you have completed the registration process, have been accepted by Reimagine as a Registered User, have an account accessible via the Website<span class="fontBold">(“ReimagineOnline Account”)</span> and if required by Reimagine, have a publicly visible account<span class="fontBold">(“Project Page”)</span>; and <br/>
+ (b) Reimagine’s systems have been updated to show that the Organiser is a Registered User and the Website has been set up to process payment transactions for the Organiser as a Registered User. 
+
+</p><br/><br/><br/>
+<h3>3. FEES </h3><br>
+<p>
+
+
+
+3.1 Reimagine may, at its sole discretion, retain a fee of up to 9% from each Donation made to Reimagine covering the Services provided by Reimagine(the<span class="fontBold">“Donation Fee”</span>). 
+
+<br/><br/>
+3.2 Reimagine reserves the right to change the Donation Fee, as well as to introduce new fees and charges from time to time and will use commercially reasonable efforts to notify you, of any changes to the Donation Fee or the introduction of new fees, by email. 
+</p><br/><br/><br/>
+
+<h3>4. REIMAGINE GIVING OBLIGATIONS</h3><br>
+
+
+<p>
+
+4.1 Reimagine will operate the Website and provide the Services so that Donors can make online Donations on the Website. 
+
+<br/><br/>
+4.2 Where Reimagine has received Donations and Reimagine has resolved to distribute such Donations to a Organiser at its discretion(as set out in clause 2.4), it will hold the funds on the Organiser’s behalf until they are paid out in accordance with these Terms of Service. You will not earn or be paid interest on the sums that Reimagine holds and/or processes for you. 
+
+<br/><br/>
+4.3 Reimagine will use commercially reasonable efforts to collect, protect and secure the personal details of Donors in accordance with applicable data protection laws. 
+
+<br/><br/>
+4.4 Reimagine works to ensure the privacy of its Donors. For this reason, the physical addresses of donors are not available. Reimagine will, however, display the names and email addresses of Donors that have not elected to remain anonymous. Reimagine will not provide the names and email addresses of Donors that have opted for anonymity during the check-out process. 
+
+</p><br/><br/><br/>
+<h3>5. ORGANISER’S OBLIGATIONS </h3><br>
+<p>
+
+
+
+5.1 The ORGANISER shall ensure that: <br/>
+ (a) all Donations received will be used only for the project specified and in accordance with the project description posted by the Organiser on the Website or as set out in the written proposal submitted to Reimagine, and not for any other purpose. Reimagine may also at its sole discretion and from time to time, provide the Organiser with funds for general use, with such funding being clearly indicated in the disbursement report issued by Reimagine; <br/>
+ (b) all Donations received must be used within two years from the date of receipt of such Donations; <br/>
+ (c) That is does not take offline donations related to any project on the website. If the Organiser receives any online donation related to the project, it must disclose the same and ensure that the donation reflects on the Reimagine Website. Non disclosure of offline donations will be treated as fraud and strict legal action will be taken against the same. <br/>
+ (d) it informs Reimagine if it receives Donations that it should reasonably know it is not entitled to receive; <br/>
+ (e) any Donations paid to it through the Website or offline are used by the Organiser in accordance with any stated purpose or specific fundraising appeal and it shall be the sole responsibility of the Organiser to ensure that Donations received by it are used for the stated purpose or appeal and Reimagine will not be responsible for the use or non-use of any such Donations;  <br/>
+ (f) the content it posts for display within the Website, including any links to other websites and the content of linked websites, will not be false, misleading, inaccurate or deceptive or violate any law or regulation or be defamatory, obscene or breach any intellectual property rights of a third party or breach any right of, or duty owed to, a third party; <br/>
+ (g) all of the details provided in connection with its Reimagine Online Account and all of the content generated on the Website by or on behalf of the Organiser is kept accurate and up-to-date; 
+ (h) it notifies Reimagine if a project receives its total budget, including Donations received from Reimagine and any other sources unrelated to Reimagine; <br/>
+ (i) it complies with all relevant data protection legislation and guidelines; and <br/>
+ (j) it maintains the confidentiality of the Registered User’s Website login and password. 
+
+<br/><br/>
+5.2 The Organiser will be responsible for full use of the Website under its Registered User’s login and password whether or not such use is authorised by the Organiser. Each Registered User must notify Reimagine immediately of any unauthorised use of such Registered User’s login or password. 
+
+<br/><br/>
+5.3  The Organiser further agrees that by listing their campaign on the Website, they shall at all times abide by various laws applicable to them including but not limited to the Income Tax Act, 1961, the Foreign Contributions Regulation Act, 2010, the Information Technology Act, 2000 as well as all rules and regulations made under the respective laws and as amended from time to time.
+<br/><br/>
+
+5.4 Any actual or attempted use of the Website by you in violation of this Agreement may result in strict legal action. 
+
+<br/><br/>
+5.5 If any funds are not used toward the completion of the objective of the project, this will result in strict legal action being taken against the Organiser to the fullest extent of law.
+
+<br/><br/>
+5.6 Any fraud in the project determined at any time in the duration of the project or after its conclusion will result in the Organiser forfeiting all funds raised for that project to Reimagine and may also result in strict legal action being taken against the Organiser to the fullest extent of law. Reimagine will the attempt to return these funds to the Donors of that project as well as issue a full report of the fraud.
+
+</p><br/><br/><br/>
+<h3>6. ADDITIONAL OBLIGATIONS ON NONPROFITS RECEIVING FUNDING FROM REIMAGINE </h3><br>
+
+<p>
+
+
+6.1 A Nonprofit receiving Donations from Reimagine warrants, undertakes and agrees that: 
+ (a) it will notify Reimagine immediately of any change in: </span><br/>
+   <span class="margin20left">(i) its tax-exempt or public charity status, if applicable; </span><br/>
+   <span class="margin20left">(ii) its executive staff or key staff responsible for achieving the projects specified; or 
+   <span class="margin20left">(iii) its governing body; </span><br/>
+   </p><br/><br/><br/>
+<h3>7. DUE DILIGENCE AND REPORTING REQUIREMENTS </h3><br>
+
+
+<p>
+
+7.1 To remain active on the Website and continue to receive Donations paid to it through the Website from Reimagine, Organisers must comply with the following requirements: <br/>
+(a) <span class="fontBold">Reporting Requirements:</span> <br/>
+ <span class="margin20left">(i) The Organiser must submit quarterly project reports to Reimagine which provide an update to both the Organiser’s supporters and Reimagine’s staff on the project’s progress(<span class="fontBold">“Quarterly Project Reports”</span>). The first Quarterly Project Report should be provided within 90 days of the Organiser posting a project on the Website, regardless of whether it has received any funding. The Quarterly Project Reports will be made visible on the Website and sent to relevant Donors and email subscribers. The Organiser must also provide a final written report to Reimagine upon its project being marked as‘fully funded’ on the Website. </span><br/>
+ <span class="margin20left">(ii) The Organiser agrees to let Reimagine create reports(“Reimagine Reports”) on the project and audit the accounts of the project. Reimagine Reports are a compulsion for all organisers and projects. The Organiser agrees to assist Reimagine as necessary for the creation of the reports including but not limited to accommodation for staff and access to project information, accounts, locations. </span><br/>
+  
+ (b) <span class="fontBold">Due Diligence Requirements:</span> The Due Diligence Process conducted by Reimagine at the time of an Organiser’s registration shall, unless otherwise specified by Reimagine, expire two years after the completion of such due diligence. Upon such expiry and at a minimum every two years thereafter, Reimagine will undertake any further checks it deems necessary to re-verify the identity and objectives of such Organiser. If a Organiser fails to provide Reimagine with the additional documentation required for Reimagine to complete such follow-up due diligence, Reimagine will deactivate all projects relating to the Organiser that are listed on the Website and the Organiser will not be allowed to participate in any Reimagine affiliate programs. Reimagine reserves the right to require any organisation to submit documentation to Reimagine at any time to verify use of funds, confirm programmatic activity, or for other Due Diligence purposes. If the Organiser has pending Donations which need to be disbursed, Reimagine will within 30 days of the expiration of the previous due diligence, make its final payment to such Organise. <br/>
+ (c) <span class="fontBold">Miscellaneous Requests:</span> The Organiser must comply with any document requests made by Reimagine at any time to verify use of funds, confirm programmatic activity or for other due diligence purposes; and <br/>
+ (d) <span class="fontBold">Records Retention:</span> The Nonprofit must maintain records of all receipts and expenditures of received grants and donations for a period of at least seven years after such grants and donations have been expended. 
+  <br/><br/>
+7.2 Reimagine may share or publish any reports and supporting documentation received by the Nonprofit in accordance with these Terms of Service in any manner that it deems fit. 
+
+</p><br/><br/><br/>
+<h3>8. OWNERSHIP AND LICENSING OF INTELLECTUAL PROPERTY RIGHTS </h3><br>
+
+<p>
+
+
+8.1 Except for the rights expressly granted under these Terms of Service: <br/>
+ (a) Reimagine retains all right, title and interest in and to the Website and the Services, including, without limitation, all intellectual property rights therein; and <br/>
+ (b) subject to clause 8.2, Reimagine retains all rights, title and interest in and to any information, materials or other content that the Organiser provides in connection with its registration and these Terms of Service, including all intellectual property rights therein. 
+<br/><br/>
+
+8.2 The Organiser hereby grants to Reimagine(and its sublicensees) a non-exclusive, royalty-free, worldwide, perpetual, irrevocable, non-exclusive right and license to use, reproduce, modify, publish, translate, create derivative works of, distribute, transmit, and display its trademarks and graphic media in connection with the Services and Reimagine’s operations and other connected commercial or charitable activities. 
+
+<br/><br/>
+8.3 The Organiser shall indemnify Reimagine in respect of all losses, damages and expenses(including reasonable legal fees) suffered by Reimagine as a result of its use or possession of the Organiser’s trademarks or any other information, materials or content submitted to it by the Nonprofit. 
+
+</p><br/><br/><br/>
+<h3>9. PAYMENTS TO THE ORGANISER</h3><br>
+
+<p>
+
+
+9.1 <span class="fontBold">Receipt of Donations:</span> As set out in clauses 2.3 and 2.4 above, Donations made to projects on the Website are made to Reimagine and re-granted at Reimagine’s absolute discretion to Organisers. 
+<br/><br/>
+
+9.2 <span class="fontBold">Processing of Donations:</span> Donations that Reimagine decide to grant to a Nonprofit will be processed and held by Reimagine on the Nonprofit’s behalf and Reimagine may refuse to process and hold Donations if it is not reasonably satisfied that: <br/>
+ (a) the transaction is legal and not related to fraudulent activities of any kind; <br/>
+ (b) the Donations have been properly authorised; or <br/>
+ (c) the information on which Reimagine(as applicable) is basing the transfer is correct. 
+<br/><br/>
+
+9.3 <span class="fontBold">Payment Schedule for Donations paid through the Website:</span> Reimagine will transfer cleared Donations that it has received and resolved to pay to a Organiser, which were made during the previous month(the“Funds”), to the Organiser on or around the 25th of the month. By way of example, Funds raised in January will be sent to an organisation on or near the 25th of January.
+
+<br/><br/>
+9.4 <span class="fontBold">Bank Details:</span> The bank account information you provide Reimagine as part of the registration process will be used for executing all future transfers that Reimagine makes to you, unless you inform Reimagine otherwise or a transfer is rejected by the recipient bank. You are responsible for ensuring that Reimagine is kept informed of the correct and up-to-date details. Any changes to the details must be submitted through the Registered User’s online Reimagine Online Account by an authorised representative of the Organiser and within a sufficient period of time before a transfer is due to be made. If you provide us with(or let us continue to use) incorrect or out-of-date information, we will not be responsible if the payment is not made, it is delayed or it is made incorrectly. 
+<br/><br/>
+
+9.5 <span class="fontBold">Refunds:</span> If after a Donation has been transferred by Reimagine to your account, such Donation is thereafter rejected or reversed for any or no reason, including payments made in error, credit card chargebacks, refund requests, suspected or actual fraud, in whole or in part, you will be liable to refund such rejected Donation amount in full to Reimagine. You hereby authorise Reimagine to deduct any such amount and any directly related out-of-pocket expenses and reasonable administrative costs incurred by it in this context from your Reimagine Online Account. If this is not possible, you are liable for reimbursing Reimagine(as applicable), and such amount shall be treated as a debt. 
+
+</p><br/><br/><br/>
+<h3>10. ORGANISER WARRANTIES </h3><br>
+<p>
+
+
+
+10.1 The Organiser represents, warrants and covenants that: <br/>
+ (a) it shall fully comply and will at all times continue to fully comply with all applicable laws, statutes and regulations, including, without limitation, all privacy laws and anti-spam legislation; <br/>
+ (b) it has full power and authority to enter into these Terms of Service and the execution and performance of its obligations under these Terms of Service does not conflict with: <br/>
+   <span class="margin20left">(i) any laws, rules, regulations or governmental guidelines to which the Organiser is subject; or <br/></span>
+   <span class="margin20left">(ii) any other agreements to which the Organiser is a party or to which the Organiser is otherwise bound; <br/></span>
+ (c) the Organiser owns or has the authority to grant the rights and licences granted to Reimagine by the Organiser under these Terms of Service; <br/>
+ (d) any content contained in the Project Page does not violate the rights of any third party including, without limitation, any patents, trademarks, copyrights, trade secrets, trade names and other intellectual property rights whether registered or not; <br/>
+ (e) any content contained in the Project Page complies with all applicable laws, statutes and regulations including, without limitation, all slander, defamation, libel, obscenity and privacy laws; <br/>
+ (f) it is not prohibited by any applicable local laws or regulations from receiving Donations from Reimagine for the project listed on the Website; <br/>
+ (g) it has obtained all necessary registrations, consents, licences or similar regulatory permissions to receive the Donations; <br/>
+ (h) it has and shall keep in place adequate procedures for dealing with any conflicts of interest; <br/>
+ (i) it has and shall keep in place systems to deal with the prevention of fraud, bribery and/or administrative malfunction; and <br/>
+ (j) all financial and other information concerning the Organiser which has been disclosed to Reimagine is to the best of its knowledge and belief, true and accurate. 
+</p><br/><br/><br/>
+
+<h3>11. WARRANTY DISCLAIMER, INDEMNITY AND LIMITATION OF LIABILITY </h3><br>
+<p>
+
+
+
+11.1 Reimagine, as operator of the Services and Website, acts as an intermediary between the Organiser and the Donors. Reimagine does not take responsibility for any Donor generated content or information displayed on the Website. Except for as set out in these Terms of Service, Reimagine shall not be liable to the Organisers as a result of its role as the operator of the Website or as an intermediary between the Organisers and Donors. 
+
+<br/><br/>
+11.2 Nothing in these Terms of Service shall limit or exclude a party’s liability: <br/>
+ (a) for fraud, including fraudulent misrepresentation, perpetrated by that party; <br/>
+ (b) for death or personal injury caused by the negligence of that party; or <br/>
+ (c) for any other liability that cannot be limited or excluded under applicable law. <br/>
+
+<br/><br/>11.3 Subject to clause 11.1, the Organisers shall be fully liable(and Reimagine, their affiliates, directors, officers, agents, employees, suppliers, subcontractors or licensors shall to no extent be responsible or liable), financially and otherwise, for all liabilities, expenditure, claims, demands, actions, costs, expenses, losses and damages arising out of or in relation to the use of any Funds. 
+
+<br/><br/>
+11.4 Subject to clause 11.2, the Organiser acknowledges and agrees that in no event will Reimagine, their affiliates, directors, officers, agents, employees, suppliers, subcontractors or licensors be liable, whether based on an action or claim in contract, tort, negligence, breach of statutory duty or otherwise arising out of or in relation to these Terms of Service for loss of profits, non-payment of Funds, loss of data or information, business interruption or other pecuniary loss or for any special, indirect, incidental, or consequential damages, even if Reimagine, their affiliates, directors, officers, agents, employees, licensors, subcontractors or suppliers have been advised of the possibility of such damages. 
+
+<br/><br/>
+11.5 Subject to clause 11.1, if clause 11.3 or clause 11.4 are held to be unenforceable or inapplicable for any reason by a court of law, then the total liability of Reimagine, their affiliates, directors, officers, agents, employees, suppliers, subcontractors or licensors to the Organisers, whether based on an action or claim in contract, negligence or breach of statutory duty or otherwise, arising out of or in relation to these Terms of Service shall be limited to the lower of the Donation Fee paid by the Organisers in the twelve(12) months prior to the event giving rise to the claim or INR 1000. 
+<br/><br/>
+
+11.6 Subject to clause 11.1, the Services and the Website are provided to the Organiser on an“as is” basis without representations, warranties or conditions of any kind. As between the parties, the Organiser assumes responsibility for determining the suitability of the Services or the Website, for the use of the Services or Website and for the results obtained. Reimagine disclaims all warranties, conditions and representations of any kind, whether express, implied or collateral, including, but not limited to, all conditions, representations or warranties of merchantability, of fitness for a particular or general purpose, of non-infringement, of compatibility or that the Services or the Website are secure, or error free or will operate without interruption or will be provided in a timely or proper manner or at all. 
+
+</p><br/><br/><br/>
+<h3>12. ORGANISER INDEMNITY </h3><br>
+
+<p>
+
+
+12.1 The Organiser will indemnify and hold Reimagine, their affiliates, directors, officers, agents, employees, suppliers, subcontractors and licensors harmless from and against any losses, damages and expenses(including legal fees)(<span class="fontBold">“claims”</span>) arising out of or relating to: <br/>
+ (a) any claims or demands made by a Donor or any third party due to or arising out of the Organisers’s use of the Services or the Website, unless such claim is directly and solely caused by the gross negligence or the intentional or wilful misconduct of Reimagine, their affiliates, directors, officers, agents, employees, subcontractors or licensors; <br/>
+ (b) the Organiser’s violation of any of the provisions of these Terms of Service, including, without limitation, any of the Nonprofit’s representations and warranties; <br/>
+ (c) the Organiser’s violation of any applicable laws, including, without limitation, data protection or anti-spam laws; or <br/>
+ (d) the Project Page, including, without limitation, that the content or trademarks infringe the intellectual property rights of any third party or that the content of the Project Page is slanderous, defamatory, obscene or violates any other rights(including privacy rights) of any third party. 
+
+</p><br/><br/><br/>
+<h3>13. TERMINATION </h3><br>
+
+
+<p>
+
+13.1 The term of this Agreement will begin on the date your registration is notified to you as being effective(<span class="fontBold">“Effective Date”</span>) and will continue until your registration is terminated in accordance with these Terms of Service(the<span class="fontBold">“Term”</span>). 
+
+<br/><br/>
+13.2 <span class="fontBold">Termination by Reimagine:</span> Reimagine may terminate your registration, with or without cause and without paying any termination fees, charges or other amounts, at any time immediately upon written notice to the Nonprofit. Reimagine will not refund any registration, subscription or similar fees applicable to the period after the termination date.
+<br/><br/>
+
+13.3 <span class="fontBold">Termination by the Organiser:</span> You may terminate your registration at any time by providing notice to Reimagine that you wish to deactivate your registration 
+<br/><br/>
+
+13.4 <span class="fontBold">Post-Termination Consequences:</span> The following shall apply post-termination: <br/>
+ (a) unless otherwise requested in writing by the Organiser, or at the discretion of Reimagine, Reimagine may maintain the Reimagine Online Account and the Project Page on the Website following the termination of the Organiser’s registration, including for Reimagine’s audit or other record retention purposes; <br/>
+ (b) from the termination date, the donation function on the Website will be disabled and Donors will no longer be allowed to donate to the Organiser; <br/>
+ (c) the Organiser must remove all links, references and referrals to the Website that are used by it to solicit Donations on the Website; and <br/>
+ (d) Reimagine will, subject to these Terms of Service, pass any Donations received up to the point of termination, to the Organiser. 
+</p><br/><br/><br/>
+
+<h3>14. SUSPENSION AND WITHDRAWAL </h3><br>
+
+
+<p>
+
+14.1 Reimagine may, in its sole discretion and in accordance with Reimagine’s investigation policy and framework, withhold or suspend Fund payments and where appropriate require the return of some or all of the Funds already transferred to the Organiser, and suspend any of the Organisers’s project listings on the Website if: <br/>
+ (a) any Funds are used in a manner that does not comply with these Terms of Service; <br/>
+ (b) the Organiser obtains duplicate funding from a third party for a project listed on the Website; <br/>
+ (c) you take any actions which, in the reasonable opinion of Reimagine, bring, or are likely to bring, Reimagine’s name or reputation into disrepute or to damage its reputation in any way; <br/>
+ (d) the Organiser fails to provide reports and other information required by Reimagine in a timely manner or you provide Reimagine with any materially misleading or inaccurate information; <br/>
+ (e) the Nonprofit ceases to operate for any reason, or it passes a resolution(or any court of competent jurisdiction makes an order) that it be wound up or dissolved(other than for the purpose of a bona fide and solvent reconstruction or amalgamation); <br/>
+ (f) the Nonprofit becomes insolvent, or it is declared bankrupt, or it is placed into receivership, administration or liquidation, or a petition has been presented for its winding up, or it enters into any arrangement or composition for the benefit of its creditors, or it is unable to pay its debts as they fall due; or <br/>
+ (g) you fail to comply with any of these Terms of Service and fail to rectify any such failure within 30 days of receiving written notice detailing the failure. 
+
+<br/><br/>
+14.2 We reserve the right to close(or retire) any project listed on the Website in our sole discretion if we have not received any donations in respect of a project for a period of one year. You may also close projects on the Website at any time. 
+
+<br/><br/>
+14.3 Once Reimagine has received sufficient donations for a project’s funding goal to be met, or you inform us that the funding goal has been met from other sources, the project will be marked as“funded” on the Website and will no longer be eligible for Donors to request that funds be allocated to them. 
+
+</p><br/><br/><br/>
+<h3>15. CONFIDENTIAL INFORMATION </h3><br>
+<p>
+
+
+
+15.1 For the purposes of these Terms of Service,<span class="fontBold">“Confidential Information”</span> means, with respect to either party, the non-public, confidential, secret or proprietary material and information of such party that has been or may be, directly or indirectly, disclosed to, or come into the possession or knowledge of, the other party, whether in verbal, written, graphic, electronic or other form, in connection with or as a result of entering into these Terms of Service. 
+
+<br/><br/>
+15.2 Each party will maintain the confidentiality of all Confidential Information of the other party and will not release, disclose, use, make available or copy any such Confidential Information without the prior written consent of the disclosing party except as necessary to carry out its obligations under these Terms of Service or as expressly permitted under these Terms of Service. Each party may disclose the other party’s Confidential Information to its employees, agents or subcontractors on a need-to-know basis only and subject to entering into a non-disclosure agreement. Each party will not use in any way, for its own account or for the account of any third party, except as expressly permitted by, or required to achieve the purposes of these Terms of Service, or disclose to any third party(except to that party’s legal advisor, accountants or other advisors as reasonably necessary), any of the other party’s Confidential Information, and will take reasonable precautions to protect the confidentiality of such Confidential Information, at least as stringent as it takes to protect its own Confidential Information. Excluded from this obligation of confidentiality is Confidential Information which: <br/>
+ (a) is known to the receiving party prior to receipt from the disclosing party directly or indirectly from a source other than one having an obligation of confidentiality to the disclosing party; <br/>
+ (b) becomes known to the receiving party directly or indirectly from a third party source not having an obligation of confidentiality to the disclosing party; <br/>
+ (c) becomes publicly known or otherwise ceases to be secret, proprietary or confidential, except through a breach of these Terms of Service by the receiving party; <br/>
+ (d) is independently developed by the receiving party; or <br/>
+ (e) is required to be disclosed by a government authority or by law, provided that the receiving party gives the disclosing party reasonable prior written notice sufficient to permit the disclosing party to contest such disclosure. 
+
+</p><br/><br/><br/>
+<h3>16. GOVERNING LAW AND DISPUTE RESOLUTION </h3><br>
+<p>
+
+
+
+16.1 If a dispute arises between the parties with respect to these Terms of Service, each party shall escalate the dispute to a senior management representative within its organisation and no party may commence formal legal proceedings in relation to such dispute until such senior management representatives have spent at least twenty business days trying to informally resolve such dispute. 
+<br/><br/>
+
+16.2 Terms of Use shall be governed by and interpreted and construed in accordance with the laws of India. By agreeing to these Terms of Use you expressly agree that the place of jurisdiction shall be exclusively in Hyderabad. Reimagine Giving is based in India in all respects. The Website may be accessed by persons residing / living in countries other than India as well. Reimagine Giving welcomes Foreign Donors to participate in campaigns by making donations and contributions which shall be subject to the existing Indian laws. For any disputes involving Reimagine whether as a formal party or otherwise, the jurisdiction shall exclusively be with the courts in Hyderabad, India.
+</p><br/><br/><br/>
+
+<h3>17. THIRD PARTY RIGHTS </h3><br>
+<p>
+
+
+
+17.1 A person who is not a party to these Terms of Service has no right to enforce any term of these Terms of Service. 
+
+</p><br/><br/><br/>
+<h3>18. FURTHER ASSURANCES </h3><br>
+<p>
+
+
+
+18.1 The parties will do and execute or arrange for the doing and executing of each necessary act, document and thing reasonably within its power to implement and give effect to these Terms of Service to its full extent, including, without limitation, assisting each other in complying with applicable law. 
+
+</p><br/><br/>
+<br/>
+<h3>19. ASSIGNMENT </h3><br>
+
+<p>
+
+
+19.1 These Terms of Service will be binding upon and ensure to the benefit of the parties and their respective successors and permitted assigns. The Organiser will not assign or transfer these Terms of Service or any of its rights or obligations under these Terms of Service, whether directly or indirectly, without first obtaining the prior written consent of Reimagine, such consent not to be unreasonably withheld. 
+</p><br/><br/><br/>
+
+<h3>20. ENTIRE AGREEMENT </h3><br>
+<p>
+
+
+These Terms of Service and the documents referred to or incorporated herein by reference contain the entire agreement between Reimagine and the Organiser with respect to the subject matter and supersede all prior agreements, negotiations and representations, written or oral, relating to its subject matter. Except as provided in these Terms of Service and the documents referred to or incorporated into these Terms of Service by reference, there are no conditions, representations, warranties, undertakings or agreements between the parties whether direct, indirect, collateral, express or implied. 
+
+</p><br/><br/><br/>
+<h3>21. AMENDMENT </h3><br>
+
+<p>
+
+These Terms of Service cannot be modified, varied, amended or supplemented in any way by the Organiser. Reimagine reserves the right to modify, vary, amend or supplement these Terms of Service at any time and from time to time. Reimagine will post the current version of these Terms of Service on the Website and each such change will be effective upon posting on the Website or upon the date designated by Reimagine as the“effective date”(if any). Your continued use of the Services following any such change constitutes your agreement to be bound by and its acceptance of these Terms of Service as so modified. 
+
+</p><br/><br/><br/>
+<h3>22. SEVERABILITY </h3><br>
+<p>
+
+
+If any provision of these Terms of Service is determined by any court of competent jurisdiction to be invalid, illegal or unenforceable, that provision will be severed from these Terms of Service and the remaining provisions will continue in full force and effect so long as the economic or legal substance of the transactions contemplated hereby is not affected in any manner materially adverse to either of the parties. 
+
+</p><br/><br/><br/>
+<h3>23. FORCE MAJEURE </h3><br>
+
+<p>
+
+Neither party will be liable for any loss or damage or for any delay or failure in performance due to acts beyond the control of such party whether or not such acts could reasonably be anticipated(including acts of God, legislative, judicial or regulatory acts of any provincial or the federal government, court or regulatory authority, acts of any of our subcontractors or any third party providers of goods or services to us, labour disruptions, blackouts, embargoes). 
+</p><br/><br/><br/>
+
+<h3>24. NO WAIVER </h3><br>
+
+<p>
+
+Any waiver by Reimagine of any of the provisions of these Terms of Service will not constitute a waiver of any other provision(whether similar or not), nor will any such waiver constitute a continuing waiver of that particular provision, unless expressly provided by Reimagine in writing. 
+</p><br/><br/>
+<br/>
+<h3>25. COMMUNICATIONS </h3><br>
+
+<p>
+
+25.1 These Terms of Service are issued and concluded in English. Communications between us will be in English and will be conducted by letter, phone or email using the most recent details that you have provided to us, or by a message posted to your Reimagine Online Account. 
+
+<br/><br/>
+25.2 If you wish to contact Reimagine, please write to the below address: 
+</p><br/><br/><br/>
+<p>
+
+Reimagine Giving Foundation<br/>
+B-70, Sector C<br/>
+Mahanagar, Lucknow<br/>
+India- 226006<br/>
+</p><br/><br/>
+
+
+
+
+
+</div>
+	<footer>
+		<div class="row footer">
+			<div class="row footerOptions">
+				<div class="col-2 footerAboutUs">
+					<ul>
+						<li><h1>About Us</h1></li>
+						<li><h2><a>What is Reimagine?</a></h2></li>
+						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+						<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
+					</ul>
+				</div>
+				<div class="col-4 footerCauses" >
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Women and Girls</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
+				</div>
+{#				<div class="col-2 footerWorks">#}
+{#					<ul>#}
+{#						<li><h1>How it Works</h1>                      </li>#}
+{#						<li><h2><a>Stuff</a></h2>                      </li>#}
+{#						<li><h2><a>Stuff Stuff</a></h2>                </li>#}
+{#						<li><h2><a>We really need to think</a></h2>    </li>#}
+{#						<li><h2><a>about this</a></h2>                 </li>#}
+{#						<li><h2><a>well not anymore</a></h2>           </li>#}
+{#						<li><h2><a>VJ **</a></h2>                      </li>#}
+{#					</ul>#}
+{#				</div>#}
+				<div class="col-4 footerContactShare">
+					<ul>
+						<li><h1>Contact Us</h1></li>
+						<li><h2><span>Email: </span>contact@reimaginegiving.com</h2></li>
+						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
+						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+						<li>
+							<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-google-plus"></i>
+							</a>
+							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
+								<i class="fa fa-linkedin" ></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row footerBottom">
+				<a href="index.html">
+					<img src="{% static 'logo/logo-final-web-white.png' %}"/>
+				</a>
+				<h2>cc 2017.</h2>
+			</div>
+		</div>
+	</footer>
+</body>
