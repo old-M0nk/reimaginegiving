@@ -136,4 +136,6 @@ def terms (request):
     return render(request, 'terms.html')
 def refund (request):
     return render(request, 'refund.html')
+def pricing (request):
+    return render(request, 'pricing.html')
 
