@@ -67,11 +67,16 @@ def projectPage (request, pk):
     return render(request, 'projectPage.html', context_dict, context)
 
 
-def viewAllProjects (request):
+def viewAllProjects (request, cause, funding):
     context = RequestContext(request)
-    project_list = Project.objects.all()  ###view all project... no logic used...
-    project_count = Project.objects.count()
-    print project_count
+    if cause == 'all' & funding == 'all':
+        project_list = Project.objects.all()  ###view all project... no logic used...
+        project_count = Project.objects.count()
+    elif cause != 'all':
+        project_list = Project.objects.filter(cause__name=cause)  ###view all project... no logic used...
+        project_count = Project.objects.filter(cause__name=cause).count()
+    elif funding != 'all':
+        project_list = Project.objects.filter((raised_amount)/(total_amount)<0.2)
     context_dict = {'projects': project_list,
                     'count': project_count}
     return render(request, 'viewAllProjects.html', context_dict, context)

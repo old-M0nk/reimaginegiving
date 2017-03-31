@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.template import RequestContext, loader, Context
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm
-from .models import Email, User_Details, Donation, Notification
+from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm, CardDetailsForm
+from .models import Email, User_Details, Donation, Notification, Card_Details
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
@@ -138,11 +138,38 @@ def userPage (request):
         notification.save()
     else:
         form = NotificationForm(request.POST or None)
+
+    # if Card_Details.objects.filter(username=request.user).count():
+    #     card_details = Card_Details.objects.get(username=request.user)
+    # else:
+    #     card_details = False
+    if request.method == "POST":
+        if request.POST['submit'] == "card":
+            card_form = CardDetailsForm(request.POST or None)
+            card_number = request.POST['num1']+request.POST['num2']+request.POST['num3']+request.POST['num4']
+            date = request.POST['month']+'/'+request.POST['year']
+            card = Card_Details(username=request.user,
+                                card_number=card_number,
+                                card_holder=request.POST['name'],
+                                expiration_date=date,
+                                cvv=request.POST['cvv'])
+            card_form.save()
+        else:
+            card_form = CardDetailsForm(request.POST or None)
+    else:
+        card_form = CardDetailsForm(request.POST or None)
     user_details = User_Details.objects.get(username=request.user.id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
+    project_list = Project.objects.all()
 
-    return render(request, 'userPage.html', {'user_details': user_details, 'ongoing_project_donations': ongoing_project_donations, 'completed_project_donations': completed_project_donations, 'form': form, 'notification': notification})
+    return render(request, 'userPage.html', {'user_details': user_details,
+                                             'ongoing_project_donations': ongoing_project_donations,
+                                             'completed_project_donations': completed_project_donations,
+                                             'form': form,
+                                             'notification': notification,
+                                             'card_form': card_form,
+                                             'projects': project_list})
 
 
 def NGOformPage (request):
@@ -161,7 +188,18 @@ def NGOformPage (request):
         offices_no = request.POST['offices_no']
         office_loc = request.POST['office_loc']
 
-        ngo = NGOtemp(name=name, sector=sector, since=since, location=location, legal_id=legal_id, affiliation=affiliation, board_no=board_no, employee_no=employee_no, min_pay=min_pay, avg_pay=avg_pay, offices_no=offices_no, office_loc=office_loc)
+        ngo = NGOtemp(name=name,
+                      sector=sector,
+                      since=since,
+                      location=location,
+                      legal_id=legal_id,
+                      affiliation=affiliation,
+                      board_no=board_no,
+                      employee_no=employee_no,
+                      min_pay=min_pay,
+                      avg_pay=avg_pay,
+                      offices_no=offices_no,
+                      office_loc=office_loc)
         ngo.save()
         context_dict = {'form': form}
     else:

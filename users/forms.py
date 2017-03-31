@@ -53,3 +53,12 @@ class NotificationForm(forms.Form):
     exciting_projects_email = forms.BooleanField()
 
 
+class CardDetailsForm(forms.Form):
+    username = forms.CharField()
+    card_number = forms.IntegerField()
+    card_holder = forms.CharField()
+    expiration_date = forms.CharField()
+    cvv = forms.IntegerField()
+
+
+

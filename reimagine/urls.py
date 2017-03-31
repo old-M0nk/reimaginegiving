@@ -41,7 +41,7 @@ urlpatterns = [
         url(r'^checkOut/(?P<pk>\d+)/$', views.checkOut, name='checkOut'),
         url(r'^teamPage/', views.teamPage, name='teamPage'),
         url(r'^userPage/', userPage, name='userPage'),
-        url(r'^viewAllProjects/', views.viewAllProjects, name='viewAllProjects'),
+        url(r'^viewAllProjects/(?P<cause>\w+)/(?P<funding>\w+)/$', views.viewAllProjects, name='viewAllProjects'),
         url(r'^contactUsPage/', views.contactUsPage, name='contactUsPage'),
 
         url(r'^home/$', core_views.home, name='home'),

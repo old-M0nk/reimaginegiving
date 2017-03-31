@@ -58,3 +58,12 @@ class Notification(models.Model):
     exciting_projects_mobile = models.BooleanField(default=True)
     exciting_projects_email = models.BooleanField(default=True)
 
+
+class Card_Details(models.Model):
+    username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
+    card_number = models.BigIntegerField()
+    card_holder =  models.CharField(max_length=40, default="", blank=True)
+    expiration_date = models.CharField(max_length=40)
+    cvv = models.IntegerField()
+
+
