@@ -461,7 +461,7 @@
 				<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Recommended Projects</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' cause='all' funding='all' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
             {% if projects%}
@@ -583,7 +583,7 @@
 				<div class="row projects">
 		<div class="row recommendedProjectsHeading">
 			<h2 class="col-6">Recommended Projects</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' %}">View all</a></h2>
+			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' cause='all' funding='all' %}">View all</a></h2>
 		</div>
 		<div class="row projectsContent">
             {% if projects%}

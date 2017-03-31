@@ -69,7 +69,7 @@ def projectPage (request, pk):
 
 def viewAllProjects (request, cause, funding):
     context = RequestContext(request)
-    if cause == 'all' & funding == 'all':
+    if cause == 'all' and funding == 'all':
         project_list = Project.objects.all()  ###view all project... no logic used...
         project_count = Project.objects.count()
     elif cause != 'all':
