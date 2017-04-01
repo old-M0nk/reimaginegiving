@@ -79,13 +79,13 @@ def viewAllProjects (request, cause, funding):
         project_count = project_list.count()
     elif funding != 'all':
         if funding == 'nearly_funded':
-            project_list = Project.objects.annotate(x=F('raised_amount')/F('total_amount')).filter(x__gt=0.8)
+            project_list = Project.objects.annotate(x=F('raised_amount')/F('total_amount')).filter(x__gte=0.8)
             project_count = project_list.count()
-        if funding == 'just_started':
-            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lt=0.2)
+        elif funding == 'just_started':
+            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=0.2)
             project_count = project_list.count()
-        if funding == 'ongoing':
-            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lt=1 , end_date__gte=datetime.date.today())
+        elif funding == 'ongoing':
+            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=1, end_date__gte=datetime.date.today())
             project_count = project_list.count()
     context_dict = {'projects': project_list,
                     'count': project_count}
@@ -153,4 +153,6 @@ def refund (request):
     return render(request, 'refund.html')
 def pricing (request):
     return render(request, 'pricing.html')
+
+
 

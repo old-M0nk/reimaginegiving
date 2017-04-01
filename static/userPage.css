@@ -378,23 +378,33 @@ color: white;
     position: absolute;
     width: 100%;
 }
-.userPageFinishedCampaignsBottom a:hover{
-  color: rgb(0,0,0); 
+.userPageFinishedCampaignsBottom a:hover, .userPageFinishedCampaignsBottom i:hover {
+    color: #38c0ff;
+}
+.userPageFinishedCampaignsBottom a {
+    font-size: 14px !important;
+    font-family: SourceSansPro-SemiBold;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    margin-left: 15px;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
 }
 .userPageFinishedCampaignsBottomLinks{
-  padding: 7px;
   z-index: 6;
   position: absolute;
   bottom: 0;
 }
-.userPageFinishedCampaignsBottom a {
-    font-size: 14px !important;
-    padding: 5px;
-  color: rgb(0,180,255);
-    font-family: SourceSansPro-SemiBold;
-  letter-spacing:0.2px;
-  cursor: pointer;
-  text-decoration: none;
+.userPageFinishedCampaignsBottomLinks i {
+    font-size: 20px;
+    height: 32px;
+    width: 35px;
+    padding-top: 7px;
+	cursor: pointer;
+    text-align: center;
 }
 .projectSection1 {
     margin-left: 5% !important;
@@ -877,7 +887,7 @@ ul.userPageAccountNotificationsOptions li i{
 }
 .userPageAccountNotificationsOptionHeading fieldset{
 	float: right;
-	margin-right: 10px;
+	margin-right: 10px; 
 }
 
 /*login*/
@@ -887,7 +897,7 @@ ul.userPageAccountNotificationsOptions li i{
     min-width: 450px;
 }
 
-#userPageAccountLogIn p{
+#userPageAccountLogIn p{	
 	font-size: 10px;
     letter-spacing: 0.2px;
     margin-top: 2px;
@@ -920,4 +930,74 @@ ul.userPageAccountNotificationsOptions li i{
 .displayChangePasswordForm{
 	height: auto !important;
 	display: block !important;
+}
+
+/*causes*/
+.userPageProfileCausesContent ul li {
+    padding: 15px;
+    background: white;
+    font-size: 22px;
+    margin-top: 5px;
+}
+.userPageProfileCausesContent ul {
+    margin: 7% 0 4% 10%;
+    color: rgb(0,180,255);
+    width: 50%;
+}
+.userPageProfileCausesContent ul li i {
+    font-size: 7px;
+    vertical-align: middle;
+    margin-right: 20px;
+    margin-bottom: 3px;
+}
+
+.userPageProfileCausesAddNewButton{
+	padding: 12px;
+	background: white;
+	font-size: 22px;
+	margin-top: 5px;
+	width: 50%;
+	border: none;
+	box-shadow: none;
+	margin-left: 10%;
+	color: rgb(0,180,255);
+	cursor: pointer;
+}
+.userPageProfileCausesAddNewButton i{
+	margin-right: 20px;
+}
+.userPageProfileCausesContent ul li i.fa-minus{
+	font-size: 20px;
+    margin: 0 !important;
+    margin-top: 4px !important;
+	cursor: pointer;
+}
+
+
+.userPageCauseAddInnerContainer form fieldset {
+    width: 100%;
+	padding: 5px 10px;
+	font-size: 20px;
+	margin: 10px;
+}
+.userPageCauseAddInnerContainer form fieldset label{
+    font-size: 22pz;
+}
+.userPageCauseAddInnerContainer form {
+    padding: 50px;
+}
+.userPageCauseAddInnerContainer form button {
+border: 1px solid;
+}
+.userPageCauseAddOuterContainer {
+    WIDTH: 50%;
+    TOP: 25%;
+    LEFT: 25%;
+    POSITION: ABSOLUTE;
+    background: white;
+    height: 300px;
+}
+.userPageCauseAddInnerContainer form fieldset label {
+    font-size: 22px;
+    margin-left: 20px;
 }

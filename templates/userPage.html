@@ -213,9 +213,23 @@
 
 	<div class="overlay" id="userPageShareBox">
 		<div class="translucentContainer1"></div>
-		<div class="userPageShareBoxOuterContainer">
-			<div class="userPageShareBoxInnerContainer">
-
+		<div class="userPageCauseAddOuterContainer">
+			<div class="userPageCauseAddInnerContainer">
+				<form>
+					<fieldset>
+					  <input type="checkbox" id="Education" />
+					  <label for="Education">Education</label>
+					</fieldset>
+					<fieldset>
+					  <input type="checkbox" id="XYZNICK" />
+						<label for="XYZNICK">XYZNICK</label>
+					</fieldset>
+					<fieldset>
+					<input type="checkbox" id="ghjlksbhb" />
+					  <label for="ghjlksbhb">ghjlksbhb</label>
+					</fieldset>
+					<button class="userPageProfileCausesAddNewButton" type="submit"><i class="fa fa-plus"></i> Add</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -432,6 +446,14 @@
 			<div id="userPageProfileCauses" class="row userPageLeftTabsContent"style="height: 1300px;">
 				<div class="row userPageCenterContentHeadings" style="height: 150px;">
 					<h1>Cause I care about</h1>
+				</div>
+				<div class="userPageProfileCausesContent">
+					<ul>
+						<li><i class="fa fa-circle"></i>Child Welfare<i class="fa fa-minus floatRight"></i></li>
+						<li><i class="fa fa-circle"></i>Education<i class="fa fa-minus floatRight"></i></li>
+						<li><i class="fa fa-circle"></i>Poverty<i class="fa fa-minus floatRight"></i></li>
+					</ul>
+					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>
 				</div>
 			</div>
 			
@@ -692,6 +714,7 @@
 					<button> Update Email</button>
 				</form>
 				<button class="changePassword" onclick="toggleChangePasswordForm()"> Change Password</button>
+                {% if cp_form %}
 				<form class="form changePasswordForm" id="changePasswordForm" autocomplete="off" novalidate method="post" action="userPage.html">
                     {% csrf_token %}
 					<fieldset>
@@ -708,6 +731,7 @@
 					</fieldset>
 					<button type="submit" name="submit" value="change_password">CHANGE</button>
 				</form>
+                {% endif %}
 			</div>
 			
 			<div id="userPageAccountNotifications" class="row userPageLeftTabsContent" style="height: 1300px;">
