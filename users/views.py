@@ -159,11 +159,11 @@ def userPage (request):
     if request.method == "POST" and request.POST['submit'] == "change_password":
         cp_form = ChangePasswordForm(request.POST or None)
         user = request.user
-        if request.POST.get('userOldPassword') == user.password:
+        if auth(username=request.user.username, password=request.POST['userOldPassword']):
             if request.POST['userNewPassword'] == request.POST['userReNewPassword']:
-                user.set_password('arjunbroda')
+                user.set_password(request.POST['userNewPassword'])
                 user.save()
-                user = auth(username=request.user.email, password='arjunbroda')
+                user = auth(username=request.user.username, password=request.POST['userNewPassword'])
                 login(request, user)
             else:
                 cp_form = ChangePasswordForm(request.POST or None)
@@ -171,8 +171,6 @@ def userPage (request):
             cp_form = ChangePasswordForm(request.POST or None)
     else:
         cp_form = ChangePasswordForm(request.POST or None)
-
-
     user_details = User_Details.objects.get(username=request.user.id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
