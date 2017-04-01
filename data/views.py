@@ -6,6 +6,8 @@ from django.template import RequestContext
 from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report, GalleryPic
 from users.models import ContactUs
 from users.forms import contact_us_form
+from django.db.models import F
+import datetime
 
 
 def index(request):
@@ -71,12 +73,20 @@ def viewAllProjects (request, cause, funding):
     context = RequestContext(request)
     if cause == 'all' and funding == 'all':
         project_list = Project.objects.all()  ###view all project... no logic used...
-        project_count = Project.objects.count()
+        project_count = project_list.count()
     elif cause != 'all':
-        project_list = Project.objects.filter(cause__name=cause)  ###view all project... no logic used...
-        project_count = Project.objects.filter(cause__name=cause).count()
+        project_list = Project.objects.filter(cause__name=cause)
+        project_count = project_list.count()
     elif funding != 'all':
-        project_list = Project.objects.filter((raised_amount)/(total_amount)<0.2)
+        if funding == 'nearly_funded':
+            project_list = Project.objects.annotate(x=F('raised_amount')/F('total_amount')).filter(x__gt=0.8)
+            project_count = project_list.count()
+        if funding == 'just_started':
+            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lt=0.2)
+            project_count = project_list.count()
+        if funding == 'ongoing':
+            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lt=1 , end_date__gte=datetime.date.today())
+            project_count = project_list.count()
     context_dict = {'projects': project_list,
                     'count': project_count}
     return render(request, 'viewAllProjects.html', context_dict, context)

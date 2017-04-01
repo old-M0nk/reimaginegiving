@@ -78,12 +78,12 @@
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
-								<li><a>Nearly Funded</a></li>
-								<li><a>Just Started</a></li>
-								<li><a>Ongoing</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='nearly_funded' %}">Nearly Funded</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='just_started' %}">Just Started</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='ongoing' %}">Ongoing</a></li>
 							</ul>
 						</div>
-						
+
 						<div class="causes">
 							<span  onclick="myfunction3()">
 								<div class="exploreHeading row">
@@ -93,29 +93,29 @@
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
-								<li><a>Education</a></li>
-								<li><a>Health</a></li>
-								<li><a>Children</a></li>
-								<li><a>Women Empowerment</a></li>
-								<li><a>Food and Hunger</a></li>
-								<li><a>Sports</a></li>
-								<li><a>Animal Welfare</a></li>
-								<li><a>Environment</a></li>
-								<li><a>Others</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}">Education</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Health' funding='all' %}">Health</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Children' funding='all' %}">Children</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Women_empowerment' funding='all' %}">Women Empowerment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='food_hunger' funding='all' %}">Food and Hunger</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='sports' funding='all' %}">Sports</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='animal_welfare' funding='all' %}">Animal Welfare</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='environment' funding='all' %}">Environment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='others' funding='all' %}">Others</a></li>
 							</ul>
 						</div>
 					</form>
 				</div>
 			</div>
-			
+
 			<div class="col-9 floatRight">
-				
+
 				<div class="col-8 logo">
 					<a href="{% url 'index' %}">
 						<img src="{% static "logo/logo-final.png" %}"></img>
 					</a>
 				</div>
-				
+
 				<div class="col-4 mainNavBarButton">
                     {% if user.is_authenticated %}
 					<div class="col-12 navBarProfileButton" id="navBarProfileButton">
@@ -188,7 +188,6 @@
 									{% include "registration/register.html" %}
                                     </div>
 								</div>
-								</div>
 							</div>
 						</div>
 						<script src='{% static "cloudflare.js" %}'></script>
@@ -200,7 +199,8 @@
 				</div>
 			</div>
 		</div>
-	</header> 
+        </div>
+	</header>
    	
 	<div class="overlay" id="paypalPaymentOverlay">
 		<div class="translucentContainer2"></div>

@@ -60,5 +60,11 @@ class CardDetailsForm(forms.Form):
     expiration_date = forms.CharField()
     cvv = forms.IntegerField()
 
+class ChangePasswordForm(forms.Form):
+    username = forms.CharField()
+    old = forms.CharField()
+    new = forms.CharField()
+    re_enter = forms.CharField()
+
 
 

@@ -85,9 +85,9 @@
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
-								<li><a>Nearly Funded</a></li>
-								<li><a>Just Started</a></li>
-								<li><a>Ongoing</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='nearly_funded' %}">Nearly Funded</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='just_started' %}">Just Started</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='ongoing' %}">Ongoing</a></li>
 							</ul>
 						</div>
 						
@@ -206,6 +206,7 @@
 				</div>
 			</div>
 		</div>
+        </div>
 	</header> 
    	  
    	 <div class="slider">

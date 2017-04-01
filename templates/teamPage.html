@@ -82,9 +82,9 @@
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
-								<li><a>Nearly Funded</a></li>
-								<li><a>Just Started</a></li>
-								<li><a>Ongoing</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='nearly_funded' %}">Nearly Funded</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='just_started' %}">Just Started</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='ongoing' %}">Ongoing</a></li>
 							</ul>
 						</div>
 
@@ -97,15 +97,15 @@
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
-								<li><a>Education</a></li>
-								<li><a>Health</a></li>
-								<li><a>Children</a></li>
-								<li><a>Women Empowerment</a></li>
-								<li><a>Food and Hunger</a></li>
-								<li><a>Sports</a></li>
-								<li><a>Animal Welfare</a></li>
-								<li><a>Environment</a></li>
-								<li><a>Others</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}">Education</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Health' funding='all' %}">Health</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Children' funding='all' %}">Children</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Women_empowerment' funding='all' %}">Women Empowerment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='food_hunger' funding='all' %}">Food and Hunger</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='sports' funding='all' %}">Sports</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='animal_welfare' funding='all' %}">Animal Welfare</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='environment' funding='all' %}">Environment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='others' funding='all' %}">Others</a></li>
 							</ul>
 						</div>
 					</form>
@@ -165,7 +165,7 @@
 					</div>
 
 					<div class="col-3 navBarLogInButton" id="navBarLogInButton">
-						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">Log In</span></p>
+						<p id="registration"><span class="LogInSpan" onclick="openLogInOverlay()">LogIn</span></p>
 					</div>
 					<div id="LogIn" class="overlay">
 						<div class="translucentContainer"></div>
@@ -192,7 +192,6 @@
 									{% include "registration/register.html" %}
                                     </div>
 								</div>
-								</div>
 							</div>
 						</div>
 						<script src='{% static "cloudflare.js" %}'></script>
@@ -204,6 +203,7 @@
 				</div>
 			</div>
 		</div>
+        </div>
 	</header>
 
 	<h1 class="teamPageHeading"><span>OUR TEAM</span></h1>

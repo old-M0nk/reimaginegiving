@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext, loader, Context
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm, CardDetailsForm
+from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm, CardDetailsForm, ChangePasswordForm
 from .models import Email, User_Details, Donation, Notification, Card_Details
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
@@ -119,7 +119,7 @@ def logout_view(request):
 @login_required
 def userPage (request):
     notification = Notification.objects.get(username=request.user)
-    if request.method == "POST":
+    if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
         supp_mail = request.POST.get('sup_mail', False)
@@ -143,21 +143,26 @@ def userPage (request):
     #     card_details = Card_Details.objects.get(username=request.user)
     # else:
     #     card_details = False
-    if request.method == "POST":
-        if request.POST['submit'] == "card":
-            card_form = CardDetailsForm(request.POST or None)
-            card_number = request.POST['num1']+request.POST['num2']+request.POST['num3']+request.POST['num4']
-            date = request.POST['month']+'/'+request.POST['year']
-            card = Card_Details(username=request.user,
-                                card_number=card_number,
-                                card_holder=request.POST['name'],
-                                expiration_date=date,
-                                cvv=request.POST['cvv'])
-            card_form.save()
-        else:
-            card_form = CardDetailsForm(request.POST or None)
+    if request.method == "POST" and request.POST['submit'] == "card":
+        card_form = CardDetailsForm(request.POST or None)
+        card_number = request.POST['num1']+request.POST['num2']+request.POST['num3']+request.POST['num4']
+        date = request.POST['month']+'/'+request.POST['year']
+        card = Card_Details(username=request.user,
+                            card_number=card_number,
+                            card_holder=request.POST['name'],
+                            expiration_date=date,
+                            cvv=request.POST['cvv'])
+        card.save()
     else:
         card_form = CardDetailsForm(request.POST or None)
+
+    if request.method == "POST" and request.POST['submit'] == "change_password":
+        cp_form = ChangePasswordForm(request.POST or None)
+        if request.POST['userOldPassword'] == request.user.password:
+            if request.POST['userNewPassword'] == request.POST['userReNewPassword']:
+                request.user.set_password(request.POST['userNewPassword'])
+                request.user.save()
+
     user_details = User_Details.objects.get(username=request.user.id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
