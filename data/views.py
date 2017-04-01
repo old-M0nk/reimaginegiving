@@ -165,7 +165,7 @@ import datetime
 import hashlib
 from random import randint
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 
 
 def PayU(request):
