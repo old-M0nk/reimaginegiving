@@ -78,12 +78,12 @@
 								</div>
 							</span>
 							<ul class="fundingLevels" id="fundingInput">
-								<li><a>Nearly Funded</a></li>
-								<li><a>Just Started</a></li>
-								<li><a>Ongoing</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='nearly_funded' %}">Nearly Funded</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='just_started' %}">Just Started</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='all' funding='ongoing' %}">Ongoing</a></li>
 							</ul>
 						</div>
-						
+
 						<div class="causes">
 							<span  onclick="myfunction3()">
 								<div class="exploreHeading row">
@@ -93,23 +93,23 @@
 								</div>
 							</span>
 							<ul class="causeList" id="causeInput">
-								<li><a>Education</a></li>
-								<li><a>Health</a></li>
-								<li><a>Children</a></li>
-								<li><a>Women Empowerment</a></li>
-								<li><a>Food and Hunger</a></li>
-								<li><a>Sports</a></li>
-								<li><a>Animal Welfare</a></li>
-								<li><a>Environment</a></li>
-								<li><a>Others</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}">Education</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Health' funding='all' %}">Health</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Children' funding='all' %}">Children</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='Women_empowerment' funding='all' %}">Women Empowerment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='food_hunger' funding='all' %}">Food and Hunger</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='sports' funding='all' %}">Sports</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='animal_welfare' funding='all' %}">Animal Welfare</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='environment' funding='all' %}">Environment</a></li>
+								<li><a href="{% url 'viewAllProjects' cause='others' funding='all' %}">Others</a></li>
 							</ul>
 						</div>
 					</form>
 				</div>
 			</div>
-			
+
 			<div class="col-9 floatRight">
-				
+
 				<div class="col-8 logo">
 					<a href="{% url 'index' %}">
 						<img src="{% static "logo/logo-final.png" %}"></img>
@@ -199,6 +199,7 @@
 				</div>
 			</div>
 		</div>
+        </div>
 	</header> 
    	<div class="centerContainer">
 	<h1>Reimagine Giving Terms and Conditions</h1>
@@ -643,16 +644,16 @@ India- 226006<br/>
 						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
 						<li><h2><span>Address:</span>IIT(BHU) Varanasi<br/>Varanasi,India-221005</h2></li>
 						<li>
-							<a  data-href="https://www.facebook.com/reimaginegiving" class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+							<a  title="Facebook share" target="_blank" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
 								<i class="fa fa-facebook"></i>
 							</a>
-							<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+							<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
 								<i class="fa fa-google-plus"></i>
 							</a>
-							<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+							<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
 								<i class="fa fa-twitter"></i>
 							</a>
-							<a target="_blank" href="http://www.linkedin.com/shareArticle?url=https://plus.google.com/u/1/102570086777774315649">
+							<a class="linkedin customer share" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.reimaginegiving.org" title="linkedin Share" target="_blank">
 								<i class="fa fa-linkedin" ></i>
 							</a>
 						</li>

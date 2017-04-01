@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/views.py" afterPath="$PROJECT_DIR$/users/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/aboutus.html" afterPath="$PROJECT_DIR$/templates/aboutus.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkOut.html" afterPath="$PROJECT_DIR$/templates/checkOut.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/contactUsPage.html" afterPath="$PROJECT_DIR$/templates/contactUsPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pricing.html" afterPath="$PROJECT_DIR$/templates/pricing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/privacy.html" afterPath="$PROJECT_DIR$/templates/privacy.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/refund.html" afterPath="$PROJECT_DIR$/templates/refund.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/teamPage.html" afterPath="$PROJECT_DIR$/templates/teamPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/terms.html" afterPath="$PROJECT_DIR$/templates/terms.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userPage.html" afterPath="$PROJECT_DIR$/templates/userPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/viewAllProjects.html" afterPath="$PROJECT_DIR$/templates/viewAllProjects.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,72 +34,98 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+            <state relative-caret-position="231">
+              <caret line="217" column="14" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="217" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/views.py">
+      <file leaf-file-name="contactUsPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2839">
-              <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reimagine/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="76" column="70" lean-forward="false" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
+            <state relative-caret-position="316">
+              <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/models.py">
+      <file leaf-file-name="checkOut.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+            <state relative-caret-position="115">
+              <caret line="339" column="18" lean-forward="false" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="195" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/users/views.py">
+      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="158" column="80" lean-forward="false" selection-start-line="158" selection-start-column="80" selection-end-line="158" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#64#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/userPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="743" column="67" lean-forward="true" selection-start-line="743" selection-start-column="67" selection-end-line="743" selection-end-column="67" />
+            <state relative-caret-position="180">
+              <caret line="510" column="47" lean-forward="false" selection-start-line="510" selection-start-column="39" selection-end-line="510" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reimagine/urls.py">
+      <file leaf-file-name="privacy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/privacy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="44" column="75" lean-forward="true" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
+            <state relative-caret-position="180">
+              <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pricing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/pricing.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="200" column="13" lean-forward="false" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NGOForm.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="soon.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/soon.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="refund.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/refund.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aboutus.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/aboutus.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -107,8 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.projectPageProjectMainImage img</find>
-      <find>header</find>
       <find>form.</find>
       <find>give</find>
       <find>projectPageProjectmain</find>
@@ -137,6 +171,8 @@
       <find>chan</find>
       <find>change</find>
       <find>RequestContext</find>
+      <find>share</find>
+      <find>facebook</find>
     </findStrings>
     <replaceStrings>
       <replace>logo/logo-final.png</replace>
@@ -192,26 +228,26 @@
         <option value="$PROJECT_DIR$/users/migrations/0014_auto_20170323_0056.py" />
         <option value="$PROJECT_DIR$/users/migrations/0015_auto_20170323_0057.py" />
         <option value="$PROJECT_DIR$/static/projectPage.css" />
-        <option value="$PROJECT_DIR$/templates/terms.html" />
         <option value="$PROJECT_DIR$/users/admin.py" />
         <option value="$PROJECT_DIR$/users/models.py" />
         <option value="$PROJECT_DIR$/data/urls.py" />
         <option value="$PROJECT_DIR$/users/forms.py" />
-        <option value="$PROJECT_DIR$/templates/aboutus.html" />
-        <option value="$PROJECT_DIR$/templates/checkOut.html" />
-        <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
-        <option value="$PROJECT_DIR$/templates/pricing.html" />
-        <option value="$PROJECT_DIR$/templates/privacy.html" />
-        <option value="$PROJECT_DIR$/templates/projectPage.html" />
-        <option value="$PROJECT_DIR$/templates/refund.html" />
-        <option value="$PROJECT_DIR$/templates/teamPage.html" />
-        <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/userPage.html" />
         <option value="$PROJECT_DIR$/reimagine/urls.py" />
         <option value="$PROJECT_DIR$/reimagine/settings.py" />
         <option value="$PROJECT_DIR$/data/views.py" />
         <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/templates/userPage.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
+        <option value="$PROJECT_DIR$/templates/checkOut.html" />
+        <option value="$PROJECT_DIR$/templates/projectPage.html" />
+        <option value="$PROJECT_DIR$/templates/aboutus.html" />
+        <option value="$PROJECT_DIR$/templates/privacy.html" />
+        <option value="$PROJECT_DIR$/templates/pricing.html" />
+        <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
+        <option value="$PROJECT_DIR$/templates/terms.html" />
+        <option value="$PROJECT_DIR$/templates/teamPage.html" />
+        <option value="$PROJECT_DIR$/templates/refund.html" />
       </list>
     </option>
   </component>
@@ -263,7 +299,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="reimagine" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,46 +679,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/users/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../DjangoDemo1.9-master/blog/blog/urls.py" />
     <entry file="file://$PROJECT_DIR$/templates/registration/logout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/comingSoon.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="29" column="85" lean-forward="false" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -829,24 +830,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/projectPage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8041">
           <caret line="473" column="20" lean-forward="false" selection-start-line="473" selection-start-column="20" selection-end-line="473" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/terms.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10234">
-          <caret line="602" column="24" lean-forward="false" selection-start-line="602" selection-start-column="24" selection-end-line="602" selection-end-column="85" />
         </state>
       </provider>
     </entry>
@@ -891,69 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllProjects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="203" column="13" lean-forward="false" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/teamPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="206" column="13" lean-forward="false" selection-start-line="206" selection-start-column="13" selection-end-line="206" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/refund.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="209" column="13" lean-forward="false" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/privacy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pricing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="200" column="13" lean-forward="false" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/aboutus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -962,26 +886,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reimagine/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="44" column="75" lean-forward="true" selection-start-line="44" selection-start-column="75" selection-end-line="44" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="743" column="67" lean-forward="true" selection-start-line="743" selection-start-column="67" selection-end-line="743" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -1011,6 +919,150 @@
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="981" column="32" lean-forward="false" selection-start-line="981" selection-start-column="32" selection-end-line="981" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Failure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/current_datetime.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/comingSoon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="29" column="85" lean-forward="false" selection-start-line="29" selection-start-column="85" selection-end-line="29" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/viewAllProjects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="203" column="14" lean-forward="false" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/terms.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/teamPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="206" column="14" lean-forward="false" selection-start-line="206" selection-start-column="14" selection-end-line="206" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/soon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/refund.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/privacy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pricing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="200" column="13" lean-forward="false" selection-start-line="200" selection-start-column="13" selection-end-line="200" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="217" column="14" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="217" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/aboutus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="339" column="18" lean-forward="false" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="195" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="510" column="47" lean-forward="false" selection-start-line="510" selection-start-column="39" selection-end-line="510" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
