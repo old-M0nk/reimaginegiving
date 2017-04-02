@@ -6,16 +6,18 @@
 </head>
 <body>
 <form method="post" action="{{ action }}">
-    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
-    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
-    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
-    <input style="display: none;" name="project" {% if amount %}value="{{ project.id }}" {% endif %}>
+    <input style="display: none;" name="amount" value="{{ amount }}">
+    <input style="display: none;" name="firstname" value="{{ firstname }}">
+    <input style="display: none;" name="email" value="{{ email }}">
+    <input style="display: none;" name="productinfo" value="{{ project }}">
     <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />
     <input type="hidden" name="hash_string" value="{{ hash_string }}" />
     <input type="hidden" name="hash" value="{{ hashh }}"/>
     <input type="hidden" name="posted" value="{{ posted }}"/>
-    <input type="hidden" name="txnid" value="{{ txnid }}" />
-<button type="submit">Submit</button>
+    <input type="hidden" name="txnid" value="{{ txnid }}"/>
+    <input type="hidden" name="surl" value="{% url 'surl' %}"/>
+    <input type="hidden" name="furl" value="{% url 'furl' %}"/>
+    <button type="submit">Submit</button>
 </form>
 
 </body>

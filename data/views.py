@@ -206,6 +206,10 @@ def payment_redirect(request):
                                                                                     "MERCHANT_KEY": MERCHANT_KEY,
                                                                                     "txnid": txnid,
                                                                                     "hash_string": hash_string,
+                                                                                    'amount': posted['amount'],
+                                                                                    'project': posted['productinfo'],
+                                                                                    'firstname': posted['firstname'],
+                                                                                    'email': posted['email'],
                                                                                     "action": "https://test.payu.in/_payment"}))
     else:
         return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
