@@ -239,7 +239,7 @@
 								<fieldset>
 								  <input type="text" id="checkOutPageSavedCardUserFullName" placeholder="First Name" name="first_name">
                                     <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
-                                <input style="display: none;" name="project" {% if amount %}value="{{ project.id }}" {% endif %}>
+                                <input style="display: none;" name="project" {% if amount %}value="{{ pk }}" {% endif %}>
 								</fieldset>
 								<fieldset>
 								  <input type="text" id="checkOutPageSavedCardUserEmail" placeholder="Email" name="email">

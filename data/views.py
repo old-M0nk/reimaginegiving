@@ -108,7 +108,7 @@ def checkOut(request, pk):
             if request.POST['amount']:
                 amount = request.POST['amount']
                 print amount
-                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form}, context)
+                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
             else:
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
@@ -187,8 +187,10 @@ def payment_redirect(request):
     posted['key'] = key
     posted['amount'] = request.POST['amount']
     posted['productinfo'] = request.POST['project']
+    print posted['productinfo']
     posted['firstname'] = request.POST['first_name']
     posted['email'] = request.POST['email']
+    posted['mobile'] = request.POST['mobile']
     hash_string = ''
     hashVarsSeq = hashSequence.split('|')
     for i in hashVarsSeq:
@@ -210,6 +212,7 @@ def payment_redirect(request):
                                                                                     'project': posted['productinfo'],
                                                                                     'firstname': posted['firstname'],
                                                                                     'email': posted['email'],
+                                                                                    'mobile': posted['mobile'],
                                                                                     "action": "https://test.payu.in/_payment"}))
     else:
         return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
