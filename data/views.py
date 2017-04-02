@@ -8,6 +8,7 @@ from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report, G
 from users.models import ContactUs
 from users.forms import contact_us_form
 from django.db.models import F
+from forms import *
 
 
 
@@ -101,12 +102,13 @@ def checkOut(request, pk):
     project = Project.objects.get(project_id=pk)
     name = project.title
     ngo = project.ngo_id.name
+    form = PaymentDetailsForm(request.POST or None)
 
     if request.method == "POST":
             if request.POST['amount']:
                 amount = request.POST['amount']
                 print amount
-                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name}, context)
+                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form}, context)
             else:
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
@@ -168,7 +170,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 
 
-def PayU(request):
+def payment_redirect(request):
     MERCHANT_KEY = "JBZaLc"
     key = "JBZaLc"
     SALT = "GQs7yium"
@@ -183,6 +185,10 @@ def PayU(request):
     posted['txnid'] = txnid
     hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
     posted['key'] = key
+    posted['amount'] = request.POST['amount']
+    posted['productinfo'] = request.POST['project']
+    posted['firstname'] = request.POST['first_name']
+    posted['email'] = request.POST['email']
     hash_string = ''
     hashVarsSeq = hashSequence.split('|')
     for i in hashVarsSeq:
@@ -196,13 +202,13 @@ def PayU(request):
     action = PAYU_BASE_URL
     if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get(
             "firstname") != None and posted.get("email") != None):
-        return render_to_response('current_datetime.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
                                                                                     "MERCHANT_KEY": MERCHANT_KEY,
                                                                                     "txnid": txnid,
                                                                                     "hash_string": hash_string,
                                                                                     "action": "https://test.payu.in/_payment"}))
     else:
-        return render_to_response('current_datetime.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
                                                                                     "MERCHANT_KEY": MERCHANT_KEY,
                                                                                     "txnid": txnid,
                                                                                     "hash_string": hash_string,

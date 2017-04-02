@@ -54,13 +54,13 @@ urlpatterns = [
         url(r'^admin/', include(admin.site.urls)),
         url(r'^comingsoon', include('users.urls')),
         url(r'^develop/$', NGOformPage, name='NGOform'),
+        url(r'^payment_redirect/',views.payment_redirect, name='payment_redirect'),
 
         url(r'^aboutus/', views.aboutus, name='aboutus'),
         url(r'^terms/', views.terms, name='terms'),
         url(r'^refund/', views.refund, name='refund'),
         url(r'^privacy/', views.privacy, name='privacy'),
         url(r'^pricing/', views.pricing, name='pricing'),
-        url(r'^payumoney/',views.PayU),
         url(r'^Success/',views.success),
         url(r'^Failure/',views.failure),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up

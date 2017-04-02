@@ -139,7 +139,7 @@ li.paymentOptionsLinks.activePaymentOption{
     display: none;
     width:0;
 }
-#paymentBySavedCards{
+#paymentByDebitCard{
   display: block;
   width: 100%;
 }

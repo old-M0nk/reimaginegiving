@@ -1,6 +1,6 @@
 function openDonationInput(){
 	document.getElementById('projectPageDonateButtonClick').classList.toggle('activeButtonDonateShare');
-	document.getElementById('projectPageDonateButton').classList.toggle.('projectPageDonateSelected');
+	document.getElementById('projectPageDonateButton').classList.toggle('projectPageDonateSelected');
 }
 
 function openProjectMainTabs(evt, tabName) {

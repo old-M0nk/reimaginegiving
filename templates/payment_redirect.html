@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{{ action }}">
+    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
+    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
+    <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
+    <input style="display: none;" name="project" {% if amount %}value="{{ project.id }}" {% endif %}>
+    <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />
+    <input type="hidden" name="hash_string" value="{{ hash_string }}" />
+    <input type="hidden" name="hash" value="{{ hashh }}"/>
+    <input type="hidden" name="posted" value="{{ posted }}"/>
+    <input type="hidden" name="txnid" value="{{ txnid }}" />
+<button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

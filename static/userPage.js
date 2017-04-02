@@ -101,8 +101,8 @@ function openInNewTab(url) {
   win.focus();
 }
 
-function openShareBoxOverlay() {
-    document.getElementById("userPageShareBox").style.height = "100%";
+function openCauseAddOverlay() {
+    document.getElementById("userPageCauseAdd").style.height = "100%";
 	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
 function openDisplayPictureEditOverlay() {
