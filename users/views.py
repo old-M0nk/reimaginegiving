@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.template import RequestContext, loader, Context
 from django.views import generic
 from django.views.generic import View
-from .forms import email_form, UserLoginForm, UserRegistrationForm, NGORegistrationForm, NotificationForm, CardDetailsForm, ChangePasswordForm
+from .forms import *
 from .models import Email, User_Details, Donation, Notification, Card_Details
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
@@ -171,6 +171,21 @@ def userPage (request):
             cp_form = ChangePasswordForm(request.POST or None)
     else:
         cp_form = ChangePasswordForm(request.POST or None)
+
+    if request.method == "POST" and request.POST['submit'] == "change_email":
+        email_form = ChangeEmailForm(request.POST or None)
+        user = request.user
+        if auth(username=request.user.username, password=request.POST['password']):
+            user.username = request.POST['new_email']
+            user.email = request.POST['new_email']
+            user.save()
+            user = auth(username=request.POST['new_email'], password=request.POST['password'])
+            login(request, user)
+        else:
+            email_form = ChangeEmailForm(request.POST or None)
+    else:
+        email_form = ChangeEmailForm(request.POST or None)
+
     user_details = User_Details.objects.get(username=request.user.id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
@@ -183,6 +198,7 @@ def userPage (request):
                                              'notification': notification,
                                              'card_form': card_form,
                                              'cp_form':cp_form,
+                                             'email_form': email_form,
                                              'projects': project_list})
 
 

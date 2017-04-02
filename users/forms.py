@@ -66,5 +66,9 @@ class ChangePasswordForm(forms.Form):
     new = forms.CharField()
     re_enter = forms.CharField()
 
+class ChangeEmailForm(forms.Form):
+    email = forms.CharField()
+    password = forms.CharField()
+
 
 

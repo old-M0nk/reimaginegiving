@@ -257,7 +257,7 @@
 				<ul>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks active" onclick="openUserPageLeftSideTabs(event,'userPageProfileGeneral')">General</a></li>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfilePayment')">Payment Methods</a></li>
-					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfileCauses')">Causes i Care About</a></li>
+					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfileCauses')">Causes I Care About</a></li>
 				</ul>
 			</div>
 			
@@ -701,18 +701,22 @@
 				<div class="row userPageCenterContentHeadings" style="height: 150px;">
 					<h1>LogIn SETTINGS</h1>
 				</div>
-				<form class="form" autocomplete="off" novalidate>
+            {% if email_form %}
+				<form class="form" autocomplete="off" novalidate method="post" action="userPage.html">
+                    {% csrf_token %}
 					<fieldset>
-					  <label for="userEmail">Email</label>
-					  <input type="text" id="userEmail" />
+					  <label for="userEmail">Enter your new Email</label>
+					  <input type="text" id="userEmail" name="new_email"/>
 					  <p>*Email not verified</p>
 					</fieldset>
 					<fieldset>
 					  <label for="userOldPassword">Enter Password</label>
-					  <input type="password" id="userOldPassword" />
+					  <input type="password" id="userOldPassword" name="password"/>
 					</fieldset>
-					<button> Update Email</button>
+					<button type="submit" name="submit" value="change_email"> Update Email</button>
 				</form>
+            {% endif %}
+
 				<button class="changePassword" onclick="toggleChangePasswordForm()"> Change Password</button>
                 {% if cp_form %}
 				<form class="form changePasswordForm" id="changePasswordForm" autocomplete="off" novalidate method="post" action="userPage.html">
@@ -805,7 +809,7 @@
 			<script src="{% static "userPage.js" %}"></script>
 			
 			<div class="userPageConnectOptions">
-				<h2 class="userPageRightOptionsHeading">Spred The Word</h2>
+				<h2 class="userPageRightOptionsHeading">Spread The Word</h2>
 				<div class="row userPageRightOptionsContent">
 					<a data-href="https://www.facebook.com/reimaginegiving" class=" facebook button social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" >
 						<i class="icon">
