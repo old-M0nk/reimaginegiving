@@ -32,7 +32,7 @@ def days_gap(project):
 
 @register.simple_tag()
 def cardno(number):
-    card = Card_Details.objects.get(card_number=number)
+    card = Card_Details.objects.filter(card_number=number)
     return card.card_number[-4:]
 
 
