@@ -10,6 +10,7 @@ from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.db.models import F
 
 def comingSoon(request):
     if request.method == "POST":
@@ -147,6 +148,8 @@ def userPage(request):
         card_form = CardDetailsForm(request.POST or None)
         card_number = request.POST['num1']+request.POST['num2']+request.POST['num3']+request.POST['num4']
         date = request.POST['month']+'/'+request.POST['year']
+        project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
+        project = project[0]
         card = Card_Details(username=request.user,
                             card_number=card_number,
                             card_holder=request.POST['name'],
@@ -201,7 +204,8 @@ def userPage(request):
                                              'cp_form':cp_form,
                                              'email_form': email_form,
                                              'cards': cards,
-                                             'projects': project_list})
+                                             'projects': project_list,
+                                             'max_project': project})
 
 
 def NGOformPage (request):

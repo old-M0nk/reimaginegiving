@@ -883,8 +883,8 @@
 								</div>
 								
 								<div class="projectDetails">
-									<h1>Child Education Project</h1>
-									<h2>Nirmaan Society</h2>
+									<h1>{{ max_project.title }}</h1>
+									<h2>{{ max_project.ngo_id.name }}</h2>
 									
 								</div>
 								
@@ -902,7 +902,7 @@
 											<div class="row">
 												<div class="stats1 col-5">
 													<div class="statsNumber">
-														<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+														<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ max_project.raised_amount }}</p>
 													</div>
 													<div class="statsText">
 														<p>Raised</p>
@@ -910,7 +910,7 @@
 												</div>
 												<div class="stats2 col-4">
 													<div class="statsNumber">
-														<p>105</p>
+														<p>{% no_of_donors max_project %}</p>
 													</div>
 													<div class="statsText">
 														<p>Donors</p>
@@ -918,7 +918,7 @@
 												</div>
 												<div class="stats3 col-3">
 													<div class="statsNumber">
-														<p>14</p>
+														<p>{% days_left max_project.end_date %}</p>
 													</div>
 													<div class="statsText">
 														<p>Days left</p>
