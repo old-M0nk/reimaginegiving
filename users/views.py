@@ -190,10 +190,10 @@ def userPage(request):
 
     if request.method == 'POST' and request.POST['submit'] == "causes_i_care_about":
         cause_form = NewCausesForm(request.POST or None)
-        user = request.user
-        for name, value in request.POST.items():
-            if name != 'submit':
-                cause = Causes_I_Care_About(username=request.user, cause=value)
+        for i in request.POST:
+            print (request.POST[i])
+            if i != 'submit' and i != 'csrfmiddlewaretoken':
+                cause = Causes_I_Care_About(username=request.user, cause_id=request.POST[i])
                 cause.save()
             else:
                 cause_form = NewCausesForm(request.POST or None)
@@ -207,6 +207,7 @@ def userPage(request):
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
+    print chosen_causes
     exclude_cause_id = [cause.cause_id for cause in chosen_causes]
     not_chosen_causes = Cause.objects.exclude(cause_id__in=exclude_cause_id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())

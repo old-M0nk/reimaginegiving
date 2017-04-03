@@ -205,12 +205,12 @@
 		<div class="userPageCauseAddOuterContainer">
 			<div class="userPageCauseAddInnerContainer">
             {% if cause_form %}
-				<form action="userPage.html" method="post">
+				<form action="userPage.html" method="POST">
                 {% csrf_token %}
                     {% for cause in not_chosen_causes %}
 					<fieldset>
-					  <input type="checkbox" id="{{ cause.cause.name }}" name="{{ cause.cause.name }}" value="{{ cause.cause.cause_id }}"/>
-					  <label for="Education">{{ cause.cause.name }}</label>
+					  <input type="checkbox" id="{{ cause.name}}" name="{{ cause.name }}" value="{{ cause.cause_id }}"/>
+					  <label for="Education">{{ cause.name }}</label>
 					</fieldset>
                     {% endfor %}
 					<button class="userPageProfileCausesAddNewButton" type="submit" name="submit" value="causes_i_care_about"><i class="fa fa-plus"></i> Add</button>
@@ -438,7 +438,7 @@
 				<div class="userPageProfileCausesContent">
 					<ul>
                         {% for cause in chosen_causes %}
-						<li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i class="fa fa-minus floatRight"></i></li>
+                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i class="fa fa-minus floatRight"></i></li>
                         {% endfor %}
 					</ul>
 					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>
