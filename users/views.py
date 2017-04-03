@@ -5,12 +5,12 @@ from django.template import RequestContext, loader, Context
 from django.views import generic
 from django.views.generic import View
 from .forms import *
-from .models import Email, User_Details, Donation, Notification, Card_Details
+from .models import *
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.db.models import F
+from django.db.models import F, Q
 
 def comingSoon(request):
     if request.method == "POST":
@@ -188,9 +188,26 @@ def userPage(request):
     else:
         email_form = ChangeEmailForm(request.POST or None)
 
+    if request.method == 'POST' and request.POST['submit'] == "causes_i_care_about":
+        cause_form = NewCausesForm(request.POST or None)
+        user = request.user
+        for name, value in request.POST.items():
+            if name != 'submit':
+                cause = Causes_I_Care_About(username=request.user, cause=value)
+                cause.save()
+            else:
+                cause_form = NewCausesForm(request.POST or None)
+    else:
+        cause_form = NewCausesForm(request.POST or None)
+
+
+
+
     user_details = User_Details.objects.get(username=request.user.id)
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
+    chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
+    not_chosen_causes = Causes_I_Care_About.objects.filter(~Q(username=request.user))
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
     project_list = Project.objects.all()
@@ -205,7 +222,10 @@ def userPage(request):
                                              'email_form': email_form,
                                              'cards': cards,
                                              'projects': project_list,
-                                             'max_project': project})
+                                             'chosen_causes': chosen_causes,
+                                             'not_chosen_causes': not_chosen_causes,
+                                             'max_project': project,
+                                             'cause_form': cause_form})
 
 
 def NGOformPage (request):

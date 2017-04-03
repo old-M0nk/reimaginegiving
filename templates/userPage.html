@@ -204,21 +204,18 @@
 		<div class="translucentContainer1"></div>
 		<div class="userPageCauseAddOuterContainer">
 			<div class="userPageCauseAddInnerContainer">
-				<form>
+            {% if cause_form %}
+				<form action="userPage.html" method="post">
+                {% csrf_token %}
+                    {% for cause in not_chosen_causes %}
 					<fieldset>
-					  <input type="checkbox" id="Education" />
-					  <label for="Education">Education</label>
+					  <input type="checkbox" id="{{ cause.cause.name }}" name="{{ cause.cause.name }}" value="{{ cause.cause.cause_id }}"/>
+					  <label for="Education">{{ cause.cause.name }}</label>
 					</fieldset>
-					<fieldset>
-					  <input type="checkbox" id="XYZNICK" />
-						<label for="XYZNICK">XYZNICK</label>
-					</fieldset>
-					<fieldset>
-					<input type="checkbox" id="ghjlksbhb" />
-					  <label for="ghjlksbhb">ghjlksbhb</label>
-					</fieldset>
-					<button class="userPageProfileCausesAddNewButton" type="submit"><i class="fa fa-plus"></i> Add</button>
+                    {% endfor %}
+					<button class="userPageProfileCausesAddNewButton" type="submit" name="submit" value="causes_i_care_about"><i class="fa fa-plus"></i> Add</button>
 				</form>
+            {% endif %}
 			</div>
 		</div>
 	</div>
@@ -440,9 +437,9 @@
 				</div>
 				<div class="userPageProfileCausesContent">
 					<ul>
-						<li><i class="fa fa-circle"></i>Child Welfare<i class="fa fa-minus floatRight"></i></li>
-						<li><i class="fa fa-circle"></i>Education<i class="fa fa-minus floatRight"></i></li>
-						<li><i class="fa fa-circle"></i>Poverty<i class="fa fa-minus floatRight"></i></li>
+                        {% for cause in chosen_causes %}
+						<li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i class="fa fa-minus floatRight"></i></li>
+                        {% endfor %}
 					</ul>
 					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>
 				</div>
@@ -868,17 +865,17 @@
 					<li><div class="projectSection1">
 							<div class="row projectContent">
 								<div class="projectThumbnail">
-									<img class="img-thumbnail" src="{% static "images/web1.jpg" %}" >
+									<img class="img-thumbnail" src="{{ max_project.thumbnail|safe }}" >
 									<div class="row locationCause">
 										<div class="projectlocation">
 											<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-											<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
+											<div class="col-2 projectlocationHeading"><h2>{{ max_project.ngo_id.address }}</h2></div>
 										</div>
 										<div class="projectcause">
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
+											<div class="col-4 projectcauseHeading"><h2>{{ max_project.cause.name }}</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'index' %}"></a>
+										<a class="locationCauseLink" href="{% url 'projectPage' pk=max_project.project_id %}"></a>
 									</div>
 								</div>
 								
