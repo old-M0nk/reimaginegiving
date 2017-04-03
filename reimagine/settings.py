@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'staff',
     'social_django',
     'django.contrib.sites',
+    'eav',
 
     'django.contrib.admin',
     'django.contrib.auth',
