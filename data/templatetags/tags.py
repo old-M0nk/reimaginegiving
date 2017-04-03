@@ -31,8 +31,8 @@ def days_gap(project):
 
 
 @register.simple_tag()
-def cardno(number):
-    card = Card_Details.objects.filter(card_number=number)
+def cardno(card):
+    card = Card_Details.objects.filter(card_number=card.card_number)
     return card.card_number[-4:]
 
 
