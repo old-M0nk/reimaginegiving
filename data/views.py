@@ -171,9 +171,9 @@ from django.template.context_processors import csrf
 
 
 def payment_redirect(request):
-    MERCHANT_KEY = "JBZaLc"
-    key = "JBZaLc"
-    SALT = "GQs7yium"
+    MERCHANT_KEY = "oplRyvbH"
+    key = "oplRyvbH"
+    SALT = "pxlrngrbm4"
     PAYU_BASE_URL = "https://test.payu.in/_payment"
     action = ''
     posted = {}

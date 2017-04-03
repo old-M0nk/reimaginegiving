@@ -236,7 +236,7 @@
 		
 		<div class="col-2 userPageLeftColumn">
 			<div class="icon-cont">
-				<img class="circleIconImage" src="{% static "images/anuruddh.png" %}">
+				<img class="circleIconImage" src="{% static "images/userimage.png" %}">
                 <p><i class="fa fa-pencil icon-contPencil"></i></p>
 			</div>
             <script src="{% static "userPage.js" %}"></script>
@@ -468,7 +468,19 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks">
+									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+										<i class="fa fa-google-plus"></i>
+									</a>
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
+								</div>
+							</div>
 							</div>
 							<a class="divLink" href="{% url 'projectPage' pk=donation.project_id.project_id %}"></a>
 						</li>
@@ -590,7 +602,19 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks">
+									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+										<i class="fa fa-google-plus"></i>
+									</a>
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
+								</div>
+							</div>
 							</div>
 							<a class="divLink" href="">{% url 'projectPage' pk=donation.project_id.project_id %}</a>
 						</li>
@@ -789,7 +813,7 @@
 					</div>
 					<div class="badge__content">
 					<div class="badge__content-inner">
-						<div class="badge__value">Gold</div>
+						<div class="badge__value">Basic</div>
 					</div>
 					</div>
 				</div>
@@ -797,10 +821,10 @@
 			<h2 class="userPageRightSupporter">Supporter</h2>
 			<script src="{% static "userPage.js" %}"></script>
 			
-			<div class="userPageConnectOptions">
+						<div class="userPageConnectOptions">
 				<h2 class="userPageRightOptionsHeading">Spread The Word</h2>
 				<div class="row userPageRightOptionsContent">
-					<a data-href="https://www.facebook.com/reimaginegiving" class=" facebook button social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" >
+					<a title="Facebook share" target="_blank" class="facebook button customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org" >
 						<i class="icon">
 						  <i class="fa fa-facebook"></i>
 						</i>
@@ -817,11 +841,11 @@
 					</a>
 				</div>
 				<div class="row userPageRightOptionsContent">
-					<a class="twitter-share-button twitter button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
+					<a class="twitter-share-button twitter button customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
 						<i class="icon">
 						  <i class="fa fa-twitter">
+							</i>
 						</i>
-					  </i>
 					  <div class="slide">
 						<p>
 						  Twitter

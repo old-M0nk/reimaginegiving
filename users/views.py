@@ -117,7 +117,7 @@ def logout_view(request):
 
 
 @login_required
-def userPage (request):
+def userPage(request):
     notification = Notification.objects.get(username=request.user)
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
