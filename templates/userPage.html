@@ -411,7 +411,7 @@
 						<ul>
                             {% for card in cards %}
 							<li>
-								<h2>XXXX-XXXX-XXXX-{% cardno card %}</h2>
+								<h2>{{ card.card_number }}</h2>
 								<p>Exp: {{ card.expiration_date }}</p>
 							</li>
                             {% endfor %}
