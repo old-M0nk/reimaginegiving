@@ -208,8 +208,7 @@ def userPage(request):
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
     exclude_cause_id = [cause.cause_id for cause in chosen_causes]
-    # not_chosen_causes = Cause.objects.exclude(cause_id__in=exclude_cause_id)
-    not_chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
+    not_chosen_causes = Cause.objects.exclude(cause_id__in=exclude_cause_id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
     project_list = Project.objects.all()

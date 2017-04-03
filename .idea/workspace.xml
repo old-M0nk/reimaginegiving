@@ -23,8 +23,8 @@
       <file leaf-file-name="userPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/userPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="218" column="18" lean-forward="true" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
+            <state relative-caret-position="268">
+              <caret line="214" column="32" lean-forward="true" selection-start-line="214" selection-start-column="32" selection-end-line="214" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -64,11 +64,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="211" column="81" lean-forward="false" selection-start-line="211" selection-start-column="81" selection-end-line="211" selection-end-column="81" />
+            <state relative-caret-position="389">
+              <caret line="217" column="25" lean-forward="false" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -247,6 +257,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reimaginegiving" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reimaginegiving" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -969,10 +993,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1298">
-          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        <state relative-caret-position="268">
+          <caret line="214" column="32" lean-forward="true" selection-start-line="214" selection-start-column="32" selection-end-line="214" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -997,18 +1021,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
+    <entry file="file://$PROJECT_DIR$/data/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="218" column="18" lean-forward="true" selection-start-line="218" selection-start-column="18" selection-end-line="218" selection-end-column="18" />
+        <state relative-caret-position="663">
+          <caret line="42" column="17" lean-forward="false" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="211" column="81" lean-forward="false" selection-start-line="211" selection-start-column="81" selection-end-line="211" selection-end-column="81" />
+        <state relative-caret-position="389">
+          <caret line="217" column="25" lean-forward="false" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
