@@ -174,7 +174,7 @@ def payment_redirect(request):
     MERCHANT_KEY = "oplRyvbH"
     key = "oplRyvbH"
     SALT = "pxlrngrbm4"
-    PAYU_BASE_URL = "https://secure.payu.in/_payment"
+    PAYU_BASE_URL = "https://test.payu.in/_payment"
     action = ''
     posted = {}
     for i in request.POST:
@@ -213,7 +213,7 @@ def payment_redirect(request):
                                                                                     'firstname': posted['firstname'],
                                                                                     'email': posted['email'],
                                                                                     'mobile': posted['mobile'],
-                                                                                    "action": "https://secure.payu.in/_payment"}))
+                                                                                    "action": "https://test.payu.in/_payment"}))
     else:
         return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
                                                                                     "MERCHANT_KEY": MERCHANT_KEY,
