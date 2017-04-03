@@ -155,6 +155,7 @@ def userPage(request):
         card.save()
     else:
         card_form = CardDetailsForm(request.POST or None)
+    cards = Card_Details.objects.filter(username=request.user)
 
     if request.method == "POST" and request.POST['submit'] == "change_password":
         cp_form = ChangePasswordForm(request.POST or None)
@@ -199,6 +200,7 @@ def userPage(request):
                                              'card_form': card_form,
                                              'cp_form':cp_form,
                                              'email_form': email_form,
+                                             'cards': cards,
                                              'projects': project_list})
 
 

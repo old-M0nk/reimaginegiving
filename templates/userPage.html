@@ -402,33 +402,35 @@
 						</div>
 						
 						<div class="col-9 userPagePaymentOptionsLinksContent" id="userPagePaymentOptionsAddAccount">
-							<h4>addhgdf</h4>
+							<h4>Coming Soon!</h4>
 						</div>
 						
 					</div>
 					<div class="userPagePaymentSavedCards">
 						<h2>Saved Cards</h2>
 						<ul>
+                            {% for card in cards %}
 							<li>
-								<h2>XXXX-XXXX-XXXX-1234</h2>
-								<p>Exp: 11/2022</p>
+								<h2>XXXX-XXXX-XXXX-{% cardno card.card_number %}</h2>
+								<p>Exp: {{ card.expiration_date }}</p>
 							</li>
+                            {% endfor %}
 							<li class="addNewCard">
 								<h2>+<br/>Link a Card</h2>
 							</li>
 						</ul>
 					</div>
-					<div class="userPagePaymentSavedCards">
-						<h2>Linked Accounts</h2>
-						<ul>
-							<li>
-								<h2>{{ user.first_name }} {{ user.last_name }}</h2>
-							</li>
-							<li class="addNewCard">
-								<h2>+<br/>Link a Card</h2>
-							</li>
-						</ul>
-					</div>
+{#					<div class="userPagePaymentSavedCards">#}
+{#						<h2>Linked Accounts</h2>#}
+{#						<ul>#}
+{#							<li>#}
+{#								<h2>{{ user.first_name }} {{ user.last_name }}</h2>#}
+{#							</li>#}
+{#							<li class="addNewCard">#}
+{#								<h2>+<br/>Link a Card</h2>#}
+{#							</li>#}
+{#						</ul>#}
+{#					</div>#}
 				</div>
 			</div>
 

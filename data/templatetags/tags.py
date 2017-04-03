@@ -1,6 +1,6 @@
 from django import template
 import datetime
-from users.models import Donation
+from users.models import Donation, Card_Details
 
 register = template.Library()
 
@@ -28,5 +28,11 @@ def days_gap(project):
     count = Donation.objects.filter(project_id=project).count()
     return count
 
+
+
+@register.simple_tag()
+def cardno(number):
+    card = Card_Details.objects.get(card_number=number)
+    return card.card_number[-4:]
 
 
