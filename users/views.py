@@ -207,7 +207,7 @@ def userPage(request):
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
-    not_chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
+    not_chosen_causes = Cause.objects.all() - Causes_I_Care_About.objects.filter(username=request.user)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
     project_list = Project.objects.all()
