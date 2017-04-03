@@ -148,8 +148,6 @@ def userPage(request):
         card_form = CardDetailsForm(request.POST or None)
         card_number = request.POST['num1']+request.POST['num2']+request.POST['num3']+request.POST['num4']
         date = request.POST['month']+'/'+request.POST['year']
-        project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
-        project = project[0]
         card = Card_Details(username=request.user,
                             card_number=card_number,
                             card_holder=request.POST['name'],
@@ -191,6 +189,8 @@ def userPage(request):
         email_form = ChangeEmailForm(request.POST or None)
 
     user_details = User_Details.objects.get(username=request.user.id)
+    project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
+    project = project[0]
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
     project_list = Project.objects.all()
