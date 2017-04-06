@@ -9,6 +9,7 @@ from users.models import ContactUs
 from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
+from django.contrib import messages
 
 
 
@@ -105,13 +106,20 @@ def checkOut(request, pk):
     form = PaymentDetailsForm(request.POST or None)
 
     if request.method == "POST":
+        import re
+        if re.match("^[0-9]*$", request.POST['amount']):
             if request.POST['amount']:
                 amount = request.POST['amount']
                 print amount
                 return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
             else:
+                messages.add_message(request, messages.ERROR, 'Enter a valid amount.')
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
+        else:
+            messages.add_message(request, messages.ERROR, 'Enter a valid amount.')
+            url = reverse('projectPage', kwargs={'pk': pk})
+            return HttpResponseRedirect(url)
     else:
         url = reverse('projectPage', kwargs={'pk': pk})
         return HttpResponseRedirect(url)
