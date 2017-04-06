@@ -420,7 +420,9 @@
 {#                    {% if form %}#}
                     {% if messages %}
                             {% for message in messages %}
-                            <i style="color: red">{{ message }}</i>
+                                {% ifequal message.tags "amount error" %}
+                                    <i style="color: red">{{ message }}</i>
+                                {% endifequal %}
                             {% endfor %}
                     {% endif %}
 		            <form class="projectPageDonateButtonClickForm" method="POST" action="{% url 'checkOut' pk=project.project_id %}">

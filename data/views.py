@@ -10,6 +10,7 @@ from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
 from django.contrib import messages
+import re
 
 
 
@@ -105,24 +106,33 @@ def checkOut(request, pk):
     ngo = project.ngo_id.name
     form = PaymentDetailsForm(request.POST or None)
 
-    if request.method == "POST":
-        import re
-        if re.match("^[0-9]*$", request.POST['amount']):
-            if request.POST['amount']:
-                amount = request.POST['amount']
-                print amount
-                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
+    if 'amount' not in request.session:
+        if request.method == "POST":
+            import re
+            if re.match("^[0-9]*$", request.POST['amount']):
+                if request.POST['amount']:
+                    amount = request.POST['amount']
+                    print amount
+                    return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
+                else:
+                    messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
+                    url = reverse('projectPage', kwargs={'pk': pk})
+                    return HttpResponseRedirect(url)
             else:
-                messages.add_message(request, messages.ERROR, 'Enter a valid amount.')
+                messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
         else:
-            messages.add_message(request, messages.ERROR, 'Enter a valid amount.')
             url = reverse('projectPage', kwargs={'pk': pk})
             return HttpResponseRedirect(url)
     else:
-        url = reverse('projectPage', kwargs={'pk': pk})
-        return HttpResponseRedirect(url)
+        amount = request.session['amount']
+        request.session.clear()
+        print amount
+        return render(request, 'checkOut.html',
+                      {'amount': amount, 'project': project, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
+                      context)
+
 
 
 
@@ -179,6 +189,7 @@ from django.template.context_processors import csrf
 
 
 def payment_redirect(request):
+    previous_page = request.META['HTTP_REFERER']
     MERCHANT_KEY = "4934580"
     key = "rjQUPktU"
     SALT = "e5iIg1jwi8"
@@ -210,18 +221,31 @@ def payment_redirect(request):
     hash_string += SALT
     hashh = hashlib.sha512(hash_string).hexdigest().lower()
     action = PAYU_BASE_URL
-    if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get(
-            "firstname") != None and posted.get("email") != None):
-        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
-                                                                                    "MERCHANT_KEY": MERCHANT_KEY,
-                                                                                    "txnid": txnid,
-                                                                                    "hash_string": hash_string,
-                                                                                    'amount': posted['amount'],
-                                                                                    'project': posted['productinfo'],
-                                                                                    'firstname': posted['firstname'],
-                                                                                    'email': posted['email'],
-                                                                                    'mobile': posted['mobile'],
-                                                                                    "action": "https://test.payu.in/_payment"}))
+    if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get("firstname") != None and posted.get("email") != None):
+        if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['email']) != None:
+            if re.match("^[0-9]*$", request.POST['mobile']) and len(str(request.POST['mobile'])) == 10:
+                return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+                                                                                            "MERCHANT_KEY": MERCHANT_KEY,
+                                                                                            "txnid": txnid,
+                                                                                            "hash_string": hash_string,
+                                                                                            'amount': posted['amount'],
+                                                                                            'project': posted['productinfo'],
+                                                                                            'firstname': posted['firstname'],
+                                                                                            'email': posted['email'],
+                                                                                            'mobile': posted['mobile'],
+                                                                                            "action": "https://test.payu.in/_payment"}))
+            else:
+                messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
+                previous_page = request.META['HTTP_REFERER']
+                request.session['amount'] = request.POST['amount']
+                return render(request, 'payment_redirect.html', {'previous_page': previous_page})
+
+        else:
+            messages.add_message(request, messages.ERROR, 'Enter a valid e-mail address.', extra_tags="email")
+            previous_page = request.META['HTTP_REFERER']
+            request.session['amount'] = request.POST['amount']
+            return render(request, 'payment_redirect.html', {'previous_page':previous_page})
+
     else:
         return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
                                                                                     "MERCHANT_KEY": MERCHANT_KEY,

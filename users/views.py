@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout, get_user_model
-from django.contrib.auth.models import User
-from django.template import RequestContext, loader, Context
-from django.views import generic
-from django.views.generic import View
+# from django.contrib.auth import login, logout, get_user_model
+# from django.contrib.auth.models import User
+# from django.template import RequestContext, loader, Context
+# from django.views import generic
+# from django.views.generic import View
 from .forms import *
 from .models import *
 from data.models import NGOtemp, Project
@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.db.models import F, Q
+from django.contrib import messages
 
 def comingSoon(request):
     if request.method == "POST":
@@ -186,14 +187,18 @@ def userPage(request):
         cp_form = ChangePasswordForm(request.POST or None)
 
     if request.method == "POST" and request.POST['submit'] == "change_email":
+        import re
         email_form = ChangeEmailForm(request.POST or None)
         user = request.user
         if auth(username=request.user.username, password=request.POST['password']):
-            user.username = request.POST['new_email']
-            user.email = request.POST['new_email']
-            user.save()
-            user = auth(username=request.POST['new_email'], password=request.POST['password'])
-            login(request, user)
+            if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['new_email']) != None:
+                user.username = request.POST['new_email']
+                user.email = request.POST['new_email']
+                user.save()
+                user = auth(username=request.POST['new_email'], password=request.POST['password'])
+                login(request, user)
+            else:
+                messages.add_message(request, messages.ERROR, 'Enter a valid e-mail address.')
         else:
             email_form = ChangeEmailForm(request.POST or None)
     else:

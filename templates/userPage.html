@@ -717,6 +717,11 @@
 				<form class="form" autocomplete="off" novalidate method="post" action="userPage.html">
                     {% csrf_token %}
 					<fieldset>
+                        {% if messages %}
+                            {% for message in messages %}
+                            <i style="color: red">{{ message }}</i>
+                            {% endfor %}
+                        {% endif %}
 					  <label for="userEmail">Enter your new Email</label>
 					  <input type="text" id="userEmail" name="new_email"/>
 					  <p>*Email not verified</p>
