@@ -156,9 +156,11 @@
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
                                     <div class="form-log-in animated">
+                                <i style="color: red">{{ message }}</i>
 									{% include "registration/login.html" %}
                                     </div>
                                     <div class="form-sign-up animated">
+                                        <i style="color: red">{{ message }}</i>
 									{% include "registration/register.html" %}
                                     </div>
 								</div>
@@ -189,9 +191,11 @@
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
                                     <div class="form-log-in1 animated">
+                                    <i style="color: red">{{ message }}</i>
 									{% include "registration/login.html" %}
                                     </div>
                                     <div class="form-sign-up1 animated">
+                                        <i style="color: red">{{ message }}</i>
 									{% include "registration/register.html" %}
                                     </div>
 								</div>

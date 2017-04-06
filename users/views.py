@@ -61,20 +61,23 @@ def login_view(request):
             login(request, user)
             print("True")
             message = "Welcome"
-            context_dict = {'message': message}
+            project_list = Project.objects.all()  ###view all project... no logic used...
+            context_dict = {'message': message, 'projects': project_list}
             page = 'index.html'
         else:
             # Return an 'invalid login' error message.
-            context_dict = {'message': 'Incorrect Credentials', 'form': form}
-            page = 'registration/login.html'
+            project_list = Project.objects.all()  ###view all project... no logic used...
+            context_dict = {'message': 'Incorrect Credentials', 'form': form, 'projects': project_list}
+            page = 'index.html'
 
     else:#if the form has not been submitted
         form = UserLoginForm(request.POST or None)
-        context_dict = {'form':form, 'message': "Login blah"}
-        page = 'registration/login.html'
-
-    if request.user.is_authenticated():
-        return render(request, page, context_dict)
+        project_list = Project.objects.all()  ###view all project... no logic used...
+        context_dict = {'form':form, 'projects': project_list}
+        page = 'index.html'
+    #
+    # if request.user.is_authenticated():
+    return render(request, page, context_dict)
 
 
 def register_view(request):
@@ -85,24 +88,32 @@ def register_view(request):
         username = request.POST['username']
         password = request.POST['password']
         password2 = request.POST['password2']
+        import re
 
-        #check if the passwords match
-        if password == password2:
-            user = User(username=username, email=username, password=password, first_name=first_name, last_name=last_name)
-            # user = user.save(commit=False)
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            user.set_password(password)
-            user.save()
-            user_details = User_Details(username=user)
-            user_details.save()
-            notifications = Notification(username=user)
-            notifications.save()
-            login(request, user)
-            context_dict = {
-                "message": "Welcome",
-            }
+        if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['username'] )!= None:
+            # check if the passwords match
+            if password == password2:
+                user = User(username=username, email=username, password=password, first_name=first_name,
+                            last_name=last_name)
+                # user = user.save(commit=False)
+                user.backend = 'django.contrib.auth.backends.ModelBackend'
+                user.set_password(password)
+                user.save()
+                user_details = User_Details(username=user)
+                user_details.save()
+                notifications = Notification(username=user)
+                notifications.save()
+                login(request, user)
+                context_dict = {
+                    "message": "Welcome",
+                }
+            else:
+                context_dict = {'form': form, 'message': "Passwords did not match!"}
         else:
-            context_dict = {'form': form, 'message': "Passwords did not match!"}
+            context_dict = {'form': form, 'message': "Enter a valid Email address!"}
+
+
+
     else:
         form = UserRegistrationForm(request.POST or None)
         context_dict = {'form': form}
