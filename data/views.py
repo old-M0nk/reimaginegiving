@@ -192,7 +192,7 @@ def payment_redirect(request):
         email=request.POST['email'],
         redirect_url= "comingSoon.html"
     )
-    print response['payment_request']['longurl']
+    print response.payment_request.longurl
     return render_to_response("comingSoon.html")
     # # print the long URL of the payment request.
     # print response['payment_request']['longurl']
