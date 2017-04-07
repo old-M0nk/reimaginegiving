@@ -193,7 +193,7 @@ def payment_redirect(request):
     MERCHANT_KEY = "5771062"
     key = "oplRyvbH"
     SALT = "pxlrngrbm4"
-    PAYU_BASE_URL = "https://secure.payu.in/_payment"
+    PAYU_BASE_URL = "https://test.payu.in/_payment"
     action = ''
     posted = {}
     for i in request.POST:
@@ -234,7 +234,7 @@ def payment_redirect(request):
                                                                                             'email': posted['email'],
                                                                                             'mobile': posted['mobile'],
                                                                                             'key': posted['key'],
-                                                                                            "action": "https://secure.payu.in/_payment"}))
+                                                                                            "action": "https://test.payu.in/_payment"}))
             else:
                 messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
                 previous_page = request.META['HTTP_REFERER']
