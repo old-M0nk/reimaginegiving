@@ -199,6 +199,7 @@ def payment_redirect(request):
     response = requests.post("https://www.instamojo.com/api/1.1/payment-requests/", data=payload, headers=headers)
 
     print response.text
+    print response['payment_request']['longurl']
 
 
     # Create a new Payment Request
