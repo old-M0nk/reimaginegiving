@@ -233,6 +233,7 @@ def payment_redirect(request):
                                                                                             'firstname': posted['firstname'],
                                                                                             'email': posted['email'],
                                                                                             'mobile': posted['mobile'],
+                                                                                            'key': posted['key'],
                                                                                             "action": "https://secure.payu.in/_payment"}))
             else:
                 messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
