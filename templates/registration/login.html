@@ -2,29 +2,29 @@
 {% load staticfiles %}
 
 {% block content %}
-    {% block javascript %}
-      <script>
-    $("#id_username").change(function () {
-      var form = $(this).closest("form");
-      $.ajax({
-        url: form.attr("data-validate-username-url"),
-        data: form.serialize(),
-        dataType: 'json',
-        success: function (data) {
-          if (data.is_taken) {
-            alert(data.error_message);
-          }
-        }
-      });
-
-    });
-  </script>
-    {% endblock %}
+{#    {% block javascript %}#}
+{#      <script>#}
+{#    $("#id_username").change(function () {#}
+{#      var form = $(this).closest("form");#}
+{#      $.ajax({#}
+{#        url: form.attr("data-validate-username-url"),#}
+{#        data: form.serialize(),#}
+{#        dataType: 'json',#}
+{#        success: function (data) {#}
+{#          if (data.is_taken) {#}
+{#            alert(data.error_message);#}
+{#          }#}
+{#        }#}
+{#      });#}
+{##}
+{#    });#}
+{#  </script>#}
+{#    {% endblock %}#}
 
     {% if not user.is_authenticated %}
 
 
-									<form action="{% url 'login' %}" method="POST" id="id_username" data-validate-username-url="{% url 'validate_username' %}">
+									<form action="{% url 'login' %}" method="POST">
                                     {% csrf_token %}
 									  <input name="username" placeholder="Email" type="text"/>
 									  <input name="password" placeholder="Password" type="Password" />
@@ -37,6 +37,5 @@
 
      {% else %}{{ user.username }}
     {% endif %}
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="{% static "js.js" %}"></script>
+{#    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>#}
 {% endblock %}
