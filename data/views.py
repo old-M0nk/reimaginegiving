@@ -189,8 +189,7 @@ def payment_redirect(request):
         amount=request.POST['amount'],
         purpose=request.POST['project'],
         send_email=True,
-        email=request.POST['email'],
-        redirect_url=('comingSoon.html')
+        email=request.POST['email']
     )
     print response1
     return render_to_response(response1)
