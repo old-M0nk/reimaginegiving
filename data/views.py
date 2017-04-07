@@ -185,14 +185,15 @@ def payment_redirect(request):
                     auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
 
     # Create a new Payment Request
-    response1 = api.payment_request_create(
+    response = api.payment_request_create(
         amount=request.POST['amount'],
         purpose=request.POST['project'],
         send_email=True,
-        email=request.POST['email']
+        email=request.POST['email'],
+        redirect_url= "comingSoon.html"
     )
-    print response1.text
-    return render_to_response(response1['payment_request']['longurl'])
+    print response['payment_request']['longurl']
+    return render_to_response("comingSoon.html")
     # # print the long URL of the payment request.
     # print response['payment_request']['longurl']
     # # print the unique ID(or payment request ID)
