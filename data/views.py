@@ -190,7 +190,7 @@ def payment_redirect(request):
         purpose=request.POST['project'],
         send_email=True,
         email=request.POST['email'],
-        redirect_url="http://www.example.com/handle_redirect.py"
+        redirect_url="success.html"
     )
     # # print the long URL of the payment request.
     # print response['payment_request']['longurl']
