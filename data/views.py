@@ -276,63 +276,63 @@ from django.template.context_processors import csrf
 #                                                                                     "action": "."}))
 #
 #
-# @csrf_protect
-# @csrf_exempt
-# def success(request):
-#     c = {}
-#     c.update(csrf(request))
-#     status = request.POST["status"]
-#     firstname = request.POST["firstname"]
-#     amount = request.POST["amount"]
-#     txnid = request.POST["txnid"]
-#     posted_hash = request.POST["hash"]
-#     key = request.POST["key"]
-#     productinfo = request.POST["productinfo"]
-#     email = request.POST["email"]
-#     salt = "GQs7yium"
-#     try:
-#         additionalCharges = request.POST["additionalCharges"]
-#         retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-#     except Exception:
-#         retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-#     hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-#     if (hashh != posted_hash):
-#         print "Invalid Transaction. Please try again"
-#     else:
-#         print "Thank You. Your order status is ", status
-#         print "Your Transaction ID for this transaction is ", txnid
-#         print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-#     return render_to_response('sucess.html',
-#                               RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
-#
-#
-# @csrf_protect
-# @csrf_exempt
-# def failure(request):
-#     c = {}
-#     c.update(csrf(request))
-#     status = request.POST["status"]
-#     firstname = request.POST["firstname"]
-#     amount = request.POST["amount"]
-#     txnid = request.POST["txnid"]
-#     posted_hash = request.POST["hash"]
-#     key = request.POST["key"]
-#     productinfo = request.POST["productinfo"]
-#     email = request.POST["email"]
-#     salt = "GQs7yium"
-#     try:
-#         additionalCharges = request.POST["additionalCharges"]
-#         retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-#     except Exception:
-#         retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-#     hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-#     if (hashh != posted_hash):
-#         print "Invalid Transaction. Please try again"
-#     else:
-#         print "Thank You. Your order status is ", status
-#         print "Your Transaction ID for this transaction is ", txnid
-#         print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-#     return render_to_response("Failure.html", RequestContext(request, c))
+@csrf_protect
+@csrf_exempt
+def success(request):
+    c = {}
+    c.update(csrf(request))
+    status = request.POST["status"]
+    firstname = request.POST["firstname"]
+    amount = request.POST["amount"]
+    txnid = request.POST["txnid"]
+    posted_hash = request.POST["hash"]
+    key = request.POST["key"]
+    productinfo = request.POST["productinfo"]
+    email = request.POST["email"]
+    salt = "GQs7yium"
+    try:
+        additionalCharges = request.POST["additionalCharges"]
+        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+    except Exception:
+        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+    if (hashh != posted_hash):
+        print "Invalid Transaction. Please try again"
+    else:
+        print "Thank You. Your order status is ", status
+        print "Your Transaction ID for this transaction is ", txnid
+        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+    return render_to_response('sucess.html',
+                              RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
+
+
+@csrf_protect
+@csrf_exempt
+def failure(request):
+    c = {}
+    c.update(csrf(request))
+    status = request.POST["status"]
+    firstname = request.POST["firstname"]
+    amount = request.POST["amount"]
+    txnid = request.POST["txnid"]
+    posted_hash = request.POST["hash"]
+    key = request.POST["key"]
+    productinfo = request.POST["productinfo"]
+    email = request.POST["email"]
+    salt = "GQs7yium"
+    try:
+        additionalCharges = request.POST["additionalCharges"]
+        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+    except Exception:
+        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+    if (hashh != posted_hash):
+        print "Invalid Transaction. Please try again"
+    else:
+        print "Thank You. Your order status is ", status
+        print "Your Transaction ID for this transaction is ", txnid
+        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+    return render_to_response("Failure.html", RequestContext(request, c))
 
 #
 # from django.contrib.auth.models import User
