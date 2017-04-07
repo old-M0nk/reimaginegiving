@@ -193,7 +193,7 @@ def payment_redirect(request):
         redirect_url=('comingSoon.html')
     )
     print (response)
-    return render_to_response(response)
+    return render_to_response(response['longurl'])
     # # print the long URL of the payment request.
     # print response['payment_request']['longurl']
     # # print the unique ID(or payment request ID)
