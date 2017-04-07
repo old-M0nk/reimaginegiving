@@ -8,7 +8,7 @@
 <body>
 <form method="post" action="{{ action }}">
     <input style="display: none;" name="amount" value="{{ amount }}">
-    <input style="display: none;" name="mobile" value="{{ mobile }}">
+    <input style="display: none;" name="phone" value="{{ mobile }}">
     <input style="display: none;" name="firstname" value="{{ firstname }}">
     <input style="display: none;" name="email" value="{{ email }}">
     <input style="display: none;" name="productinfo" value="{{ project }}">
@@ -16,9 +16,9 @@
     <input type="hidden" name="hash_string" value="{{ hash_string }}" />
     <input type="hidden" name="hash" value="{{ hashh }}"/>
     <input type="hidden" name="posted" value="{{ posted }}"/>
-    <input type="hidden" name="txnid" value="{{ txnid }}"/>
-    <input type="hidden" name="surl" value="{% url 'surl' %}"/>
-    <input type="hidden" name="furl" value="{% url 'furl' %}"/>
+    <input type="hidden" name="Txnid" value="{{ txnid }}"/>
+    <input type="hidden" name="Surl" value="{% url 'surl' %}"/>
+    <input type="hidden" name="Furl" value="{% url 'furl' %}"/>
     <input type="hidden" name="service_provider" value="payu_paisa" size="64"/>
     <button type="submit">Submit</button>
 </form>
