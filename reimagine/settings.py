@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'staff',
     'social_django',
     'django.contrib.sites',
+    'instamojo_wrapper',
 
     'django.contrib.admin',
     'django.contrib.auth',

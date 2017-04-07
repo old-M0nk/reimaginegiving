@@ -180,6 +180,26 @@ def pricing (request):
     return render(request, 'pricing.html')
 
 
+def payment_redirect(request):
+    from instamojo_wrapper import Instamojo
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
+
+    # Create a new Payment Request
+    response = api.payment_request_create(
+        amount=request.POST['amount'],
+        purpose=request.POST['project'],
+        send_email=True,
+        email=request.POST['email'],
+        redirect_url= 'reimaginegiving.org/comingsoon'
+    )
+    # # print the long URL of the payment request.
+    # print response['payment_request']['longurl']
+    # # print the unique ID(or payment request ID)
+    # print response['payment_request']['id']
+
+
+
 from django.template.loader import get_template
 from django.template import Context, Template, RequestContext
 import datetime
@@ -189,130 +209,130 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 
 
-def payment_redirect(request):
-    previous_page = request.META['HTTP_REFERER']
-    MERCHANT_KEY = "5771062"
-    key = "oplRyvbH"
-    SALT = "pxlrngrbm4"
-    PAYU_BASE_URL = "https://secure.payu.in/_payment"
-    action = ''
-    posted = {}
-    for i in request.POST:
-        posted[i] = request.POST[i]
-    hash_object = hashlib.sha256(b'randint(0,20)')
-    txnid = hash_object.hexdigest()[0:20]
-    hashh = ''
-    posted['txnid'] = txnid
-    hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
-    posted['key'] = key
-    posted['amount'] = request.POST['amount']
-    posted['productinfo'] = request.POST['project']
-    print posted['productinfo']
-    posted['firstname'] = request.POST['first_name']
-    posted['email'] = request.POST['email']
-    posted['mobile'] = request.POST['mobile']
-    hash_string = ''
-    hashVarsSeq = hashSequence.split('|')
-    for i in hashVarsSeq:
-        try:
-            hash_string += str(posted[i])
-        except Exception:
-            hash_string += ''
-        hash_string += '|'
-    hash_string += SALT
-    hashh = hashlib.sha512(hash_string).hexdigest().lower()
-    action = PAYU_BASE_URL
-    if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get("firstname") != None and posted.get("email") != None):
-        if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['email']) != None:
-            if re.match("^[0-9]*$", request.POST['mobile']) and len(str(request.POST['mobile'])) == 10:
-                return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
-                                                                                            "MERCHANT_KEY": MERCHANT_KEY,
-                                                                                            "txnid": txnid,
-                                                                                            "hash_string": hash_string,
-                                                                                            'amount': posted['amount'],
-                                                                                            'project': posted['productinfo'],
-                                                                                            'firstname': posted['firstname'],
-                                                                                            'email': posted['email'],
-                                                                                            'mobile': posted['mobile'],
-                                                                                            'key': posted['key'],
-                                                                                            "action": "https://secure.payu.in/_payment"}))
-            else:
-                messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
-                previous_page = request.META['HTTP_REFERER']
-                request.session['amount'] = request.POST['amount']
-                return render(request, 'payment_redirect.html', {'previous_page': previous_page})
-
-        else:
-            messages.add_message(request, messages.ERROR, 'Enter a valid e-mail address.', extra_tags="email")
-            previous_page = request.META['HTTP_REFERER']
-            request.session['amount'] = request.POST['amount']
-            return render(request, 'payment_redirect.html', {'previous_page':previous_page})
-
-    else:
-        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
-                                                                                    "MERCHANT_KEY": MERCHANT_KEY,
-                                                                                    "txnid": txnid,
-                                                                                    "hash_string": hash_string,
-                                                                                    "action": "."}))
-
-
-@csrf_protect
-@csrf_exempt
-def success(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response('sucess.html',
-                              RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
-
-
-@csrf_protect
-@csrf_exempt
-def failure(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response("Failure.html", RequestContext(request, c))
+# def payment_redirect(request):
+#     previous_page = request.META['HTTP_REFERER']
+#     MERCHANT_KEY = "5771062"
+#     key = "oplRyvbH"
+#     SALT = "pxlrngrbm4"
+#     PAYU_BASE_URL = "https://secure.payu.in/_payment"
+#     action = ''
+#     posted = {}
+#     for i in request.POST:
+#         posted[i] = request.POST[i]
+#     hash_object = hashlib.sha256(b'randint(0,20)')
+#     txnid = hash_object.hexdigest()[0:20]
+#     hashh = ''
+#     posted['txnid'] = txnid
+#     hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
+#     posted['key'] = key
+#     posted['amount'] = request.POST['amount']
+#     posted['productinfo'] = request.POST['project']
+#     print posted['productinfo']
+#     posted['firstname'] = request.POST['first_name']
+#     posted['email'] = request.POST['email']
+#     posted['mobile'] = request.POST['mobile']
+#     hash_string = ''
+#     hashVarsSeq = hashSequence.split('|')
+#     for i in hashVarsSeq:
+#         try:
+#             hash_string += str(posted[i])
+#         except Exception:
+#             hash_string += ''
+#         hash_string += '|'
+#     hash_string += SALT
+#     hashh = hashlib.sha512(hash_string).hexdigest().lower()
+#     action = PAYU_BASE_URL
+#     if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get("firstname") != None and posted.get("email") != None):
+#         if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['email']) != None:
+#             if re.match("^[0-9]*$", request.POST['mobile']) and len(str(request.POST['mobile'])) == 10:
+#                 return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+#                                                                                             "MERCHANT_KEY": MERCHANT_KEY,
+#                                                                                             "txnid": txnid,
+#                                                                                             "hash_string": hash_string,
+#                                                                                             'amount': posted['amount'],
+#                                                                                             'project': posted['productinfo'],
+#                                                                                             'firstname': posted['firstname'],
+#                                                                                             'email': posted['email'],
+#                                                                                             'mobile': posted['mobile'],
+#                                                                                             'key': posted['key'],
+#                                                                                             "action": "https://secure.payu.in/_payment"}))
+#             else:
+#                 messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
+#                 previous_page = request.META['HTTP_REFERER']
+#                 request.session['amount'] = request.POST['amount']
+#                 return render(request, 'payment_redirect.html', {'previous_page': previous_page})
+#
+#         else:
+#             messages.add_message(request, messages.ERROR, 'Enter a valid e-mail address.', extra_tags="email")
+#             previous_page = request.META['HTTP_REFERER']
+#             request.session['amount'] = request.POST['amount']
+#             return render(request, 'payment_redirect.html', {'previous_page':previous_page})
+#
+#     else:
+#         return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
+#                                                                                     "MERCHANT_KEY": MERCHANT_KEY,
+#                                                                                     "txnid": txnid,
+#                                                                                     "hash_string": hash_string,
+#                                                                                     "action": "."}))
+#
+#
+# @csrf_protect
+# @csrf_exempt
+# def success(request):
+#     c = {}
+#     c.update(csrf(request))
+#     status = request.POST["status"]
+#     firstname = request.POST["firstname"]
+#     amount = request.POST["amount"]
+#     txnid = request.POST["txnid"]
+#     posted_hash = request.POST["hash"]
+#     key = request.POST["key"]
+#     productinfo = request.POST["productinfo"]
+#     email = request.POST["email"]
+#     salt = "GQs7yium"
+#     try:
+#         additionalCharges = request.POST["additionalCharges"]
+#         retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+#     except Exception:
+#         retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+#     hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+#     if (hashh != posted_hash):
+#         print "Invalid Transaction. Please try again"
+#     else:
+#         print "Thank You. Your order status is ", status
+#         print "Your Transaction ID for this transaction is ", txnid
+#         print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+#     return render_to_response('sucess.html',
+#                               RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
+#
+#
+# @csrf_protect
+# @csrf_exempt
+# def failure(request):
+#     c = {}
+#     c.update(csrf(request))
+#     status = request.POST["status"]
+#     firstname = request.POST["firstname"]
+#     amount = request.POST["amount"]
+#     txnid = request.POST["txnid"]
+#     posted_hash = request.POST["hash"]
+#     key = request.POST["key"]
+#     productinfo = request.POST["productinfo"]
+#     email = request.POST["email"]
+#     salt = "GQs7yium"
+#     try:
+#         additionalCharges = request.POST["additionalCharges"]
+#         retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+#     except Exception:
+#         retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
+#     hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
+#     if (hashh != posted_hash):
+#         print "Invalid Transaction. Please try again"
+#     else:
+#         print "Thank You. Your order status is ", status
+#         print "Your Transaction ID for this transaction is ", txnid
+#         print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
+#     return render_to_response("Failure.html", RequestContext(request, c))
 
 #
 # from django.contrib.auth.models import User
