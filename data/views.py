@@ -108,24 +108,29 @@ def checkOut(request, pk):
 
     if 'amount' not in request.session:
         if request.method == "POST":
+            print (request.POST['amount'])
             import re
-            if re.match("^[0-9]*$", request.POST['amount']):
+            if re.match("^[0-9]+(\.[0-9]{1,2})?$", request.POST['amount']):
                 if request.POST['amount']:
                     amount = request.POST['amount']
                     print amount
                     return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
                 else:
+                    print('pass1')
                     messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
                     url = reverse('projectPage', kwargs={'pk': pk})
                     return HttpResponseRedirect(url)
             else:
+                print('pass2')
                 messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
         else:
+            print('pass3')
             url = reverse('projectPage', kwargs={'pk': pk})
             return HttpResponseRedirect(url)
     else:
+        print('pass4')
         amount = request.session['amount']
         request.session.clear()
         print amount
