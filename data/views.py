@@ -190,10 +190,10 @@ from django.template.context_processors import csrf
 
 def payment_redirect(request):
     previous_page = request.META['HTTP_REFERER']
-    MERCHANT_KEY = "4934580"
-    key = "rjQUPktU"
-    SALT = "e5iIg1jwi8"
-    PAYU_BASE_URL = "https://test.payu.in/_payment"
+    MERCHANT_KEY = "5771062"
+    key = "oplRyvbH"
+    SALT = "pxlrngrbm4"
+    PAYU_BASE_URL = "https://secure.payu.in/_payment"
     action = ''
     posted = {}
     for i in request.POST:
@@ -233,7 +233,7 @@ def payment_redirect(request):
                                                                                             'firstname': posted['firstname'],
                                                                                             'email': posted['email'],
                                                                                             'mobile': posted['mobile'],
-                                                                                            "action": "https://test.payu.in/_payment"}))
+                                                                                            "action": "https://secure.payu.in/_payment"}))
             else:
                 messages.add_message(request, messages.ERROR, 'Enter a valid mobile number.', extra_tags="mobile")
                 previous_page = request.META['HTTP_REFERER']
