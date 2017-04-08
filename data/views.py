@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -180,26 +180,25 @@ def pricing (request):
     return render(request, 'pricing.html')
 
 def payment_redirect(request):
-    # api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
-    #                 auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
-
     from instamojo_wrapper import Instamojo
-    import requests
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
 
-    headers = {"X-Api-Key": "4ede38968eb0f1e6ce1f236338b767d3", "X-Auth-Token": "d44d2e46a7b39f6dfc86d2d144a432fd"}
-    payload = {
-        'purpose': 'FIFA 16',
-        'amount': '2500',
-        'buyer_name': 'John Doe',
-        'email': 'foo@example.com',
-        'phone': '9999999999',
-        'redirect_url': 'http://www.reimaginegiving.com/comingSoon/',
-        'send_email': 'True'
-    }
-    response = requests.post("https://www.instamojo.com/api/1.1/payment-requests/", data=payload, headers=headers)
+    # Create a new Payment Request
+    response = api.payment_request_create(
+        amount='10',
+        purpose='Nikhil Raj Gift',
+        send_email=True,
+        email="a@reimaginegiving.org",
+        redirect_url="reimaginegiving.com/Success.html"
+    )
+    # print the long URL of the payment request.
+    response1 = response['payment_request']['longurl']
+    print response1
+    # print the unique ID(or payment request ID)
+    print response['payment_request']['id']
+    return redirect(response1)
 
-    print response.text
-    print response['payment_request']['longurl']
 
 
     # Create a new Payment Request
