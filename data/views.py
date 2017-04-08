@@ -114,7 +114,7 @@ def checkOut(request, pk):
                 if request.POST['amount']:
                     amount = request.POST['amount']
                     print amount
-                    return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
+                    return render(request, 'checkOut.html', {'amount': amount, 'project':project.title, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
                 else:
                     messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
                     url = reverse('projectPage', kwargs={'pk': pk})

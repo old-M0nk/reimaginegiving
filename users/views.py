@@ -121,6 +121,18 @@ def register_view(request):
     return render(request, 'index.html', context_dict)
 
 
+def validate_username(request):
+    print ('pass1')
+    from django.http import JsonResponse
+    username = request.GET.get('username', None)
+    print (username)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    if data['is_taken']:
+        data['error_message'] = 'A user with this username already exists.'
+    return JsonResponse(data)
+
 
 @login_required
 def logout_view(request):

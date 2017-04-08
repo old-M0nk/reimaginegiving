@@ -1,18 +1,36 @@
 {#{% extends 'base.html' %}#}
 
 {% block form %}
+    <script>
+    $("#username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: 'ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            alert("A user with this username already exists.");
+          }
+        }
+      });
+
+    });
+  </script>
   <form  method="post" action="{% url 'register' %}">
   {% csrf_token %}
 	<input name="first_name" placeholder="First Name" type="text" class="signUpFormUserName"/>
       <input name="last_name" placeholder="Last Name" type="text" class="signUpFormUserName"/>
 
-      <input name="username" placeholder="Email" type="text" />
-									  <input name="password" placeholder="Password" type="Password" />
-									  <input name="password2" placeholder="Confirm Password" type="Password" />
+      <input name="username" placeholder="Email" type="text" id="username"/>
+									  <input name="password" placeholder="Password" type="Password" id="password"/>
+									  <input name="password2" placeholder="Confirm Password" type="Password" id="password2"/>
                                       <button type="submit" value="submit" class="btn">Sign Up</button>
 									  <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Sign Up</div>
                                       <div class="btn fbbtn"><i class="fa fa-facebook"></i>Sign Up</div>
 									</form>
   <br>
-
 {% endblock %}
