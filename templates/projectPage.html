@@ -401,7 +401,7 @@
 					<div class="row projectPageDonateShare">
 						<div class="col-6 projectPageDonate" onclick="openDonationInput()">
 							<div class="projectPageDonateButton">
-								<h2>Pay Now!</h2>
+								<h2>Donate</h2>
 							</div>
 						</div>
                         <a  title="Facebook share" target="_blank" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
@@ -428,7 +428,7 @@
 		            <form class="projectPageDonateButtonClickForm" method="POST" action="{% url 'checkOut' pk=project.project_id %}">
                         {% csrf_token %}
 					    <input id="search" name="amount" type="number" placeholder="Enter the Amount"/>
-					    <button class="projectPageDonateFinalButton">Pay Now!</button>
+					    <button class="projectPageDonateFinalButton">Donate</button>
                     </form>
 {#                    {% endif %}#}
 				</div>
@@ -611,7 +611,7 @@
 							</div>
 
 							<div class="row projectSectionDonateButton">
-								<a href="{% url 'checkOut' pk=project.project_id %}"><h2>Pay Now!</h2></a>
+								<a href="{% url 'checkOut' pk=project.project_id %}"><h2>Donate</h2></a>
 							</div>
 						</div>
 					</div>
