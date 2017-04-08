@@ -186,10 +186,10 @@ def payment_redirect(request):
 
     # Create a new Payment Request
     response = api.payment_request_create(
-        amount='10',
-        purpose='Nikhil Raj Gift',
+        amount=request.POST['amount'],
+        purpose=request.POST['project'],
         send_email=True,
-        email="a@reimaginegiving.org",
+        email=request.POST['email'],
         redirect_url="reimaginegiving.com/Success.html"
     )
     # print the long URL of the payment request.
