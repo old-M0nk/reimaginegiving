@@ -66,6 +66,7 @@ def login_view(request):
             context_dict = {'message': message, 'projects': project_list}
             page = 'index.html'
             if not Notification.objects.filter(username__iexact=username).exists():
+                print('pass1')
                 notifications = Notification(username=user)
                 notifications.save()
         else:
