@@ -10,7 +10,7 @@ from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
 from django.contrib import messages
-import re
+from instamojo_wrapper import Instamojo
 
 
 
