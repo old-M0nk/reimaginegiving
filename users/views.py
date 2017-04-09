@@ -167,6 +167,10 @@ def userPage(request):
         print('pass1')
         notifications = Notification(username=request.user)
         notifications.save()
+        if not User_Details.objects.filter(username=request.user).exists():
+            print('pass1')
+            user_details = User_Details(username=request.user)
+            user_details.save()
     notification = Notification.objects.get(username=request.user)
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
