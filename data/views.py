@@ -180,17 +180,23 @@ def pricing (request):
     return render(request, 'pricing.html')
 
 def payment_redirect(request):
-    from instamojo_wrapper import Instamojo
-    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
-                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
+    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
 
     # Create a new Payment Request
+    firstname = request.POST["first_name"]
+    amount = request.POST["amount"]
+    email = request.POST["email"]
+    phone = request.POST["mobile"]
+    project = request.POST["project"]
     response = api.payment_request_create(
-        amount=request.POST['amount'],
-        purpose=request.POST['project'],
+        amount=amount,
+        purpose = project,
         send_email=True,
-        email=request.POST['email'],
-        redirect_url="reimaginegiving.com/Success"
+        email=email,
+        phone=phone,
+        buyer_name =  firstname,
+        redirect_url="http://127.0.0.1:8000/Success/"
     )
     # print the long URL of the payment request.
     response1 = response['payment_request']['longurl']
@@ -297,31 +303,23 @@ from django.template.context_processors import csrf
 @csrf_protect
 @csrf_exempt
 def success(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response('sucess.html',
-                              RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
+    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
+
+    # Create a new Payment Request
+    payment_request_id = request.GET["payment_request_id"]
+    txnid = request.GET["payment_id"]
+    response = api.payment_request_status(payment_request_id)
+
+    print response['payment_request']['shorturl']  # Get the short URL
+    print response['payment_request']['status']  # Get the current status
+    print response['payment_request']['payments']  # List of payments
+    print response['payment_request']['amount']
+
+    status = response['payment_request']['status']
+    amount = response['payment_request']['amount']
+
+    return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
 
 
 @csrf_protect
