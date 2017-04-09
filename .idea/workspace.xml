@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reimagine/urls.py" afterPath="$PROJECT_DIR$/reimagine/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/login.html" afterPath="$PROJECT_DIR$/templates/registration/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/register.html" afterPath="$PROJECT_DIR$/templates/registration/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/views.py" afterPath="$PROJECT_DIR$/users/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reimagine/settings.py" afterPath="$PROJECT_DIR$/reimagine/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,17 +44,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/reimagine/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1859">
-              <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+            <state relative-caret-position="487">
+              <caret line="165" column="27" lean-forward="false" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="359">
@@ -217,7 +213,6 @@
         <option value="$PROJECT_DIR$/templates/payment_redirect.html" />
         <option value="$PROJECT_DIR$/static/ajax.js" />
         <option value="$PROJECT_DIR$/static/js.js" />
-        <option value="$PROJECT_DIR$/reimagine/settings.py" />
         <option value="$PROJECT_DIR$/templates/projectPage.html" />
         <option value="$PROJECT_DIR$/templates/checkOut.html" />
         <option value="$PROJECT_DIR$/static/jquery-3.1.0.min.js" />
@@ -228,6 +223,7 @@
         <option value="$PROJECT_DIR$/data/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/register.html" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/reimagine/settings.py" />
       </list>
     </option>
   </component>
@@ -1044,18 +1040,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reimagine/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1859">
-          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="33" column="155" lean-forward="false" selection-start-line="33" selection-start-column="155" selection-end-line="33" selection-end-column="155" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reimagine/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="165" column="27" lean-forward="false" selection-start-line="165" selection-start-column="27" selection-end-line="165" selection-end-column="27" />
           <folding />
         </state>
       </provider>

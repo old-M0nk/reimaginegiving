@@ -161,9 +161,9 @@ STATIC_URL = '/static/'
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
-# LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_GITHUB_KEY = '90450bdca53e2a9e1125'
 SOCIAL_AUTH_GITHUB_SECRET = '96d3f998b6df520218c48bace997c7901163477c'
