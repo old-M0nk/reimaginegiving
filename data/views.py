@@ -196,7 +196,7 @@ def payment_redirect(request):
         email=email,
         phone=phone,
         buyer_name =  firstname,
-        redirect_url="reimaginegiving.org/Success/"
+        redirect_url="/Success/"
     )
     # print the long URL of the payment request.
     response1 = response['payment_request']['longurl']
