@@ -259,7 +259,7 @@ def userPage(request):
 
 
 
-    user_details = User_Details.objects.get(username=request.user.id)
+    user_details = User_Details.objects.get(username=request.user)
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
