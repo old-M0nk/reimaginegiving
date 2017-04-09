@@ -19,6 +19,25 @@
       });
 
     });
+    ($("#password2")||$("#password")).change(function () {
+      var password = $("#password").val();
+      var password2 = $("#password2").val();
+
+      $.ajax({
+        url: 'ajax/validate_password/',
+        data: {
+          'password': password,
+            'password2':password2
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_not_equal) {
+            alert("Passwords do not match.");
+          }
+        }
+      });
+
+    });
   </script>
   <form  method="post" action="{% url 'register' %}">
   {% csrf_token %}

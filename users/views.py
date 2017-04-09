@@ -134,6 +134,26 @@ def validate_username(request):
     return JsonResponse(data)
 
 
+def validate_password(request):
+    print ('pass2')
+    from django.http import JsonResponse
+    password = request.GET.get('password', None)
+    password2 = request.GET.get('password2', None)
+    def passcheck():
+        if password == password2:
+            print ('True')
+            return True
+        else:
+            print ('False')
+            return False
+    data = {
+        'is_not_equal': not passcheck()
+    }
+    if data['is_not_equal']:
+        data['error_message'] = 'A user with this username already exists.'
+    return JsonResponse(data)
+
+
 @login_required
 def logout_view(request):
     logout(request)
