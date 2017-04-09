@@ -65,6 +65,9 @@ def login_view(request):
             project_list = Project.objects.all()  ###view all project... no logic used...
             context_dict = {'message': message, 'projects': project_list}
             page = 'index.html'
+            if not Notification.objects.filter(username__iexact=username).exists():
+                notifications = Notification(username=user)
+                notifications.save()
         else:
             # Return an 'invalid login' error message.
             project_list = Project.objects.all()  ###view all project... no logic used...
