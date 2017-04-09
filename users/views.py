@@ -49,6 +49,7 @@ def comingSoon(request):
 
 
 def login_view(request):
+    print ('here')
     if request.method == "POST": #if the form has been submitted
         form = UserLoginForm(request.POST)
         username = request.POST['username']
