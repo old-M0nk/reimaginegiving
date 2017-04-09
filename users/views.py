@@ -49,7 +49,6 @@ def comingSoon(request):
 
 
 def login_view(request):
-    print ('here')
     if request.method == "POST": #if the form has been submitted
         form = UserLoginForm(request.POST)
         username = request.POST['username']
@@ -66,10 +65,6 @@ def login_view(request):
             project_list = Project.objects.all()  ###view all project... no logic used...
             context_dict = {'message': message, 'projects': project_list}
             page = 'index.html'
-            if not Notification.objects.filter(username__iexact=username).exists():
-                print('pass1')
-                notifications = Notification(username=user)
-                notifications.save()
         else:
             # Return an 'invalid login' error message.
             project_list = Project.objects.all()  ###view all project... no logic used...
@@ -168,6 +163,10 @@ def logout_view(request):
 
 @login_required
 def userPage(request):
+    if not Notification.objects.filter(username=request.user).exists():
+        print('pass1')
+        notifications = Notification(username=request.user)
+        notifications.save()
     notification = Notification.objects.get(username=request.user)
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
