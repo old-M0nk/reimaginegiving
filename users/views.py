@@ -163,6 +163,7 @@ def logout_view(request):
 
 @login_required
 def userPage(request):
+    user_details = User_Details.objects.get(username=request.user)
     if not Notification.objects.filter(username=request.user).exists():
         print('pass1')
         notifications = Notification(username=request.user)
@@ -174,22 +175,22 @@ def userPage(request):
     notification = Notification.objects.get(username=request.user)
 
     if request.method == "POST" and request.POST['submit'] == "basic":
-        User.first_name = request.POST['first_name']
-        User.last_name = request.POST['last_name']
-        User.save()
-        User_Details.mobile_number = request.POST['mobile']
-        User_Details.pan_number = request.POST['pan']
-        User_Details.occupation = request.POST['occupation']
-        User_Details.save()
+        request.user.first_name = request.POST['first_name']
+        request.user.last_name = request.POST['last_name']
+        request.user.save()
+        user_details.mobile_number = request.POST['mobile']
+        user_details.pan_number = request.POST['pan']
+        user_details.occupation = request.POST['occupation']
+        user_details.save()
 
     if request.method == "POST" and request.POST['submit'] == "mailing":
-        User_Details.address_line_1 = request.POST['address_line_1']
-        User_Details.address_line_2 = request.POST['address_line_2']
-        User_Details.city = request.POST['city']
-        User_Details.pincode = request.POST['pincode']
-        User_Details.pan_number = request.POST['pan']
-        User_Details.occupation = request.POST['occupation']
-        User_Details.save()
+        user_details.address_line_1 = request.POST['address_line_1']
+        user_details.address_line_2 = request.POST['address_line_2']
+        user_details.city = request.POST['city']
+        user_details.pincode = request.POST['pincode']
+        user_details.pan_number = request.POST['pan']
+        user_details.occupation = request.POST['occupation']
+        user_details.save()
 
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
@@ -278,7 +279,7 @@ def userPage(request):
 
 
 
-    user_details = User_Details.objects.get(username=request.user)
+
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
