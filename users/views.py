@@ -172,6 +172,25 @@ def userPage(request):
             user_details = User_Details(username=request.user)
             user_details.save()
     notification = Notification.objects.get(username=request.user)
+
+    if request.method == "POST" and request.POST['submit'] == "basic":
+        User.first_name = request.POST['first_name']
+        User.last_name = request.POST['last_name']
+        User.save()
+        User_Details.mobile_number = request.POST['mobile']
+        User_Details.pan_number = request.POST['pan']
+        User_Details.occupation = request.POST['occupation']
+        User_Details.save()
+
+    if request.method == "POST" and request.POST['submit'] == "mailing":
+        User_Details.address_line_1 = request.POST['address_line_1']
+        User_Details.address_line_2 = request.POST['address_line_2']
+        User_Details.city = request.POST['city']
+        User_Details.pincode = request.POST['pincode']
+        User_Details.pan_number = request.POST['pan']
+        User_Details.occupation = request.POST['occupation']
+        User_Details.save()
+
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
