@@ -277,6 +277,7 @@
 					</div>
 
                     <form method="post" action="userPage.html">
+                        {% csrf_token %}
 					<div class="userPageGeneralInformationContent userPageGeneralInformationContent1">
 						<fieldset class="row userPageGeneralInformationContentRows">
 							<fieldset class="col-6">
@@ -315,6 +316,7 @@
 						<h2>Mailing Information</h2>
 					</div>
                     <form method="post" action="userPage.html">
+                        {% csrf_token %}
 					<div class="userPageGeneralInformationContent userPageGeneralInformationContent2">
 						<fieldset class="row userPageGeneralInformationContentRows">
 							<label for="email">ADDRESS LINE 1:</label>
