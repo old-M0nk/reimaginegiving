@@ -276,22 +276,32 @@
 						<h2>Basic Information</h2>
 					</div>
 					<div class="userPageGeneralInformationContent userPageGeneralInformationContent1">
-						<div class="row userPageGeneralInformationContentRows">
-							<h2 class="col-6">FIRST NAME: <span>{{ user.first_name }}</span></h2>
-							<h2 class="col-6">LAST NAME: <span>{{ user.last_name }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>EMAIL ADDRESS: <span>{{ user.email }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>MOBILE NO: <span>{{ user_details.mobile_number }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>PAN DETAILS: <span>{{ user_details.pan_number }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows lastRow">
-							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
-						</div>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<fieldset class="col-6">
+								<label for="firstName">FIRST NAME:</label>
+								<input type="text" id="firstName" readonly="readonly" value="{{ user.first_name }}"/>
+							</fieldset>
+							<fieldset class="col-6">
+								<label for="lastName">LAST NAME:</label>
+								<input type="text" id="lastName" readonly="readonly" value="{{ user.last_name }}"/>
+							</fieldset>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="email">EMAIL ADDRESS:</label>
+							<input type="text" id="email" readonly="readonly" value="{{ user.email }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="mobile">MOBILE NO:</label>
+							<input type="text" id="mobile" readonly="readonly" value="{{ user_details.mobile_number }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="panDetails">PAN DETAILS:</label>
+							<input type="text" id="panDetails" readonly="readonly" value="{{ user_details.pan_number }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows lastrow">
+							<label for="occupation">OCCUPATION:</label>
+							<input type="text" id="occupation" readonly="readonly" value="{{ user_details.occupation }}"/>
+						</fieldset>
 						<a class="userPageGeneralInformationi1"><i class="fa fa-pencil-square-o"></i></a>
 						<a class="saveDetails1">Save</a>
 					</div>
@@ -302,22 +312,32 @@
 						<h2>Mailing Information</h2>
 					</div>
 					<div class="userPageGeneralInformationContent userPageGeneralInformationContent2">
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>ADDRESS LINE 1: <span>{{ user_details.address_line_1 }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>ADDRESS LINE 2: <span>{{ user_details.address_line_2 }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2 class="col-6">CITY: <span>{{ user_details.city }}</span></h2>
-							<h2 class="col-6">PINCODE: <span>{{ user_details.pincode }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows">
-							<h2>PAN DETAILS: <span>{{ user_details.pan_number }}</span></h2>
-						</div>
-						<div class="row userPageGeneralInformationContentRows lastRow">
-							<h2>OCCUPATION: <span>{{ user_details.occupation }}</span></h2>
-						</div>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="email">ADDRESS LINE 1:</label>
+							<input type="text" id="email" readonly="readonly" value="{{ user_details.address_line_1 }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="mobile">ADDRESS LINE 2:</label>
+							<input type="text" id="mobile" readonly="readonly" value="{{ user_details.address_line_2 }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<fieldset class="col-6">
+								<label for="firstName">CITY:</label>
+								<input type="text" id="firstName" readonly="readonly" value="{{ user_details.city }}"/>
+							</fieldset>
+							<fieldset class="col-6">
+								<label for="lastName">PINCODE:</label>
+								<input type="text" id="lastName" readonly="readonly" value="{{ user_details.pincode }}"/>
+							</fieldset>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows">
+							<label for="panDetails">PAN DETAILS:</label>
+							<input type="text" id="panDetails" readonly="readonly" value="{{ user_details.pan_number }}"/>
+						</fieldset>
+						<fieldset class="row userPageGeneralInformationContentRows lastrow">
+							<label for="occupation">OCCUPATION:</label>
+							<input type="text" id="occupation" readonly="readonly" value="{{ user_details.occupation }}"/>
+						</fieldset>
 						<a class="userPageGeneralInformationi2"><i class="fa fa-pencil-square-o"></i></a>
 						<a class="saveDetails2">Save</a>
 					</div>
