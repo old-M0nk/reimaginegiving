@@ -196,11 +196,11 @@ def payment_redirect(request):
     amount = request.POST["amount"]
     email = request.POST["email"]
     # phone = request.POST["mobile"]
-    project = request.POST["project"]
+    project = request.POST.get["project"]
     print project
     response = api.payment_request_create(
         amount=amount,
-        purpose=project,
+        purpose='yo',
         send_email=True,
         email=email
     )
