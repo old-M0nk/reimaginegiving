@@ -196,12 +196,14 @@ def payment_redirect(request):
     amount = request.POST["amount"]
     email = request.POST["email"]
     # phone = request.POST["mobile"]
-    project = request.POST["project"]
+    # project = request.POST["project"]
+    print amount
+    print email
     response = api.payment_request_create(
-        amount=amount,
-        purpose=project,
+        amount='3499',
+        purpose='FIFA 16',
         send_email=True,
-        email=email
+        email="foo@example.com"
     )
     # print the long URL of the payment request.
     response1 = response['payment_request']['longurl']
