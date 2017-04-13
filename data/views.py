@@ -200,7 +200,7 @@ def payment_redirect(request):
     print project
     response = api.payment_request_create(
         amount=amount,
-        purpose=phone,
+        purpose=project,
         send_email=True,
         email=email
     )
