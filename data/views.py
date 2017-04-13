@@ -196,8 +196,8 @@ def payment_redirect(request):
     amount = request.POST["amount"]
     email = request.POST["email"]
     # phone = request.POST["mobile"]
-    project = request.POST["project"]
-    print project
+    # project = request.POST["project"]
+    # print project
     response = api.payment_request_create(
         amount=amount,
         purpose='FIFA 16',
