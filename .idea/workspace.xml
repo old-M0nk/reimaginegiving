@@ -23,7 +23,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2692">
+            <state relative-caret-position="2805">
               <caret line="165" column="66" lean-forward="false" selection-start-line="165" selection-start-column="66" selection-end-line="165" selection-end-column="66" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
@@ -35,8 +35,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="202" column="23" lean-forward="false" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+            <state relative-caret-position="-782">
+              <caret line="141" column="65" lean-forward="false" selection-start-line="141" selection-start-column="65" selection-end-line="141" selection-end-column="65" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -47,7 +47,7 @@
       <file leaf-file-name="checkOut.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="138">
               <caret line="245" column="109" lean-forward="false" selection-start-line="245" selection-start-column="109" selection-end-line="245" selection-end-column="109" />
               <folding />
             </state>
@@ -180,8 +180,8 @@
         <option value="$PROJECT_DIR$/templates/refund.html" />
         <option value="$PROJECT_DIR$/templates/privacy.html" />
         <option value="$PROJECT_DIR$/templates/pricing.html" />
-        <option value="$PROJECT_DIR$/templates/checkOut.html" />
         <option value="$PROJECT_DIR$/data/views.py" />
+        <option value="$PROJECT_DIR$/templates/checkOut.html" />
       </list>
     </option>
   </component>
@@ -950,14 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="565" column="34" lean-forward="true" selection-start-line="565" selection-start-column="34" selection-end-line="565" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/payment_redirect.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -966,9 +958,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="565" column="34" lean-forward="true" selection-start-line="565" selection-start-column="34" selection-end-line="565" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2692">
+        <state relative-caret-position="2805">
           <caret line="165" column="66" lean-forward="false" selection-start-line="165" selection-start-column="66" selection-end-line="165" selection-end-column="66" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
@@ -978,7 +978,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/checkOut.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="138">
           <caret line="245" column="109" lean-forward="false" selection-start-line="245" selection-start-column="109" selection-end-line="245" selection-end-column="109" />
           <folding />
         </state>
@@ -986,8 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="202" column="23" lean-forward="false" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+        <state relative-caret-position="-782">
+          <caret line="141" column="65" lean-forward="false" selection-start-line="141" selection-start-column="65" selection-end-line="141" selection-end-column="65" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>

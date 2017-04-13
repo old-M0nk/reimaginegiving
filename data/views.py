@@ -139,7 +139,7 @@ def checkOut(request, pk):
         request.session.clear()
         print amount
         return render(request, 'checkOut.html',
-                      {'amount': amount, 'project': project, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
+                      {'amount': amount, 'project': project.title, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
                       context)
 
 
@@ -200,7 +200,7 @@ def payment_redirect(request):
     print project
     response = api.payment_request_create(
         amount=amount,
-        purpose=project,
+        purpose=phone,
         send_email=True,
         email=email
     )
