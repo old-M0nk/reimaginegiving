@@ -116,9 +116,8 @@ def checkOut(request, pk):
 
     if 'amount' not in request.session:
         if request.method == "POST":
-            print (request.POST['amount'])
             import re
-            if re.match("^[0-9]+(\.[0-9]{1,2})?$", request.POST['amount']):
+            if re.match("^[0-9]*$", request.POST['amount']):
                 if request.POST['amount']:
                     amount = request.POST['amount']
                     print amount
@@ -139,8 +138,9 @@ def checkOut(request, pk):
         request.session.clear()
         print amount
         return render(request, 'checkOut.html',
-                      {'amount': amount, 'project': project.title, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
+                      {'amount': amount, 'project': project, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
                       context)
+
 
 
 
