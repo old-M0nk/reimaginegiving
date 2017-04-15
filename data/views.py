@@ -95,37 +95,37 @@ def viewAllProjects (request, cause, funding):
             project_list = Project.objects.all()
         # if request.POST.get('all_causes', False) == 'True':
         #     pass
-        if request.POST.get('education', False) != True and request.POST.get('poverty', False) != True and request.POST.get('sanitation', False) != True and request.POST.get('child_welfare', False) != True and request.POST.get('skill_development', False) != True and request.POST.get('disaster_recovery', False) != True and request.POST.get('lgbtq', False) != True and request.POST.get('technology', False) != True and request.POST.get('arts_and_culture', False) != True and request.POST.get('environment', False) != True:
+        if request.POST.get('education', False) != 'True' and request.POST.get('poverty', False) != 'True' and request.POST.get('sanitation', False) != 'True' and request.POST.get('child_welfare', False) != 'True' and request.POST.get('skill_development', False) != 'True' and request.POST.get('disaster_recovery', False) != 'True' and request.POST.get('lgbtq', False) != 'True' and request.POST.get('technology', False) != 'True' and request.POST.get('arts_and_culture', False) != 'True' and request.POST.get('environment', False) != 'True':
             pass
         else:
-            if request.POST.get('education', False) != True:
+            if request.POST.get('education', False) != 'True':
                 print ('pass1')
                 project_list = project_list.exclude(cause__name='Education')
-            if request.POST.get('poverty', False) != True:
+            if request.POST.get('poverty', False) != 'True':
                 print ('pass2')
                 project_list = project_list.exclude(cause__name='Poverty')
-            if request.POST.get('sanitation', False) != True:
+            if request.POST.get('sanitation', False) != 'True':
                 print ('pass3')
                 project_list = project_list.exclude(cause__name='Sanitation')
-            if request.POST.get('child_welfare', False) != True:
+            if request.POST.get('child_welfare', False) != 'True':
                 print ('pass4')
                 project_list = project_list.exclude(cause__name='Child Welfare')
-            if request.POST.get('skill_development', False) != True:
+            if request.POST.get('skill_development', False) != 'True':
                 print ('pass5')
                 project_list = project_list.exclude(cause__name='Skill Development')
-            if request.POST.get('disaster_recovery', False) != True:
+            if request.POST.get('disaster_recovery', False) != 'True':
                 print ('pass6')
                 project_list = project_list.exclude(cause__name='Disaster Recovery')
-            if request.POST.get('lgbtq', False) != True:
+            if request.POST.get('lgbtq', False) != 'True':
                 print ('pass7')
                 project_list = project_list.exclude(cause__name='LGBTQ')
-            if request.POST.get('technology', False) != True:
+            if request.POST.get('technology', False) != 'True':
                 print ('pass8')
                 project_list = project_list.exclude(cause__name='Technology')
-            if request.POST.get('arts_and_culture', False) != True:
+            if request.POST.get('arts_and_culture', False) != 'True':
                 print ('pass9')
                 project_list = project_list.exclude(cause__name='Arts & Culture')
-            if request.POST.get('environment', False) != True:
+            if request.POST.get('environment', False) != 'True':
                 print ('pass10')
                 project_list = project_list.exclude(cause__name='Environment')
 
