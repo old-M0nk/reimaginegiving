@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -10,15 +10,8 @@ from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
 from django.contrib import messages
-from instamojo_wrapper import Instamojo
-from django.template.loader import get_template
-from django.template import Context, Template, RequestContext
-import datetime
-import hashlib
-from random import randint
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.template.context_processors import csrf
-
+from django.shortcuts import redirect
+import re
 
 
 
@@ -194,7 +187,6 @@ def checkOut(request, pk):
 
 
 
-
 def contactUsPage (request):
     if request.method == "POST":
         myform = contact_us_form(request.POST)
@@ -236,22 +228,34 @@ def refund (request):
 def pricing (request):
     return render(request, 'pricing.html')
 
+
+from django.template.loader import get_template
+from django.template import Context, Template, RequestContext
+import datetime
+import hashlib
+from random import randint
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.template.context_processors import csrf
+from instamojo_wrapper import Instamojo
+
 def payment_redirect(request):
-    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
-                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
 
     # Create a new Payment Request
-    # firstname = request.POST["first_name"]
+    firstname = request.POST["first_name"]
     amount = request.POST["amount"]
     email = request.POST["email"]
     phone = request.POST["mobile"]
     project = request.POST["project"]
-    print project
     response = api.payment_request_create(
         amount=amount,
-        purpose=project,
+        purpose = project,
         send_email=True,
-        email=email
+        email=email,
+        phone=phone,
+        buyer_name =  firstname,
+        redirect_url="http://www.reimaginegiving.org/Success/"
     )
     # print the long URL of the payment request.
     response1 = response['payment_request']['longurl']
@@ -260,17 +264,11 @@ def payment_redirect(request):
     print response['payment_request']['id']
     return redirect(response1)
 
-
-
-
-
-
 @csrf_protect
 @csrf_exempt
 def success(request):
-    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
-                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
-
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
     # Create a new Payment Request
     payment_request_id = request.GET["payment_request_id"]
     txnid = request.GET["payment_id"]
@@ -285,48 +283,6 @@ def success(request):
     amount = response['payment_request']['amount']
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
-
-
-@csrf_protect
-@csrf_exempt
-def failure(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response("Failure.html", RequestContext(request, c))
-
-#
-# from django.contrib.auth.models import User
-# from django.http import JsonResponse
-#
-# def validate_username(request):
-#     username = request.GET.get('username', None)
-#     data = {
-#         'is_taken': User.objects.filter(username__iexact=username).exists()
-#     }
-#     if data['is_taken']:
-#         data['error_message'] = 'A user with this username already exists.'
-#     return JsonResponse(data)
 
 
 

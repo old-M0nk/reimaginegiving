@@ -401,7 +401,7 @@
 					<div class="row projectPageDonateShare">
 						<div class="col-6 projectPageDonate" onclick="openDonationInput()">
 							<div class="projectPageDonateButton">
-								<h2>Donate</h2>
+								<h2>Pay Now!</h2>
 							</div>
 						</div>
                         <a  title="Facebook share" target="_blank" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
@@ -428,7 +428,7 @@
 		            <form class="projectPageDonateButtonClickForm" method="POST" action="{% url 'checkOut' pk=project.project_id %}">
                         {% csrf_token %}
 					    <input id="search" name="amount" type="number" placeholder="Enter the Amount"/>
-					    <button class="projectPageDonateFinalButton">Donate</button>
+					    <button class="projectPageDonateFinalButton">Pay Now!</button>
                     </form>
 {#                    {% endif %}#}
 				</div>
@@ -511,7 +511,7 @@
 		<ul class="social-btns">
 
 			<li>
-				<a class="social-btn-flip twitter-share-button"   href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving">
+				<a class="social-btn-flip twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
 						<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
@@ -520,7 +520,7 @@
 			</li>
 
 			<li data-href="https://www.facebook.com/reimaginegiving">
-				<a class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+				<a class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
 						<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
@@ -529,7 +529,7 @@
 			</li>
 
 			<li>
-				<a href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-btn-flip">
+				<a href="https://plus.google.com/share?url=https://plus.google.com/u/1/102570086777774315649" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-btn-flip">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-google-plus google"></i>
 						<i class="social-btn-face active fa fa-lg fa-google-plus google"></i>
@@ -611,7 +611,7 @@
 							</div>
 
 							<div class="row projectSectionDonateButton">
-								<a href="{% url 'checkOut' pk=project.project_id %}"><h2>Donate</h2></a>
+								<a href="{% url 'checkOut' pk=project.project_id %}"><h2>Pay Now!</h2></a>
 							</div>
 						</div>
 					</div>

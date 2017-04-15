@@ -163,6 +163,7 @@ def logout_view(request):
 
 @login_required
 def userPage(request):
+
     user_details = User_Details.objects.get(username=request.user)
     if not Notification.objects.filter(username=request.user).exists():
         print('pass1')
@@ -279,7 +280,7 @@ def userPage(request):
 
 
 
-
+    user_details = User_Details.objects.get(username=request.user.id)
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
@@ -294,7 +295,6 @@ def userPage(request):
                                              'ongoing_project_donations': ongoing_project_donations,
                                              'completed_project_donations': completed_project_donations,
                                              'form': form,
-                                             'notification': notification,
                                              'card_form': card_form,
                                              'cp_form':cp_form,
                                              'email_form': email_form,
