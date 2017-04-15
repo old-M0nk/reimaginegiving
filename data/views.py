@@ -86,22 +86,71 @@ def projectPage (request, pk):
 
 def viewAllProjects (request, cause, funding):
     context = RequestContext(request)
+    def filter():
+        if request.POST['funding_level']:
+            if request.POST['funding_level'] == "nearly_funded":
+                project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__gte=0.8)
+            elif request.POST['funding_level'] == "just_started":
+                project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=0.2)
+            elif request.POST['funding_level'] == "ongoing":
+                project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=1,end_date__gte=datetime.date.today())
+        else:
+            project_list = Project.objects.all()
+        if request.POST['education'] != True:
+            project_list = project_list.exclude(cause__name='Education')
+        if request.POST['poverty'] != True:
+            project_list = project_list.exclude(cause__name='Poverty')
+        if request.POST['sanitation'] != True:
+            project_list = project_list.exclude(cause__name='Sanitation')
+        if request.POST['child_welfare'] != True:
+            project_list = project_list.exclude(cause__name='Child Welfare')
+        if request.POST['skill_development'] != True:
+            project_list = project_list.exclude(cause__name='Skill Development')
+        if request.POST['disaster_recovery'] != True:
+            project_list = project_list.exclude(cause__name='Disaster Recovery')
+        if request.POST['lgbtq'] != True:
+            project_list = project_list.exclude(cause__name='LGBTQ')
+        if request.POST['technology'] != True:
+            project_list = project_list.exclude(cause__name='Technology')
+        if request.POST['arts_and_culture'] != True:
+            project_list = project_list.exclude(cause__name='Arts & Culture')
+        if request.POST['environment'] != True:
+            project_list = project_list.exclude(cause__name='Environment')
+
+        return project_list
+
+
+
+
     if cause == 'all' and funding == 'all':
-        project_list = Project.objects.all()  ###view all project... no logic used...
-        project_count = project_list.count()
+        if request.method == 'POST' and request.POST['submit'] == 'filters':
+            project_list = filter()
+            project_count = project_list.count()
+        else:
+            project_list = Project.objects.all()  ###view all project... no logic used...
+            project_count = project_list.count()
     elif cause != 'all':
-        project_list = Project.objects.filter(cause__name=cause)
-        project_count = project_list.count()
+        if request.method == 'POST' and request.POST['submit'] == 'filters':
+            project_list = filter()
+            project_count = project_list.count()
+        else:
+            project_list = Project.objects.filter(cause__name=cause)
+            project_count = project_list.count()
     elif funding != 'all':
-        if funding == 'nearly_funded':
-            project_list = Project.objects.annotate(x=F('raised_amount')/F('total_amount')).filter(x__gte=0.8)
+        if request.method == 'POST' and request.POST['submit'] == 'filters':
+            project_list = filter()
             project_count = project_list.count()
-        elif funding == 'just_started':
-            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=0.2)
-            project_count = project_list.count()
-        elif funding == 'ongoing':
-            project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=1, end_date__gte=datetime.date.today())
-            project_count = project_list.count()
+        else:
+            if funding == 'nearly_funded':
+                project_list = Project.objects.annotate(x=F('raised_amount')/F('total_amount')).filter(x__gte=0.8)
+                project_count = project_list.count()
+            elif funding == 'just_started':
+                project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=0.2)
+                project_count = project_list.count()
+            elif funding == 'ongoing':
+                project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=1,
+                                                                                                         end_date__gte=datetime.date.today())
+                project_count = project_list.count()
     context_dict = {'projects': project_list,
                     'count': project_count}
     return render(request, 'viewAllProjects.html', context_dict, context)

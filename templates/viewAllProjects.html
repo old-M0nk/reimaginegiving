@@ -211,11 +211,10 @@
 		<div class="row viewAllProjectsContentHeadings" style="height: 150px;">
 			<h1>LET'S EXPLORE</h1>
 		</div>
-		
 		<div class="col-3">
 			<div class="col-11 viewAllProjectsContentFilters">
 				<h2 class="viewAllProjectsContentFiltersHeading">FILTERS</h2>
-				<form>
+				<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on">
 					<div class="location">
 						<span  onclick="myfunction1()">
 							<div class="exploreHeading1 row">
@@ -225,7 +224,7 @@
 						</span>
 						<div class="inputField" id="locationInput">
 							<div class="row" id="wrap">
-								<form action="" autocomplete="on">
+								<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on">
 									<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
 								</form>
 							</div>
@@ -245,9 +244,9 @@
 							</div>
 						</span>
 						<ul class="fundingLevels" id="fundingInput">
-							<li><input id="search" name="search" type="radio" placeholder="Search"><label>Nearly Funded</label></li>
-							<li><input id="search" name="search" type="radio" placeholder="Search"><label>Just Started</label></li>
-							<li><input id="search" name="search" type="radio" placeholder="Search"><label>Ongoing</label></li>
+							<li><input id="search" name="funding_level" type="radio" placeholder="Search" value="nearly_funded"><label>Nearly Funded</label></li>
+							<li><input id="search" name="funding_level" type="radio" placeholder="Search" value="just_started"><label>Just Started</label></li>
+							<li><input id="search" name="funding_level" type="radio" placeholder="Search" value="ongoing"><label>Ongoing</label></li>
 						</ul>
 					</div>
 					
@@ -259,15 +258,16 @@
 							</div>
 						</span>
 						<ul class="causeList" id="causeInput">
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Education</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Health</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Children</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Women Empowerment</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Food and Hunger</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Sports</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Animal Welfare</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Environment</label></li>
-							<li><input id="search" name="search" type="checkbox" placeholder="Search"><label>Others</label></li>
+							<li><input id="search" name="education" type="checkbox" placeholder="Search" value="True"><label>Education</label></li>
+							<li><input id="search" name="poverty" type="checkbox" placeholder="Search" value="True"><label>Poverty</label></li>
+							<li><input id="search" name="sanitation" type="checkbox" placeholder="Search" value="True"><label>Sanitation</label></li>
+							<li><input id="search" name="child_welfare" type="checkbox" placeholder="Search" value="True"><label>Child Welfare</label></li>
+							<li><input id="search" name="skill_development" type="checkbox" placeholder="Search" value="True"><label>Skill Development</label></li>
+							<li><input id="search" name="disaster_recovery" type="checkbox" placeholder="Search" value="True"><label>Disaster Recovery</label></li>
+							<li><input id="search" name="lgbtq" type="checkbox" placeholder="Search" value="True"><label>LGBTQ</label></li>
+							<li><input id="search" name="technology" type="checkbox" placeholder="Search" value="True"><label>Technology</label></li>
+							<li><input id="search" name="arts_and_culture" type="checkbox" placeholder="Search" value="True"><label>Arts and Culture</label></li>
+                            <li><input id="search" name="environment" type="checkbox" placeholder="Search" value="True"><label>Environment</label></li>
 						</ul>
 					</div>
 					
@@ -281,11 +281,10 @@
 							<li><input id="search" name="search" type="radio" placeholder="Search"><label>50% Tax Rebate</label></li>
 						</ul>
 					</div>
-				
+				<button type="submit" name="submit" value="filter">Save</button>
 				</form>
 			</div>
 		</div>
-		
 		<div class="col-9 viewAllProjectsContentProjects">
 			
 			<div class="row projects">
@@ -387,26 +386,26 @@
 				</ul>
 			</div>
 			<div class="col-4 footerCauses" >
-				<div class="col-6 footerCauses1">
-					<ul>
-						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'index' %}">Skill Development</a></h2>  </li>
-						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
-                        <li><h2><a href="{% url 'index' %}">LGBTQ</a></h2>                </li>
-					</ul>
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Poverty' funding='all' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Sanitation' funding='all' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Child_Welfare' funding='all' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Skill_Development' funding='all' %}">Skill Development</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Disaster_Recovery' funding='all' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='LGBTQ' funding='all' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Technology' funding='all' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='ArtsandCulture' funding='all' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Environment' funding='all' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-6 footerCauses2">
-					<ul>	
-						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
-					</ul>
-				</div>
-			</div>
 {#			<div class="col-2 footerWorks">#}
 {#				<ul>#}
 {#					<li><h1>How it Works</h1>                      </li>#}
