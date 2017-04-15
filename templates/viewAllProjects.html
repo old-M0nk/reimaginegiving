@@ -214,7 +214,8 @@
 		<div class="col-3">
 			<div class="col-11 viewAllProjectsContentFilters">
 				<h2 class="viewAllProjectsContentFiltersHeading">FILTERS</h2>
-				<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on">
+				<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on" method="post">
+                    {%  csrf_token %}
 					<div class="location">
 						<span  onclick="myfunction1()">
 							<div class="exploreHeading1 row">
@@ -224,9 +225,9 @@
 						</span>
 						<div class="inputField" id="locationInput">
 							<div class="row" id="wrap">
-								<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on">
-									<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">
-								</form>
+{#								<form action="{% url 'viewAllProjects' cause='all' funding='all' %}" autocomplete="on">#}
+{#									<input id="search" name="search" type="text" placeholder="Search"><input id="search_submit" value="Rechercher" type="submit">#}
+{#								</form>#}
 							</div>
 							<ul>
 								<li><input id="search" name="search" type="radio" > <label>Delhi</label></li>

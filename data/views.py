@@ -80,34 +80,48 @@ def projectPage (request, pk):
 def viewAllProjects (request, cause, funding):
     context = RequestContext(request)
     def filter():
-        if request.POST['funding_level']:
+        if request.POST.get('funding_level', False) != False:
+            print ('pass1')
             if request.POST['funding_level'] == "nearly_funded":
                 project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__gte=0.8)
+                print ('pass2')
             elif request.POST['funding_level'] == "just_started":
                 project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=0.2)
+                print ('pass3')
             elif request.POST['funding_level'] == "ongoing":
+                print ('pass4')
                 project_list = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).filter(x__lte=1,end_date__gte=datetime.date.today())
         else:
             project_list = Project.objects.all()
-        if request.POST['education'] != True:
+        if request.POST.get('education', False) != True:
+            print ('pass1')
             project_list = project_list.exclude(cause__name='Education')
-        if request.POST['poverty'] != True:
+        if request.POST.get('poverty', False) != True:
+            print ('pass2')
             project_list = project_list.exclude(cause__name='Poverty')
-        if request.POST['sanitation'] != True:
+        if request.POST.get('sanitation', False) != True:
+            print ('pass3')
             project_list = project_list.exclude(cause__name='Sanitation')
-        if request.POST['child_welfare'] != True:
+        if request.POST.get('child_welfare', False) != True:
+            print ('pass4')
             project_list = project_list.exclude(cause__name='Child Welfare')
-        if request.POST['skill_development'] != True:
+        if request.POST.get('skill_development', False) != True:
+            print ('pass5')
             project_list = project_list.exclude(cause__name='Skill Development')
-        if request.POST['disaster_recovery'] != True:
+        if request.POST.get('disaster_recovery', False) != True:
+            print ('pass6')
             project_list = project_list.exclude(cause__name='Disaster Recovery')
-        if request.POST['lgbtq'] != True:
+        if request.POST.get('lgbtq', False) != True:
+            print ('pass7')
             project_list = project_list.exclude(cause__name='LGBTQ')
-        if request.POST['technology'] != True:
+        if request.POST.get('technology', False) != True:
+            print ('pass8')
             project_list = project_list.exclude(cause__name='Technology')
-        if request.POST['arts_and_culture'] != True:
+        if request.POST.get('arts_and_culture', False) != True:
+            print ('pass9')
             project_list = project_list.exclude(cause__name='Arts & Culture')
-        if request.POST['environment'] != True:
+        if request.POST.get('environment', False) != True:
+            print ('pass10')
             project_list = project_list.exclude(cause__name='Environment')
 
         return project_list
@@ -116,7 +130,8 @@ def viewAllProjects (request, cause, funding):
 
 
     if cause == 'all' and funding == 'all':
-        if request.method == 'POST' and request.POST['submit'] == 'filters':
+        if request.method == 'POST' and request.POST['submit'] == 'filter':
+            print ('pass')
             project_list = filter()
             project_count = project_list.count()
         else:
