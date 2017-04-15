@@ -63,7 +63,6 @@ urlpatterns = [
         url(r'^pricing/', views.pricing, name='pricing'),
         url(r'^Success/',views.success, name='success'),
         url(r'^Success/',views.success, name='surl'),
-        url(r'^Failure/',views.failure, name='furl'),
         url(r'^ajax/validate_username/$', validate_username, name='validate_username'),
         url(r'^ajax/validate_password/$', validate_password, name='validate_username'),
         # url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
