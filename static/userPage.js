@@ -11,25 +11,25 @@ $(".icon-contPencil").hover(function(){
 $(".userPageGeneralInformationi1").click(function(){
 	$(".saveDetails1").css("display","block");
 	$(".userPageGeneralInformationi1").css("display","none");
-	$(".userPageGeneralInformationContent1 span").attr("contenteditable","true");
+	$(".userPageGeneralInformationContent1 input").removeAttr("readonly");
 });
 
 $(".userPageGeneralInformationi2").click(function(){
 	$(".saveDetails2").css("display","block");
 	$(".userPageGeneralInformationi2").css("display","none");
-	$(".userPageGeneralInformationContent2 span").attr("contenteditable","true");
+	$(".userPageGeneralInformationContent2 input").removeAttr("readonly");
 });
 
 $(".saveDetails1").click(function(){
 	$(".saveDetails1").css("display","none");
 	$(".userPageGeneralInformationi1").css("display","block");
-	$(".userPageGeneralInformationContent1 span").attr("contenteditable","false");
+	$(".userPageGeneralInformationContent1 input").attr("readonly","readonly");
 });
 
 $(".saveDetails2").click(function(){
 	$(".saveDetails2").css("display","none");
 	$(".userPageGeneralInformationi2").css("display","block");
-	$(".userPageGeneralInformationContent2 span").attr("contenteditable","false");
+	$(".userPageGeneralInformationContent2 input").attr("readonly","readonly");
 });
 
 $(".input-cart-number").keyup(function () {

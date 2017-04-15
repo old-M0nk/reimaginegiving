@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
 from core import views as core_views
 from data import views
-from users.views import login_view, logout_view, register_view, userPage, NGOformPage
+from users.views import *
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from django.conf import settings
@@ -62,6 +62,11 @@ urlpatterns = [
         url(r'^privacy/', views.privacy, name='privacy'),
         url(r'^pricing/', views.pricing, name='pricing'),
         url(r'^Success/',views.success, name='success'),
+        url(r'^Success/',views.success, name='surl'),
+        url(r'^Failure/',views.failure, name='furl'),
+        url(r'^ajax/validate_username/$', validate_username, name='validate_username'),
+        url(r'^ajax/validate_password/$', validate_password, name='validate_username'),
+        # url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...

@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -12,6 +12,14 @@ from forms import *
 from django.contrib import messages
 from django.shortcuts import redirect
 import re
+from instamojo_wrapper import Instamojo
+from django.template.loader import get_template
+from django.template import Context, Template, RequestContext
+import datetime
+import hashlib
+from random import randint
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.template.context_processors import csrf
 
 
 
@@ -179,7 +187,6 @@ def refund (request):
 def pricing (request):
     return render(request, 'pricing.html')
 
-
 from django.template.loader import get_template
 from django.template import Context, Template, RequestContext
 import datetime
@@ -215,6 +222,7 @@ def payment_redirect(request):
     print response['payment_request']['id']
     return redirect(response1)
 
+
 @csrf_protect
 @csrf_exempt
 def success(request):
@@ -234,6 +242,20 @@ def success(request):
     amount = response['payment_request']['amount']
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
+
+
+#
+# from django.contrib.auth.models import User
+# from django.http import JsonResponse
+#
+# def validate_username(request):
+#     username = request.GET.get('username', None)
+#     data = {
+#         'is_taken': User.objects.filter(username__iexact=username).exists()
+#     }
+#     if data['is_taken']:
+#         data['error_message'] = 'A user with this username already exists.'
+#     return JsonResponse(data)
 
 
 

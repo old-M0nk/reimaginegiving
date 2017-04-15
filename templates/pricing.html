@@ -244,7 +244,7 @@
 					<ul>
 						<li><h1>About Us</h1></li>
 						<li><h2><a>What is Reimagine?</a></h2></li>
-						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>
+{#						<li><h2><a href="{% url 'teamPage' %}">Our Team</a></h2></li>#}
 						<li><h2><a href="{% url 'contactUsPage' %}">Contact Us</a></h2></li>
 					</ul>
 				</div>
@@ -252,20 +252,20 @@
 					<div class="col-6 footerCauses1">
 						<ul>
 							<li><h1>Causes</h1>                  </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}" >Education</a></h2>        </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Poverty</a></h2>          </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Sanitation</a></h2>       </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Child Welfare</a></h2>    </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Women and Girls</a></h2>  </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Disaster Recovery</a></h2></li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">LGBTQ</a></h2>                </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Poverty' funding='all' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Sanitation' funding='all' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Child_Welfare' funding='all' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Skill_Development' funding='all' %}">Skill Development</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Disaster_Recovery' funding='all' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='LGBTQ' funding='all' %}">LGBTQ</a></h2>                </li>
 						</ul>
 					</div>
 					<div class="col-6 footerCauses2">
 						<ul>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Technology</a></h2>              </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Arts and Culture</a></h2>        </li>
-							<li><h2><a href="{% url 'viewAllProjects' %}">Enviorment</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Technology' funding='all' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='ArtsandCulture' funding='all' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Environment' funding='all' %}">Enviorment</a></h2>              </li>
 						</ul>
 					</div>
 				</div>
@@ -285,7 +285,7 @@
 						<li><h1>Contact Us</h1></li>
 						<li><h2><span>Email: </span>contact@reimaginegiving.com</h2></li>
 						<li><h2><span>Phone:</span> +91-8417048371</h2></li>
-						<li><h2><span>Address:</span>Room 2,Limbdi Hostel,IIT(BHU)<br/>Varanasi,India-221005</h2></li>
+						<li><h2><span>Address:</span>IIT(BHU) Varanasi<br/>Varanasi,India-221005</h2></li>
 						<li>
 							<a  title="Facebook share" target="_blank" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
 								<i class="fa fa-facebook"></i>

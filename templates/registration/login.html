@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
+{#    {% block javascript %}#}
+{#      <script>#}
+{#    $("#id_username").change(function () {#}
+{#      var form = $(this).closest("form");#}
+{#      $.ajax({#}
+{#        url: form.attr("data-validate-username-url"),#}
+{#        data: form.serialize(),#}
+{#        dataType: 'json',#}
+{#        success: function (data) {#}
+{#          if (data.is_taken) {#}
+{#            alert(data.error_message);#}
+{#          }#}
+{#        }#}
+{#      });#}
+{##}
+{#    });#}
+{#  </script>#}
+{#    {% endblock %}#}
 
     {% if not user.is_authenticated %}
 
@@ -11,11 +30,12 @@
 									  <input name="password" placeholder="Password" type="Password" />
                                         <span onclick="SignMeUp()"><button type="submit" value="submit" class="btn">Log In</button></span>
 {#										 <div class="btn">Log in</div>#}
-										 <div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div>
-										 <div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div>
+                                        <a href="{% url 'social:begin' 'google-oauth2' %}"><div class="btn googlebtn"><i class="fa fa-google-plus"></i>Log In</div></a>
+                                        <a href="{% url 'social:begin' 'facebook' %}"><div class="btn fbbtn"><i class="fa fa-facebook"></i>Log In</div></a>
 									</form>
   <br>
 
      {% else %}{{ user.username }}
     {% endif %}
+{#    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>#}
 {% endblock %}

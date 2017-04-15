@@ -121,6 +121,38 @@ def register_view(request):
     return render(request, 'index.html', context_dict)
 
 
+def validate_username(request):
+    print ('pass1')
+    from django.http import JsonResponse
+    username = request.GET.get('username', None)
+    print (username)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    if data['is_taken']:
+        data['error_message'] = 'A user with this username already exists.'
+    return JsonResponse(data)
+
+
+def validate_password(request):
+    print ('pass2')
+    from django.http import JsonResponse
+    password = request.GET.get('password', None)
+    password2 = request.GET.get('password2', None)
+    def passcheck():
+        if password == password2:
+            print ('True')
+            return True
+        else:
+            print ('False')
+            return False
+    data = {
+        'is_not_equal': not passcheck()
+    }
+    if data['is_not_equal']:
+        data['error_message'] = 'A user with this username already exists.'
+    return JsonResponse(data)
+
 
 @login_required
 def logout_view(request):
@@ -131,6 +163,38 @@ def logout_view(request):
 
 @login_required
 def userPage(request):
+<<<<<<< HEAD
+=======
+    user_details = User_Details.objects.get(username=request.user)
+    if not Notification.objects.filter(username=request.user).exists():
+        print('pass1')
+        notifications = Notification(username=request.user)
+        notifications.save()
+    if not User_Details.objects.filter(username=request.user).exists():
+            print('pass1')
+            user_details = User_Details(username=request.user)
+            user_details.save()
+    notification = Notification.objects.get(username=request.user)
+
+    if request.method == "POST" and request.POST['submit'] == "basic":
+        request.user.first_name = request.POST['first_name']
+        request.user.last_name = request.POST['last_name']
+        request.user.save()
+        user_details.mobile_number = request.POST['mobile']
+        user_details.pan_number = request.POST['pan']
+        user_details.occupation = request.POST['occupation']
+        user_details.save()
+
+    if request.method == "POST" and request.POST['submit'] == "mailing":
+        user_details.address_line_1 = request.POST['address_line_1']
+        user_details.address_line_2 = request.POST['address_line_2']
+        user_details.city = request.POST['city']
+        user_details.pincode = request.POST['pincode']
+        user_details.pan_number = request.POST['pan']
+        user_details.occupation = request.POST['occupation']
+        user_details.save()
+
+>>>>>>> 47f8b06beca1d471d9b076368699eb417007bb12
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
@@ -218,7 +282,11 @@ def userPage(request):
 
 
 
+<<<<<<< HEAD
     user_details = User_Details.objects.get(username=request.user.id)
+=======
+
+>>>>>>> 47f8b06beca1d471d9b076368699eb417007bb12
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
