@@ -978,26 +978,26 @@
 				</ul>
 			</div>
 			<div class="col-4 footerCauses" >
-				<div class="col-6 footerCauses1">
-					<ul>
-						<li><h1>Causes</h1>                  </li>
-						<li><h2><a href="{% url 'index' %}" >Education</a></h2>        </li>
-						<li><h2><a href="{% url 'index' %}">Poverty</a></h2>          </li>
-						<li><h2><a href="{% url 'index' %}">Sanitation</a></h2>       </li>
-						<li><h2><a href="{% url 'index' %}">Child Welfare</a></h2>    </li>
-						<li><h2><a href="{% url 'index' %}">Skill Development</a></h2>  </li>
-						<li><h2><a href="{% url 'index' %}">Disaster Recovery</a></h2></li>
-                        <li><h2><a href="{% url 'index' %}">LGBTQ</a></h2>                </li>
-					</ul>
+					<div class="col-6 footerCauses1">
+						<ul>
+							<li><h1>Causes</h1>                  </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Education' funding='all' %}" >Education</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Poverty' funding='all' %}">Poverty</a></h2>          </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Sanitation' funding='all' %}">Sanitation</a></h2>       </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Child_Welfare' funding='all' %}">Child Welfare</a></h2>    </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Skill_Development' funding='all' %}">Skill Development</a></h2>  </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Disaster_Recovery' funding='all' %}">Disaster Recovery</a></h2></li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='LGBTQ' funding='all' %}">LGBTQ</a></h2>                </li>
+						</ul>
+					</div>
+					<div class="col-6 footerCauses2">
+						<ul>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Technology' funding='all' %}">Technology</a></h2>              </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='ArtsandCulture' funding='all' %}">Arts and Culture</a></h2>        </li>
+							<li><h2><a href="{% url 'viewAllProjects' cause='Environment' funding='all' %}">Enviorment</a></h2>              </li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-6 footerCauses2">
-					<ul>	
-						<li><h2><a href="{% url 'index' %}">Technology</a></h2>              </li>
-						<li><h2><a href="{% url 'index' %}">Arts and Culture</a></h2>        </li>
-						<li><h2><a href="{% url 'index' %}">Enviorment</a></h2>              </li>
-					</ul>
-				</div>
-			</div>
 {#			<div class="col-2 footerWorks">#}
 {#				<ul>#}
 {#					<li><h1>How it Works</h1>                      </li>#}
