@@ -61,8 +61,7 @@ urlpatterns = [
         url(r'^refund/', views.refund, name='refund'),
         url(r'^privacy/', views.privacy, name='privacy'),
         url(r'^pricing/', views.pricing, name='pricing'),
-        url(r'^Success/',views.success),
-        url(r'^Failure/',views.failure),
+        url(r'^Success/',views.success, name='success'),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up
     # url(r'^users/', include('users.urls')),# once the user logs in...

@@ -9,6 +9,9 @@ from users.models import ContactUs
 from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
+from django.contrib import messages
+from django.shortcuts import redirect
+import re
 
 
 
@@ -104,17 +107,33 @@ def checkOut(request, pk):
     ngo = project.ngo_id.name
     form = PaymentDetailsForm(request.POST or None)
 
-    if request.method == "POST":
-            if request.POST['amount']:
-                amount = request.POST['amount']
-                print amount
-                return render(request, 'checkOut.html', {'amount': amount, 'project':project, 'ngo':ngo, 'title':name, 'form': form}, context)
+    if 'amount' not in request.session:
+        if request.method == "POST":
+            import re
+            if re.match("^[0-9]*$", request.POST['amount']):
+                if request.POST['amount']:
+                    amount = request.POST['amount']
+                    print amount
+                    return render(request, 'checkOut.html', {'amount': amount, 'project':project.title, 'ngo':ngo, 'title':name, 'form': form, 'pk': pk}, context)
+                else:
+                    messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
+                    url = reverse('projectPage', kwargs={'pk': pk})
+                    return HttpResponseRedirect(url)
             else:
+                messages.add_message(request, messages.ERROR, 'Enter a valid amount.', extra_tags="amount")
                 url = reverse('projectPage', kwargs={'pk': pk})
                 return HttpResponseRedirect(url)
+        else:
+            url = reverse('projectPage', kwargs={'pk': pk})
+            return HttpResponseRedirect(url)
     else:
-        url = reverse('projectPage', kwargs={'pk': pk})
-        return HttpResponseRedirect(url)
+        amount = request.session['amount']
+        request.session.clear()
+        print amount
+        return render(request, 'checkOut.html',
+                      {'amount': amount, 'project': project, 'ngo': ngo, 'title': name, 'form': form, 'pk': pk},
+                      context)
+
 
 
 
@@ -168,110 +187,53 @@ import hashlib
 from random import randint
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
-
+from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
-    MERCHANT_KEY = "JBZaLc"
-    key = "JBZaLc"
-    SALT = "GQs7yium"
-    PAYU_BASE_URL = "https://test.payu.in/_payment"
-    action = ''
-    posted = {}
-    for i in request.POST:
-        posted[i] = request.POST[i]
-    hash_object = hashlib.sha256(b'randint(0,20)')
-    txnid = hash_object.hexdigest()[0:20]
-    hashh = ''
-    posted['txnid'] = txnid
-    hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
-    posted['key'] = key
-    posted['amount'] = request.POST['amount']
-    posted['productinfo'] = request.POST['project']
-    posted['firstname'] = request.POST['first_name']
-    posted['email'] = request.POST['email']
-    hash_string = ''
-    hashVarsSeq = hashSequence.split('|')
-    for i in hashVarsSeq:
-        try:
-            hash_string += str(posted[i])
-        except Exception:
-            hash_string += ''
-        hash_string += '|'
-    hash_string += SALT
-    hashh = hashlib.sha512(hash_string).hexdigest().lower()
-    action = PAYU_BASE_URL
-    if (posted.get("key") != None and posted.get("txnid") != None and posted.get("productinfo") != None and posted.get(
-            "firstname") != None and posted.get("email") != None):
-        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
-                                                                                    "MERCHANT_KEY": MERCHANT_KEY,
-                                                                                    "txnid": txnid,
-                                                                                    "hash_string": hash_string,
-                                                                                    "action": "https://test.payu.in/_payment"}))
-    else:
-        return render_to_response('payment_redirect.html', RequestContext(request, {"posted": posted, "hashh": hashh,
-                                                                                    "MERCHANT_KEY": MERCHANT_KEY,
-                                                                                    "txnid": txnid,
-                                                                                    "hash_string": hash_string,
-                                                                                    "action": "."}))
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
 
+    # Create a new Payment Request
+    firstname = request.POST["first_name"]
+    amount = request.POST["amount"]
+    email = request.POST["email"]
+    phone = request.POST["mobile"]
+    project = request.POST["project"]
+    response = api.payment_request_create(
+        amount=amount,
+        purpose = project,
+        send_email=True,
+        email=email,
+        phone=phone,
+        buyer_name =  firstname,
+        redirect_url="http://www.reimaginegiving.org/Success/"
+    )
+    # print the long URL of the payment request.
+    response1 = response['payment_request']['longurl']
+    print response1
+    # print the unique ID(or payment request ID)
+    print response['payment_request']['id']
+    return redirect(response1)
 
 @csrf_protect
 @csrf_exempt
 def success(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response('sucess.html',
-                              RequestContext(request, {"txnid": txnid, "status": status, "amount": amount}))
+    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
+                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
+    # Create a new Payment Request
+    payment_request_id = request.GET["payment_request_id"]
+    txnid = request.GET["payment_id"]
+    response = api.payment_request_status(payment_request_id)
 
+    print response['payment_request']['shorturl']  # Get the short URL
+    print response['payment_request']['status']  # Get the current status
+    print response['payment_request']['payments']  # List of payments
+    print response['payment_request']['amount']
 
-@csrf_protect
-@csrf_exempt
-def failure(request):
-    c = {}
-    c.update(csrf(request))
-    status = request.POST["status"]
-    firstname = request.POST["firstname"]
-    amount = request.POST["amount"]
-    txnid = request.POST["txnid"]
-    posted_hash = request.POST["hash"]
-    key = request.POST["key"]
-    productinfo = request.POST["productinfo"]
-    email = request.POST["email"]
-    salt = "GQs7yium"
-    try:
-        additionalCharges = request.POST["additionalCharges"]
-        retHashSeq = additionalCharges + '|' + salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    except Exception:
-        retHashSeq = salt + '|' + status + '|||||||||||' + email + '|' + firstname + '|' + productinfo + '|' + amount + '|' + txnid + '|' + key
-    hashh = hashlib.sha512(retHashSeq).hexdigest().lower()
-    if (hashh != posted_hash):
-        print "Invalid Transaction. Please try again"
-    else:
-        print "Thank You. Your order status is ", status
-        print "Your Transaction ID for this transaction is ", txnid
-        print "We have received a payment of Rs. ", amount, ". Your order will soon be shipped."
-    return render_to_response("Failure.html", RequestContext(request, c))
+    status = response['payment_request']['status']
+    amount = response['payment_request']['amount']
+
+    return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
 
 
 

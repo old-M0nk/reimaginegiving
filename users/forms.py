@@ -71,4 +71,8 @@ class ChangeEmailForm(forms.Form):
     password = forms.CharField()
 
 
+class NewCausesForm(forms.Form):
+    cause_id = forms.CharField()
+
+
 

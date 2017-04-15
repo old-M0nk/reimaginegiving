@@ -149,9 +149,11 @@
 								<img src="{% static "logo/logo-final.png" %}"/>
 								<div class="form-item">
                                     <div class="form-log-in animated">
+                                <i style="color: red">{{ message }}</i>
 									{% include "registration/login.html" %}
                                     </div>
                                     <div class="form-sign-up animated">
+                                        <i style="color: red">{{ message }}</i>
 									{% include "registration/register.html" %}
                                     </div>
 								</div>
@@ -182,9 +184,11 @@
 									<img src="{% static "logo/logo-final.png" %}"/>
 									<div class="form-item1">
                                     <div class="form-log-in1 animated">
+                                    <i style="color: red">{{ message }}</i>
 									{% include "registration/login.html" %}
                                     </div>
                                     <div class="form-sign-up1 animated">
+                                        <i style="color: red">{{ message }}</i>
 									{% include "registration/register.html" %}
                                     </div>
 								</div>
@@ -239,12 +243,26 @@
 								<fieldset>
 								  <input type="text" id="checkOutPageSavedCardUserFullName" placeholder="First Name" name="first_name">
                                     <input style="display: none;" name="amount" {% if amount %}value="{{ amount }}" {% endif %}>
-                                <input style="display: none;" name="project" {% if amount %}value="{{ project.id }}" {% endif %}>
+                                <input style="display: none;" name="project" {% if amount %}value="{{ project }}" {% endif %}>
 								</fieldset>
 								<fieldset>
+                                     {% if messages %}
+                                        {% for message in messages %}
+                                            {% ifequal message.tags "email error" %}
+                                                <i style="color: red">{{ message }}</i>
+                                            {% endifequal %}
+                                        {% endfor %}
+                                     {% endif %}
 								  <input type="text" id="checkOutPageSavedCardUserEmail" placeholder="Email" name="email">
 								</fieldset>
 								<fieldset>
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                            {% ifequal message.tags "mobile error" %}
+                                                <i style="color: red">{{ message }}</i>
+                                            {% endifequal %}
+                                        {% endfor %}
+                                     {% endif %}
 								  <input maxlength="10" id="checkOutPageSavedCardUserPhoneNumber" placeholder="Mobile Number" name="mobile">
 								</fieldset>
 								<input type="checkbox" id="donateAnonymously"><label>Donate anonymously</label>

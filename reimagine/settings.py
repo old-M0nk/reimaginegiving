@@ -28,6 +28,7 @@ SECRET_KEY = "=$oz0fu4yop!az8%6*rxv457=a6e13p$0ph5c2jml7_mz%%f-3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SITE_ID = 1
 
 # Application definition
 
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'users',
     'staff',
     'social_django',
+    'django.contrib.sites',
 
     'django.contrib.admin',
     'django.contrib.auth',

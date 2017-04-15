@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
-from data.models import Project
+from data.models import Project, Cause
 
 
 class Donor(models.Model):
@@ -66,4 +66,7 @@ class Card_Details(models.Model):
     expiration_date = models.CharField(max_length=40)
     cvv = models.IntegerField()
 
+class Causes_I_Care_About(models.Model):
+    username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
+    cause = models.ForeignKey(Cause)
 

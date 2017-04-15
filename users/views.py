@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout, get_user_model
-from django.contrib.auth.models import User
-from django.template import RequestContext, loader, Context
-from django.views import generic
-from django.views.generic import View
+# from django.contrib.auth import login, logout, get_user_model
+# from django.contrib.auth.models import User
+# from django.template import RequestContext, loader, Context
+# from django.views import generic
+# from django.views.generic import View
 from .forms import *
-from .models import Email, User_Details, Donation, Notification, Card_Details
+from .models import *
 from data.models import NGOtemp, Project
 from django.contrib.auth import authenticate as auth
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.db.models import F, Q
+from django.contrib import messages
 
 def comingSoon(request):
     if request.method == "POST":
@@ -60,20 +62,23 @@ def login_view(request):
             login(request, user)
             print("True")
             message = "Welcome"
-            context_dict = {'message': message}
+            project_list = Project.objects.all()  ###view all project... no logic used...
+            context_dict = {'message': message, 'projects': project_list}
             page = 'index.html'
         else:
             # Return an 'invalid login' error message.
-            context_dict = {'message': 'Incorrect Credentials', 'form': form}
-            page = 'registration/login.html'
+            project_list = Project.objects.all()  ###view all project... no logic used...
+            context_dict = {'message': 'Incorrect Credentials', 'form': form, 'projects': project_list}
+            page = 'index.html'
 
     else:#if the form has not been submitted
         form = UserLoginForm(request.POST or None)
-        context_dict = {'form':form, 'message': "Login blah"}
-        page = 'registration/login.html'
-
-    if request.user.is_authenticated():
-        return render(request, page, context_dict)
+        project_list = Project.objects.all()  ###view all project... no logic used...
+        context_dict = {'form':form, 'projects': project_list}
+        page = 'index.html'
+    #
+    # if request.user.is_authenticated():
+    return render(request, page, context_dict)
 
 
 def register_view(request):
@@ -84,24 +89,32 @@ def register_view(request):
         username = request.POST['username']
         password = request.POST['password']
         password2 = request.POST['password2']
+        import re
 
-        #check if the passwords match
-        if password == password2:
-            user = User(username=username, email=username, password=password, first_name=first_name, last_name=last_name)
-            # user = user.save(commit=False)
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            user.set_password(password)
-            user.save()
-            user_details = User_Details(username=user)
-            user_details.save()
-            notifications = Notification(username=user)
-            notifications.save()
-            login(request, user)
-            context_dict = {
-                "message": "Welcome",
-            }
+        if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['username'] )!= None:
+            # check if the passwords match
+            if password == password2:
+                user = User(username=username, email=username, password=password, first_name=first_name,
+                            last_name=last_name)
+                # user = user.save(commit=False)
+                user.backend = 'django.contrib.auth.backends.ModelBackend'
+                user.set_password(password)
+                user.save()
+                user_details = User_Details(username=user)
+                user_details.save()
+                notifications = Notification(username=user)
+                notifications.save()
+                login(request, user)
+                context_dict = {
+                    "message": "Welcome",
+                }
+            else:
+                context_dict = {'form': form, 'message': "Passwords did not match!"}
         else:
-            context_dict = {'form': form, 'message': "Passwords did not match!"}
+            context_dict = {'form': form, 'message': "Enter a valid Email address!"}
+
+
+
     else:
         form = UserRegistrationForm(request.POST or None)
         context_dict = {'form': form}
@@ -117,8 +130,7 @@ def logout_view(request):
 
 
 @login_required
-def userPage (request):
-    notification = Notification.objects.get(username=request.user)
+def userPage(request):
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
@@ -155,6 +167,7 @@ def userPage (request):
         card.save()
     else:
         card_form = CardDetailsForm(request.POST or None)
+    cards = Card_Details.objects.filter(username=request.user)
 
     if request.method == "POST" and request.POST['submit'] == "change_password":
         cp_form = ChangePasswordForm(request.POST or None)
@@ -173,20 +186,45 @@ def userPage (request):
         cp_form = ChangePasswordForm(request.POST or None)
 
     if request.method == "POST" and request.POST['submit'] == "change_email":
+        import re
         email_form = ChangeEmailForm(request.POST or None)
         user = request.user
         if auth(username=request.user.username, password=request.POST['password']):
-            user.username = request.POST['new_email']
-            user.email = request.POST['new_email']
-            user.save()
-            user = auth(username=request.POST['new_email'], password=request.POST['password'])
-            login(request, user)
+            if re.match("^.+@([?)[a-zA-Z0-9-.]+.([a-zA-Z]{2,3}|[0-9]{1,3})(]?))$", request.POST['new_email']) != None:
+                user.username = request.POST['new_email']
+                user.email = request.POST['new_email']
+                user.save()
+                user = auth(username=request.POST['new_email'], password=request.POST['password'])
+                login(request, user)
+            else:
+                messages.add_message(request, messages.ERROR, 'Enter a valid e-mail address.')
         else:
             email_form = ChangeEmailForm(request.POST or None)
     else:
         email_form = ChangeEmailForm(request.POST or None)
 
+    if request.method == 'POST' and request.POST['submit'] == "causes_i_care_about":
+        cause_form = NewCausesForm(request.POST or None)
+        for i in request.POST:
+            print (request.POST[i])
+            if i != 'submit' and i != 'csrfmiddlewaretoken':
+                cause = Causes_I_Care_About(username=request.user, cause_id=request.POST[i])
+                cause.save()
+            else:
+                cause_form = NewCausesForm(request.POST or None)
+    else:
+        cause_form = NewCausesForm(request.POST or None)
+
+
+
+
     user_details = User_Details.objects.get(username=request.user.id)
+    project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
+    project = project[0]
+    chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
+    print chosen_causes
+    exclude_cause_id = [cause.cause_id for cause in chosen_causes]
+    not_chosen_causes = Cause.objects.exclude(cause_id__in=exclude_cause_id)
     ongoing_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__gte=datetime.date.today())
     completed_project_donations = Donation.objects.filter(donor_id=request.user.id, project_id__end_date__lte=datetime.date.today())
     project_list = Project.objects.all()
@@ -195,11 +233,15 @@ def userPage (request):
                                              'ongoing_project_donations': ongoing_project_donations,
                                              'completed_project_donations': completed_project_donations,
                                              'form': form,
-                                             'notification': notification,
                                              'card_form': card_form,
                                              'cp_form':cp_form,
                                              'email_form': email_form,
-                                             'projects': project_list})
+                                             'cards': cards,
+                                             'projects': project_list,
+                                             'chosen_causes': chosen_causes,
+                                             'not_chosen_causes': not_chosen_causes,
+                                             'max_project': project,
+                                             'cause_form': cause_form})
 
 
 def NGOformPage (request):

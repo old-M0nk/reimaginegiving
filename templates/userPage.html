@@ -204,21 +204,18 @@
 		<div class="translucentContainer1"></div>
 		<div class="userPageCauseAddOuterContainer">
 			<div class="userPageCauseAddInnerContainer">
-				<form>
+            {% if cause_form %}
+				<form action="userPage.html" method="POST">
+                {% csrf_token %}
+                    {% for cause in not_chosen_causes %}
 					<fieldset>
-					  <input type="checkbox" id="Education" />
-					  <label for="Education">Education</label>
+					  <input type="checkbox" id="{{ cause.name}}" name="{{ cause.name }}" value="{{ cause.cause_id }}"/>
+					  <label for="Education">{{ cause.name }}</label>
 					</fieldset>
-					<fieldset>
-					  <input type="checkbox" id="XYZNICK" />
-						<label for="XYZNICK">XYZNICK</label>
-					</fieldset>
-					<fieldset>
-					<input type="checkbox" id="ghjlksbhb" />
-					  <label for="ghjlksbhb">ghjlksbhb</label>
-					</fieldset>
-					<button class="userPageProfileCausesAddNewButton" type="submit"><i class="fa fa-plus"></i> Add</button>
+                    {% endfor %}
+					<button class="userPageProfileCausesAddNewButton" type="submit" name="submit" value="causes_i_care_about"><i class="fa fa-plus"></i> Add</button>
 				</form>
+            {% endif %}
 			</div>
 		</div>
 	</div>
@@ -236,7 +233,7 @@
 		
 		<div class="col-2 userPageLeftColumn">
 			<div class="icon-cont">
-				<img class="circleIconImage" src="{% static "images/anuruddh.png" %}">
+				<img class="circleIconImage" src="{% static "images/userimage.png" %}">
                 <p><i class="fa fa-pencil icon-contPencil"></i></p>
 			</div>
             <script src="{% static "userPage.js" %}"></script>
@@ -402,33 +399,35 @@
 						</div>
 						
 						<div class="col-9 userPagePaymentOptionsLinksContent" id="userPagePaymentOptionsAddAccount">
-							<h4>addhgdf</h4>
+							<h4>Coming Soon!</h4>
 						</div>
 						
 					</div>
 					<div class="userPagePaymentSavedCards">
 						<h2>Saved Cards</h2>
 						<ul>
+                            {% for card in cards %}
 							<li>
-								<h2>XXXX-XXXX-XXXX-1234</h2>
-								<p>Exp: 11/2022</p>
+								<h2>{{ card.card_number }}</h2>
+								<p>Exp: {{ card.expiration_date }}</p>
 							</li>
+                            {% endfor %}
 							<li class="addNewCard">
 								<h2>+<br/>Link a Card</h2>
 							</li>
 						</ul>
 					</div>
-					<div class="userPagePaymentSavedCards">
-						<h2>Linked Accounts</h2>
-						<ul>
-							<li>
-								<h2>{{ user.first_name }} {{ user.last_name }}</h2>
-							</li>
-							<li class="addNewCard">
-								<h2>+<br/>Link a Card</h2>
-							</li>
-						</ul>
-					</div>
+{#					<div class="userPagePaymentSavedCards">#}
+{#						<h2>Linked Accounts</h2>#}
+{#						<ul>#}
+{#							<li>#}
+{#								<h2>{{ user.first_name }} {{ user.last_name }}</h2>#}
+{#							</li>#}
+{#							<li class="addNewCard">#}
+{#								<h2>+<br/>Link a Card</h2>#}
+{#							</li>#}
+{#						</ul>#}
+{#					</div>#}
 				</div>
 			</div>
 
@@ -438,9 +437,9 @@
 				</div>
 				<div class="userPageProfileCausesContent">
 					<ul>
-						<li><i class="fa fa-circle"></i>Child Welfare<i class="fa fa-minus floatRight"></i></li>
-						<li><i class="fa fa-circle"></i>Education<i class="fa fa-minus floatRight"></i></li>
-						<li><i class="fa fa-circle"></i>Poverty<i class="fa fa-minus floatRight"></i></li>
+                        {% for cause in chosen_causes %}
+                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i class="fa fa-minus floatRight"></i></li>
+                        {% endfor %}
 					</ul>
 					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>
 				</div>
@@ -468,7 +467,19 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks">
+									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+										<i class="fa fa-google-plus"></i>
+									</a>
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
+								</div>
+							</div>
 							</div>
 							<a class="divLink" href="{% url 'projectPage' pk=donation.project_id.project_id %}"></a>
 						</li>
@@ -590,7 +601,19 @@
 							</div>
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
-								<div class="userPageFinishedCampaignsBottomLinks"><a href="{% url 'index' %}">SHARE</a><a href="{% url 'index' %}">VIEW REPORTS</a></div>
+								<div class="userPageFinishedCampaignsBottomLinks">
+									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+										<i class="fa fa-facebook"></i>
+									</a>
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+										<i class="fa fa-google-plus"></i>
+									</a>
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
+								</div>
+							</div>
 							</div>
 							<a class="divLink" href="">{% url 'projectPage' pk=donation.project_id.project_id %}</a>
 						</li>
@@ -694,6 +717,11 @@
 				<form class="form" autocomplete="off" novalidate method="post" action="userPage.html">
                     {% csrf_token %}
 					<fieldset>
+                        {% if messages %}
+                            {% for message in messages %}
+                            <i style="color: red">{{ message }}</i>
+                            {% endfor %}
+                        {% endif %}
 					  <label for="userEmail">Enter your new Email</label>
 					  <input type="text" id="userEmail" name="new_email"/>
 					  <p>*Email not verified</p>
@@ -789,7 +817,7 @@
 					</div>
 					<div class="badge__content">
 					<div class="badge__content-inner">
-						<div class="badge__value">Gold</div>
+						<div class="badge__value">Basic</div>
 					</div>
 					</div>
 				</div>
@@ -797,10 +825,10 @@
 			<h2 class="userPageRightSupporter">Supporter</h2>
 			<script src="{% static "userPage.js" %}"></script>
 			
-			<div class="userPageConnectOptions">
+						<div class="userPageConnectOptions">
 				<h2 class="userPageRightOptionsHeading">Spread The Word</h2>
 				<div class="row userPageRightOptionsContent">
-					<a data-href="https://www.facebook.com/reimaginegiving" class=" facebook button social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" >
+					<a title="Facebook share" target="_blank" class="facebook button customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org" >
 						<i class="icon">
 						  <i class="fa fa-facebook"></i>
 						</i>
@@ -817,11 +845,11 @@
 					</a>
 				</div>
 				<div class="row userPageRightOptionsContent">
-					<a class="twitter-share-button twitter button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
+					<a class="twitter-share-button twitter button customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
 						<i class="icon">
 						  <i class="fa fa-twitter">
+							</i>
 						</i>
-					  </i>
 					  <div class="slide">
 						<p>
 						  Twitter
@@ -842,23 +870,23 @@
 					<li><div class="projectSection1">
 							<div class="row projectContent">
 								<div class="projectThumbnail">
-									<img class="img-thumbnail" src="{% static "images/web1.jpg" %}" >
+									<img class="img-thumbnail" src="{{ max_project.thumbnail|safe }}" >
 									<div class="row locationCause">
 										<div class="projectlocation">
 											<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-											<div class="col-2 projectlocationHeading"><h2>Varanasi</h2></div>
+											<div class="col-2 projectlocationHeading"><h2>{{ max_project.ngo_id.address }}</h2></div>
 										</div>
 										<div class="projectcause">
 											<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-											<div class="col-4 projectcauseHeading"><h2>Child Education</h2></div>
+											<div class="col-4 projectcauseHeading"><h2>{{ max_project.cause.name }}</h2></div>
 										</div>
-										<a class="locationCauseLink" href="{% url 'index' %}"></a>
+										<a class="locationCauseLink" href="{% url 'projectPage' pk=max_project.project_id %}"></a>
 									</div>
 								</div>
 								
 								<div class="projectDetails">
-									<h1>Child Education Project</h1>
-									<h2>Nirmaan Society</h2>
+									<h1>{{ max_project.title }}</h1>
+									<h2>{{ max_project.ngo_id.name }}</h2>
 									
 								</div>
 								
@@ -866,7 +894,7 @@
 									<div class="row" style="position:relative;">
 										<div class="row projectStats">
 											<div class="row" style="margin-bottom: 12px;">
-												<h2 class="floatRight">50%</h2>
+												<h2 class="floatRight">{% fund_percent_achieved max_project.total_amount max_project.raised_amount %}</h2>
 											</div>
 											
 											<div class="row progress">
@@ -876,7 +904,7 @@
 											<div class="row">
 												<div class="stats1 col-5">
 													<div class="statsNumber">
-														<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span> 250000</p>
+														<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ max_project.raised_amount }}</p>
 													</div>
 													<div class="statsText">
 														<p>Raised</p>
@@ -884,7 +912,7 @@
 												</div>
 												<div class="stats2 col-4">
 													<div class="statsNumber">
-														<p>105</p>
+														<p>{% no_of_donors max_project %}</p>
 													</div>
 													<div class="statsText">
 														<p>Donors</p>
@@ -892,7 +920,7 @@
 												</div>
 												<div class="stats3 col-3">
 													<div class="statsNumber">
-														<p>14</p>
+														<p>{% days_left max_project.end_date %}</p>
 													</div>
 													<div class="statsText">
 														<p>Days left</p>
