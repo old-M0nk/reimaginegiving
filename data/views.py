@@ -12,14 +12,14 @@ from forms import *
 from django.contrib import messages
 from django.shortcuts import redirect
 import re
-from instamojo_wrapper import Instamojo
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.template.context_processors import csrf
 from django.template.loader import get_template
-from django.template import Context, Template, RequestContext
+from django.template import Context, Template
 import datetime
 import hashlib
 from random import randint
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.template.context_processors import csrf
+from instamojo_wrapper import Instamojo
 
 
 
@@ -186,15 +186,6 @@ def refund (request):
     return render(request, 'refund.html')
 def pricing (request):
     return render(request, 'pricing.html')
-
-from django.template.loader import get_template
-from django.template import Context, Template, RequestContext
-import datetime
-import hashlib
-from random import randint
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.template.context_processors import csrf
-from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
     api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
