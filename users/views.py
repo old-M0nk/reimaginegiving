@@ -163,8 +163,7 @@ def logout_view(request):
 
 @login_required
 def userPage(request):
-<<<<<<< HEAD
-=======
+
     user_details = User_Details.objects.get(username=request.user)
     if not Notification.objects.filter(username=request.user).exists():
         print('pass1')
@@ -194,7 +193,6 @@ def userPage(request):
         user_details.occupation = request.POST['occupation']
         user_details.save()
 
->>>>>>> 47f8b06beca1d471d9b076368699eb417007bb12
     if request.method == "POST" and request.POST['submit'] == "notifications":
         form = NotificationForm(request.POST or None)
         supp_mob = request.POST.get('supp_mob', False)
@@ -282,11 +280,7 @@ def userPage(request):
 
 
 
-<<<<<<< HEAD
     user_details = User_Details.objects.get(username=request.user.id)
-=======
-
->>>>>>> 47f8b06beca1d471d9b076368699eb417007bb12
     project = Project.objects.annotate(x=F('raised_amount') / F('total_amount')).order_by('-x')
     project = project[0]
     chosen_causes = Causes_I_Care_About.objects.filter(username=request.user)
