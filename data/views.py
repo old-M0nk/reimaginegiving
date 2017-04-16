@@ -303,13 +303,16 @@ def success(request):
 
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
+    print request.user
     if request.user.is_authenticated():
+        print "true"
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
                             donor_id=request.user,
                             project_id_id=response['payment_request']['purpose'],
                             amount= amount)
     else:
+        print "false"
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
                             donor_id=User.objects.get(username="reimagine"),
