@@ -179,7 +179,7 @@ def userPage(request):
         print ('pass')
         cause = Cause.objects.get(name=request.POST['cause'])
         print cause
-        user_cause = Causes_I_Care_About(username=request.user, cause=cause)
+        user_cause = Causes_I_Care_About.objects.get(username=request.user, cause=cause)
         print user_cause
         user_cause.delete()
         if Causes_I_Care_About(username=request.user, cause=cause):
