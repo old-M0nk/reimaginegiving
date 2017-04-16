@@ -288,6 +288,7 @@ def payment_redirect(request):
 @csrf_protect
 @csrf_exempt
 def success(request):
+    from django.contrib.auth.models import User
     api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
                     auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
     # Create a new Payment Request
@@ -302,12 +303,21 @@ def success(request):
 
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
-
-    donation = Donation(transaction_id=txnid,
-                        donor_id=request.user,
-                        project_id_id=response['payment_request']['purpose'],
-                        amount= amount,
-                        status=True)
+    if request.user:
+        donation = Donation(name=response['payment_request']['buyer_name'],
+                            transaction_id=txnid,
+                            donor_id=request.user,
+                            project_id_id=response['payment_request']['purpose'],
+                            amount= amount,
+                            status=True)
+    else:
+        reimagine = User.objects.get(username="reimagine")
+        donation = Donation(name=response['payment_request']['buyer_name'],
+                            transaction_id=txnid,
+                            donor_id=reimagine,
+                            project_id_id=response['payment_request']['purpose'],
+                            amount=amount,
+                            status=True)
     donation.save()
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})

@@ -17,6 +17,7 @@ class Donor(models.Model):
 
 
 class Donation(models.Model):
+    name = models.CharField(default='not set', max_length=150)
     transaction_id = models.CharField(default='not set', max_length=150, primary_key=True)
     donor_id = models.ForeignKey(User, on_delete=models.SET('team member not set'))
     project_id = models.ForeignKey(Project, on_delete=models.SET('project not set'))
