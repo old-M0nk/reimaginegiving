@@ -320,6 +320,6 @@ def success(request):
     donation.save()
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
-
-
+from django.contrib.auth.models import User
+print User.objects.get(username="reimagine")
 
