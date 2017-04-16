@@ -105,8 +105,8 @@ function openCauseAddOverlay() {
     document.getElementById("userPageCauseAdd").style.height = "100%";
 	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
-function openDisplayPictureEditOverlay() {
-    document.getElementById("displayPictureEditOverlay").style.height = "100%";
+function openCauseDeleteOverlay(){
+    document.getElementById("userPageCauseDelete").style.height = "100%";
 	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
 

@@ -220,11 +220,15 @@
 		</div>
 	</div>
 
-	<div class="overlay" id="displayPictureEditOverlay">
-		<div class="translucentContainer1"></div>
-		<div class="displayPictureEditOuterContainer">
-			<div class="displayPictureEditInnerContainer">
-
+	<div class="overlay" id="userPageCauseDelete">
+		<div class="translucentContainer5"></div>
+		<div class="userPageCauseDeleteOuterContainer">
+			<div class="userPageCauseDeleteInnerContainer">
+				<form>
+					<label>Are you sure you want to remove this cause?</label>
+					<button class="userPageProfileCausesDeleteButton" type="submit">Yes</button>
+					<button class="userPageProfileCausesDeleteButton" type="submit">No</button>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -465,7 +469,7 @@
 				<div class="userPageProfileCausesContent">
 					<ul>
                         {% for cause in chosen_causes %}
-                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i class="fa fa-minus floatRight"></i></li>
+                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i onclick="openCauseDeleteOverlay()" class="fa fa-minus floatRight"></i></li>
                         {% endfor %}
 					</ul>
 					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>
