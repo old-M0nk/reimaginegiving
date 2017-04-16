@@ -311,10 +311,9 @@ def success(request):
                             amount= amount,
                             status=True)
     else:
-        reimagine = User.objects.get(username="reimagine")
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
-                            donor_id=reimagine,
+                            donor_id=User.objects.get(username="reimagine"),
                             project_id_id=response['payment_request']['purpose'],
                             amount=amount,
                             status=True)
