@@ -176,8 +176,11 @@ def userPage(request):
     notification = Notification.objects.get(username=request.user)
 
     if request.method == "POST" and request.POST['submit'] == "delete_cause":
+        print ('pass')
         cause = Cause.objects.get(name=request.POST['cause'])
+        print cause
         user_cause = Causes_I_Care_About(username=request.user, cause=cause)
+        print user_cause
         user_cause.delete()
 
     if request.method == "POST" and request.POST['submit'] == "basic":
