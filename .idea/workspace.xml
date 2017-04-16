@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="" />
+    <list default="true" id="468e8ee8-6970-4106-a5aa-ba3725dfe5b0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/views.py" afterPath="$PROJECT_DIR$/data/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkOut.html" afterPath="$PROJECT_DIR$/templates/checkOut.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/projectPage.html" afterPath="$PROJECT_DIR$/templates/projectPage.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,71 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SignUp.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/SignUp.js">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="87" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="546">
+              <caret line="222" column="27" lean-forward="false" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userPage.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/userPage.css">
+      <file leaf-file-name="projectPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="604" column="39" lean-forward="false" selection-start-line="604" selection-start-column="39" selection-end-line="604" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/userPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/userPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewAllProjects.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/viewAllProjects.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/header.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contactUsPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="246" column="74" lean-forward="false" selection-start-line="246" selection-start-column="58" selection-end-line="246" selection-end-column="74" />
+            <state relative-caret-position="6902">
+              <caret line="406" column="48" lean-forward="false" selection-start-line="406" selection-start-column="48" selection-end-line="406" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -156,21 +113,30 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/templates/comingSoon.html" />
+        <option value="$PROJECT_DIR$/core/views.py" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/templates/login.html" />
+        <option value="$PROJECT_DIR$/templates/registration/logout.html" />
         <option value="$PROJECT_DIR$/staff/models.py" />
         <option value="$PROJECT_DIR$/templates/NGOForm.html" />
         <option value="$PROJECT_DIR$/users/migrations/0007_auto_20170322_0211.py" />
+        <option value="$PROJECT_DIR$/static/header.css" />
+        <option value="$PROJECT_DIR$/static/SignUp.js" />
         <option value="$PROJECT_DIR$/static/signUp.css" />
         <option value="$PROJECT_DIR$/data/admin.py" />
         <option value="$PROJECT_DIR$/data/models.py" />
         <option value="$PROJECT_DIR$/static/signup.css" />
         <option value="$PROJECT_DIR$/users/migrations/0014_auto_20170323_0056.py" />
         <option value="$PROJECT_DIR$/users/migrations/0015_auto_20170323_0057.py" />
+        <option value="$PROJECT_DIR$/static/projectPage.css" />
         <option value="$PROJECT_DIR$/data/urls.py" />
         <option value="$PROJECT_DIR$/templates/aboutus.html" />
         <option value="$PROJECT_DIR$/static/projectPage.js" />
         <option value="$PROJECT_DIR$/templates/yo.html" />
         <option value="$PROJECT_DIR$/static/checkOut.css" />
         <option value="$PROJECT_DIR$/data/forms.py" />
+        <option value="$PROJECT_DIR$/static/userPage.css" />
         <option value="$PROJECT_DIR$/data/templatetags/tags.py" />
         <option value="$PROJECT_DIR$/users/admin.py" />
         <option value="$PROJECT_DIR$/users/forms.py" />
@@ -179,11 +145,13 @@
         <option value="$PROJECT_DIR$/static/ajax.js" />
         <option value="$PROJECT_DIR$/static/js.js" />
         <option value="$PROJECT_DIR$/static/jquery-3.1.0.min.js" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/reimagine/urls.py" />
         <option value="$PROJECT_DIR$/templates/registration/register.html" />
         <option value="$PROJECT_DIR$/reimagine/settings.py" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/static/userPage.js" />
         <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/templates/refund.html" />
         <option value="$PROJECT_DIR$/templates/pricing.html" />
@@ -191,22 +159,11 @@
         <option value="$PROJECT_DIR$/templates/terms.html" />
         <option value="$PROJECT_DIR$/templates/teamPage.html" />
         <option value="$PROJECT_DIR$/templates/privacy.html" />
+        <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
+        <option value="$PROJECT_DIR$/templates/userPage.html" />
+        <option value="$PROJECT_DIR$/templates/projectPage.html" />
         <option value="$PROJECT_DIR$/templates/viewAllProjects.html" />
         <option value="$PROJECT_DIR$/data/views.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/explore.js" />
-        <option value="$PROJECT_DIR$/static/explore.css" />
-        <option value="$PROJECT_DIR$/static/floatingSocialShare.css" />
-        <option value="$PROJECT_DIR$/static/projectPage.css" />
-        <option value="$PROJECT_DIR$/static/footer.css" />
-        <option value="$PROJECT_DIR$/templates/projectPage.html" />
-        <option value="$PROJECT_DIR$/static/viewAllProjects.css" />
-        <option value="$PROJECT_DIR$/static/SignUp.js" />
-        <option value="$PROJECT_DIR$/templates/userPage.html" />
-        <option value="$PROJECT_DIR$/static/userPage.js" />
-        <option value="$PROJECT_DIR$/static/userPage.css" />
-        <option value="$PROJECT_DIR$/static/header.css" />
-        <option value="$PROJECT_DIR$/templates/contactUsPage.html" />
       </list>
     </option>
   </component>
@@ -237,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -260,27 +218,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reimagine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reimagine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,13 +270,6 @@
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="false" />
       <option name="OPTIONS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -609,20 +545,20 @@
     <option name="totallyTimeSpent" value="171000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21156661" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -674,6 +610,49 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/users/migrations/0023_auto_20170331_1004.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Failure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/NGOForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/projectPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="49" lean-forward="true" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/checkOut.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="142" column="17" lean-forward="true" selection-start-line="142" selection-start-column="17" selection-end-line="142" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/yo.html" />
     <entry file="file://$PROJECT_DIR$/data/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -685,6 +664,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-119">
           <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/userPage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="1039" column="17" lean-forward="false" selection-start-line="1039" selection-start-column="17" selection-end-line="1039" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -799,9 +785,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
           <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
-          <folding>
-            <element signature="e#644#685#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/userPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="110" column="1" lean-forward="false" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -839,9 +829,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="197" column="19" lean-forward="true" selection-start-line="197" selection-start-column="19" selection-end-line="197" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#64#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="590" column="22" lean-forward="true" selection-start-line="570" selection-start-column="16" selection-end-line="590" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="999" column="22" lean-forward="false" selection-start-line="999" selection-start-column="22" selection-end-line="999" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -849,6 +851,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
           <caret line="390" column="22" lean-forward="false" selection-start-line="390" selection-start-column="22" selection-end-line="390" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="338" column="22" lean-forward="false" selection-start-line="338" selection-start-column="22" selection-end-line="338" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -894,78 +904,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/viewAllProjects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="261" column="116" lean-forward="false" selection-start-line="261" selection-start-column="116" selection-end-line="261" selection-end-column="116" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="269" column="26" lean-forward="true" selection-start-line="269" selection-start-column="26" selection-end-line="269" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#55#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/explore.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/explore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="65" lean-forward="false" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/projectPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="500" column="20" lean-forward="true" selection-start-line="500" selection-start-column="20" selection-end-line="500" selection-end-column="20" />
-          <folding>
-            <element signature="n#header#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#form#0;n#div#2;n#div#1;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#footer#0;n#body#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/floatingSocialShare.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
+        <state relative-caret-position="6902">
+          <caret line="406" column="48" lean-forward="false" selection-start-line="406" selection-start-column="48" selection-end-line="406" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/projectPage.css">
+    <entry file="file://$PROJECT_DIR$/templates/viewAllProjects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="261" column="116" lean-forward="false" selection-start-line="261" selection-start-column="116" selection-end-line="261" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -973,75 +927,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/footer.css">
+    <entry file="file://$PROJECT_DIR$/static/signup.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/projectPage.js">
+    <entry file="file://$PROJECT_DIR$/data/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="49" lean-forward="true" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/viewAllProjects.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="54" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/userPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/userPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="604" column="39" lean-forward="false" selection-start-line="604" selection-start-column="39" selection-end-line="604" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/contactUsPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="246" column="74" lean-forward="false" selection-start-line="246" selection-start-column="58" selection-end-line="246" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/SignUp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="546">
+          <caret line="222" column="27" lean-forward="false" selection-start-line="222" selection-start-column="23" selection-end-line="222" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
