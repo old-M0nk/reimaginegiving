@@ -303,7 +303,7 @@ def success(request):
 
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
-    if request.user:
+    if request.user.is_authenticated():
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
                             donor_id=request.user,
