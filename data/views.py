@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.template import RequestContext
 from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report, GalleryPic
-from users.models import ContactUs
+from users.models import ContactUs, Donation
 from users.forms import contact_us_form
 from django.db.models import F
 from forms import *
@@ -267,7 +267,8 @@ def payment_redirect(request):
     amount = request.POST["amount"]
     email = request.POST["email"]
     phone = request.POST["mobile"]
-    project = "Reimagine Giving - " + request.POST["project"]
+    project = request.POST["project"]
+    print project
     response = api.payment_request_create(
         amount=amount,
         purpose = project,
