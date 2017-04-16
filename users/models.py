@@ -69,6 +69,7 @@ class Card_Details(models.Model):
     cvv = models.IntegerField()
 
 class Causes_I_Care_About(models.Model):
+    primary_key = models.CharField(primary_key=True, max_length=150, default='not set')
     username = models.ForeignKey(User, on_delete=models.SET('team member not set'))
     cause = models.ForeignKey(Cause)
 

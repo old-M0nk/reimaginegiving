@@ -469,7 +469,13 @@
 				<div class="userPageProfileCausesContent">
 					<ul>
                         {% for cause in chosen_causes %}
-                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}<i onclick="openCauseDeleteOverlay()" class="fa fa-minus floatRight"></i></li>
+                            <li><i class="fa fa-circle"></i>{{ cause.cause.name }}
+                                <form method="post" action="userPage.html">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="cause" value="{{ cause.cause.name }}">
+                                    <button style="border: none; background-color: inherit" type="submit" value="delete_cause" name="submit"><i onclick="openCauseDeleteOverlay()" class="fa fa-minus floatRight"></i></button>
+                                </form>
+                            </li>
                         {% endfor %}
 					</ul>
 					<div class="userPageProfileCausesAddNewButton" onclick="openCauseAddOverlay()"><i class="fa fa-plus"></i> Add New</div>

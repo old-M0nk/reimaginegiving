@@ -175,6 +175,11 @@ def userPage(request):
             user_details.save()
     notification = Notification.objects.get(username=request.user)
 
+    if request.method == "POST" and request.POST['submit'] == "delete_cause":
+        cause = Cause.objects.get(name=request.POST['cause'])
+        user_cause = Causes_I_Care_About(username=request.user, cause=cause)
+        user_cause.delete()
+
     if request.method == "POST" and request.POST['submit'] == "basic":
         request.user.first_name = request.POST['first_name']
         request.user.last_name = request.POST['last_name']
@@ -270,7 +275,8 @@ def userPage(request):
         for i in request.POST:
             print (request.POST[i])
             if i != 'submit' and i != 'csrfmiddlewaretoken':
-                cause = Causes_I_Care_About(username=request.user, cause_id=request.POST[i])
+                primary_key = request.user.username + request.POST[i]
+                cause = Causes_I_Care_About(primary_key=primary_key, username=request.user, cause_id=request.POST[i])
                 cause.save()
             else:
                 cause_form = NewCausesForm(request.POST or None)
