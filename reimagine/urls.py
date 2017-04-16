@@ -64,6 +64,7 @@ urlpatterns = [
         url(r'^Success/',views.success, name='success'),
         url(r'^ajax/validate_username/$', validate_username, name='validate_username'),
         url(r'^ajax/validate_password/$', validate_password, name='validate_username'),
+        url(r'^test/', views.test, name='test'),
         # url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
     # url(r'^$', include('data.urls')), # for the coming soon page   #comment out when the site needs to be put up
     # url(r'^main/', include('data.urls')), # for the main pages   #uncomment when the site needs to be put up

@@ -288,7 +288,6 @@ def payment_redirect(request):
 @csrf_protect
 @csrf_exempt
 def success(request):
-    from django.contrib.auth.models import User
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
                     auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
     # Create a new Payment Request
@@ -303,23 +302,46 @@ def success(request):
 
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
-    print request.user.username
-    if request.user.is_authenticated():
-        print "true"
-        donation = Donation(name=response['payment_request']['buyer_name'],
-                            transaction_id=txnid,
-                            donor_id=request.user,
-                            project_id_id=response['payment_request']['purpose'],
-                            amount= amount)
-    else:
-        print "false"
-        donation = Donation(name=response['payment_request']['buyer_name'],
-                            transaction_id=txnid,
-                            donor_id=User.objects.get(username="reimagine"),
-                            project_id_id=response['payment_request']['purpose'],
-                            amount=amount)
-    donation.save()
+    # if request.user.is_authenticated():
+    #     print "true"
+    #     donation = Donation(name=response['payment_request']['buyer_name'],
+    #                         transaction_id=txnid,
+    #                         donor_id=request.user,
+    #                         project_id_id=response['payment_request']['purpose'],
+    #                         amount= amount)
+    # else:
+    #     print "false"
+    #     donation = Donation(name=response['payment_request']['buyer_name'],
+    #                         transaction_id=txnid,
+    #                         donor_id=User.objects.get(username="reimagine"),
+    #                         project_id_id=response['payment_request']['purpose'],
+    #                         amount=amount)
+    # donation.save()
+    #
+    return render(request, 'sucess.html', {"status": status,
+                                           "amount": amount,
+                                           "txnid":txnid,
+                                           'name':response['payment_request']['buyer_name'],
+                                           'project_id':response['payment_request']['purpose'],
+                                           'amount': amount})
 
-    return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
 
-
+def test(request):
+    from django.contrib.auth.models import User
+    if request.method == "POST":
+        if request.user.is_authenticated():
+            print "true"
+            donation = Donation(name=request.POST['name'],
+                                transaction_id=request.POST['transaction_id'],
+                                donor_id=request.user,
+                                project_id_id=request.POST['project_id'],
+                                amount= request.POST['amount'])
+        else:
+            print "false"
+            donation = Donation(name=request.POST['name'],
+                                transaction_id=request.POST['transaction_id'],
+                                donor_id=User.objects.get(username="reimagine"),
+                                project_id_id=request.POST['project_id'],
+                                amount=request.POST['amount'])
+        donation.save()
+    return render(request, 'soon.html')
