@@ -1,3 +1,4 @@
+
 .projectPageLeft{
 	margin-left: 8.33%;
 	z-index: 1;
@@ -41,6 +42,10 @@
 	padding-left: 5px;
 	font-family: SourceSansPro-Regular;
 	font-size:17px;
+}
+
+.projectPageProjectInfo .fa-bookmark, .projectPageProjectInfo .fa-map-marker {
+    margin-right: 4px;
 }
 
 .projectPageProjectMainImage{

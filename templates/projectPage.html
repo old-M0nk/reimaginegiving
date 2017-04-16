@@ -31,15 +31,6 @@
 
 <body>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
 	<header>
 		<div class="row header">
 			<div class="col-3 mainNavBarButton" id="exploreDiv">
@@ -212,15 +203,6 @@
 		</div>
         </div>
 	</header>
-
-	<div class="row overlay" id="projectPageShareBox">
-		<div class="translucentContainer3"></div>
-		<div class="shareBoxOuterContainer">
-			<div class="shareBoxInnerContainer">
-
-			</div>
-		</div>
-	</div>
 
 	<div id="myModal" class="modal projectGallery overlay">
 		<div class="translucentContainer4"></div>
@@ -404,9 +386,9 @@
 								<h2>Donate</h2>
 							</div>
 						</div>
-                        <a title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}">
+                        <a title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 						<div class="col-6 projectPageShare">
-					        <div class="projectPageShareButton" onClick="openShareBoxOverlay()">
+					        <div class="projectPageShareButton">
 								<h2>Share</h2>
 							</div>
 						</div>
@@ -511,7 +493,7 @@
 		<ul class="social-btns">
 
 			<li>
-				<a class="social-btn-flip twitter-share-button"   href="https://twitter.com/intent/tweet?text=Hello%20world">
+				<a class="social-btn-flip twitter-share-button"  href="https://twitter.com/intent/tweet?text=Donate @Reimaginegiving" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-twitter twitter"></i>
 						<i class="social-btn-face active fa fa-lg fa-twitter twitter"></i>
@@ -520,7 +502,7 @@
 			</li>
 
 			<li data-href="https://www.facebook.com/reimaginegiving">
-				<a class="social-btn-flip fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}">
+				<a class="social-btn-flip fb-xfbml-parse-ignore"  href="https://www.facebook.com/sharer/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 					<div class="social-btn-cube">
 						<i class="social-btn-face default fa fa-lg fa-facebook facebook"></i>
 						<i class="social-btn-face active fa fa-lg fa-facebook facebook"></i>
@@ -672,16 +654,16 @@
 					<li><h2><span>Phone:</span> +91-8417048371</h2></li>
 					<li><h2><span>Address:</span>IIT(BHU) Varanasi<br/>Varanasi,India-221005</h2></li>
 					<li>
-						<a  title="Facebook share" target="_blank" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+						<a  title="Facebook share" class="fb-xfbml-parse-ignore facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 								<i class="fa fa-facebook"></i>
 							</a>
-							<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+							<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 								<i class="fa fa-google-plus"></i>
 							</a>
-							<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+							<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 								<i class="fa fa-twitter"></i>
 							</a>
-							<a class="linkedin customer share" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.reimaginegiving.org" title="linkedin Share" target="_blank">
+							<a class="linkedin customer share" href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.reimaginegiving.org" title="linkedin Share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 								<i class="fa fa-linkedin" ></i>
 							</a>
 					</li>

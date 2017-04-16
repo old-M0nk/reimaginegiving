@@ -303,7 +303,11 @@ def success(request):
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
 
-    donation = Donation(transaction_id=txnid, donor_id=request.user, project_id_id=response['payment_request']['purpose'], amount= amount, status=True)
+    donation = Donation(transaction_id=txnid,
+                        donor_id=request.user,
+                        project_id_id=response['payment_request']['purpose'],
+                        amount= amount,
+                        status=True)
     donation.save()
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})

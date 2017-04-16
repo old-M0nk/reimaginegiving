@@ -53,16 +53,20 @@ window.onclick = function(event) {
 		document.getElementById("myNav").style.width = "0";
 		document.getElementsByTagName("body")[0].style.position = "";
 		var div = document.getElementById('exploreContent');
-		if(div.style.width == "25%"){
+		if(div.style.width == "25vw"){
 			document.getElementById('ninja-btn').classList.toggle('activated');
 			document.getElementById("exploreContent").style.width = "";
 			document.getElementById('exploreDiv').classList.toggle('exploreDiv');
 			document.getElementById('exploreButton').classList.toggle('exploreButtonActive');
+
 		}
     }
 	else if (event.target.matches('.translucentContainer1')) {
-		document.getElementById("displayPictureEditOverlay").style.height = "0%";
-		document.getElementById("userPageShareBox").style.height = "0%";
+		document.getElementById("userPageCauseAdd").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer5')){
+		document.getElementById("userPageCauseDelete").style.height = "0%";
 		document.getElementsByTagName("body")[0].style.position = "";
 	}
 	else if (event.target.matches('.translucentContainer2')){
@@ -78,6 +82,7 @@ window.onclick = function(event) {
 		document.getElementById("myModal").style.display = "none";
 		document.getElementsByTagName("body")[0].style.position = "";
 	}
+
 
 }
 

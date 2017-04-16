@@ -37,8 +37,16 @@ a.userPageLeftColumnOptionsLinks:hover{
 .saveDetailsInVisible{
 	display:none !important;
 }
-.saveDetails1, .saveDetails2{
-	display: none;
+.saveDetails1, .saveDetails2 {
+    display: none;
+    bottom: 10px;
+    padding: 5px 15px;
+    right: 30px;
+    position: absolute;
+    font-size: 17px;
+    color: white;
+    background: #909090;
+    border: none;
 }
 a.userPageLeftColumnOptionsLinks.active{
 	font-weight: bold;
@@ -88,12 +96,11 @@ a.userPageLeftColumnOptionsLinks.active{
 }
 
 .userPageLeftColumn .icon-cont {
-  border: 1px solid rgba(0,180,255,1.0);
+  border: 2px solid white;
   border-radius: 50%;
   width: 8.33vw;
   display: block; 
   text-align: center;
-  z-index: 5;
   transition: all 0.3s ease;
   margin: 4.085vw 4.085vw 0 4.085vw;
   height: 8.33vw;
@@ -594,7 +601,7 @@ color: white;
   width: 400px;
   height: 12px;
   background: transparent;
-  background: url('images/bronze.jpg');
+  background: url('images/bronze.png');
 }
 .badge--empty {
   color: white;

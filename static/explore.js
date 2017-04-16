@@ -3,7 +3,7 @@ function openNav() {
 	var div = document.getElementById('exploreContent');
 	if(div.style.width == ""){
     document.getElementById("myNav").style.width = "100%";
-	document.getElementById("exploreContent").style.width = "25%";
+	document.getElementById("exploreContent").style.width = "25vw";
 	document.getElementById('exploreDiv').classList.toggle('exploreDiv');
 	document.getElementById('ninja-btn').classList.toggle('activated');
 	document.getElementById('exploreButton').classList.toggle('exploreButtonActive');
