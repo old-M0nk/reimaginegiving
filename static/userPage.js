@@ -109,3 +109,44 @@ function openDisplayPictureEditOverlay() {
     document.getElementById("displayPictureEditOverlay").style.height = "100%";
 	document.getElementsByTagName("body")[0].style.position = "fixed";
 }
+
+
+window.onclick = function(event) {
+    if (event.target.matches('.translucentContainer')) {
+        document.getElementById("SignUp").style.height = "0%";
+		document.getElementById("LogIn").style.height = "0%";
+		document.getElementById("myNav").style.width = "0";
+		document.getElementsByTagName("body")[0].style.position = "";
+		var div = document.getElementById('exploreContent');
+		if(div.style.width == "25vw"){
+			document.getElementById('ninja-btn').classList.toggle('activated');
+			document.getElementById("exploreContent").style.width = "";
+			document.getElementById('exploreDiv').classList.toggle('exploreDiv');
+			document.getElementById('exploreButton').classList.toggle('exploreButtonActive');
+
+		}
+    }
+	else if (event.target.matches('.translucentContainer1')) {
+		document.getElementById("userPageCauseAdd").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer5')){
+		document.getElementById("userPageCauseDelete").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer2')){
+		document.getElementById("paypalPaymentOverlay").style.height = "0%";
+		document.getElementById("paymentBySavedCardsOverlay").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer3')){
+		document.getElementById("projectPageShareBox").style.height = "0%";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+	else if (event.target.matches('.translucentContainer4')){
+		document.getElementById("myModal").style.display = "none";
+		document.getElementsByTagName("body")[0].style.position = "";
+	}
+
+
+}

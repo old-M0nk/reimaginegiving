@@ -1,6 +1,10 @@
 .footer{
 	position: absolute;
 }
+footer{
+	position: absolute;
+	width: 100%;
+}
 .footerOptions{
 	background-color: #0d0d0d;
 	border-bottom: 2px solid #c2c2c2;
@@ -21,6 +25,7 @@
 }
 
  .footerContactShare{
+	     float: right;
 	padding-left: 5%;
 }
 .footerContactShare{
