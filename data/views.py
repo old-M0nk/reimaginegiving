@@ -259,8 +259,8 @@ from django.template.context_processors import csrf
 from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
-    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
-                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
+    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
 
     # Create a new Payment Request
     firstname = request.POST["first_name"]
@@ -289,8 +289,8 @@ def payment_redirect(request):
 @csrf_exempt
 def success(request):
     from django.contrib.auth.models import User
-    api = Instamojo(api_key='4ede38968eb0f1e6ce1f236338b767d3',
-                    auth_token='d44d2e46a7b39f6dfc86d2d144a432fd')
+    api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
     # Create a new Payment Request
     payment_request_id = request.GET["payment_request_id"]
     txnid = request.GET["payment_id"]
