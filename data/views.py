@@ -306,7 +306,7 @@ def success(request):
     if request.user:
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
-                            donor_id=User.objects.get(username=request.user.username),
+                            donor_id=request.user,
                             project_id_id=response['payment_request']['purpose'],
                             amount= amount)
     else:
