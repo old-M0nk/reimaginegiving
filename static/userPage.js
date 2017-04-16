@@ -113,8 +113,6 @@ function openDisplayPictureEditOverlay() {
 
 window.onclick = function(event) {
     if (event.target.matches('.translucentContainer')) {
-        document.getElementById("SignUp").style.height = "0%";
-		document.getElementById("LogIn").style.height = "0%";
 		document.getElementById("myNav").style.width = "0";
 		document.getElementsByTagName("body")[0].style.position = "";
 		var div = document.getElementById('exploreContent');
@@ -137,10 +135,6 @@ window.onclick = function(event) {
 	else if (event.target.matches('.translucentContainer2')){
 		document.getElementById("paypalPaymentOverlay").style.height = "0%";
 		document.getElementById("paymentBySavedCardsOverlay").style.height = "0%";
-		document.getElementsByTagName("body")[0].style.position = "";
-	}
-	else if (event.target.matches('.translucentContainer3')){
-		document.getElementById("projectPageShareBox").style.height = "0%";
 		document.getElementsByTagName("body")[0].style.position = "";
 	}
 	else if (event.target.matches('.translucentContainer4')){

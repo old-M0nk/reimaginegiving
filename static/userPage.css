@@ -101,7 +101,6 @@ a.userPageLeftColumnOptionsLinks.active{
   width: 8.33vw;
   display: block; 
   text-align: center;
-  z-index: 5;
   transition: all 0.3s ease;
   margin: 4.085vw 4.085vw 0 4.085vw;
   height: 8.33vw;
