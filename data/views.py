@@ -260,7 +260,7 @@ from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
-                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', url='https://test.instamojo.com/api/1.1/')
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', URL='https://test.instamojo.com/api/1.1/')
 
     # Create a new Payment Request
     firstname = request.POST["first_name"]
@@ -289,7 +289,7 @@ def payment_redirect(request):
 @csrf_exempt
 def success(request):
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
-                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', url='https://test.instamojo.com/api/1.1/')
+                    auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', URL='https://test.instamojo.com/api/1.1/')
     # Create a new Payment Request
     payment_request_id = request.GET["payment_request_id"]
     txnid = request.GET["payment_id"]
