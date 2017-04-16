@@ -22,7 +22,6 @@ class Donation(models.Model):
     donor_id = models.ForeignKey(User, on_delete=models.SET('team member not set'))
     project_id = models.ForeignKey(Project, on_delete=models.SET('project not set'))
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.BooleanField(default=False)
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now = True)
 

@@ -10,7 +10,7 @@ class DonorAdmin(admin.ModelAdmin):
 
 
 class DonationAdmin(admin.ModelAdmin):
-    list_display = ('transaction_id', 'name', 'donor_id', 'project_id', 'amount', 'date', 'time', 'status')
+    list_display = ('transaction_id', 'name', 'donor_id', 'project_id', 'amount', 'date', 'time')
 
 
 class EmailAdmin(admin.ModelAdmin):

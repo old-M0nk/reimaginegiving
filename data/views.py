@@ -306,20 +306,17 @@ def success(request):
     if request.user:
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
-                            donor_id=request.user,
+                            donor_id=User.objects.get(username=request.user.username),
                             project_id_id=response['payment_request']['purpose'],
-                            amount= amount,
-                            status=True)
+                            amount= amount)
     else:
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
                             donor_id=User.objects.get(username="reimagine"),
                             project_id_id=response['payment_request']['purpose'],
-                            amount=amount,
-                            status=True)
+                            amount=amount)
     donation.save()
 
     return render(request, 'sucess.html', {"status": status,"amount": amount,"txnid":txnid})
-from django.contrib.auth.models import User
-print User.objects.get(username="reimagine")
+
 
