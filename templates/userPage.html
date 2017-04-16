@@ -242,7 +242,7 @@
 				<h2 class="userPageSetttingOptionsHeading">Profile</h2>
 				<ul>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks active" onclick="openUserPageLeftSideTabs(event,'userPageProfileGeneral')">General</a></li>
-					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfilePayment')">Payment Methods</a></li>
+					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" style="display: none;" onclick="openUserPageLeftSideTabs(event,'userPageProfilePayment')">Payment Methods</a></li>
 					<li><a href="javascript:void(0)" class="userPageLeftColumnOptionsLinks" onclick="openUserPageLeftSideTabs(event,'userPageProfileCauses')">Causes I Care About</a></li>
 				</ul>
 			</div>
@@ -306,7 +306,7 @@
 							<input type="text" id="occupation" readonly="readonly" value="{{ user_details.occupation }}" name="occupation"/>
 						</fieldset>
 						<a class="userPageGeneralInformationi1"><i class="fa fa-pencil-square-o"></i></a>
-						<button class="saveDetails1" type="submit" value="basic" name="submit"><i class="fa fa-lock"></i>Save</button>
+						<button class="saveDetails1" type="submit" value="basic" name="submit">>Save</button>
 					</div>
                     </form>
 				</div>
@@ -345,7 +345,7 @@
 							<input type="text" id="occupation" readonly="readonly" value="{{ user_details.occupation }}" name="occupation"/>
 						</fieldset>
 						<a class="userPageGeneralInformationi2"><i class="fa fa-pencil-square-o"></i></a>
-                        <button class="saveDetails2" type="submit" value="mailing" name="submit"><i class="fa fa-lock"></i>Save</button>
+                        <button class="saveDetails2" type="submit" value="mailing" name="submit">Save</button>
 					</div>
                     </form>
 				</div>
