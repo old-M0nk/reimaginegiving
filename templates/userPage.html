@@ -499,110 +499,109 @@
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
 								<div class="userPageFinishedCampaignsBottomLinks">
-									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+									<a  title="Facebook share" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-facebook"></i>
 									</a>
-									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org/projectPage/{{ project.project_id }}" title="Google Plus Share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-google-plus"></i>
 									</a>
-									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org/projectPage/{{ project.project_id }};text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-twitter"></i>
 									</a>
 									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
 								</div>
 							</div>
-							</div>
 							<a class="divLink" href="{% url 'projectPage' pk=donation.project_id.project_id %}"></a>
 						</li>
                         {% endfor %}
-                    {% endif %}
-					</ul>
+                        {% endif %}
+                    </ul>
 				</div>
 				
 				<div class="row projects">
-		<div class="row recommendedProjectsHeading">
-			<h2 class="col-6">Recommended Projects</h2>
-			<h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' cause='all' funding='all' %}">View all</a></h2>
-		</div>
-		<div class="row projectsContent">
-            {% if projects%}
-            {% for project in projects %}
-			<div class="projectSection1">
-				<div class="row projectContent">
-					<div class="projectThumbnail">
-{#						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >#}
-                        <img class="img-thumbnail" src="{{ project.thumbnail|safe }}" >
-						<div class="row locationCause">
-							<div class="projectlocation">
-								<div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
-								<div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
-							</div>
-							<div class="projectcause">
-								<div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
-								<div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
-							</div>
-							<a class="locationCauseLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
-						</div>
-					</div>
+                    <div class="row recommendedProjectsHeading">
+                        <h2 class="col-6">Recommended Projects</h2>
+                        <h2 class="col-6" style="margin-top:-5px;"><a href="{% url 'viewAllProjects' cause='all' funding='all' %}">View all</a></h2>
+                    </div>
+                    <div class="row projectsContent">
+                        {% if projects%}
+                        {% for project in projects %}
+                        <div class="projectSection1">
+                            <div class="row projectContent">
+                                <div class="projectThumbnail">
+            {#						<img class="img-thumbnail" src="{{ project.thumbnail.url }}" >#}
+                                    <img class="img-thumbnail" src="{{ project.thumbnail|safe }}" >
+                                    <div class="row locationCause">
+                                        <div class="projectlocation">
+                                            <div class="col-1 projectlocationImage"><img src="{% static "images/locationThumbnail.png" %}"></div>
+                                            <div class="col-2 projectlocationHeading"><h2>{{ project.ngo_id.address }}</h2></div>
+                                        </div>
+                                        <div class="projectcause">
+                                            <div class="col-1 projectcauseImage"><img src="{% static "images/causeThumbnail.png" %}"></div>
+                                            <div class="col-4 projectcauseHeading"><h2>{{ project.cause.name }}</h2></div>
+                                        </div>
+                                        <a class="locationCauseLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
+                                    </div>
+                                </div>
 
-					<div class="projectDetails">
-						<h1>{{ project.title }}</h1>
-						<h2>{{ project.ngo_id.name }}</h2>
-						<p>{{ project.summary }}
-						</p>
-					</div>
+                                <div class="projectDetails">
+                                    <h1>{{ project.title }}</h1>
+                                    <h2>{{ project.ngo_id.name }}</h2>
+                                    <p>{{ project.summary }}
+                                    </p>
+                                </div>
 
-					<div class="row projectBottom">
-						<div class="row" style="position:relative;">
-							<div class="row projectStats">
-								<div class="row" style="margin-bottom: 12px;">
-									<h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
-								</div>
+                                <div class="row projectBottom">
+                                        <div class="row" style="position:relative;">
+                                            <div class="row projectStats">
+                                                <div class="row" style="margin-bottom: 12px;">
+                                                    <h2 class="floatRight">{% fund_percent_achieved project.total_amount project.raised_amount %}%</h2>
+                                                </div>
 
-								<div class="row progress">
-									<div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%;"></div>
-								</div>
+                                                <div class="row progress">
+                                                    <div class="progress-bar" style="width: {% fund_percent_achieved project.total_amount project.raised_amount %}%;"></div>
+                                                </div>
 
-								<div class="row">
-									<div class="stats1 col-5">
-										<div class="statsNumber">
-											<p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
-										</div>
-										<div class="statsText">
-											<p>Raised</p>
-										</div>
-									</div>
-									<div class="stats2 col-4">
-										<div class="statsNumber">
-											<p>{% no_of_donors project %}</p>
-										</div>
-										<div class="statsText">
-											<p>Donors</p>
-										</div>
-									</div>
-									<div class="stats3 col-3">
-										<div class="statsNumber">
-											<p>{% days_left project.end_date %}</p>
-										</div>
-										<div class="statsText">
-											<p>Days left</p>
-										</div>
-									</div>
-								</div>
-							</div>
+                                                <div class="row">
+                                                <div class="stats1 col-5">
+                                                    <div class="statsNumber">
+                                                        <p><span style="font-family:Nunito-Bold; font-weight:600;">&#x20b9;</span>{{ project.raised_amount }}</p>
+                                                    </div>
+                                                    <div class="statsText">
+                                                        <p>Raised</p>
+                                                    </div>
+                                                </div>
+                                                <div class="stats2 col-4">
+                                                    <div class="statsNumber">
+                                                        <p>{% no_of_donors project %}</p>
+                                                    </div>
+                                                    <div class="statsText">
+                                                        <p>Donors</p>
+                                                    </div>
+                                                </div>
+                                                <div class="stats3 col-3">
+                                                    <div class="statsNumber">
+                                                        <p>{% days_left project.end_date %}</p>
+                                                    </div>
+                                                    <div class="statsText">
+                                                        <p>Days left</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
 
-							<div class="row projectSectionDonateButton">
-								<a href="{% url 'projectPage' pk=project.project_id %}"><h2>Donate</h2></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a class="divLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
-			</div>
-            {% endfor %}
-            {% endif %}
-		</div>
-	</div>
+                                            <div class="row projectSectionDonateButton">
+                                            <a href="{% url 'projectPage' pk=project.project_id %}"><h2>Donate</h2></a>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <a class="divLink" href="{% url 'projectPage' pk=project.project_id %}"></a>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+	            </div>
 			
 				
 			</div>
@@ -633,13 +632,13 @@
 							<div class="userPageFinishedCampaignsBottom">
 								<h2><span>Amount:</span>{{ donation.amount }}</h2>
 								<div class="userPageFinishedCampaignsBottomLinks">
-									<a  title="Facebook share" target="_blank" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org">
+									<a  title="Facebook share" class="facebook customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-facebook"></i>
 									</a>
-									<a class="google_plus customer share" href="https://plus.google.com/share?url=hhttps://www.reimaginegiving.org" title="Google Plus Share" target="_blank">
+									<a class="google_plus customer share" href="https://plus.google.com/share?url=https://www.reimaginegiving.org/projectPage/{{ project.project_id }}" title="Google Plus Share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-google-plus"></i>
 									</a>
-									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+									<a class="twitter-share-button twitter customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org/projectPage/{{ project.project_id }};text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 										<i class="fa fa-twitter"></i>
 									</a>
 									<a class="bottomLink" onclick="openInNewTab('index.html')">VIEW REPORTS</a>
@@ -858,7 +857,7 @@
 						<div class="userPageConnectOptions">
 				<h2 class="userPageRightOptionsHeading">Spread The Word</h2>
 				<div class="row userPageRightOptionsContent">
-					<a title="Facebook share" target="_blank" class="facebook button customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org" >
+					<a title="Facebook share" class="facebook button customer share" href="http://www.facebook.com/sharer.php?u=https://www.reimaginegiving.org" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 						<i class="icon">
 						  <i class="fa fa-facebook"></i>
 						</i>
@@ -875,7 +874,7 @@
 					</a>
 				</div>
 				<div class="row userPageRightOptionsContent">
-					<a class="twitter-share-button twitter button customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" target="_blank">
+					<a class="twitter-share-button twitter button customer share" href="http://twitter.com/share?url=https://www.reimaginegiving.org;text=Share popup on &amp;hashtags=ReimagineGiving" title="Twitter share" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
 						<i class="icon">
 						  <i class="fa fa-twitter">
 							</i>
