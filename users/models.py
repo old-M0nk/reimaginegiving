@@ -17,11 +17,12 @@ class Donor(models.Model):
 
 
 class Donation(models.Model):
-    transaction_id = models.BigIntegerField(null = False)
+    transaction_id = models.CharField(default='not set', max_length=150, primary_key=True)
     donor_id = models.ForeignKey(User, on_delete=models.SET('team member not set'))
     project_id = models.ForeignKey(Project, on_delete=models.SET('project not set'))
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateField(null = False)
+    status = models.BooleanField(default=False)
+    date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now = True)
 
 
