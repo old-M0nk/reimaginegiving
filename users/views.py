@@ -182,6 +182,8 @@ def userPage(request):
         user_cause = Causes_I_Care_About(username=request.user, cause=cause)
         print user_cause
         user_cause.delete()
+        if Causes_I_Care_About(username=request.user, cause=cause):
+            print 'there'
 
     if request.method == "POST" and request.POST['submit'] == "basic":
         request.user.first_name = request.POST['first_name']
