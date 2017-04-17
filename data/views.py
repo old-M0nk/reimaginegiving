@@ -329,7 +329,7 @@ def success(request):
 def test(request):
     from django.contrib.auth.models import User
     if request.method == "POST":
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             print "true"
             donation = Donation(name=request.POST['name'],
                                 transaction_id=request.POST['transaction_id'],
