@@ -9,6 +9,12 @@
 <h4>We have received a payment of Rs {{ amount}}</h4>
 <form method="post" action={% url 'test' %}>
     {% csrf_token %}
+    <input type="hidden" name="donor_id"
+    {% if user.is_authenticated %}
+    value="{{ request.user.username }}"
+    {% else %}
+    value="reimagine"
+    {% endif %}>
     <input type="hidden" name="name" value="{{ name }}">
     <input type="hidden" name="transaction_id" value="{{ txnid }}">
     <input type="hidden" name="project_id" value="{{ project_id }}">

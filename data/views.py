@@ -329,19 +329,10 @@ def success(request):
 def test(request):
     from django.contrib.auth.models import User
     if request.method == "POST":
-        if request.user.is_authenticated():
-            print "true"
-            donation = Donation(name=request.POST['name'],
-                                transaction_id=request.POST['transaction_id'],
-                                donor_id=request.user,
-                                project_id_id=request.POST['project_id'],
-                                amount= request.POST['amount'])
-        else:
-            print "false"
-            donation = Donation(name=request.POST['name'],
-                                transaction_id=request.POST['transaction_id'],
-                                donor_id=User.objects.get(username="reimagine"),
-                                project_id_id=request.POST['project_id'],
-                                amount=request.POST['amount'])
+        donation = Donation(name=request.POST['name'],
+                            transaction_id=request.POST['transaction_id'],
+                            donor_id=User.objects.get(username=request.POST['donor_id']),
+                            project_id_id=request.POST['project_id'],
+                            amount=request.POST['amount'])
         donation.save()
     return render(request, 'soon.html')
