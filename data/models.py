@@ -18,6 +18,13 @@ class Project(models.Model):
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=True)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    # def _raised_amount(self):
+    #     donations = Donation.objects.filter(project_id=self)
+    #     r_amt = 0
+    #     for donation in donations:
+    #         r_amt = r_amt + donation.amount
+    #         return r_amt
+    # raised_amount = property(_raised_amount)
     raised_amount = models.DecimalField(max_digits=10, decimal_places=2)
     cause = models.ForeignKey('Cause', on_delete=models.SET('cause not set'))
     ngo_id = models.ForeignKey('NGO', on_delete=models.SET('ngo not set'))

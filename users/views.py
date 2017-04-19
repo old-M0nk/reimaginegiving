@@ -164,7 +164,7 @@ def logout_view(request):
 @login_required
 def userPage(request):
 
-    user_details = User_Details.objects.get(username=request.user)
+
     if not Notification.objects.filter(username=request.user).exists():
         print('pass1')
         notifications = Notification(username=request.user)
@@ -174,6 +174,8 @@ def userPage(request):
             user_details = User_Details(username=request.user)
             user_details.save()
     notification = Notification.objects.get(username=request.user)
+
+    user_details = User_Details.objects.get(username=request.user)
 
     if request.method == "POST" and request.POST['submit'] == "delete_cause":
         cause = Cause.objects.get(name=request.POST['cause'])

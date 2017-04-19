@@ -279,10 +279,11 @@ def payment_redirect(request):
         redirect_url="http://www.reimaginegiving.org/Success/"
     )
     # print the long URL of the payment request.
+    print response
     response1 = response['payment_request']['longurl']
     print response1
     # print the unique ID(or payment request ID)
-    print response['payment_request']['id']
+    # print response['payment_request']['id']
     return redirect(response1)
 
 @csrf_protect
@@ -296,13 +297,14 @@ def success(request):
     txnid = request.GET["payment_id"]
     response = api.payment_request_status(payment_request_id)
 
-    print response['payment_request']['shorturl']  # Get the short URL
+    print response['payment_request']['shorturl']  # Get the    short URL
     print response['payment_request']['status']  # Get the current status
     print response['payment_request']['payments']  # List of payments
     print response['payment_request']['amount']
 
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
+    print("\n\n ", request.user)
     if request.user.is_authenticated():
         print "true"
         donation = Donation(name=response['payment_request']['buyer_name'],
@@ -318,6 +320,15 @@ def success(request):
                             project_id_id=response['payment_request']['purpose'],
                             amount=amount)
     donation.save()
+    
+    def raised_amount(project_id):
+        donations = Donation.objects.filter(project_id=response['payment_request']['purpose'])
+        r_amt = 0
+        for donation in donations:
+            r_amt = r_amt + donation.amount
+            return r_amt
+    project = Project.objects.get(project_id=response['payment_request']['purpose'])
+    project.raised_amount = raised_amount(response['payment_request']['purpose'])
 
     return render(request, 'sucess.html', {"status": status,
                                            "amount": amount,
@@ -330,7 +341,8 @@ def success(request):
 def test(request):
     from django.contrib.auth.models import User
     if request.method == "POST":
-        if request.user.is_authenticated:
+
+        if request.user.is_authenticated():
             print "true"
             donation = Donation(name=request.POST['name'],
                                 transaction_id=request.POST['transaction_id'],
