@@ -320,12 +320,15 @@ def success(request):
                             project_id_id=response['payment_request']['purpose'],
                             amount=amount)
     donation.save()
-    
+
     def raised_amount(project_id):
         donations = Donation.objects.filter(project_id=response['payment_request']['purpose'])
+        print donations
         r_amt = 0
         for donation in donations:
+            print donation
             r_amt = r_amt + donation.amount
+            print r_amt
             return r_amt
     project = Project.objects.get(project_id=response['payment_request']['purpose'])
     project.raised_amount = raised_amount(response['payment_request']['purpose'])
