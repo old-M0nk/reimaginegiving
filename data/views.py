@@ -328,7 +328,7 @@ def success(request):
             print donation
             r_amt = r_amt + donation.amount
             print r_amt
-            return r_amt
+        return r_amt
     project = Project.objects.get(project_id=response['payment_request']['purpose'])
     project.raised_amount = raised_amount(response['payment_request']['purpose'])
     project.save()
