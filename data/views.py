@@ -276,7 +276,7 @@ def payment_redirect(request):
         email=email,
         phone=phone,
         buyer_name =  firstname,
-        redirect_url="http://www.reimaginegiving.org/Success/"
+        redirect_url='http://reimaginegiving/Success/'
     )
     # print the long URL of the payment request.
     print response
@@ -293,6 +293,9 @@ def success(request):
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
                     auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
     # Create a new Payment Request
+    print request.POST
+    print "\n"
+    print request.GET
     payment_request_id = request.GET["payment_request_id"]
     txnid = request.GET["payment_id"]
     response = api.payment_request_status(payment_request_id)
@@ -332,6 +335,7 @@ def success(request):
             return r_amt
     project = Project.objects.get(project_id=response['payment_request']['purpose'])
     project.raised_amount = raised_amount(response['payment_request']['purpose'])
+    project.save()
 
     return render(request, 'sucess.html', {"status": status,
                                            "amount": amount,
