@@ -286,8 +286,7 @@ def payment_redirect(request):
     # print response['payment_request']['id']
     return redirect(response1)
 
-@csrf_protect
-@csrf_exempt
+
 def success(request):
     from django.contrib.auth.models import User
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
