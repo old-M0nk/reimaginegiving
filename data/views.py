@@ -254,8 +254,7 @@ from django.template.context_processors import csrf
 from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
-    from django.template import response
-    request.COOKIES['username'] = request.user.username
+    request.session['username'] = request.user.username
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
                     auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
 
@@ -301,11 +300,11 @@ def success(request):
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
     print("\n\n ", request.user)
-    if request.COOKIES['username'] != 'AnonymousUser':
+    if request.session['username'] != 'AnonymousUser':
         print "true"
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
-                            donor_id=request.COOKIES['username'],
+                            donor_id=request.session['username'],
                             project_id_id=response['payment_request']['purpose'],
                             amount= amount)
     else:
