@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from datetime import datetime
-from django.template import RequestContext, response
+from django.template import RequestContext
 from data.models import Project, GiveOnce, GiveMonthly, TimelineEvent, Report, GalleryPic
 from users.models import ContactUs, Donation
 from users.forms import contact_us_form
@@ -248,13 +248,17 @@ def refund (request):
 def pricing (request):
     return render(request, 'pricing.html')
 
+
+from django.template.loader import get_template
 from django.template import Context, Template, RequestContext
 import datetime
+import hashlib
+from random import randint
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template.context_processors import csrf
 from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
-    request.session['username'] = request.user.username
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
                     auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
 
@@ -282,7 +286,8 @@ def payment_redirect(request):
     # print response['payment_request']['id']
     return redirect(response1)
 
-
+@csrf_protect
+@csrf_exempt
 def success(request):
     from django.contrib.auth.models import User
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
@@ -300,11 +305,11 @@ def success(request):
     status = response['payment_request']['status']
     amount = response['payment_request']['amount']
     print("\n\n ", request.user)
-    if request.session['username'] != 'AnonymousUser':
+    if request.user.is_authenticated():
         print "true"
         donation = Donation(name=response['payment_request']['buyer_name'],
                             transaction_id=txnid,
-                            donor_id=request.session['username'],
+                            donor_id=request.user,
                             project_id_id=response['payment_request']['purpose'],
                             amount= amount)
     else:
