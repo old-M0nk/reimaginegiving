@@ -255,7 +255,7 @@ from instamojo_wrapper import Instamojo
 
 def payment_redirect(request):
     from django.template import response
-    response.set_cookie('username', request.user)
+    request.COOKIES['username'] = request.user.username
     api = Instamojo(api_key='27fb8178a52dc8e02866df53267d016d',
                     auth_token='4c5d72dcdaa1e81b2ec37525609dd6b5', endpoint='https://test.instamojo.com/api/1.1/')
 
