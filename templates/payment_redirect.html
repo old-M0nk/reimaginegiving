@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     {% if previous_page %}<meta http-equiv="refresh" content="0; url={{ previous_page }}" />{% endif %}
     <title>Title</title>
+    <link rel="icon" type="image/png" href="{% static "images/favicon.png" %}"/>
 </head>
 <body>
 <form method="post" action="{{ action }}">
